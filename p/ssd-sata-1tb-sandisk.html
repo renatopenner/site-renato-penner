@@ -36,6 +36,7 @@ document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closes
   if(!d)return;try{var u='/c.php?e=c&d='+d+'&p='+encodeURIComponent(location.pathname);
   if(navigator.sendBeacon){navigator.sendBeacon(u);}else{fetch(u,{keepalive:true});}}catch(e){}});
 </script>
+<script src="../js/analytics.js"></script>
 </head>
 <body>
 <header><div class="wrap nav">
