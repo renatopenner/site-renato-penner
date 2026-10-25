@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="Cache-Control" content="no-store">
-<meta name="build" content="2026-10-25 00:12">
+<meta name="build" content="2026-10-25 00:36">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SSD NVMe 1 TB SanDisk — Renato Penner</title>
 <meta name="description" content="Um terabyte no formato M.2 chave M — o tipo rápido. É o upgrade que faz o Windows abrir em segundos.">
@@ -35,6 +35,25 @@ document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closes
   else if(h.indexOf('youtu')>=0)d='youtube';
   if(!d)return;try{var u='https://renatopennersoares1783016458000.0871043.meusitehostgator.com.br/c.php?e=c&d='+d+'&p='+encodeURIComponent(location.pathname)+'&o='+encodeURIComponent(location.hostname);
   if(navigator.sendBeacon){navigator.sendBeacon(u);}else{fetch(u,{keepalive:true});}}catch(e){}});
+</script>
+
+<script>
+(function(){
+  var ID='G-T3M72SC18N', carregado=false;
+  window.dataLayer=window.dataLayer||[];
+  window.gtag=function(){dataLayer.push(arguments);};
+  function carrega(){
+    if(carregado) return; carregado=true;
+    var s=document.createElement('script'); s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id='+ID;
+    document.head.appendChild(s);
+    gtag('js', new Date());
+    gtag('consent','update',{analytics_storage:'granted'});
+    gtag('config', ID, {anonymize_ip:true});
+  }
+  window.__ga4Carrega=carrega;
+  try{ if(localStorage.getItem('consent')==='ok') carrega(); }catch(e){}
+})();
 </script>
 </head>
 <body>
@@ -73,6 +92,35 @@ document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closes
   Se você comprar por eles, eu recebo uma comissão da loja — <strong>sem nenhum custo a mais para você</strong>.
   Preços e disponibilidade são da data indicada em cada produto e podem mudar sem aviso.
   Última verificação dos links: 23/10/2026.</div>
+  
+<div id="lgpd" style="display:none;position:fixed;left:16px;right:16px;bottom:16px;z-index:99;
+max-width:560px;margin:0 auto;background:#111f2e;border:1px solid #1e3448;border-radius:14px;
+padding:14px 16px;box-shadow:0 10px 30px rgba(0,0,0,.5);font:13.5px/1.45 'Segoe UI',system-ui,sans-serif;color:#dbe7f3">
+  <p style="margin:0 0 10px">Uso o Google Analytics para entender o que você procura aqui e melhorar
+  as recomendações. Isso grava cookies de medição, sem identificar você. Dá para recusar.</p>
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <button id="lgpd-ok" style="background:#38bdf8;color:#04121d;border:0;border-radius:8px;
+    padding:8px 16px;font-weight:800;font-size:13px;cursor:pointer">Aceitar</button>
+    <button id="lgpd-no" style="background:transparent;color:#8fa6bb;border:1px solid #1e3448;
+    border-radius:8px;padding:8px 16px;font-weight:700;font-size:13px;cursor:pointer">Recusar</button>
+  </div>
+</div>
+<script>
+(function(){
+  var b=document.getElementById('lgpd'); if(!b) return;
+  var escolha=''; try{escolha=localStorage.getItem('consent')||'';}catch(e){}
+  if(!escolha) b.style.display='block';
+  document.getElementById('lgpd-ok').onclick=function(){
+    try{localStorage.setItem('consent','ok');}catch(e){}
+    if(window.__ga4Carrega) window.__ga4Carrega();
+    b.style.display='none';
+  };
+  document.getElementById('lgpd-no').onclick=function(){
+    try{localStorage.setItem('consent','no');}catch(e){}
+    b.style.display='none';
+  };
+})();
+</script>
   <div>Renato Penner · Recomendações de TI que eu testei ·
   <a href="https://www.youtube.com/@renatopenner2037" target="_blank" rel="noopener">YouTube</a> ·
   <a href="https://www.instagram.com/pennerrenato/" target="_blank" rel="noopener">Instagram</a></div>
