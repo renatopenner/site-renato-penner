@@ -63,3 +63,12 @@ M auto.html
 ?? logs/
 ?? scripts/
 [2026-10-26 11:22:52] Executando git add e git commit...
+[2026-10-26 11:22:54] [main 9e89e99] AtualizaÃ§Ã£o diÃ¡ria de preÃ§os â€” 26/10/2026 (08:00)
+ 32 files changed, 509 insertions(+), 28 deletions(-)
+ create mode 100644 dados/produtos.json
+ create mode 100644 logs/precos_2026-10-26.log
+ create mode 100644 scripts/executar_atualizacao.bat
+ create mode 100644 scripts/motor_precos.py
+[2026-10-26 11:22:54] Enviando alterações para o GitHub Pages (git push origin main)...
+[2026-10-26 11:22:57] Push concluído com sucesso! GitHub Pages publicando...
+[2026-10-26 11:22:57] === MOTOR DE PREÇOS CONCLUÍDO COM SUCESSO ===
