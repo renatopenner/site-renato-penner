@@ -143,3 +143,20 @@ M auto.html
 ?? p/mala-bordo-sweet-studio.html
 ?? scripts/__pycache__/
 [2026-10-27 14:56:32] Executando git add e git commit...
+[2026-10-27 14:56:32] [main 0444d85] AtualizaÃ§Ã£o diÃ¡ria de preÃ§os â€” 27/10/2026 (08:00)
+ 15 files changed, 274 insertions(+), 65 deletions(-)
+ create mode 100644 img/mala-bordo-sweet-studio.png
+ create mode 100644 p/mala-bordo-sweet-studio.html
+ create mode 100644 scripts/__pycache__/motor_precos.cpython-314.pyc
+[2026-10-27 14:56:32] Enviando alterações para o GitHub Pages (git push origin main)...
+[2026-10-27 14:56:34] Erro no git push:
+To https://github.com/renatopenner/site-renato-penner.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/renatopenner/site-renato-penner.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+[2026-10-27 14:56:34] === MOTOR DE PREÇOS CONCLUÍDO COM SUCESSO ===
