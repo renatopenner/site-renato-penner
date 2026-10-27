@@ -64,3 +64,38 @@ M auto.html
  M ssd.html
 ?? logs/precos_2026-10-27.log
 [2026-10-27 08:00:04] Executando git add e git commit...
+[2026-10-27 08:00:05] [main eef60cb] AtualizaÃ§Ã£o diÃ¡ria de preÃ§os â€” 27/10/2026 (08:00)
+ 31 files changed, 114 insertions(+), 48 deletions(-)
+ create mode 100644 logs/precos_2026-10-27.log
+[2026-10-27 08:00:05] Enviando alterações para o GitHub Pages (git push origin main)...
+[2026-10-27 08:00:09] Push concluído com sucesso! GitHub Pages publicando...
+[2026-10-27 08:00:09] === MOTOR DE PREÇOS CONCLUÍDO COM SUCESSO ===
+[2026-10-27 10:26:45] === INICIANDO MOTOR DE PREÇOS PENNER TECH (27/10/2026) ===
+[2026-10-27 10:26:45] Total de 24 produtos carregados do catálogo.
+[2026-10-27 10:26:45] Iniciando atualização dos blocos de preço nos arquivos HTML...
+[2026-10-27 10:26:45]   Cards atualizados em auto.html!
+[2026-10-27 10:26:45]   Cards atualizados em casa.html!
+[2026-10-27 10:26:45]   Cards atualizados em index.html!
+[2026-10-27 10:26:45]   Cards atualizados em notebooks.html!
+[2026-10-27 10:26:45]   Cards atualizados em promocoes.html!
+[2026-10-27 10:26:45]   Cards atualizados em saude.html!
+[2026-10-27 10:26:45]   Cards atualizados em ssd.html!
+[2026-10-27 10:26:45] Verificando alterações no repositório Git...
+[2026-10-27 10:26:46] Alterações detectadas:
+M dados/produtos.json
+ M index.html
+ M logs/precos_2026-10-27.log
+ M notebooks.html
+ M promocoes.html
+ M sitemap.xml
+?? img/acer-aspire-16-ultra5.png
+?? img/asus-vivobook-go15-black-linux.png
+?? img/asus-vivobook-go15-black.png
+?? img/asus-vivobook-go15-silver-512gb.png
+?? img/asus-vivobook-go15-silver-linux.png
+?? p/acer-aspire-16-core-ultra-5.html
+?? p/asus-vivobook-go-15-i3-8gb-512gb.html
+?? p/asus-vivobook-go-15-i3-linux.html
+?? p/asus-vivobook-go-15-ryzen5-linux.html
+?? p/asus-vivobook-go-15-ryzen5-win11.html
+[2026-10-27 10:26:46] Executando git add e git commit...
