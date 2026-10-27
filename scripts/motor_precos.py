@@ -149,6 +149,11 @@ def sincronizar_github():
     commit_res = subprocess.run(["git", "commit", "-m", commit_msg], cwd=REPO_DIR, capture_output=True, text=True)
     log(commit_res.stdout.strip())
     
+    log("Sincronizando com o remoto (git pull --rebase)...")
+    pull_res = subprocess.run(["git", "pull", "--rebase", "--autostash", "origin", "main"], cwd=REPO_DIR, capture_output=True, text=True)
+    if pull_res.returncode != 0:
+        log(f"Aviso no git pull:\n{pull_res.stderr}")
+
     log("Enviando alterações para o GitHub Pages (git push origin main)...")
     push_res = subprocess.run(["git", "push", "origin", "main"], cwd=REPO_DIR, capture_output=True, text=True)
     if push_res.returncode == 0:
