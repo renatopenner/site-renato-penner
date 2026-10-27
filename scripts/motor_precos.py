@@ -112,24 +112,25 @@ def atualizar_arquivos_html(catalog):
             content = f.read()
             
         modificado = False
+        card_regex = re.compile(r'<article\b[^>]*>(?:(?!<article).)*?</article>', re.DOTALL)
         
-        for slug, prod in produtos_por_slug.items():
-            link_p = f"p/{slug}.html"
-            if link_p in content:
-                # Localizar o card do produto correspondente
-                card_pattern = re.compile(r'(<article[^>]*>.*?href="' + re.escape(link_p) + r'".*?</article>)', re.DOTALL)
-                match = card_pattern.search(content)
-                if match:
-                    card_html = match.group(1)
+        def atualizar_card_individual(match):
+            nonlocal modificado
+            card_html = match.group(0)
+            for slug, prod in produtos_por_slug.items():
+                link_p = f"p/{slug}.html"
+                if link_p in card_html:
                     novo_bloco = montar_bloco_preco(prod)
                     novo_card = re.sub(r'<div class="preco[^"]*">.*?</div>', novo_bloco, card_html, count=1, flags=re.DOTALL)
                     if novo_card != card_html:
-                        content = content.replace(card_html, novo_card)
                         modificado = True
+                        return novo_card
+            return card_html
 
+        content_novo = card_regex.sub(atualizar_card_individual, content)
         if modificado:
             with open(hf, "w", encoding="utf-8") as f:
-                f.write(content)
+                f.write(content_novo)
             log(f"  Cards atualizados em {fname}!")
 
 def sincronizar_github():

@@ -99,3 +99,47 @@ M dados/produtos.json
 ?? p/asus-vivobook-go-15-ryzen5-linux.html
 ?? p/asus-vivobook-go-15-ryzen5-win11.html
 [2026-10-27 10:26:46] Executando git add e git commit...
+[2026-10-27 10:26:46] [main dfbc294] AtualizaÃ§Ã£o diÃ¡ria de preÃ§os â€” 27/10/2026 (08:00)
+ 16 files changed, 883 insertions(+), 3 deletions(-)
+ create mode 100644 img/acer-aspire-16-ultra5.png
+ create mode 100644 img/asus-vivobook-go15-black-linux.png
+ create mode 100644 img/asus-vivobook-go15-black.png
+ create mode 100644 img/asus-vivobook-go15-silver-512gb.png
+ create mode 100644 img/asus-vivobook-go15-silver-linux.png
+ create mode 100644 p/acer-aspire-16-core-ultra-5.html
+ create mode 100644 p/asus-vivobook-go-15-i3-8gb-512gb.html
+ create mode 100644 p/asus-vivobook-go-15-i3-linux.html
+ create mode 100644 p/asus-vivobook-go-15-ryzen5-linux.html
+ create mode 100644 p/asus-vivobook-go-15-ryzen5-win11.html
+[2026-10-27 10:26:46] Enviando alterações para o GitHub Pages (git push origin main)...
+[2026-10-27 10:26:51] Push concluído com sucesso! GitHub Pages publicando...
+[2026-10-27 10:26:51] === MOTOR DE PREÇOS CONCLUÍDO COM SUCESSO ===
+[2026-10-27 14:47:44] Iniciando atualização dos blocos de preço nos arquivos HTML...
+[2026-10-27 14:47:44]   Cards atualizados em auto.html!
+[2026-10-27 14:47:44]   Cards atualizados em casa.html!
+[2026-10-27 14:47:44]   Cards atualizados em index.html!
+[2026-10-27 14:47:44]   Cards atualizados em notebooks.html!
+[2026-10-27 14:47:44]   Cards atualizados em promocoes.html!
+[2026-10-27 14:47:44]   Cards atualizados em saude.html!
+[2026-10-27 14:47:44]   Cards atualizados em ssd.html!
+[2026-10-27 14:56:32] === INICIANDO MOTOR DE PREÇOS PENNER TECH (27/10/2026) ===
+[2026-10-27 14:56:32] Total de 25 produtos carregados do catálogo.
+[2026-10-27 14:56:32] Iniciando atualização dos blocos de preço nos arquivos HTML...
+[2026-10-27 14:56:32] Verificando alterações no repositório Git...
+[2026-10-27 14:56:32] Alterações detectadas:
+M auto.html
+ M casa.html
+ M dados/produtos.json
+ M index.html
+ M logs/precos_2026-10-27.log
+ M moda.html
+ M notebooks.html
+ M promocoes.html
+ M saude.html
+ M scripts/motor_precos.py
+ M sitemap.xml
+ M ssd.html
+?? img/mala-bordo-sweet-studio.png
+?? p/mala-bordo-sweet-studio.html
+?? scripts/__pycache__/
+[2026-10-27 14:56:32] Executando git add e git commit...
