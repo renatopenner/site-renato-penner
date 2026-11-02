@@ -604,32 +604,63 @@ document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closes
 </main>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Recomendações de TI", "itemListElement": [{"@type": "ListItem", "position": 1, "url": "https://www.renatopenner.com.br/p/galaxy-book4.html", "name": "Notebook Samsung Galaxy Book4"}, {"@type": "ListItem", "position": 2, "url": "https://www.renatopenner.com.br/p/basike-65w.html", "name": "Carregador Basike 65W GaN"}, {"@type": "ListItem", "position": 3, "url": "https://www.renatopenner.com.br/p/ssd-nvme-1tb-sandisk.html", "name": "SSD NVMe 1 TB SanDisk"}, {"@type": "ListItem", "position": 4, "url": "https://www.renatopenner.com.br/p/ssd-nvme-500-wdgreen.html", "name": "SSD NVMe 500 GB WD Green SN3000"}, {"@type": "ListItem", "position": 5, "url": "https://www.renatopenner.com.br/p/ssd-sata-500-sandisk.html", "name": "SSD SATA 500 GB SanDisk Plus"}, {"@type": "ListItem", "position": 6, "url": "https://www.renatopenner.com.br/p/ssd-sata-1tb-sandisk.html", "name": "SSD SATA 1 TB SanDisk Plus"}, {"@type": "ListItem", "position": 7, "url": "https://www.renatopenner.com.br/p/ssd-sata-240-adata.html", "name": "SSD SATA 240 GB ADATA SU650"}, {"@type": "ListItem", "position": 8, "url": "https://www.renatopenner.com.br/p/balanca-bioimpedancia-amazon.html", "name": "Balança de Bioimpedância Bluetooth"}, {"@type": "ListItem", "position": 9, "url": "https://www.renatopenner.com.br/p/balanca-bioimpedancia-ml.html", "name": "Balança Digital de Bioimpedância"}, {"@type": "ListItem", "position": 10, "url": "https://www.renatopenner.com.br/p/kit-refletor-led-400w.html", "name": "Kit 2 Refletores LED 400 W IP67"}, {"@type": "ListItem", "position": 11, "url": "https://www.renatopenner.com.br/p/caixa-som-coolmusic.html", "name": "Caixa de Som Coolmusic 6 W USB/P2"}, {"@type": "ListItem", "position": 12, "url": "https://www.renatopenner.com.br/p/bomba-pneu-portatil.html", "name": "Bomba de Ar Portátil Digital B&G"}, {"@type": "ListItem", "position": 13, "url": "https://www.renatopenner.com.br/p/combo-logitech-mk235.html", "name": "Combo Logitech MK235 (teclado + mouse)"}, {"@type": "ListItem", "position": 14, "url": "https://www.renatopenner.com.br/p/garrafa-termica-1000.html", "name": "Garrafa Térmica 1 L Inox"}, {"@type": "ListItem", "position": 15, "url": "https://www.renatopenner.com.br/p/cascata-led-10m.html", "name": "Cascata de LED 10 m · 400 LEDs"}, {"@type": "ListItem", "position": 16, "url": "https://www.renatopenner.com.br/p/kit-prateleiras-madeira.html", "name": "Kit 4 Prateleiras de Parede"}, {"@type": "ListItem", "position": 17, "url": "https://www.renatopenner.com.br/p/kit-camisetas-dryfit.html", "name": "Kit 5 Camisetas Dry Fit"}, {"@type": "ListItem", "position": 18, "url": "https://www.renatopenner.com.br/p/jbl-boombox-4.html", "name": "Caixa de Som JBL Boombox 4"}]}</script>
 <script>
-const chips=[...document.querySelectorAll('.chip')];
-const cards=[...document.querySelectorAll('.card')];
-const inp=document.getElementById('q');
-let cat='todos';
-function filtra(){
-  const q=(inp&&inp.value||'').toLowerCase().trim();
-  let n=0;
-  cards.forEach(c=>{
-    const okCat = cat==='todos'||c.dataset.cat===cat;
-    const okQ = !q||c.dataset.busca.includes(q);
-    const show = okCat&&okQ;
-    c.style.display = show?'':'none';
-    if(show) n++;
+(function() {
+  const chips = [...document.querySelectorAll('.chip')];
+  const cards = [...document.querySelectorAll('.card')];
+  const inp = document.getElementById('q');
+  const vazio = document.getElementById('vazio');
+  const sd = document.getElementById('secDestaques');
+  let cat = 'todos';
+
+  function normaliza(str) {
+    return (str || '')
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .trim();
+  }
+
+  // Prepara indice de busca sem acento para cada card
+  cards.forEach(c => {
+    const rawBusca = c.dataset.busca || '';
+    const rawTexto = c.textContent || '';
+    c._buscaIndex = normaliza(rawBusca + ' ' + rawTexto);
+    c._cat = (c.dataset.cat || '').toLowerCase().trim();
   });
-  const vazio=document.getElementById('vazio'); if(vazio) vazio.style.display = n?'none':'block';
-  const sd=document.getElementById('secDestaques'), gd=document.getElementById('gridDestaques');
-  const limpo = (cat==='todos' && !q);
-  if(sd) sd.style.display = limpo?'':'none';
-  if(gd) gd.style.display = limpo?'':'none';
-}
-chips.forEach(ch=>ch.addEventListener('click',()=>{
-  chips.forEach(o=>o.classList.remove('on')); ch.classList.add('on');
-  cat=ch.dataset.cat; filtra();
-}));
-if(inp) inp.addEventListener('input',filtra);
-filtra();
+
+  function filtra() {
+    const q = normaliza(inp && inp.value);
+    const termos = q.split(/\s+/).filter(Boolean);
+    let n = 0;
+
+    cards.forEach(c => {
+      const okCat = (cat === 'todos' || c._cat === cat);
+      const okQ = (termos.length === 0 || termos.every(t => c._buscaIndex.includes(t)));
+      const show = okCat && okQ;
+      c.style.display = show ? '' : 'none';
+      if (show) n++;
+    });
+
+    if (vazio) vazio.style.display = n ? 'none' : 'block';
+
+    const limpo = (cat === 'todos' && !q);
+    if (sd) sd.style.display = limpo ? '' : 'none';
+  }
+
+  chips.forEach(ch => ch.addEventListener('click', () => {
+    chips.forEach(o => o.classList.remove('on'));
+    ch.classList.add('on');
+    cat = (ch.dataset.cat || 'todos').toLowerCase().trim();
+    filtra();
+  }));
+
+  if (inp) {
+    inp.addEventListener('input', filtra);
+    inp.addEventListener('search', filtra);
+  }
+
+  filtra();
+})();
 </script>
 
 
