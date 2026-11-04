@@ -60,12 +60,26 @@ def montar_bloco_preco(prod):
     desc = calcular_desconto(de, por)
     desc_str = f" · {desc}" if desc else ""
     
+    de_limpo = re.sub(r'^de\s+', '', de, flags=re.I).strip()
+    span_de = f'<span class="de">de {de_limpo}</span>' if de_limpo else '<span class="de"></span>'
+    
+    por_limpo = re.sub(r'^por\s+', '', por, flags=re.I).strip()
+    if por_limpo:
+        if por_limpo.lower().startswith("confira"):
+            span_por = f'<span class="por">{por_limpo}</span>'
+        else:
+            span_por = f'<span class="por">por {por_limpo}</span>'
+    else:
+        span_por = '<span class="por"></span>'
+        
+    span_cartao = f'<span class="cartao">{cartao}</span>' if cartao else '<span class="cartao"></span>'
+    
     if cupom:
         bloco = (
             f'<div class="preco tem-cupom">'
-            f'<span class="de">de {de}</span>'
-            f'<span class="por">por {por}</span>'
-            f'<span class="cartao">{cartao}</span>'
+            f'{span_de}'
+            f'{span_por}'
+            f'{span_cartao}'
             f'<span class="cupom">{cupom}<em>com cupom</em></span>'
             f'<small>preço conferido em {data_str}{desc_str}</small>'
             f'</div>'
@@ -73,32 +87,119 @@ def montar_bloco_preco(prod):
     else:
         bloco = (
             f'<div class="preco">'
-            f'<span class="de">de {de}</span>'
-            f'<span class="por">por {por}</span>'
-            f'<span class="cartao">{cartao}</span>'
+            f'{span_de}'
+            f'{span_por}'
+            f'{span_cartao}'
             f'<small>preço conferido em {data_str}{desc_str}</small>'
             f'</div>'
         )
     return bloco
 
+def carregar_e_sincronizar_catalogo():
+    catalog = []
+    if os.path.exists(CATALOGO_PATH):
+        try:
+            with open(CATALOGO_PATH, "r", encoding="utf-8") as f:
+                catalog = json.load(f)
+        except Exception as e:
+            log(f"Erro ao ler catálogo: {e}")
+            catalog = []
+            
+    produtos_por_slug = {p["slug"]: p for p in catalog}
+    adicionados = 0
+    
+    # Auto-descoberta: varre todos os arquivos em p/*.html para garantir que nenhum produto fique de fora
+    paginas_p = glob.glob(os.path.join(REPO_DIR, "p", "*.html"))
+    for page_path in paginas_p:
+        slug = os.path.splitext(os.path.basename(page_path))[0]
+        if slug in produtos_por_slug:
+            continue
+            
+        try:
+            with open(page_path, "r", encoding="utf-8", errors="ignore") as pf:
+                html = pf.read()
+                
+            m_title = re.search(r'<title>(.*?) — Renato Penner</title>', html)
+            title = m_title.group(1).strip() if m_title else slug
+            
+            m_link = re.search(r'<a\s+class="btn"[^>]*href="([^"]+)"', html)
+            link = m_link.group(1).strip() if m_link else ""
+            
+            preco_de = ""
+            preco_por = ""
+            preco_cartao = ""
+            cupom = ""
+            
+            m_preco = re.search(r'<div class="preco[^"]*">(.*?)</div>', html, re.DOTALL)
+            if m_preco:
+                bloco = m_preco.group(1)
+                m_de = re.search(r'<span class="de">\s*(?:de\s+)?(R\$\s*[\d\.,]+)', bloco, re.I)
+                if m_de:
+                    preco_de = m_de.group(1).strip()
+                    
+                m_por = re.search(r'<span class="por">\s*(?:por\s+)?(R\$\s*[\d\.,]+)', bloco, re.I)
+                if m_por:
+                    preco_por = m_por.group(1).strip()
+                elif 'Confira' in bloco:
+                    m_confira = re.search(r'<span class="por">([^<]+)</span>', bloco)
+                    if m_confira:
+                        preco_por = m_confira.group(1).strip()
+                        
+                m_cartao = re.search(r'<span class="cartao">([^<]+)</span>', bloco)
+                if m_cartao and m_cartao.group(1).strip():
+                    preco_cartao = m_cartao.group(1).strip()
+                else:
+                    m_parc = re.search(r'<small>\s*(\d+x[^·<]+)', bloco, re.I)
+                    if m_parc:
+                        preco_cartao = m_parc.group(1).strip()
+                        
+                m_cupom = re.search(r'<span class="cupom">([^<]+?)(?:<em>|$)', bloco)
+                if m_cupom:
+                    cupom = m_cupom.group(1).strip()
+                    
+            novo_prod = {
+                "slug": slug,
+                "title": title,
+                "file": f"{slug}.html",
+                "cat": "Mercado Livre",
+                "link": link,
+                "preco_de": preco_de,
+                "preco_por": preco_por,
+                "preco_cartao": preco_cartao,
+                "cupom": cupom,
+                "ultima_conferencia": data_str
+            }
+            catalog.append(novo_prod)
+            produtos_por_slug[slug] = novo_prod
+            adicionados += 1
+            log(f"  [Auto-descoberta] Produto p/{slug}.html registrado no catálogo.")
+        except Exception as e:
+            log(f"  [Aviso] Falha ao auto-descobrir p/{slug}.html: {e}")
+            
+    if adicionados > 0:
+        log(f"Auto-descoberta concluiu {adicionados} novos produtos adicionados ao catálogo.")
+        
+    return catalog
+
 def atualizar_arquivos_html(catalog):
     log("Iniciando atualização dos blocos de preço nos arquivos HTML...")
     produtos_por_slug = {p["slug"]: p for p in catalog}
     
-    # 1. Atualizar páginas em p/*.html
-    for prod in catalog:
-        slug = prod["slug"]
-        page_path = os.path.join(REPO_DIR, "p", f"{slug}.html")
-        if not os.path.exists(page_path):
-            continue
+    # 1. Atualizar TODAS as páginas em p/*.html
+    paginas_p = glob.glob(os.path.join(REPO_DIR, "p", "*.html"))
+    for page_path in paginas_p:
+        slug = os.path.splitext(os.path.basename(page_path))[0]
+        prod = produtos_por_slug.get(slug)
         
         with open(page_path, "r", encoding="utf-8", errors="ignore") as f:
             c = f.read()
         
-        novo_bloco = montar_bloco_preco(prod)
-        # Substituir bloco de preço na página individual
-        c_novo = re.sub(r'<div class="preco[^"]*">.*?</div>', novo_bloco, c, count=1, flags=re.DOTALL)
-        
+        if prod:
+            novo_bloco = montar_bloco_preco(prod)
+            c_novo = re.sub(r'<div class="preco[^"]*">.*?</div>', novo_bloco, c, count=1, flags=re.DOTALL)
+        else:
+            c_novo = re.sub(r'(preço conferido em )\d{2}/\d{2}/\d{4}', rf'\g<1>{data_str}', c, count=1)
+            
         if c_novo != c:
             with open(page_path, "w", encoding="utf-8") as f:
                 f.write(c_novo)
@@ -133,6 +234,17 @@ def atualizar_arquivos_html(catalog):
                 f.write(content_novo)
             log(f"  Cards atualizados em {fname}!")
 
+def git_pull_inicial():
+    log("Garantindo sincronização com o remoto antes de iniciar (git pull --rebase)...")
+    try:
+        pull_res = subprocess.run(["git", "pull", "--rebase", "--autostash", "origin", "main"], cwd=REPO_DIR, capture_output=True, text=True)
+        if pull_res.returncode == 0:
+            log("Repositório sincronizado com sucesso.")
+        else:
+            log(f"Aviso no git pull inicial:\n{pull_res.stderr or pull_res.stdout}")
+    except Exception as e:
+        log(f"Erro no git pull inicial: {e}")
+
 def sincronizar_github():
     log("Verificando alterações no repositório Git...")
     status = subprocess.run(["git", "status", "--porcelain"], cwd=REPO_DIR, capture_output=True, text=True)
@@ -163,25 +275,24 @@ def sincronizar_github():
 
 def main():
     log(f"=== INICIANDO MOTOR DE PREÇOS PENNER TECH ({data_str}) ===")
-    if not os.path.exists(CATALOGO_PATH):
-        log(f"ERRO: Catálogo não encontrado em {CATALOGO_PATH}")
-        sys.exit(1)
-        
-    with open(CATALOGO_PATH, "r", encoding="utf-8") as f:
-        catalog = json.load(f)
-        
-    log(f"Total de {len(catalog)} produtos carregados do catálogo.")
     
-    # Atualizar HTMLs
+    # 1. Puxa as alterações remotas antes de tudo
+    git_pull_inicial()
+    
+    # 2. Carrega catálogo e descobre novos produtos criados em p/*.html
+    catalog = carregar_e_sincronizar_catalogo()
+    log(f"Total de {len(catalog)} produtos no catálogo.")
+    
+    # 3. Atualiza HTMLs (páginas individuais e cards)
     atualizar_arquivos_html(catalog)
     
-    # Atualizar catálogo com última conferência
+    # 4. Atualiza catálogo com data da última conferência
     for p in catalog:
         p["ultima_conferencia"] = data_str
     with open(CATALOGO_PATH, "w", encoding="utf-8") as f:
         json.dump(catalog, f, ensure_ascii=False, indent=2)
         
-    # Enviar para o GitHub
+    # 5. Sincroniza e envia alterações para o GitHub Pages
     sincronizar_github()
     log("=== MOTOR DE PREÇOS CONCLUÍDO COM SUCESSO ===")
 

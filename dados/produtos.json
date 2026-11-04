@@ -382,5 +382,29 @@
     "preco_cartao": "4x R$ 15,00 sem juros · R$ 1,80 de cashback Meli Dólar",
     "cupom": "",
     "ultima_conferencia": "04/11/2026"
+  },
+  {
+    "slug": "basike-35w-cabo",
+    "title": "Carregador Turbo Basike 35W de Parede com Cabo USB-C",
+    "file": "basike-35w-cabo.html",
+    "cat": "Mercado Livre",
+    "link": "https://meli.la/1reWMcv",
+    "preco_de": "R$ 78,99",
+    "preco_por": "R$ 57,38",
+    "preco_cartao": "12x de R$ 5,65 com cartão Mercado Pago",
+    "cupom": "",
+    "ultima_conferencia": "04/11/2026"
+  },
+  {
+    "slug": "dell-alienware-16-aurora-ac16250",
+    "title": "Notebook Gamer Dell Alienware 16 Aurora AC16250",
+    "file": "dell-alienware-16-aurora-ac16250.html",
+    "cat": "Mercado Livre",
+    "link": "https://meli.la/2FutpuB",
+    "preco_de": "",
+    "preco_por": "Confira o preço e condições no Mercado Livre",
+    "preco_cartao": "em até 10x ou 12x sem juros com frete grátis",
+    "cupom": "",
+    "ultima_conferencia": "04/11/2026"
   }
 ]

@@ -110,3 +110,39 @@ M logs/precos_2026-11-04.log
 [2026-11-04 13:21:53] Enviando alterações para o GitHub Pages (git push origin main)...
 [2026-11-04 13:21:55] Push concluído com sucesso! GitHub Pages publicando...
 [2026-11-04 13:21:55] === MOTOR DE PREÇOS CONCLUÍDO COM SUCESSO ===
+[2026-11-04 14:36:54] === INICIANDO MOTOR DE PREÇOS PENNER TECH (04/11/2026) ===
+[2026-11-04 14:36:54] Garantindo sincronização com o remoto antes de iniciar (git pull --rebase)...
+[2026-11-04 14:36:56] Repositório sincronizado com sucesso.
+[2026-11-04 14:36:56] Total de 34 produtos no catálogo.
+[2026-11-04 14:36:56] Iniciando atualização dos blocos de preço nos arquivos HTML...
+[2026-11-04 14:36:56]   Página p/basike-27w-direto.html atualizada!
+[2026-11-04 14:36:56]   Página p/basike-35w-cabo.html atualizada!
+[2026-11-04 14:36:56]   Página p/dell-alienware-16-aurora-ac16250.html atualizada!
+[2026-11-04 14:36:56]   Página p/hd-storage-5-baias-orico.html atualizada!
+[2026-11-04 14:36:56]   Página p/luva-isolante-eletricista-400v.html atualizada!
+[2026-11-04 14:36:56]   Página p/ssd-sata-500-sandisk.html atualizada!
+[2026-11-04 14:36:56]   Cards atualizados em carregadores.html!
+[2026-11-04 14:36:56]   Cards atualizados em index.html!
+[2026-11-04 14:36:56]   Cards atualizados em notebooks.html!
+[2026-11-04 14:36:56]   Cards atualizados em perifericos.html!
+[2026-11-04 14:36:56]   Cards atualizados em promocoes.html!
+[2026-11-04 14:36:56]   Cards atualizados em ssd.html!
+[2026-11-04 14:36:56] Verificando alterações no repositório Git...
+[2026-11-04 14:36:56] Alterações detectadas:
+M carregadores.html
+ M dados/produtos.json
+ M index.html
+ M logs/precos_2026-11-04.log
+ M notebooks.html
+ M p/basike-27w-direto.html
+ M p/basike-35w-cabo.html
+ M p/dell-alienware-16-aurora-ac16250.html
+ M p/hd-storage-5-baias-orico.html
+ M p/luva-isolante-eletricista-400v.html
+ M p/ssd-sata-500-sandisk.html
+ M perifericos.html
+ M promocoes.html
+ M scripts/executar_atualizacao.bat
+ M scripts/motor_precos.py
+ M ssd.html
+[2026-11-04 14:36:56] Executando git add e git commit...
