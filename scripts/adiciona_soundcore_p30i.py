@@ -135,19 +135,19 @@ def gera_pagina_completa(p):
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{p['titulo_card']} — Renato Penner</title>
 <meta name="description" content="{p['meta_desc']}">
-<link rel="canonical" href="https://www.renatopenner.com.br/p/{p['slug']}.html">
+<link rel="canonical" href="https://renatopenner.github.io/site-renato-penner/p/{p['slug']}.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Renato Penner">
 <meta property="og:title" content="{p['titulo_card']} — Renato Penner">
 <meta property="og:description" content="{p['meta_desc']}">
-<meta property="og:url" content="https://www.renatopenner.com.br/p/{p['slug']}.html">
+<meta property="og:url" content="https://renatopenner.github.io/site-renato-penner/p/{p['slug']}.html">
 <meta property="og:locale" content="pt_BR">
 <meta name="theme-color" content="#050a12">
-<meta property="og:image" content="https://www.renatopenner.com.br/img/{p['slug']}.png">
+<meta property="og:image" content="https://renatopenner.github.io/site-renato-penner/img/{p['slug']}.png">
 <meta property="og:image:width" content="1120">
 <meta property="og:image:height" content="840">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://www.renatopenner.com.br/img/{p['slug']}.png">
+<meta name="twitter:image" content="https://renatopenner.github.io/site-renato-penner/img/{p['slug']}.png">
 <link rel="icon" type="image/png" sizes="64x64" href="../img/favicon-64.png?v=300a8b34">
 <link rel="icon" type="image/png" sizes="192x192" href="../img/icon-192.png?v=348692ee">
 <link rel="apple-touch-icon" href="../img/apple-touch-icon.png?v=5bcd05bd">
@@ -328,7 +328,7 @@ def main():
         if os.path.exists(sm_path):
             sm_content = open(sm_path, encoding="utf-8").read()
             if f"{SLUG}.html" not in sm_content:
-                item = f"  <url><loc>https://www.renatopenner.com.br/p/{SLUG}.html</loc><lastmod>2026-11-05</lastmod></url>\n"
+                item = f"  <url><loc>https://renatopenner.github.io/site-renato-penner/p/{SLUG}.html</loc><lastmod>2026-11-05</lastmod></url>\n"
                 sm_content = sm_content.replace("</urlset>", item + "</urlset>")
                 with open(sm_path, "w", encoding="utf-8") as f:
                     f.write(sm_content)
