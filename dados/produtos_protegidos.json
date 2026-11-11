@@ -230,6 +230,29 @@
       "fixado": false
     },
     {
+      "slug": "bicicleta-eletrica-cavalletta-c12",
+      "titulo": "Bicicleta Elétrica Cavalletta C12 1000W",
+      "link": "https://meli.la/2YPdvH6",
+      "pagina": "p/bicicleta-eletrica-cavalletta-c12.html",
+      "imagem": "img/bicicleta-eletrica-cavalletta-c12.jpg",
+      "sitemap": "https://www.renatopenner.com.br/p/bicicleta-eletrica-cavalletta-c12.html",
+      "cartoes": [
+        {
+          "pagina": "index.html",
+          "grid": "id:gridDestaques"
+        },
+        {
+          "pagina": "promocoes.html",
+          "grid": "idx:0"
+        },
+        {
+          "pagina": "auto.html",
+          "grid": "idx:0"
+        }
+      ],
+      "fixado": false
+    },
+    {
       "slug": "bomba-pneu-portatil",
       "titulo": "Bomba de Ar Portátil Digital B&amp;G",
       "link": "https://www.mercadolivre.com.br/bomba-de-encher-pneu-de-carro-bike-moto-portatil-digital-ex-bg/p/MLB29753519?pdp_filters=item_id%3AMLB7480431976&matt_word=renatopenner&matt_tool=86394049",
