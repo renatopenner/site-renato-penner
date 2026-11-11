@@ -52,7 +52,7 @@ transition:transform .15s,background .15s}
 .btn.wa{background:#25d366;color:#06251a}
 .btn.wa:hover{background:#1fbe5b}
 .box.direta{border-color:#1f6b45;background:linear-gradient(180deg,#0d2b20,#0b1a2b)}
-.box.direta h4{color:#3ddc84}
+.box.direta h2,.box.direta h4{color:#3ddc84}
 .direta-preco{font-size:30px;font-weight:800;line-height:1.1}
 .direta-preco small{display:block;font-size:12px;font-weight:600;color:#7fe0a8;letter-spacing:.02em;margin-top:4px}
 .direta-info{color:#c6d5e2;font-size:14px;margin:10px 0 14px}
@@ -105,7 +105,7 @@ border-radius:20px;padding:26px;display:flex;align-items:center;justify-content:
 .prod h1{font-size:34px;margin-top:8px}
 .prod .pmeta{color:var(--sub);margin:10px 0 18px}
 .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0}
-.box h4{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px}
+.box h2,.box h4{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px}
 .box ul{list-style:none;display:grid;gap:7px}
 .box li{color:#c6d5e2;font-size:14px}
 .box li.ok::before{content:"✓ ";color:var(--ok);font-weight:800}
