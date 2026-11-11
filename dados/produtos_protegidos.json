@@ -230,6 +230,29 @@
       "fixado": false
     },
     {
+      "slug": "bicicleta-eletrica-cavalletta-c10",
+      "titulo": "Bicicleta Elétrica Cavalletta C10 1000W",
+      "link": "https://meli.la/2ocJEnu",
+      "pagina": "p/bicicleta-eletrica-cavalletta-c10.html",
+      "imagem": "img/bicicleta-eletrica-cavalletta-c10.jpg",
+      "sitemap": "https://www.renatopenner.com.br/p/bicicleta-eletrica-cavalletta-c10.html",
+      "cartoes": [
+        {
+          "pagina": "index.html",
+          "grid": "id:gridDestaques"
+        },
+        {
+          "pagina": "promocoes.html",
+          "grid": "idx:0"
+        },
+        {
+          "pagina": "auto.html",
+          "grid": "idx:0"
+        }
+      ],
+      "fixado": false
+    },
+    {
       "slug": "bicicleta-eletrica-cavalletta-c12",
       "titulo": "Bicicleta Elétrica Cavalletta C12 1000W",
       "link": "https://meli.la/2YPdvH6",
