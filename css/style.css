@@ -147,3 +147,7 @@ footer a{color:var(--cyan2)}
 .thumb picture{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
 .prod .foto picture{display:block}
 picture{display:contents}
+
+/* logo nova: PENNER branco + TECH ciano */
+.logo span b{color:#ffffff;font-weight:800}
+.logo span em{color:#29c9f5;font-style:normal;font-weight:800}
