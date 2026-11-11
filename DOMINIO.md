@@ -1,80 +1,79 @@
-# Domínio — loja.pennertech.com.br
+# Domínio — pennertech.com.br
 
-**Decisão (11/11/2026):** a loja fica no subdomínio `loja.pennertech.com.br`; `pennertech.com.br`
-(raiz) fica **inteiro** para os serviços futuros. Nada de proxy nem de Worker: o GitHub Pages serve
-a loja direto, com CDN, TLS e cache dele.
+**Decisão (11/11/2026):**
 
 ```
-https://loja.pennertech.com.br/              -> loja (este repositório)
-https://loja.pennertech.com.br/p/<slug>.html -> páginas de produto
-https://pennertech.com.br/                   -> livre para os serviços futuros
+https://loja.pennertech.com.br/               -> loja (este repositório, GitHub Pages)
+https://loja.pennertech.com.br/p/<slug>.html  -> páginas de produto
+https://pennertech.com.br/                    -> redireciona para a loja (por enquanto)
 ```
+
+A raiz fica com um redirecionamento **provisório** para a loja. Quando os serviços existirem, troca-se
+só o apontamento da raiz — a loja no subdomínio não é afetada.
 
 Canonical, Open Graph, JSON-LD, `sitemap.xml` e `robots.txt` já apontam para
 `https://loja.pennertech.com.br/...` (commit de migração de 11/11/2026).
 
-## O que falta (2 passos)
+## Como está montado
 
-### 1. DNS no Registro.br
+| Peça | Onde | O que faz |
+|---|---|---|
+| Loja | repo `site-renato-penner` + Pages custom domain `loja.pennertech.com.br` | serve o site |
+| Raiz | repo `renatopenner.github.io` (site de usuário) + Pages custom domain `pennertech.com.br` | página de redirect instantâneo para a loja |
+| DNS | Registro.br (`a.auto.dns.br` / `b.auto.dns.br`) | CNAME da loja + A da raiz |
 
-No painel do domínio → **DNS** → *Adicionar registro*:
+## Registros DNS no Registro.br
 
-| Tipo | Nome | Valor | TTL |
+Painel → `pennertech.com.br` → **DNS** → *Configurar endereçamento* → **Modo Avançado** →
+**Configurar Zona DNS** → *Nova entrada*:
+
+| Tipo | Nome | Nome do servidor / Valor | TTL |
 |---|---|---|---|
-| **CNAME** | `loja` | `renatopenner.github.io` | padrão (3600) |
+| **CNAME** | `loja` | `renatopenner.github.io` | 3600 |
+| **A** | *(em branco — raiz)* | `185.199.108.153` | 3600 |
+| **A** | *(em branco)* | `185.199.109.153` | 3600 |
+| **A** | *(em branco)* | `185.199.110.153` | 3600 |
+| **A** | *(em branco)* | `185.199.111.153` | 3600 |
+| CNAME *(opcional)* | `www` | `renatopenner.github.io` | 3600 |
 
-- **Não** crie registro `A` para `loja` (o CNAME já resolve).
-- **Não** mexa na raiz (`@`): ela fica sem registro até você decidir o serviço dela. Sem A/CNAME na
-  raiz, `pennertech.com.br` simplesmente não responde — e a loja continua funcionando no subdomínio.
-
-Conferir a propagação:
-
-```powershell
-nslookup -type=CNAME loja.pennertech.com.br
-# deve responder algo como: loja.pennertech.com.br canonical name = renatopenner.github.io
-```
-
-### 2. Ligar o domínio no GitHub (depois que o DNS responder)
-
-Repo → **Settings → Pages → Custom domain**: digite `loja.pennertech.com.br` → **Save**.
-Isso cria o arquivo `CNAME` no repositório. Aguarde a emissão do certificado (1–15 min) e marque
-**Enforce HTTPS**.
-
-> **Por que o `CNAME` ainda não está no repositório:** quando o `CNAME` entra no repo, o GitHub
-> passa a redirecionar `renatopenner.github.io/site-renato-penner` para o domínio novo. Se o DNS
-> ainda não estiver propagado, a loja fica fora do ar nesse intervalo. Então a ordem é: DNS → testar
-> → só então ligar o domínio no GitHub (ou eu ligo para você quando confirmar a propagação).
-
-## Conferência final
+Conferir (use um resolvedor público; o DNS corporativo do Banpará cacheia):
 
 ```powershell
-curl.exe -sI https://loja.pennertech.com.br/                                  # 200 html
-curl.exe -sI https://loja.pennertech.com.br/p/bicicleta-eletrica-cavalletta-c12.html  # 200
-curl.exe -sI https://loja.pennertech.com.br/img/bicicleta-eletrica-cavalletta-c12.jpg # 200 imagem
-curl.exe -s  https://loja.pennertech.com.br/ | Select-String 'rel="canonical"'       # loja.pennertech.com.br/
-curl.exe -sI https://renatopenner.github.io/site-renato-penner/                # 301 -> domínio novo
+Resolve-DnsName loja.pennertech.com.br -Type CNAME -Server 8.8.8.8   # renatopenner.github.io
+Resolve-DnsName pennertech.com.br -Type A -Server 8.8.8.8            # os 4 IPs do GitHub
 ```
 
-## Depois: serviços na raiz
+## Ordem de ativação (importante)
 
-A raiz está livre. Quando for publicar um serviço:
+1. DNS adicionado e propagado (os dois comandos acima respondem).
+2. Ligar o **custom domain da raiz** (`pennertech.com.br` no repo `renatopenner.github.io`).
+3. Ligar o **custom domain da loja** (`loja.pennertech.com.br` no repo `site-renato-penner`).
+4. Aguardar os certificados e marcar **Enforce HTTPS** nos dois.
 
-- **Cloudflare Tunnel no pennerserver** (sem abrir porta no roteador): aponte `pennertech.com.br`
-  para o tunnel; a loja no subdomínio **não é afetada**.
-- **Subdomínios de serviços** (`crm.pennertech.com.br`, `storage.pennertech.com.br`, ...): cada um
-  é um registro próprio; a loja continua independente.
-- **Página institucional na raiz**: pode ser um GitHub Pages de usuário (`renatopenner.github.io`
-  com `CNAME pennertech.com.br`) — mas aí a raiz fica estática; apps continuam em subdomínios.
+> **Nunca ligue o custom domain da raiz antes do DNS responder.** Quando `pennertech.com.br` é
+> configurado no site de usuário, o GitHub passa a redirecionar
+> `renatopenner.github.io/site-renato-penner` para `pennertech.com.br/site-renato-penner`. Se o DNS
+> ainda não resolver, a loja fica fora do ar nesse intervalo. Foi por isso que o domínio da raiz foi
+> temporariamente desligado em 11/11/2026 enquanto os registros não existiam.
+
+## Quando os serviços chegarem
+
+A raiz hoje é o redirect. Para colocar um serviço de verdade:
+
+- **Cloudflare Tunnel** no pennerserver (sem abrir porta no roteador): aponte `pennertech.com.br`
+  para o tunnel e remova o custom domain da raiz do repo `renatopenner.github.io` (ou mantenha o
+  repo só como redirect de *fallback*). A loja em `loja.pennertech.com.br` **não é afetada**.
+- **Subdomínios** (`crm.pennertech.com.br`, `storage.pennertech.com.br`, ...): cada um é um registro
+  próprio; nada na loja muda.
 
 ## Google Search Console
 
-1. Adicionar propriedade `loja.pennertech.com.br` (prefixo de URL; verificação por TXT no DNS).
-2. **Sitemaps** → enviar `https://loja.pennertech.com.br/sitemap.xml`.
-3. O canonical já aponta para o subdomínio, então a migração de indexação é automática — o
-   `github.io/site-renato-penner` redireciona para cá depois do passo 2.
+1. Propriedade `loja.pennertech.com.br` (prefixo de URL).
+2. Enviar `https://loja.pennertech.com.br/sitemap.xml`.
+3. O canonical já aponta para o subdomínio; depois da ativação, o `github.io` redireciona para cá.
 
 ## O que NÃO fazer
 
-- Não criar `CNAME` no repo antes do DNS responder (ver aviso acima).
-- Não criar registro `A` ou `AAAA` em `loja` (CNAME cobre).
-- Não usar o mesmo `CNAME` do repo para a raiz: a raiz precisa ficar livre.
+- Não ligar custom domain antes do DNS (ver aviso acima).
+- Não criar registro `A` para `loja` (o CNAME cobre).
+- Não usar o `CNAME` do repo da loja para a raiz: são sites diferentes de propósito.
