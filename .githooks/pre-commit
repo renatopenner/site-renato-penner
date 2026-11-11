@@ -1,0 +1,42 @@
+#!/bin/sh
+# ---------------------------------------------------------------- #
+# Hook de proteção de produtos — site Penner Tech
+#
+# Impede que um commit remova ou corrompa qualquer produto listado em
+# dados/produtos_protegidos.json (página, card, catálogo, sitemap, imagem).
+#
+# Instalação (1x por clone):  git config core.hooksPath .githooks
+# Escape consciente:          PROTECAO_PERMITIR_EXCLUSAO=1 git commit ...
+# ---------------------------------------------------------------- #
+
+if [ "$PROTECAO_PERMITIR_EXCLUSAO" = "1" ]; then
+  echo "[protecao] exclusao liberada por PROTECAO_PERMITIR_EXCLUSAO=1"
+  exit 0
+fi
+
+ROOT="$(git rev-parse --show-toplevel 2>/dev/null)"
+[ -n "$ROOT" ] && cd "$ROOT" || exit 0
+
+GUARD="scripts/protege_produtos.py"
+[ -f "$GUARD" ] || exit 0
+
+PY="C:/Users/renat/AppData/Local/Programs/Python/Python314/python.exe"
+if [ ! -f "$PY" ]; then
+  PY="$(command -v python 2>/dev/null || command -v python3 2>/dev/null)"
+fi
+if [ -z "$PY" ]; then
+  echo "[protecao] python nao encontrado; hook ignorado"
+  exit 0
+fi
+
+"$PY" "$GUARD" --verificar
+STATUS=$?
+if [ $STATUS -ne 0 ]; then
+  echo ""
+  echo "[protecao] COMMIT BLOQUEADO: um produto protegido esta ausente ou corrompido."
+  echo "[protecao] Conserte com:  python scripts/protege_produtos.py --restaurar"
+  echo "[protecao] Para remover de proposito: PROTECAO_PERMITIR_EXCLUSAO=1 git commit ..."
+  echo ""
+  exit 1
+fi
+exit 0

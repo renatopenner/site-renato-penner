@@ -18,6 +18,7 @@ REPO_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 DADOS_DIR = os.path.join(REPO_DIR, "dados")
 LOGS_DIR = os.path.join(REPO_DIR, "logs")
 CATALOGO_PATH = os.path.join(DADOS_DIR, "produtos.json")
+PROTECAO_PATH = os.path.join(REPO_DIR, "scripts", "protege_produtos.py")
 
 os.makedirs(LOGS_DIR, exist_ok=True)
 hoje = datetime.now()
@@ -273,11 +274,40 @@ def sincronizar_github():
     else:
         log(f"Erro no git push:\n{push_res.stderr}")
 
+def rodar_protecao(*args):
+    """Chama o guardião de produtos (scripts/protege_produtos.py).
+
+    A proteção impede que qualquer produto protegido suma do site: restaura
+    página/cards/catálogo/sitemap/imagem a partir de dados/produtos_backup/.
+    """
+    if not os.path.exists(PROTECAO_PATH):
+        log("Aviso: protetor de produtos não encontrado; seguindo sem ele.")
+        return 0
+    try:
+        res = subprocess.run([sys.executable, PROTECAO_PATH, *args], cwd=REPO_DIR,
+                             capture_output=True, text=True, encoding="utf-8",
+                             errors="replace", timeout=300)
+    except Exception as e:  # noqa: BLE001
+        log(f"Erro ao executar a proteção de produtos: {e}")
+        return 2
+    for linha in (res.stdout or "").strip().splitlines():
+        log("  " + linha)
+    if res.returncode != 0:
+        log(f"Proteção de produtos retornou código {res.returncode}.")
+    return res.returncode
+
+
 def main():
     log(f"=== INICIANDO MOTOR DE PREÇOS PENNER TECH ({data_str}) ===")
     
     # 1. Puxa as alterações remotas antes de tudo
     git_pull_inicial()
+
+    # 1b. Antes de qualquer coisa: restaura produto protegido que tenha sumido/corrompido
+    if rodar_protecao("--restaurar") != 0:
+        log("ERRO: não foi possível restaurar um produto protegido. "
+            "Nada foi publicado para não colocar o site no ar incompleto.")
+        return 2
     
     # 2. Carrega catálogo e descobre novos produtos criados em p/*.html
     catalog = carregar_e_sincronizar_catalogo()
@@ -291,10 +321,17 @@ def main():
         p["ultima_conferencia"] = data_str
     with open(CATALOGO_PATH, "w", encoding="utf-8") as f:
         json.dump(catalog, f, ensure_ascii=False, indent=2)
+
+    # 5. Protege produtos: registra novas páginas, refaz backup e valida tudo
+    if rodar_protecao("--rotina") != 0:
+        log("ERRO: produto protegido ausente ou corrompido após a atualização. "
+            "Commit e push abortados — o site no ar permanece intacto.")
+        return 2
         
-    # 5. Sincroniza e envia alterações para o GitHub Pages
+    # 6. Sincroniza e envia alterações para o GitHub Pages
     sincronizar_github()
     log("=== MOTOR DE PREÇOS CONCLUÍDO COM SUCESSO ===")
+    return 0
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

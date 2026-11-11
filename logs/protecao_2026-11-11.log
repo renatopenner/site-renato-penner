@@ -1,0 +1,103 @@
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: acer-aspire-16-core-ultra-5
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: asus-vivobook-go-15-i3-8gb-512gb
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: asus-vivobook-go-15-i3-linux
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: asus-vivobook-go-15-ryzen5-linux
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: asus-vivobook-go-15-ryzen5-win11
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: balanca-bioimpedancia-amazon
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: balanca-bioimpedancia-ml
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: basike-27w-direto
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: basike-35w-cabo
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: basike-65w
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: bomba-pneu-portatil
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: caixa-som-coolmusic
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: cascata-led-10m
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: combo-logitech-mk235
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: dell-alienware-16-aurora-ac16250
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: dock-station-dual-sata-clone
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: galaxy-book4
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: garrafa-termica-1000
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: hd-storage-5-baias-orico
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: hub-7-em-1-usb-c-3a
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: jbl-boombox-4
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: jbl-partybox-stage-320
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: kit-2-cameras-woosh
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: kit-camisetas-dryfit
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: kit-prateleiras-madeira
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: kit-refletor-led-400w
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: luva-isolante-eletricista-400v
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: mala-bordo-sweet-studio
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: mochila-viagem-notebook-impermeavel-42l
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: multimetro-digital-portatil-dt830b
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: patinete-eletrico-dobravel-350w
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: patinete-eletrico-gm5
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: soundcore-p30i-anker
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: ssd-nvme-1tb-sandisk
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: ssd-nvme-500-wdgreen
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: ssd-sata-1tb-sandisk
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: ssd-sata-240-adata
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: ssd-sata-500-sandisk
+[2026-11-11 10:10:03]   [proteção] novo produto registrado: vaio-fe16-ryzen7-linux
+[2026-11-11 10:10:03] [proteção] manifesto com 39 produtos (39 novos).
+[2026-11-11 10:10:03] [proteção] patinete-eletrico-gm5: imagem refixada (img/patinete-gm5-p1.jpg).
+[2026-11-11 10:10:03] [proteção] patinete-eletrico-gm5: manifesto atualizado.
+[2026-11-11 10:10:04] [proteção] backup atualizado para 39 produto(s).
+[2026-11-11 10:10:04] [proteção] OK: todos os produtos protegidos estão no site.
+[2026-11-11 10:10:22] [proteção] backup atualizado para 39 produto(s).
+[2026-11-11 10:10:40] [proteção] PROBLEMA: patinete-eletrico-gm5 / pagina_ausente / p/patinete-eletrico-gm5.html
+[2026-11-11 10:10:40] [proteção] 1 problema(s). Rode --restaurar.
+[2026-11-11 10:10:40] [proteção] 1 problema(s) encontrado(s). Restaurando...
+[2026-11-11 10:10:40]   [proteção] página restaurada: p/patinete-eletrico-gm5.html
+[2026-11-11 10:10:40] [proteção] restauração concluída.
+[2026-11-11 10:10:41] [proteção] PROBLEMA: patinete-eletrico-gm5 / pagina_link_divergente / esperado https://meli.la/2tLEqgs
+[2026-11-11 10:10:41] [proteção] 1 problema(s). Rode --restaurar.
+[2026-11-11 10:10:41] [proteção] 1 problema(s) encontrado(s). Restaurando...
+[2026-11-11 10:10:41]   [proteção] página restaurada: p/patinete-eletrico-gm5.html
+[2026-11-11 10:10:41] [proteção] restauração concluída.
+[2026-11-11 10:10:56] [proteção] 1 problema(s) encontrado(s). Restaurando...
+[2026-11-11 10:10:56]   [proteção] página restaurada: p/patinete-eletrico-gm5.html
+[2026-11-11 10:10:56] [proteção] restauração concluída.
+[2026-11-11 10:11:19] [proteção] PROBLEMA: patinete-eletrico-gm5 / pagina_ausente / p/patinete-eletrico-gm5.html
+[2026-11-11 10:11:19] [proteção] 1 problema(s). Rode --restaurar.
+[2026-11-11 10:11:20] [proteção] 1 problema(s) encontrado(s). Restaurando...
+[2026-11-11 10:11:20]   [proteção] página restaurada: p/patinete-eletrico-gm5.html
+[2026-11-11 10:11:20] [proteção] restauração concluída.
+[2026-11-11 10:11:20] [proteção] PROBLEMA: patinete-eletrico-gm5 / pagina_link_divergente / esperado https://meli.la/2tLEqgs
+[2026-11-11 10:11:20] [proteção] 1 problema(s). Rode --restaurar.
+[2026-11-11 10:11:20] [proteção] 1 problema(s) encontrado(s). Restaurando...
+[2026-11-11 10:11:20]   [proteção] página restaurada: p/patinete-eletrico-gm5.html
+[2026-11-11 10:11:20] [proteção] restauração concluída.
+[2026-11-11 10:11:20] [proteção] PROBLEMA: patinete-eletrico-gm5 / card_ausente / index.html (id:gridDestaques)
+[2026-11-11 10:11:20] [proteção] 1 problema(s). Rode --restaurar.
+[2026-11-11 10:11:21] [proteção] 1 problema(s) encontrado(s). Restaurando...
+[2026-11-11 10:11:21]   [proteção] card restaurado: patinete-eletrico-gm5 em index.html
+[2026-11-11 10:11:21] [proteção] restauração concluída.
+[2026-11-11 10:11:21] [proteção] PROBLEMA: patinete-eletrico-gm5 / catalogo_ausente / dados/produtos.json
+[2026-11-11 10:11:21] [proteção] 1 problema(s). Rode --restaurar.
+[2026-11-11 10:11:21] [proteção] 1 problema(s) encontrado(s). Restaurando...
+[2026-11-11 10:11:21]   [proteção] catálogo restaurado: patinete-eletrico-gm5
+[2026-11-11 10:11:21] [proteção] restauração concluída.
+[2026-11-11 10:11:21] [proteção] PROBLEMA: patinete-eletrico-gm5 / imagem_ausente / img/patinete-gm5-p1.jpg
+[2026-11-11 10:11:21] [proteção] 1 problema(s). Rode --restaurar.
+[2026-11-11 10:11:21] [proteção] 1 problema(s) encontrado(s). Restaurando...
+[2026-11-11 10:11:21]   [proteção] imagem restaurada: img/patinete-gm5-p1.jpg
+[2026-11-11 10:11:21] [proteção] restauração concluída.
+[2026-11-11 10:11:22] [proteção] PROBLEMA: patinete-eletrico-gm5 / imagem_trocada / img/patinete-gm5-p1.jpg (hash diferente do fixado)
+[2026-11-11 10:11:22] [proteção] 1 problema(s). Rode --restaurar.
+[2026-11-11 10:11:22] [proteção] 1 problema(s) encontrado(s). Restaurando...
+[2026-11-11 10:11:22]   [proteção] imagem restaurada: img/patinete-gm5-p1.jpg
+[2026-11-11 10:11:22] [proteção] restauração concluída.
+[2026-11-11 10:11:22] [proteção] OK: todos os produtos protegidos estão no site.
+[2026-11-11 10:11:35] [proteção] backup atualizado para 39 produto(s).
+[2026-11-11 10:11:35] [proteção] manifesto com 39 produtos (0 novos).
+[2026-11-11 10:11:35] [proteção] tudo certo: nenhum produto removido.
+[2026-11-11 10:11:35] [proteção] backup atualizado para 39 produto(s).
+[2026-11-11 10:11:35] [proteção] manifesto com 39 produtos (0 novos).
+[2026-11-11 10:11:35] [proteção] tudo certo: nenhum produto removido.
+[2026-11-11 10:11:36] [proteção] backup atualizado para 39 produto(s).
+[2026-11-11 10:13:05] [proteção] OK: todos os produtos protegidos estão no site.
+[2026-11-11 10:13:11] [proteção] OK: todos os produtos protegidos estão no site.
+[2026-11-11 10:13:21] [proteção] OK: todos os produtos protegidos estão no site.
+[2026-11-11 10:13:21] [proteção] OK: todos os produtos protegidos estão no site.
+[2026-11-11 10:13:30] [proteção] PROBLEMA: patinete-eletrico-gm5 / card_ausente / index.html (id:gridDestaques)
+[2026-11-11 10:13:30] [proteção] 1 problema(s). Rode --restaurar.
+[2026-11-11 10:13:30] [proteção] OK: todos os produtos protegidos estão no site.

@@ -1,0 +1,54 @@
+name: Protecao de produtos
+
+# TEMPLATE — o token do remote atual nao tem o escopo "workflow", entao o
+# GitHub recusa publicar arquivos em .github/workflows/. Para ativar o robo,
+# copie este arquivo para .github/workflows/protecao-produtos.yml (pelo site
+# do GitHub ou com um token que tenha o escopo workflow).
+# Guia completo: PROTECAO-DE-PRODUTOS.md, secao "Ativar o robo do GitHub".
+
+# Garante que nenhum produto protegido suma do site, mesmo que alguem
+# (script, agente ou clone desatualizado) commite a remocao: o robô
+# restaura a partir de dados/produtos_backup/ e republica.
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '15 9 * * *'   # 06:15 BRT, todo dia
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: protecao-produtos
+  cancel-in-progress: false
+
+jobs:
+  proteger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Restaurar produtos protegidos
+        run: python scripts/protege_produtos.py --rotina
+
+      - name: Publicar restauracao (se houver)
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Restaura produtos protegidos [skip ci]"
+            git push
+          else
+            echo "Nada a restaurar: todos os produtos protegidos estao no site."
+          fi
