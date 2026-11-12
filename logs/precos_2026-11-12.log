@@ -1,0 +1,284 @@
+[2026-11-12 08:00:02] === INICIANDO MOTOR DE PREÇOS PENNER TECH (12/11/2026) ===
+[2026-11-12 08:00:02] Garantindo sincronização com o remoto antes de iniciar (git pull --rebase)...
+[2026-11-12 08:00:05] Repositório sincronizado com sucesso.
+[2026-11-12 08:00:16]   [2026-11-12 08:00:16] [prote��o] tudo certo: nenhum produto removido.
+[2026-11-12 08:00:16] Total de 41 produtos no catálogo.
+[2026-11-12 08:00:16] Iniciando atualização dos blocos de preço nos arquivos HTML...
+[2026-11-12 08:00:16]   Página p/acer-aspire-16-core-ultra-5.html atualizada!
+[2026-11-12 08:00:16]   Página p/asus-vivobook-go-15-i3-8gb-512gb.html atualizada!
+[2026-11-12 08:00:16]   Página p/asus-vivobook-go-15-i3-linux.html atualizada!
+[2026-11-12 08:00:16]   Página p/asus-vivobook-go-15-ryzen5-linux.html atualizada!
+[2026-11-12 08:00:16]   Página p/asus-vivobook-go-15-ryzen5-win11.html atualizada!
+[2026-11-12 08:00:16]   Página p/balanca-bioimpedancia-amazon.html atualizada!
+[2026-11-12 08:00:16]   Página p/balanca-bioimpedancia-ml.html atualizada!
+[2026-11-12 08:00:16]   Página p/basike-27w-direto.html atualizada!
+[2026-11-12 08:00:16]   Página p/basike-35w-cabo.html atualizada!
+[2026-11-12 08:00:16]   Página p/basike-65w.html atualizada!
+[2026-11-12 08:00:16]   Página p/bicicleta-eletrica-cavalletta-c10.html atualizada!
+[2026-11-12 08:00:16]   Página p/bicicleta-eletrica-cavalletta-c12.html atualizada!
+[2026-11-12 08:00:16]   Página p/bomba-pneu-portatil.html atualizada!
+[2026-11-12 08:00:16]   Página p/caixa-som-coolmusic.html atualizada!
+[2026-11-12 08:00:16]   Página p/cascata-led-10m.html atualizada!
+[2026-11-12 08:00:16]   Página p/combo-logitech-mk235.html atualizada!
+[2026-11-12 08:00:16]   Página p/dell-alienware-16-aurora-ac16250.html atualizada!
+[2026-11-12 08:00:16]   Página p/dock-station-dual-sata-clone.html atualizada!
+[2026-11-12 08:00:16]   Página p/galaxy-book4.html atualizada!
+[2026-11-12 08:00:16]   Página p/garrafa-termica-1000.html atualizada!
+[2026-11-12 08:00:16]   Página p/hd-storage-5-baias-orico.html atualizada!
+[2026-11-12 08:00:16]   Página p/hub-7-em-1-usb-c-3a.html atualizada!
+[2026-11-12 08:00:16]   Página p/jbl-boombox-4.html atualizada!
+[2026-11-12 08:00:16]   Página p/jbl-partybox-stage-320.html atualizada!
+[2026-11-12 08:00:16]   Página p/kit-2-cameras-woosh.html atualizada!
+[2026-11-12 08:00:16]   Página p/kit-camisetas-dryfit.html atualizada!
+[2026-11-12 08:00:16]   Página p/kit-prateleiras-madeira.html atualizada!
+[2026-11-12 08:00:16]   Página p/kit-refletor-led-400w.html atualizada!
+[2026-11-12 08:00:16]   Página p/luva-isolante-eletricista-400v.html atualizada!
+[2026-11-12 08:00:16]   Página p/mala-bordo-sweet-studio.html atualizada!
+[2026-11-12 08:00:16]   Página p/mochila-viagem-notebook-impermeavel-42l.html atualizada!
+[2026-11-12 08:00:16]   Página p/multimetro-digital-portatil-dt830b.html atualizada!
+[2026-11-12 08:00:16]   Página p/patinete-eletrico-dobravel-350w.html atualizada!
+[2026-11-12 08:00:16]   Página p/patinete-eletrico-gm5.html atualizada!
+[2026-11-12 08:00:16]   Página p/soundcore-p30i-anker.html atualizada!
+[2026-11-12 08:00:16]   Página p/ssd-nvme-1tb-sandisk.html atualizada!
+[2026-11-12 08:00:16]   Página p/ssd-nvme-500-wdgreen.html atualizada!
+[2026-11-12 08:00:16]   Página p/ssd-sata-1tb-sandisk.html atualizada!
+[2026-11-12 08:00:16]   Página p/ssd-sata-240-adata.html atualizada!
+[2026-11-12 08:00:16]   Página p/ssd-sata-500-sandisk.html atualizada!
+[2026-11-12 08:00:16]   Página p/vaio-fe16-ryzen7-linux.html atualizada!
+[2026-11-12 08:00:16]   Cards atualizados em auto.html!
+[2026-11-12 08:00:16]   Cards atualizados em carregadores.html!
+[2026-11-12 08:00:17]   Cards atualizados em casa.html!
+[2026-11-12 08:00:19]   Cards atualizados em index.html!
+[2026-11-12 08:00:19]   Cards atualizados em moda.html!
+[2026-11-12 08:00:19]   Cards atualizados em notebooks.html!
+[2026-11-12 08:00:19]   Cards atualizados em perifericos.html!
+[2026-11-12 08:00:19]   Cards atualizados em promocoes.html!
+[2026-11-12 08:00:19]   Cards atualizados em saude.html!
+[2026-11-12 08:00:20]   Cards atualizados em ssd.html!
+[2026-11-12 08:00:22]   [2026-11-12 08:00:22] [prote��o] manifesto com 41 produtos (0 novos).
+[2026-11-12 08:00:22]   [2026-11-12 08:00:22] [prote��o] tudo certo: nenhum produto removido.
+[2026-11-12 08:00:22]   [2026-11-12 08:00:22] [prote��o] backup atualizado para 41 produto(s).
+[2026-11-12 08:00:22] Verificando alterações no repositório Git...
+[2026-11-12 08:00:23] Alterações detectadas:
+M auto.html
+ M carregadores.html
+ M casa.html
+ M dados/produtos.json
+ M dados/produtos_backup/cartoes/auto.html/bicicleta-eletrica-cavalletta-c10@idx-0.html
+ M dados/produtos_backup/cartoes/auto.html/bicicleta-eletrica-cavalletta-c12@idx-0.html
+ M dados/produtos_backup/cartoes/auto.html/bomba-pneu-portatil@idx-0.html
+ M dados/produtos_backup/cartoes/auto.html/patinete-eletrico-dobravel-350w@idx-0.html
+ M dados/produtos_backup/cartoes/auto.html/patinete-eletrico-gm5@idx-0.html
+ M dados/produtos_backup/cartoes/carregadores.html/basike-27w-direto@idx-0.html
+ M dados/produtos_backup/cartoes/carregadores.html/basike-35w-cabo@idx-0.html
+ M dados/produtos_backup/cartoes/carregadores.html/basike-65w@idx-0.html
+ M dados/produtos_backup/cartoes/casa.html/caixa-som-coolmusic@idx-0.html
+ M dados/produtos_backup/cartoes/casa.html/cascata-led-10m@idx-0.html
+ M dados/produtos_backup/cartoes/casa.html/jbl-boombox-4@idx-0.html
+ M dados/produtos_backup/cartoes/casa.html/jbl-partybox-stage-320@idx-0.html
+ M dados/produtos_backup/cartoes/casa.html/kit-2-cameras-woosh@idx-0.html
+ M dados/produtos_backup/cartoes/casa.html/kit-prateleiras-madeira@idx-0.html
+ M dados/produtos_backup/cartoes/casa.html/kit-refletor-led-400w@idx-0.html
+ M dados/produtos_backup/cartoes/casa.html/soundcore-p30i-anker@idx-0.html
+ M dados/produtos_backup/cartoes/index.html/acer-aspire-16-core-ultra-5@idx-1.html
+ M dados/produtos_backup/cartoes/index.html/asus-vivobook-go-15-i3-8gb-512gb@idx-1.html
+ M dados/produtos_backup/cartoes/index.html/asus-vivobook-go-15-i3-linux@idx-1.html
+ M dados/produtos_backup/cartoes/index.html/asus-vivobook-go-15-ryzen5-linux@idx-1.html
+ M dados/produtos_backup/cartoes/index.html/asus-vivobook-go-15-ryzen5-win11@idx-1.html
+ M dados/produtos_backup/cartoes/index.html/balanca-bioimpedancia-amazon@idx-1.html
+ M dados/produtos_backup/cartoes/index.html/balanca-bioimpedancia-ml@idx-1.html
+ M dados/produtos_backup/cartoes/index.html/basike-27w-direto@id-gridDestaques.html
+ M dados/produtos_backup/cartoes/index.html/basike-35w-cabo@id-gridDestaques.html
+ M dados/produtos_backup/cartoes/index.html/basike-65w@id-gridDestaques.html
+ M dados/produtos_backup/cartoes/index.html/basike-65w@idx-1.html
+ M dados/produtos_backup/cartoes/index.html/bicicleta-eletrica-cavalletta-c10@id-gridDestaques.html
+ M dados/produtos_backup/cartoes/index.html/bicicleta-eletrica-cavalletta-c12@id-gridDestaques.html
+ M dados/produtos_backup/cartoes/index.html/bomba-pneu-portatil@idx-1.html
+ M dados/produtos_backup/cartoes/index.html/caixa-som-coolmusic@idx-1.html
+ M dados/produtos_backup/cartoes/index.html/cascata-led-10m@idx-1.html
+ M dados/produtos_backup/cartoes/index.html/combo-logitech-mk235@idx-1.html
+ M dados/produtos_backup/cartoes/index.html/dell-alienware-16-aurora-ac16250@idx-1.html
+ M dados/produtos_backup/cartoes/index.html/dock-station-dual-sata-clone@id-gridDestaques.html
+ M dados/produtos_backup/cartoes/index.html/galaxy-book4@id-gridDestaques.html
+ M dados/produtos_backup/cartoes/index.html/galaxy-book4@idx-1.html
+ M dados/produtos_backup/cartoes/index.html/garrafa-termica-1000@idx-1.html
+ M dados/produtos_backup/cartoes/index.html/hd-storage-5-baias-orico@id-gridDestaques.html
+ M dados/produtos_backup/cartoes/index.html/hub-7-em-1-usb-c-3a@id-gridDestaques.html
+ M dados/produtos_backup/cartoes/index.html/jbl-boombox-4@id-gridDestaques.html
+ M dados/produtos_backup/cartoes/index.html/jbl-boombox-4@idx-1.html
+ M dados/produtos_backup/cartoes/index.html/jbl-partybox-stage-320@id-gridDestaques.html
+ M dados/produtos_backup/cartoes/index.html/kit-2-cameras-woosh@id-gridDestaques.html
+ M dados/produtos_backup/cartoes/index.html/kit-camisetas-dryfit@idx-1.html
+ M dados/produtos_backup/cartoes/index.html/kit-prateleiras-madeira@idx-1.html
+ M dados/produtos_backup/cartoes/index.html/kit-refletor-led-400w@idx-1.html
+ M dados/produtos_backup/cartoes/index.html/luva-isolante-eletricista-400v@id-gridDestaques.html
+ M dados/produtos_backup/cartoes/index.html/mala-bordo-sweet-studio@idx-1.html
+ M dados/produtos_backup/cartoes/index.html/mochila-viagem-notebook-impermeavel-42l@id-gridDestaques.html
+ M dados/produtos_backup/cartoes/index.html/multimetro-digital-portatil-dt830b@id-gridDestaques.html
+ M dados/produtos_backup/cartoes/index.html/patinete-eletrico-dobravel-350w@id-gridDestaques.html
+ M dados/produtos_backup/cartoes/index.html/patinete-eletrico-gm5@id-gridDestaques.html
+ M dados/produtos_backup/cartoes/index.html/soundcore-p30i-anker@id-gridDestaques.html
+ M dados/produtos_backup/cartoes/index.html/ssd-nvme-1tb-sandisk@id-gridDestaques.html
+ M dados/produtos_backup/cartoes/index.html/ssd-nvme-1tb-sandisk@idx-1.html
+ M dados/produtos_backup/cartoes/index.html/ssd-nvme-500-wdgreen@idx-1.html
+ M dados/produtos_backup/cartoes/index.html/ssd-sata-1tb-sandisk@idx-1.html
+ M dados/produtos_backup/cartoes/index.html/ssd-sata-240-adata@idx-1.html
+ M dados/produtos_backup/cartoes/index.html/ssd-sata-500-sandisk@idx-1.html
+ M dados/produtos_backup/cartoes/index.html/vaio-fe16-ryzen7-linux@id-gridDestaques.html
+ M dados/produtos_backup/cartoes/moda.html/kit-camisetas-dryfit@idx-0.html
+ M dados/produtos_backup/cartoes/moda.html/mala-bordo-sweet-studio@idx-0.html
+ M dados/produtos_backup/cartoes/moda.html/mochila-viagem-notebook-impermeavel-42l@idx-0.html
+ M dados/produtos_backup/cartoes/notebooks.html/acer-aspire-16-core-ultra-5@idx-0.html
+ M dados/produtos_backup/cartoes/notebooks.html/asus-vivobook-go-15-i3-8gb-512gb@idx-0.html
+ M dados/produtos_backup/cartoes/notebooks.html/asus-vivobook-go-15-i3-linux@idx-0.html
+ M dados/produtos_backup/cartoes/notebooks.html/asus-vivobook-go-15-ryzen5-linux@idx-0.html
+ M dados/produtos_backup/cartoes/notebooks.html/asus-vivobook-go-15-ryzen5-win11@idx-0.html
+ M dados/produtos_backup/cartoes/notebooks.html/dell-alienware-16-aurora-ac16250@idx-0.html
+ M dados/produtos_backup/cartoes/notebooks.html/galaxy-book4@idx-0.html
+ M dados/produtos_backup/cartoes/notebooks.html/vaio-fe16-ryzen7-linux@idx-0.html
+ M dados/produtos_backup/cartoes/perifericos.html/combo-logitech-mk235@idx-0.html
+ M dados/produtos_backup/cartoes/perifericos.html/dock-station-dual-sata-clone@idx-0.html
+ M dados/produtos_backup/cartoes/perifericos.html/hub-7-em-1-usb-c-3a@idx-0.html
+ M dados/produtos_backup/cartoes/perifericos.html/luva-isolante-eletricista-400v@idx-0.html
+ M dados/produtos_backup/cartoes/perifericos.html/multimetro-digital-portatil-dt830b@idx-0.html
+ M dados/produtos_backup/cartoes/perifericos.html/soundcore-p30i-anker@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/acer-aspire-16-core-ultra-5@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/asus-vivobook-go-15-i3-8gb-512gb@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/asus-vivobook-go-15-i3-linux@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/asus-vivobook-go-15-ryzen5-linux@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/asus-vivobook-go-15-ryzen5-win11@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/balanca-bioimpedancia-ml@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/basike-35w-cabo@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/basike-65w@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/bicicleta-eletrica-cavalletta-c10@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/bicicleta-eletrica-cavalletta-c12@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/bomba-pneu-portatil@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/caixa-som-coolmusic@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/cascata-led-10m@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/combo-logitech-mk235@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/dock-station-dual-sata-clone@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/galaxy-book4@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/garrafa-termica-1000@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/hub-7-em-1-usb-c-3a@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/jbl-boombox-4@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/jbl-partybox-stage-320@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/kit-2-cameras-woosh@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/kit-camisetas-dryfit@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/kit-prateleiras-madeira@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/kit-refletor-led-400w@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/mala-bordo-sweet-studio@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/mochila-viagem-notebook-impermeavel-42l@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/multimetro-digital-portatil-dt830b@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/patinete-eletrico-dobravel-350w@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/patinete-eletrico-gm5@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/soundcore-p30i-anker@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/ssd-nvme-1tb-sandisk@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/ssd-nvme-500-wdgreen@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/ssd-sata-1tb-sandisk@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/ssd-sata-500-sandisk@idx-0.html
+ M dados/produtos_backup/cartoes/promocoes.html/vaio-fe16-ryzen7-linux@idx-0.html
+ M dados/produtos_backup/cartoes/saude.html/balanca-bioimpedancia-amazon@idx-0.html
+ M dados/produtos_backup/cartoes/saude.html/balanca-bioimpedancia-ml@idx-0.html
+ M dados/produtos_backup/cartoes/saude.html/garrafa-termica-1000@idx-0.html
+ M dados/produtos_backup/cartoes/ssd.html/dock-station-dual-sata-clone@idx-0.html
+ M dados/produtos_backup/cartoes/ssd.html/hd-storage-5-baias-orico@idx-0.html
+ M dados/produtos_backup/cartoes/ssd.html/ssd-nvme-1tb-sandisk@idx-0.html
+ M dados/produtos_backup/cartoes/ssd.html/ssd-nvme-500-wdgreen@idx-0.html
+ M dados/produtos_backup/cartoes/ssd.html/ssd-sata-1tb-sandisk@idx-0.html
+ M dados/produtos_backup/cartoes/ssd.html/ssd-sata-240-adata@idx-0.html
+ M dados/produtos_backup/cartoes/ssd.html/ssd-sata-500-sandisk@idx-0.html
+ M dados/produtos_backup/catalogo.json
+ M dados/produtos_backup/paginas/acer-aspire-16-core-ultra-5.html
+ M dados/produtos_backup/paginas/asus-vivobook-go-15-i3-8gb-512gb.html
+ M dados/produtos_backup/paginas/asus-vivobook-go-15-i3-linux.html
+ M dados/produtos_backup/paginas/asus-vivobook-go-15-ryzen5-linux.html
+ M dados/produtos_backup/paginas/asus-vivobook-go-15-ryzen5-win11.html
+ M dados/produtos_backup/paginas/balanca-bioimpedancia-amazon.html
+ M dados/produtos_backup/paginas/balanca-bioimpedancia-ml.html
+ M dados/produtos_backup/paginas/basike-27w-direto.html
+ M dados/produtos_backup/paginas/basike-35w-cabo.html
+ M dados/produtos_backup/paginas/basike-65w.html
+ M dados/produtos_backup/paginas/bicicleta-eletrica-cavalletta-c10.html
+ M dados/produtos_backup/paginas/bicicleta-eletrica-cavalletta-c12.html
+ M dados/produtos_backup/paginas/bomba-pneu-portatil.html
+ M dados/produtos_backup/paginas/caixa-som-coolmusic.html
+ M dados/produtos_backup/paginas/cascata-led-10m.html
+ M dados/produtos_backup/paginas/combo-logitech-mk235.html
+ M dados/produtos_backup/paginas/dell-alienware-16-aurora-ac16250.html
+ M dados/produtos_backup/paginas/dock-station-dual-sata-clone.html
+ M dados/produtos_backup/paginas/galaxy-book4.html
+ M dados/produtos_backup/paginas/garrafa-termica-1000.html
+ M dados/produtos_backup/paginas/hd-storage-5-baias-orico.html
+ M dados/produtos_backup/paginas/hub-7-em-1-usb-c-3a.html
+ M dados/produtos_backup/paginas/jbl-boombox-4.html
+ M dados/produtos_backup/paginas/jbl-partybox-stage-320.html
+ M dados/produtos_backup/paginas/kit-2-cameras-woosh.html
+ M dados/produtos_backup/paginas/kit-camisetas-dryfit.html
+ M dados/produtos_backup/paginas/kit-prateleiras-madeira.html
+ M dados/produtos_backup/paginas/kit-refletor-led-400w.html
+ M dados/produtos_backup/paginas/luva-isolante-eletricista-400v.html
+ M dados/produtos_backup/paginas/mala-bordo-sweet-studio.html
+ M dados/produtos_backup/paginas/mochila-viagem-notebook-impermeavel-42l.html
+ M dados/produtos_backup/paginas/multimetro-digital-portatil-dt830b.html
+ M dados/produtos_backup/paginas/patinete-eletrico-dobravel-350w.html
+ M dados/produtos_backup/paginas/patinete-eletrico-gm5.html
+ M dados/produtos_backup/paginas/soundcore-p30i-anker.html
+ M dados/produtos_backup/paginas/ssd-nvme-1tb-sandisk.html
+ M dados/produtos_backup/paginas/ssd-nvme-500-wdgreen.html
+ M dados/produtos_backup/paginas/ssd-sata-1tb-sandisk.html
+ M dados/produtos_backup/paginas/ssd-sata-240-adata.html
+ M dados/produtos_backup/paginas/ssd-sata-500-sandisk.html
+ M dados/produtos_backup/paginas/vaio-fe16-ryzen7-linux.html
+ M dados/produtos_protegidos.json
+ M index.html
+ M logs/protecao_2026-11-11.log
+ M moda.html
+ M notebooks.html
+ M p/acer-aspire-16-core-ultra-5.html
+ M p/asus-vivobook-go-15-i3-8gb-512gb.html
+ M p/asus-vivobook-go-15-i3-linux.html
+ M p/asus-vivobook-go-15-ryzen5-linux.html
+ M p/asus-vivobook-go-15-ryzen5-win11.html
+ M p/balanca-bioimpedancia-amazon.html
+ M p/balanca-bioimpedancia-ml.html
+ M p/basike-27w-direto.html
+ M p/basike-35w-cabo.html
+ M p/basike-65w.html
+ M p/bicicleta-eletrica-cavalletta-c10.html
+ M p/bicicleta-eletrica-cavalletta-c12.html
+ M p/bomba-pneu-portatil.html
+ M p/caixa-som-coolmusic.html
+ M p/cascata-led-10m.html
+ M p/combo-logitech-mk235.html
+ M p/dell-alienware-16-aurora-ac16250.html
+ M p/dock-station-dual-sata-clone.html
+ M p/galaxy-book4.html
+ M p/garrafa-termica-1000.html
+ M p/hd-storage-5-baias-orico.html
+ M p/hub-7-em-1-usb-c-3a.html
+ M p/jbl-boombox-4.html
+ M p/jbl-partybox-stage-320.html
+ M p/kit-2-cameras-woosh.html
+ M p/kit-camisetas-dryfit.html
+ M p/kit-prateleiras-madeira.html
+ M p/kit-refletor-led-400w.html
+ M p/luva-isolante-eletricista-400v.html
+ M p/mala-bordo-sweet-studio.html
+ M p/mochila-viagem-notebook-impermeavel-42l.html
+ M p/multimetro-digital-portatil-dt830b.html
+ M p/patinete-eletrico-dobravel-350w.html
+ M p/patinete-eletrico-gm5.html
+ M p/soundcore-p30i-anker.html
+ M p/ssd-nvme-1tb-sandisk.html
+ M p/ssd-nvme-500-wdgreen.html
+ M p/ssd-sata-1tb-sandisk.html
+ M p/ssd-sata-240-adata.html
+ M p/ssd-sata-500-sandisk.html
+ M p/vaio-fe16-ryzen7-linux.html
+ M perifericos.html
+ M promocoes.html
+ M saude.html
+ M ssd.html
+?? logs/precos_2026-11-12.log
+?? logs/protecao_2026-11-12.log
+[2026-11-12 08:00:23] Executando git add e git commit...
