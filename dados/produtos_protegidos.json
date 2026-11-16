@@ -946,6 +946,25 @@
         }
       ],
       "fixado": false
+    },
+    {
+      "slug": "walkie-talkie-baofeng-bf-777s",
+      "titulo": "Walkie-Talkie Baofeng BF-777S (Kit 2 Rádios) 16 Canais UHF",
+      "link": "https://meli.la/1rSgMyf",
+      "pagina": "p/walkie-talkie-baofeng-bf-777s.html",
+      "imagem": "img/walkie-talkie-baofeng-bf-777s.jpg",
+      "sitemap": "https://loja.pennertech.com.br/p/walkie-talkie-baofeng-bf-777s.html",
+      "cartoes": [
+        {
+          "pagina": "index.html",
+          "grid": "id:gridDestaques"
+        },
+        {
+          "pagina": "perifericos.html",
+          "grid": "idx:0"
+        }
+      ],
+      "fixado": false
     }
   ]
 }
