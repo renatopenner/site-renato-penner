@@ -783,6 +783,29 @@
       "imagem_sha256": "0ebc9e30b1628180b568174e58a21c2637fa619c0f2f481627d02a01ec66d8a8"
     },
     {
+      "slug": "robo-aspirador-redroad-r11",
+      "titulo": "Robô Aspirador Redroad R11 20.000 Pa com Base Autolimpante e LiDAR",
+      "link": "https://meli.la/1c4saDQ",
+      "pagina": "p/robo-aspirador-redroad-r11.html",
+      "imagem": "img/robo-aspirador-redroad-r11.jpg",
+      "sitemap": "https://loja.pennertech.com.br/p/robo-aspirador-redroad-r11.html",
+      "cartoes": [
+        {
+          "pagina": "index.html",
+          "grid": "id:gridDestaques"
+        },
+        {
+          "pagina": "promocoes.html",
+          "grid": "idx:0"
+        },
+        {
+          "pagina": "casa.html",
+          "grid": "idx:0"
+        }
+      ],
+      "fixado": false
+    },
+    {
       "slug": "soundcore-p30i-anker",
       "titulo": "Fone de Ouvido Bluetooth Anker Soundcore P30i",
       "link": "https://meli.la/28zv85J",
