@@ -210,4 +210,7 @@ color:var(--btn-texto);display:flex;align-items:center;justify-content:center;fo
 padding:9px 14px;border-radius:10px;white-space:nowrap}
 .baixa-cta:hover .bc-btn{background:var(--btn-hover)}
 @media(max-width:640px){.baixa-cta{flex-wrap:wrap}.baixa-cta .bc-btn{width:100%;text-align:center}}
-.nav .dir a.link[href*="baixa-certa"]{color:var(--acento2)}
+.nav .dir a.link[href*="baixa-certa"],.nav .dir a.link[href*="baixa.pennertech"]{color:var(--acento2)}
+.nav .dir a.site-link{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.nav .dir a.site-link img{width:18px;height:18px;border-radius:5px;flex:0 0 auto;display:block}
+@media(max-width:520px){.nav .dir{gap:10px}.nav .dir a.site-link span{display:none}}
