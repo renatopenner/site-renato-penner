@@ -35,10 +35,7 @@
 /* ------------------------------------------------------------------ */
 (function(){
   var TELEMETRY_ENDPOINTS = [
-    'https://baixa.duckdns.org:8095/monitor/api/web-analytics/hit',
-    'https://pennerflix.duckdns.org:8095/monitor/api/web-analytics/hit',
-    'https://pennerserver2.tail69feb4.ts.net/monitor/api/web-analytics/hit',
-    'https://pennerserver.tail69feb4.ts.net/monitor/api/web-analytics/hit'
+    'https://penner-monitor-hit.renatopenner.workers.dev'
   ];
 
   function detectSiteId() {
