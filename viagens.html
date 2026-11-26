@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<script>(function(){try{var m=document.cookie.match(/(?:^|;\s*)pt_tema=(escuro|claro)/);document.documentElement.setAttribute("data-tema",m?m[1]:"claro")}catch(e){document.documentElement.setAttribute("data-tema","claro")}})();</script>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-store">
+<meta name="build" content="2026-11-26 17:00">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Viagens, Resorts e Hotéis Recomendados — Penner Tech</title>
+<meta name="description" content="Seleção das melhores promoções e estadias em Salinópolis, Gramado, Campos do Jordão, Rio de Janeiro, São Paulo, Fortaleza e no mundo — parceria oficial Booking.com com cancelamento grátis e suporte completo.">
+<link rel="canonical" href="https://loja.pennertech.com.br/viagens.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Penner Tech">
+<meta property="og:title" content="Viagens, Resorts e Hotéis Recomendados — Penner Tech">
+<meta property="og:description" content="Seleção das melhores promoções e estadias em Salinópolis, Gramado, Campos do Jordão, Rio de Janeiro, São Paulo, Fortaleza e no mundo — parceria oficial Booking.com.">
+<meta property="og:url" content="https://loja.pennertech.com.br/viagens.html">
+<meta property="og:locale" content="pt_BR">
+<meta name="theme-color" content="#f7fafc">
+<link rel="icon" type="image/png" sizes="64x64" href="img/favicon-64.png?v=9fb83174">
+<link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png?v=c11102d6">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png?v=8f32fdca">
+<link rel="stylesheet" href="css/style.css?v=4cf08b7c">
+<style>
+.hotel-card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--card-borda);border-radius:16px;overflow:hidden;box-shadow:var(--sombra);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.hotel-card:hover{transform:translateY(-3px);border-color:var(--acento);box-shadow:var(--sombra-hover)}
+.hotel-thumb{position:relative;width:100%;height:220px;overflow:hidden;background:linear-gradient(135deg,var(--thumb1),var(--thumb2))}
+.hotel-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s ease}
+.hotel-card:hover .hotel-thumb img{transform:scale(1.04)}
+.badge-dest{position:absolute;top:12px;left:12px;background:rgba(2,132,199,.92);backdrop-filter:blur(6px);color:#fff;font-size:11.5px;font-weight:700;padding:5px 10px;border-radius:999px;letter-spacing:.03em;text-transform:uppercase}
+.badge-nota{position:absolute;top:12px;right:12px;background:rgba(15,23,42,.88);backdrop-filter:blur(6px);color:#38bdf8;font-size:12.5px;font-weight:800;padding:5px 9px;border-radius:8px;display:flex;align-items:center;gap:4px}
+.hotel-body{padding:18px 20px;display:flex;flex-direction:column;flex:1}
+.hotel-loc{font-size:12px;font-weight:700;color:var(--acento);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.hotel-title{font-size:18px;font-weight:800;color:var(--texto);line-height:1.25;margin-bottom:8px}
+.hotel-feats{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 14px}
+.hotel-tag{font-size:11px;font-weight:600;padding:3px 8px;border-radius:6px;background:var(--bg2);color:var(--texto-corpo);border:1px solid var(--borda-suave)}
+.hotel-desc{font-size:13.5px;color:var(--texto-corpo);line-height:1.45;margin-bottom:16px;flex:1}
+.hotel-footer{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--linha);padding-top:14px;margin-top:auto}
+.hotel-preco-box{display:flex;flex-direction:column}
+.hotel-preco-box small{font-size:11px;color:var(--texto-sub)}
+.hotel-preco-box b{font-size:18px;color:var(--verde);font-weight:800}
+.hotel-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;background:var(--btn);color:var(--btn-texto);font-size:13.5px;font-weight:700;border-radius:10px;transition:background .15s,transform .15s}
+.hotel-btn:hover{background:var(--btn-hover);color:#fff;transform:translateY(-1px)}
+.booking-search-box{background:linear-gradient(135deg,rgba(2,132,199,.08),rgba(3,105,161,.04));border:1px solid var(--borda-suave);border-radius:20px;padding:26px 28px;margin:28px 0 36px}
+.booking-search-box h3{font-size:20px;font-weight:800;color:var(--texto);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.booking-search-box p{font-size:14px;color:var(--texto-corpo);margin-bottom:18px}
+.booking-form{display:grid;grid-template-columns:1fr 140px 140px auto;gap:10px}
+@media (max-width:840px){.booking-form{grid-template-columns:1fr 1fr;}.booking-form button{grid-column:span 2;}}
+@media (max-width:540px){.booking-form{grid-template-columns:1fr;}.booking-form button{grid-column:span 1;}}
+.booking-input{background:var(--card);border:1px solid var(--borda-suave);color:var(--texto);padding:12px 14px;border-radius:10px;font-size:14px;width:100%}
+.booking-submit{background:#003580;color:#fff;border:none;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px;cursor:pointer;transition:background .15s}
+.booking-submit:hover{background:#00224f}
+.selo-garantia{display:flex;align-items:center;gap:18px;background:var(--card);border:1px solid var(--card-borda);padding:14px 20px;border-radius:12px;margin:20px 0;font-size:13px;color:var(--texto-corpo)}
+.selo-garantia span{display:flex;align-items:center;gap:6px;font-weight:600}
+</style>
+<script>
+addEventListener('load',function(){try{var u='https://renatopennersoares1783016458000.0871043.meusitehostgator.com.br/c.php?p='+encodeURIComponent(location.pathname)+'&o='+encodeURIComponent(location.hostname);
+  if(navigator.sendBeacon){navigator.sendBeacon(u);}else{fetch(u,{keepalive:true});}}catch(e){}});
+document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closest?ev.target.closest('a'):null;if(!a)return;
+  var h=a.href||'',d='';
+  if(h.indexOf('booking.com')>=0)d='booking';
+  else if(h.indexOf('mercadolivre')>=0||h.indexOf('meli.la')>=0)d='mercadolivre';
+  else if(h.indexOf('amazon')>=0)d='amazon';
+  if(!d)return;try{var u='https://renatopennersoares1783016458000.0871043.meusitehostgator.com.br/c.php?e=c&d='+d+'&p='+encodeURIComponent(location.pathname)+'&o='+encodeURIComponent(location.hostname);
+  if(navigator.sendBeacon){navigator.sendBeacon(u);}else{fetch(u,{keepalive:true});}}catch(e){}});
+</script>
+<script>
+(function(){
+  var ID='G-T3M72SC18N', carregado=false;
+  window.dataLayer=window.dataLayer||[];
+  window.gtag=function(){dataLayer.push(arguments);};
+  function carrega(){
+    if(carregado) return; carregado=true;
+    var s=document.createElement('script'); s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id='+ID;
+    document.head.appendChild(s);
+    gtag('js', new Date());
+    gtag('consent','update',{analytics_storage:'granted'});
+    gtag('config', ID, {anonymize_ip:true});
+  }
+  window.__ga4Carrega=carrega;
+  try{ if(localStorage.getItem('consent')==='ok') carrega(); }catch(e){}
+})();
+</script>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a href="index.html" class="logo" aria-label="Penner Tech — início"><img width="1024" height="1024" src="img/marca.png?v=37f05fa5" alt=""><span><b>PENNER</b> <em>TECH</em><small>TECNOLOGIA E RECOMENDAÇÕES</small></span></a>
+  <nav class="links">
+    <a class="link " href="index.html">Início</a>
+    <a class="link on" href="viagens.html">✈️ Viagens & Hotéis</a>
+    <a class="link " href="promocoes.html">Ofertas</a>
+    <a class="link " href="notebooks.html">Notebooks</a>
+    <a class="link " href="ssd.html">SSD</a>
+    <a class="link " href="carregadores.html">Carregadores</a>
+    <a class="link " href="saude.html">Saúde</a>
+    <a class="link " href="casa.html">Casa</a>
+    <a class="link " href="auto.html">Auto</a>
+    <a class="link " href="perifericos.html">Periféricos</a>
+    <a class="link " href="sobre.html">Sobre</a>
+  </nav>
+  <div class="dir">
+    <button id="btn-tema" class="tema" type="button" aria-label="Alternar tema claro e escuro" title="Ativar tema escuro">🌙</button>
+    <a class="link site-link" href="https://baixa.pennertech.com.br/" target="_blank" rel="noopener" title="Baixa Certa — Apps Grátis Oficiais"><img src="img/baixacerta-ico.svg" alt="" width="18" height="18"><span>Baixa Certa</span></a>
+    <a class="link site-link" href="https://baixatube.pennertech.com.br/" target="_blank" rel="noopener" title="BaixaTube Web"><img src="img/baixatube-ico.svg" alt="" width="18" height="18"><span>BaixaTube</span></a>
+    <a class="link" href="https://www.youtube.com/@renatopenner" target="_blank" rel="noopener">YouTube ↗</a>
+  </div>
+</div></header>
+
+<main class="wrap">
+  <div class="migalha" style="margin-top:16px"><a href="index.html">Início</a> / Viagens, Resorts e Hotéis Recomendados</div>
+  
+  <section class="hero" style="padding:28px 0 10px">
+    <h1>Viagens & Hospedagens,<br><em>critério técnico nas melhores estadias.</em></h1>
+    <p class="lead">Curadoria de resorts, hotéis e pousadas testados e bem avaliados no Brasil e no mundo — parceria oficial com a <strong>Booking.com</strong> com cancelamento grátis e tarifas exclusivas.</p>
+    
+    <div class="selo-garantia">
+      <span>🛡️ Parceria Oficial Booking.com</span>
+      <span>💳 Reserva Segura & Sem Taxas Ocultas</span>
+      <span>⭐ Apenas Hotéis 8.5+ e Resorts Premium</span>
+      <span>🔄 Cancelamento Grátis na maioria dos quartos</span>
+    </div>
+
+    <!-- Ferramenta de Busca Rápida Booking -->
+    <div class="booking-search-box">
+      <h3>🔍 Pesquisar qualquer destino ou hotel no Booking.com</h3>
+      <p>Digite para onde deseja viajar e encontre as melhores tarifas negociadas em tempo real:</p>
+      <form class="booking-form" action="https://www.booking.com/searchresults.pt-br.html" method="get" target="_blank" rel="noopener sponsored">
+        <input class="booking-input" type="text" name="ss" placeholder="Cidade, resort, praia ou hotel (ex: Salinópolis, Gramado, Orlando...)" required>
+        <input class="booking-input" type="date" name="checkin" title="Check-in" placeholder="Check-in">
+        <input class="booking-input" type="date" name="checkout" title="Check-out" placeholder="Check-out">
+        <button class="booking-submit" type="submit">Buscar Vagas no Booking →</button>
+      </form>
+    </div>
+
+    <div class="chips">
+      <button class="chip on" data-cat="todos">Todos os Destinos</button>
+      <button class="chip" data-cat="salinopolis">🏖️ Salinópolis (PA)</button>
+      <button class="chip" data-cat="gramado">❄️ Gramado & Canela (RS)</button>
+      <button class="chip" data-cat="campos">🏔️ Campos do Jordão (SP)</button>
+      <button class="chip" data-cat="rio">🌊 Rio de Janeiro (RJ)</button>
+      <button class="chip" data-cat="sp">🏙️ São Paulo (SP)</button>
+      <button class="chip" data-cat="fortaleza">☀️ Fortaleza & Cumbuco (CE)</button>
+      <button class="chip" data-cat="mundo">🌍 Destinos do Mundo</button>
+    </div>
+
+    <div class="busca"><input id="q" type="search" placeholder="Filtrar por nome de hotel, comodidade (piscina, resort, café...) ou praia"></div>
+  </section>
+
+  <!-- Grid de Hotéis e Promoções -->
+  <div class="grid" id="gridHoteis" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:24px;margin:32px 0 60px">
+
+    <!-- SALINÓPOLIS (PA) -->
+    <article class="hotel-card" data-cat="salinopolis" data-busca="salinas park resort salinopolis para praia do atalaia resort piscina infantil parque aquatico">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Salinópolis · PA</span>
+        <span class="badge-nota">⭐ 8.7 · Fabuloso</span>
+        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Salinas Park Resort" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Praia do Atalaia · Salinópolis / PA</div>
+        <h2 class="hotel-title">Salinas Park Resort</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">Parque Aquático</span>
+          <span class="hotel-tag">Piscinas Termais</span>
+          <span class="hotel-tag">Varanda Gourmet</span>
+          <span class="hotel-tag">Recreação Infantil</span>
+        </div>
+        <p class="hotel-desc">O resort mais tradicional e procurado de Salinas. Estrutura completa de lazer familiar, cinema, sauna, salão de jogos e apartamentos modernos com sala, quarto e sacada gourmet.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 380</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Salinas+Park+Resort+Salinopolis" target="_blank" rel="noopener sponsored">Ver Vagas →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cat="salinopolis" data-busca="salinas premium resort salinopolis para atalaia rio lento hidromassagem resort novo">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Salinópolis · PA</span>
+        <span class="badge-nota">⭐ 8.9 · Fabuloso</span>
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Salinas Premium Resort" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Próximo ao Atalaia · Salinópolis / PA</div>
+        <h2 class="hotel-title">Salinas Premium Resort</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">Rio Lento</span>
+          <span class="hotel-tag">Boliche</span>
+          <span class="hotel-tag">Complexo Gastronômico</span>
+          <span class="hotel-tag">Quadras de Tênis</span>
+        </div>
+        <p class="hotel-desc">Complexo novo e ultramoderno com parque aquático temático, rio lento com boias, pista de boliche profissional e excelente infraestrutura para famílias que querem o máximo conforto em Salinas.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 420</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Salinas+Premium+Resort+Salinopolis" target="_blank" rel="noopener sponsored">Ver Vagas →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cat="salinopolis" data-busca="hotel prive do atalaia salinopolis para pe na areia vista mar morro do atalaia">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Salinópolis · PA</span>
+        <span class="badge-nota">⭐ 8.5 · Muito Bom</span>
+        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80" alt="Hotel Privê do Atalaia" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Morro do Atalaia · Salinópolis / PA</div>
+        <h2 class="hotel-title">Hotel Privê do Atalaia</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">Vista Panorâmica</span>
+          <span class="hotel-tag">Acesso à Praia</span>
+          <span class="hotel-tag">Piscina Panorâmica</span>
+          <span class="hotel-tag">Restaurante</span>
+        </div>
+        <p class="hotel-desc">Localizado estrategicamente no topo do morro com a vista mais espetacular de toda a praia do Atalaia. Quartos aconchegantes com vista pro mar e pôr do sol inesquecível.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 310</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Hotel+Prive+do+Atalaia+Salinopolis" target="_blank" rel="noopener sponsored">Ver Vagas →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cat="salinopolis" data-busca="solar do farol salinas hotel salinopolis praia do macapa farol piscina cafe">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Salinópolis · PA</span>
+        <span class="badge-nota">⭐ 8.6 · Muito Bom</span>
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Solar do Farol Hotel" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Região do Farol Velho · Salinópolis / PA</div>
+        <h2 class="hotel-title">Solar do Farol Salinas Hotel</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">Piscina Aberta</span>
+          <span class="hotel-tag">Café da Manhã Incluso</span>
+          <span class="hotel-tag">Wi-Fi Rápido</span>
+          <span class="hotel-tag">Custo-Benefício</span>
+        </div>
+        <p class="hotel-desc">Excelente opção de tranquilidade com atendimento acolhedor, piscina relaxante, café da manhã regional delicioso e proximidade com as praias e centro gastronômico.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 250</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Solar+do+Farol+Salinas+Hotel" target="_blank" rel="noopener sponsored">Ver Vagas →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- GRAMADO (RS) -->
+    <article class="hotel-card" data-cat="gramado" data-busca="wish serrano resort gramado serra gaucha bosque piscina aquecida spa luxo">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Gramado · RS</span>
+        <span class="badge-nota">⭐ 9.0 · Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=800&q=80" alt="Wish Serrano Resort Gramado" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Centro · Gramado / RS</div>
+        <h2 class="hotel-title">Wish Serrano Resort</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">Bosque Nativo</span>
+          <span class="hotel-tag">Piscinas Aquecidas</span>
+          <span class="hotel-tag">Alta Gastronomia</span>
+          <span class="hotel-tag">Spa Completo</span>
+        </div>
+        <p class="hotel-desc">Um dos resorts mais conceituados e premiados do Brasil. Em meio a uma reserva verde no coração de Gramado, com atendimento 5 estrelas e alta culinária.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 690</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Wish+Serrano+Resort+Gramado" target="_blank" rel="noopener sponsored">Ver Vagas →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cat="gramado" data-busca="hotel ritta hoppner gramado serra gaucha mini mundo charme luxo cafe da tarde">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Gramado · RS</span>
+        <span class="badge-nota">⭐ 9.7 · Excepcional</span>
+        <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=800&q=80" alt="Hotel Ritta Höppner Gramado" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Bavária · Gramado / RS</div>
+        <h2 class="hotel-title">Hotel Ritta Höppner</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">Mini Mundo Grátis</span>
+          <span class="hotel-tag">Chá da Tarde Lendário</span>
+          <span class="hotel-tag">Chalés com Hidro</span>
+          <span class="hotel-tag">Romântico</span>
+        </div>
+        <p class="hotel-desc">Frequentemente eleito entre os melhores hotéis do mundo. Arquitetura europeia impecável, serviço primoroso, chá da tarde cortesia e entrada livre no Mini Mundo.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 890</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Hotel+Ritta+Hoppner+Gramado" target="_blank" rel="noopener sponsored">Ver Vagas →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cat="gramado" data-busca="laghetto stilo centro gramado rua coberta localizacao cafe">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Gramado · RS</span>
+        <span class="badge-nota">⭐ 9.1 · Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Laghetto Stilo Centro" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Rua Coberta · Gramado / RS</div>
+        <h2 class="hotel-title">Hotel Laghetto Stilo Centro</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">A 150m da Rua Coberta</span>
+          <span class="hotel-tag">Banheira de Hidro</span>
+          <span class="hotel-tag">Passeios a Pé</span>
+          <span class="hotel-tag">Moderno</span>
+        </div>
+        <p class="hotel-desc">A melhor localização de Gramado para quem quer curtir a cidade a pé sem precisar de carro. Quartos elegantes, silenciosos e café da manhã premiado.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 490</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Hotel+Laghetto+Stilo+Centro+Gramado" target="_blank" rel="noopener sponsored">Ver Vagas →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- CAMPOS DO JORDÃO (SP) -->
+    <article class="hotel-card" data-cat="campos" data-busca="hotel toriba campos do jordao sp serra da mantiqueira luxo tradicional loccitane">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Campos do Jordão · SP</span>
+        <span class="badge-nota">⭐ 9.4 · Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80" alt="Hotel Toriba Campos do Jordão" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Mantiqueira · Campos do Jordão / SP</div>
+        <h2 class="hotel-title">Hotel Toriba</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">Spa L'Occitane</span>
+          <span class="hotel-tag">Fazendinha Toriba</span>
+          <span class="hotel-tag">Fondue Suíço</span>
+          <span class="hotel-tag">Mirante Exclusivo</span>
+        </div>
+        <p class="hotel-desc">Símbolo do requinte em Campos do Jordão desde 1943. Cercado por araucárias, bosques floridos, piscina aquecida ao ar livre e gastronomia suíça autêntica.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 1.150</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Hotel+Toriba+Campos+do+Jordao" target="_blank" rel="noopener sponsored">Ver Vagas →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cat="campos" data-busca="villa montese hotel campos do jordao capivari romantico hidro">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Campos do Jordão · SP</span>
+        <span class="badge-nota">⭐ 9.3 · Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80" alt="Villa Montese Hotel" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Vila Capivari · Campos do Jordão / SP</div>
+        <h2 class="hotel-title">Villa Montese Hotel</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">Suítes com Hidromassagem</span>
+          <span class="hotel-tag">Lareira Ecológica</span>
+          <span class="hotel-tag">Cama King Size</span>
+          <span class="hotel-tag">Casais</span>
+        </div>
+        <p class="hotel-desc">Pousada boutique muito aconchegante, perfeita para viagens a dois. Conforto térmico impecável, roupões de banho, produtos de banho especiais e café farto.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 480</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Villa+Montese+Hotel+Campos+do+Jordao" target="_blank" rel="noopener sponsored">Ver Vagas →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- RIO DE JANEIRO (RJ) -->
+    <article class="hotel-card" data-cat="rio" data-busca="fairmont rio copacabana rio de janeiro rj posto 6 piscina borda infinita vista mar">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Rio de Janeiro · RJ</span>
+        <span class="badge-nota">⭐ 9.1 · Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Fairmont Rio de Janeiro Copacabana" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Posto 6 Copacabana · Rio de Janeiro / RJ</div>
+        <h2 class="hotel-title">Fairmont Rio de Janeiro Copacabana</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">Piscina de Borda Infinita</span>
+          <span class="hotel-tag">Frente ao Mar</span>
+          <span class="hotel-tag">Marine Restô</span>
+          <span class="hotel-tag">Luxo Acima da Média</span>
+        </div>
+        <p class="hotel-desc">O ponto de encontro mais desejado de Copacabana. Desfrute da famosa piscina debruçada sobre o mar com vista privilegiada para o Pão de Açúcar e o Forte de Copacabana.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 1.350</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Fairmont+Rio+de+Janeiro+Copacabana" target="_blank" rel="noopener sponsored">Ver Vagas →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cat="rio" data-busca="arena ipanema hotel rio de janeiro arpoador rooftop praia">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Rio de Janeiro · RJ</span>
+        <span class="badge-nota">⭐ 8.9 · Fabuloso</span>
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Arena Ipanema Hotel" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Ipanema / Arpoador · Rio de Janeiro / RJ</div>
+        <h2 class="hotel-title">Arena Ipanema Hotel</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">Rooftop com Piscina</span>
+          <span class="hotel-tag">A 100m da Praia</span>
+          <span class="hotel-tag">Sauna Seca</span>
+          <span class="hotel-tag">Localização Segura</span>
+        </div>
+        <p class="hotel-desc">A poucos passos do por do sol do Arpoador e das melhores boutiques de Ipanema. Rooftop charmoso para drinks ao final da tarde e quartos modernos e climatizados.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 590</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Arena+Ipanema+Hotel+Rio" target="_blank" rel="noopener sponsored">Ver Vagas →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- SÃO PAULO (SP) -->
+    <article class="hotel-card" data-cat="sp" data-busca="tivoli mofarrej sao paulo jardins alameda santos seen rooftop piscina luxo">
+      <div class="hotel-thumb">
+        <span class="badge-dest">São Paulo · SP</span>
+        <span class="badge-nota">⭐ 9.0 · Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Tivoli Mofarrej São Paulo" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Jardins · São Paulo / SP</div>
+        <h2 class="hotel-title">Tivoli Mofarrej São Paulo</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">Restaurante SEEN</span>
+          <span class="hotel-tag">Anantara Spa</span>
+          <span class="hotel-tag">Piscina Laranja Icônica</span>
+          <span class="hotel-tag">Jardins</span>
+        </div>
+        <p class="hotel-desc">Refúgio urbano a um quarteirão da Av. Paulista. Spa tailandês renomado, a piscina aquecida mais charmosa de SP e o restaurante SEEN no 23º andar com vista 360° da metrópole.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 890</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Tivoli+Mofarrej+Sao+Paulo" target="_blank" rel="noopener sponsored">Ver Vagas →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cat="sp" data-busca="hotel unique sao paulo brigadeiro ruy ohtake skye bar design">
+      <div class="hotel-thumb">
+        <span class="badge-dest">São Paulo · SP</span>
+        <span class="badge-nota">⭐ 9.2 · Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80" alt="Hotel Unique São Paulo" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Jardins / Ibirapuera · São Paulo / SP</div>
+        <h2 class="hotel-title">Hotel Unique</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">Design em Meia-Lua</span>
+          <span class="hotel-tag">Skye Bar & Piscina Vermelha</span>
+          <span class="hotel-tag">Próximo ao Ibirapuera</span>
+          <span class="hotel-tag">Experiência VIP</span>
+        </div>
+        <p class="hotel-desc">Obra-prima arquitetônica de Ruy Ohtake. Referência mundial de design, com o famoso restaurante Skye no rooftop, piscina de azulejos vermelhos com som subaquático e serviço de alto padrão.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 1.290</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Hotel+Unique+Sao+Paulo" target="_blank" rel="noopener sponsored">Ver Vagas →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- FORTALEZA (CE) -->
+    <article class="hotel-card" data-cat="fortaleza" data-busca="carmel cumbuco resort ceara fortaleza praia piscinas pe na areia dunas">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Fortaleza & Cumbuco · CE</span>
+        <span class="badge-nota">⭐ 9.3 · Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=800&q=80" alt="Carmel Cumbuco Resort" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Praia do Cumbuco · Ceará</div>
+        <h2 class="hotel-title">Carmel Cumbuco Resort</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">Pé na Areia</span>
+          <span class="hotel-tag">Spa Caudalie</span>
+          <span class="hotel-tag">Jacuzzis Climatizadas</span>
+          <span class="hotel-tag">Paraíso do Kitesurf</span>
+        </div>
+        <p class="hotel-desc">Resort de luxo discreto à beira-mar, cercado por coqueirais e dunas cristalinas. Piscinas paradisíacas com vista direta para as ondas e atendimento caloroso do Ceará.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 820</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Carmel+Cumbuco+Resort" target="_blank" rel="noopener sponsored">Ver Vagas →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cat="fortaleza" data-busca="gran mareiro hotel fortaleza ceara praia do futuro piscina caranguejada">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Fortaleza · CE</span>
+        <span class="badge-nota">⭐ 8.9 · Fabuloso</span>
+        <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=800&q=80" alt="Gran Mareiro Hotel" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Praia do Futuro · Fortaleza / CE</div>
+        <h2 class="hotel-title">Gran Mareiro Hotel</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">Frente ao Mar</span>
+          <span class="hotel-tag">Piscinas Tropicais</span>
+          <span class="hotel-tag">Salão de Jogos</span>
+          <span class="hotel-tag">Espaço Kids</span>
+        </div>
+        <p class="hotel-desc">A melhor e mais segura estrutura hoteleira na Praia do Futuro. Em frente às maiores barracas de praia (Chico do Caranguejo e Crocobeach), com gastronomia de ponta e muito lazer.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 390</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Gran+Mareiro+Hotel+Fortaleza" target="_blank" rel="noopener sponsored">Ver Vagas →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- MUNDO (INTERNACIONAL) -->
+    <article class="hotel-card" data-cat="mundo" data-busca="orlando florida eua cabana bay universal resort parques">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Orlando · Estados Unidos</span>
+        <span class="badge-nota">⭐ 8.9 · Fabuloso</span>
+        <img src="https://images.unsplash.com/photo-1568084680786-a84f91d1153c?auto=format&fit=crop&w=800&q=80" alt="Universal's Cabana Bay Beach Resort" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Universal Orlando · Flórida / EUA</div>
+        <h2 class="hotel-title">Universal's Cabana Bay Beach Resort</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">Entrada Antecipada Parques</span>
+          <span class="hotel-tag">Transporte Gratuito</span>
+          <span class="hotel-tag">Rio Lento & Toboágua</span>
+          <span class="hotel-tag">Boliche Retrô</span>
+        </div>
+        <p class="hotel-desc">O melhor resort custo-benefício de Orlando dentro do complexo da Universal. Visual retrô anos 50/60 espetacular, entrada 1h antes no parque do Harry Potter e Volcano Bay.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>US$ 155</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Universal+Cabana+Bay+Beach+Resort+Orlando" target="_blank" rel="noopener sponsored">Ver Vagas →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cat="mundo" data-busca="buenos aires argentina alvear palace hotel recoleta luxo classico">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Buenos Aires · Argentina</span>
+        <span class="badge-nota">⭐ 9.3 · Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1561501900-3701fa6a0864?auto=format&fit=crop&w=800&q=80" alt="Alvear Palace Hotel Buenos Aires" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">La Recoleta · Buenos Aires / Argentina</div>
+        <h2 class="hotel-title">Alvear Palace Hotel</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">Ícone da Argentina</span>
+          <span class="hotel-tag">Serviço de Mordomo</span>
+          <span class="hotel-tag">Rooftop Bar</span>
+          <span class="hotel-tag">Bairro Nobre</span>
+        </div>
+        <p class="hotel-desc">Patrimônio histórico e símbolo máximo da elegância portenha. Quartos no estilo Luís XVI e Império, mordomo pessoal, spa moderno e o bar no terraço mais charmoso de Buenos Aires.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>US$ 320</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Alvear+Palace+Hotel+Buenos+Aires" target="_blank" rel="noopener sponsored">Ver Vagas →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cat="mundo" data-busca="lisboa portugal tivoli avenida liberdade centro historico luxo sky bar">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Lisboa · Portugal</span>
+        <span class="badge-nota">⭐ 9.0 · Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80" alt="Tivoli Avenida Liberdade Lisboa" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Avenida da Liberdade · Lisboa / Portugal</div>
+        <h2 class="hotel-title">Tivoli Avenida Liberdade Lisboa</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">Piscina no Jardim</span>
+          <span class="hotel-tag">Sky Bar Lisboa</span>
+          <span class="hotel-tag">No Coração da Cidade</span>
+          <span class="hotel-tag">Metrô na Porta</span>
+        </div>
+        <p class="hotel-desc">Tradição hoteleira no endereço mais nobre de Portugal. Piscina tropical escondida entre árvores centenárias e o lendário Sky Bar com vista deslumbrante sobre os telhados de Lisboa e o Rio Tejo.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>€ 220</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Tivoli+Avenida+Liberdade+Lisboa" target="_blank" rel="noopener sponsored">Ver Vagas →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cat="mundo" data-busca="paris franca pullman paris tour eiffel torre eiffel vista">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Paris · França</span>
+        <span class="badge-nota">⭐ 8.7 · Muito Bom</span>
+        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80" alt="Pullman Paris Tour Eiffel" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Champ de Mars · Paris / França</div>
+        <h2 class="hotel-title">Pullman Paris Tour Eiffel</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">A 200m da Torre Eiffel</span>
+          <span class="hotel-tag">Varanda com Vista Torre</span>
+          <span class="hotel-tag">Restaurante FRAME</span>
+          <span class="hotel-tag">Metrô Bir-Hakeim</span>
+        </div>
+        <p class="hotel-desc">A experiência parisiense definitiva: abra a janela do quarto e contemple a Torre Eiffel iluminada à noite. Localização perfeita para explorar o Sena, museus e bistrôs a pé.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>€ 310</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Pullman+Paris+Tour+Eiffel" target="_blank" rel="noopener sponsored">Ver Vagas →</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<footer style="background:var(--card);border-top:1px solid var(--linha);padding:40px 0;margin-top:60px">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;font-size:13px;color:var(--texto-sub)">
+    <div>
+      <p style="font-weight:700;color:var(--texto);margin-bottom:6px">PENNER TECH VIAGENS — CURADORIA INDEPENDENTE</p>
+      <p>Canal parceiro oficial de distribuição e divulgação de hospedagens e turismo Booking.com.</p>
+      <p>Todas as reservas são processadas diretamente no ambiente criptografado da Booking.com.</p>
+    </div>
+    <div>
+      <p>© 2026 Renato Penner Soares. Todos os direitos reservados.</p>
+      <p><a href="https://loja.pennertech.com.br/">loja.pennertech.com.br</a> · <a href="https://instagram.com/pennerrenato" target="_blank" rel="noopener">@pennerrenato</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Sistema de Filtros por Categoria e Busca em Tempo Real
+(function(){
+  var chips = document.querySelectorAll('.chip');
+  var inputBusca = document.getElementById('q');
+  var cards = document.querySelectorAll('.hotel-card');
+  var catAtiva = 'todos';
+
+  function filtrar(){
+    var termo = (inputBusca.value || '').toLowerCase().trim();
+    cards.forEach(function(card){
+      var cat = card.getAttribute('data-cat') || '';
+      var texto = (card.getAttribute('data-busca') || '') + ' ' + card.innerText.toLowerCase();
+      var matchCat = (catAtiva === 'todos' || cat === catAtiva);
+      var matchBusca = (!termo || texto.indexOf(termo) >= 0);
+      card.style.display = (matchCat && matchBusca) ? 'flex' : 'none';
+    });
+  }
+
+  chips.forEach(function(c){
+    c.addEventListener('click', function(){
+      chips.forEach(function(o){ o.classList.remove('on'); });
+      c.classList.add('on');
+      catAtiva = c.getAttribute('data-cat');
+      filtrar();
+    });
+  });
+
+  if(inputBusca){
+    inputBusca.addEventListener('input', filtrar);
+  }
+
+  // Alternar Tema Claro / Escuro
+  var btnTema = document.getElementById('btn-tema');
+  if(btnTema){
+    btnTema.addEventListener('click', function(){
+      var atual = document.documentElement.getAttribute('data-tema') || 'claro';
+      var prox = atual === 'claro' ? 'escuro' : 'claro';
+      document.documentElement.setAttribute('data-tema', prox);
+      document.cookie = 'pt_tema=' + prox + '; path=/; max-age=31536000';
+      btnTema.textContent = prox === 'claro' ? '🌙' : '☀️';
+    });
+    var temaAtual = document.documentElement.getAttribute('data-tema');
+    btnTema.textContent = temaAtual === 'escuro' ? '☀️' : '🌙';
+  }
+})();
+</script>
+</body>
+</html>
