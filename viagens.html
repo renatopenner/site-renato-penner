@@ -52,6 +52,24 @@
 .booking-submit:hover{background:#00224f}
 .selo-garantia{display:flex;align-items:center;gap:18px;background:var(--card);border:1px solid var(--card-borda);padding:14px 20px;border-radius:12px;margin:20px 0;font-size:13px;color:var(--texto-corpo)}
 .selo-garantia span{display:flex;align-items:center;gap:6px;font-weight:600}
+.tabs-busca{display:flex;gap:10px;margin-bottom:16px}
+.tab-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:12px;font-size:14.5px;font-weight:800;border:1.5px solid var(--borda-suave);background:var(--card);color:var(--texto);cursor:pointer;transition:all .2s ease}
+.tab-btn.ativo{background:var(--acento);color:#fff;border-color:var(--acento);box-shadow:0 4px 12px rgba(2,132,199,.25)}
+.painel-busca{display:none}
+.painel-busca.ativo{display:block}
+.voos-search-box{background:linear-gradient(135deg,rgba(16,185,129,.07),rgba(2,132,199,.05));border:1px solid rgba(16,185,129,.25);border-radius:20px;padding:26px 28px;margin:10px 0 36px}
+.voos-search-box h3{font-size:20px;font-weight:800;color:var(--texto);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.voos-form{display:grid;grid-template-columns:1.2fr 1.2fr 140px 140px;gap:10px;margin-bottom:16px}
+@media (max-width:840px){.voos-form{grid-template-columns:1fr 1fr;}}
+@media (max-width:540px){.voos-form{grid-template-columns:1fr;}}
+.voos-acoes{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn-cia{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:10px;font-size:13.5px;font-weight:800;color:#fff;border:none;cursor:pointer;transition:transform .15s,filter .15s;text-decoration:none}
+.btn-cia:hover{transform:translateY(-2px);filter:brightness(1.08);color:#fff}
+.btn-gol{background:#ff6700}
+.btn-azul{background:#004b87}
+.btn-latam{background:#e30613}
+.btn-decolar{background:#5f27cd}
+.destaque-rota{background:var(--card);border:1px solid rgba(16,185,129,.35);padding:14px 18px;border-radius:12px;margin-top:16px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
 </style>
 <script>
 addEventListener('load',function(){try{var u='https://renatopennersoares1783016458000.0871043.meusitehostgator.com.br/c.php?p='+encodeURIComponent(location.pathname)+'&o='+encodeURIComponent(location.hostname);
@@ -121,16 +139,68 @@ document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closes
       <span>🔄 Cancelamento Grátis na maioria dos quartos</span>
     </div>
 
-    <!-- Ferramenta de Busca Rápida Booking -->
-    <div class="booking-search-box">
-      <h3>🔍 Pesquisar qualquer destino ou hotel no Booking.com</h3>
-      <p>Digite para onde deseja viajar e encontre as melhores tarifas negociadas em tempo real:</p>
-      <form class="booking-form" action="https://www.booking.com/searchresults.pt-br.html" method="get" target="_blank" rel="noopener sponsored">
-        <input class="booking-input" type="text" name="ss" placeholder="Cidade, resort, praia ou hotel (ex: Salinópolis, Gramado, Orlando...)" required>
-        <input class="booking-input" type="date" name="checkin" title="Check-in" placeholder="Check-in">
-        <input class="booking-input" type="date" name="checkout" title="Check-out" placeholder="Check-out">
-        <button class="booking-submit" type="submit">Buscar Vagas no Booking →</button>
-      </form>
+    <!-- Abas de Categoria de Busca -->
+    <div class="tabs-busca" id="busca">
+      <button class="tab-btn ativo" id="tabHospedagem" type="button">🏨 Hotéis & Hospedagens (Booking.com)</button>
+      <button class="tab-btn" id="tabVoos" type="button">✈️ Passagens Aéreas (GOL, Azul, LATAM, Decolar)</button>
+    </div>
+
+    <!-- Painel 1: Ferramenta de Busca Rápida Booking -->
+    <div class="painel-busca ativo" id="painelHospedagem">
+      <div class="booking-search-box" style="margin-top:0">
+        <h3>🔍 Pesquisar qualquer destino ou hotel no Booking.com</h3>
+        <p>Digite para onde deseja viajar e encontre as melhores tarifas negociadas em tempo real:</p>
+        <form class="booking-form" action="https://www.booking.com/searchresults.pt-br.html" method="get" target="_blank" rel="noopener sponsored">
+          <input class="booking-input" type="text" name="ss" placeholder="Cidade, resort, praia ou hotel (ex: Salinópolis, Gramado, Orlando...)" required>
+          <input class="booking-input" type="date" name="checkin" title="Check-in" placeholder="Check-in">
+          <input class="booking-input" type="date" name="checkout" title="Check-out" placeholder="Check-out">
+          <button class="booking-submit" type="submit">Buscar Vagas no Booking →</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Painel 2: Ferramenta de Busca de Passagens Aéreas -->
+    <div class="painel-busca" id="painelVoos">
+      <div class="voos-search-box">
+        <h3>✈️ Cotação Oficial de Passagens Aéreas</h3>
+        <p>Preencha os aeroportos e datas e clique para cotar direto na companhia de sua preferência ou comparar os melhores preços:</p>
+        <form class="voos-form" id="formVoos" onsubmit="return false;">
+          <input class="booking-input" id="vooOrigem" type="text" placeholder="Origem (ex: Belém - BEL, SP - GRU)" value="Belém (BEL)" required>
+          <input class="booking-input" id="vooDestino" type="text" placeholder="Destino (ex: Macapá - MCP, RJ - GIG)" value="Macapá (MCP)" required>
+          <input class="booking-input" id="vooIda" type="date" value="2027-01-16" title="Data de Ida">
+          <input class="booking-input" id="vooVolta" type="date" value="2027-01-23" title="Data de Volta">
+        </form>
+
+        <div style="margin-bottom:14px">
+          <button class="btn-cia" id="btnCotarTodas" type="button" style="width:100%;padding:14px 22px;background:linear-gradient(135deg,#059669,#0284c7);font-size:15px;font-weight:800;letter-spacing:.02em;box-shadow:0 4px 14px rgba(5,150,105,.28)">
+            ⚡ PESQUISAR EM TODAS AS COMPANHIAS (GOL, LATAM, AZUL, DECOLAR & MAIS) →
+          </button>
+        </div>
+
+        <div class="voos-acoes">
+          <span style="font-size:13px;font-weight:700;color:var(--texto);margin-right:6px">Ou cotar direto na empresa:</span>
+          <button class="btn-cia btn-gol" type="button" id="btnCotarGol">✈️ GOL Linhas Aéreas</button>
+          <button class="btn-cia btn-azul" type="button" id="btnCotarAzul">✈️ Azul Linhas Aéreas</button>
+          <button class="btn-cia btn-latam" type="button" id="btnCotarLatam">✈️ LATAM Airlines</button>
+          <button class="btn-cia btn-decolar" type="button" id="btnCotarDecolar">🌐 Comparar na Decolar</button>
+          <button class="btn-cia" style="background:#0284c7" type="button" id="btnCotarAviasales">🔍 Menores Tarifas (Aviasales)</button>
+        </div>
+
+        <!-- Rota Especial em Destaque -->
+        <div class="destaque-rota">
+          <div>
+            <span style="display:inline-block;background:#059669;color:#fff;font-size:11px;font-weight:800;padding:3px 8px;border-radius:6px;text-transform:uppercase;margin-bottom:4px">🎯 Cotação Solicitada</span>
+            <div style="font-size:15px;font-weight:800;color:var(--texto)">Belém (BEL) ⇄ Macapá (MCP) · 16 a 23 de Janeiro de 2027</div>
+            <div style="font-size:12.5px;color:var(--texto-sub)">Tarifas diretas da rota amazônica mais procurada. Compre com antecedência para garantir os melhores preços.</div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn-cia btn-gol" style="padding:8px 14px;font-size:12.5px" onclick="cotarRotaEspecifica('GOL','BEL','MCP','2027-01-16','2027-01-23')">Ver na GOL →</button>
+            <button class="btn-cia btn-azul" style="padding:8px 14px;font-size:12.5px" onclick="cotarRotaEspecifica('Azul','BEL','MCP','2027-01-16','2027-01-23')">Ver na Azul →</button>
+            <button class="btn-cia btn-latam" style="padding:8px 14px;font-size:12.5px" onclick="cotarRotaEspecifica('LATAM','BEL','MCP','2027-01-16','2027-01-23')">Ver na LATAM →</button>
+            <button class="btn-cia" style="background:#0284c7;padding:8px 14px;font-size:12.5px" onclick="cotarRotaEspecifica('Aviasales','BEL','MCP','2027-01-16','2027-01-23')">Menores Preços (Aviasales) →</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="chips">
