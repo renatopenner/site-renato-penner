@@ -137,19 +137,20 @@ document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closes
       <button class="chip on" data-cat="todos">Todos os Destinos</button>
       <button class="chip" data-cat="salinopolis">🏖️ Salinópolis (PA)</button>
       <button class="chip" data-cat="gramado">❄️ Gramado & Canela (RS)</button>
-      <button class="chip" data-cat="campos">🏔️ Campos do Jordão (SP)</button>
+      <button class="chip" data-cat="campos">🌲 Campos do Jordão (SP)</button>
       <button class="chip" data-cat="rio">🌊 Rio de Janeiro (RJ)</button>
       <button class="chip" data-cat="sp">🏙️ São Paulo (SP)</button>
       <button class="chip" data-cat="fortaleza">☀️ Fortaleza & Cumbuco (CE)</button>
-      <button class="chip" data-cat="mundo">🌍 Destinos do Mundo</button>
+      <button class="chip" data-cat="mundo">🌍 Europa & Internacional (Paris, Londres, Lisboa...)</button>
     </div>
 
     <div class="chips chips-preco" style="margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px">
       <span style="font-size:12.5px;font-weight:700;color:var(--texto-corpo);margin-right:4px">Faixa de Preço:</span>
-      <button class="chip chip-preco on" data-preco-min="0" data-preco-max="9999">Todas as Tarifas (R$ 100 a R$ 400)</button>
+      <button class="chip chip-preco on" data-preco-min="0" data-preco-max="9999">Todas as Tarifas</button>
       <button class="chip chip-preco" data-preco-min="0" data-preco-max="200">Até R$ 200 (Super Econômico 🏷️)</button>
-      <button class="chip chip-preco" data-preco-min="195" data-preco-max="255" style="border-color:#059669;color:#059669;font-weight:700">⭐ R$ 200 a R$ 250 (Mais Populares)</button>
+      <button class="chip chip-preco" data-preco-min="195" data-preco-max="255" style="border-color:#059669;color:#059669;font-weight:700">⭐ R$ 200 a R$ 250 (Mais Populares BR)</button>
       <button class="chip chip-preco" data-preco-min="250" data-preco-max="400">R$ 250 a R$ 400</button>
+      <button class="chip chip-preco" data-preco-min="400" data-preco-max="600" style="border-color:#0284c7;color:#0284c7;font-weight:700">✈️ R$ 400 a R$ 600 (Europa & Internacional)</button>
     </div>
 
 
@@ -791,7 +792,307 @@ document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closes
       </div>
     </article>
 
-    <!-- DESTINOS DO MUNDO -->
+
+    <!-- EUROPA & DESTINOS DO MUNDO (R$ 400 A R$ 600 - PRINCIPAIS CAPITAIS) -->
+
+    <!-- PARIS (FRANÇA) -->
+    <article class="hotel-card" data-cat="mundo" data-preco="490" data-busca="paris franca ibis tour eiffel cambronne 15eme metro torre eiffel louvre">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Paris · França</span>
+        <span class="badge-nota">⭐ 8.3 · Muito Bom</span>
+        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80" alt="Ibis Paris Tour Eiffel Cambronne" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">15ème Arrondissement · Paris / França</div>
+        <h2 class="hotel-title">Ibis Paris Tour Eiffel Cambronne</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">A 15 min a pé da Torre</span>
+          <span class="hotel-tag">Metrô Cambronne na Porta</span>
+          <span class="hotel-tag">Ar Condicionado</span>
+          <span class="hotel-tag">Bistrôs ao Redor</span>
+        </div>
+        <p class="hotel-desc">A melhor estratégia em Paris para ficar perto da Torre Eiffel sem estourar o orçamento. Metrô colado para o Museu do Louvre e Champs-Élysées, camas confortáveis e padronização segura Accor.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 490</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Ibis+Paris+Tour+Eiffel+Cambronne&label=pennertech-mundo-paris" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- LONDRES (REINO UNIDO) -->
+    <article class="hotel-card" data-cat="mundo" data-preco="520" data-busca="londres reino unido inglaterra point a hotel kings cross st pancras eurostar metro">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Londres · Reino Unido</span>
+        <span class="badge-nota">⭐ 8.4 · Muito Bom</span>
+        <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80" alt="Point A Hotel London Kings Cross" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Kings Cross / St Pancras · Londres / UK</div>
+        <h2 class="hotel-title">Point A Hotel London Kings Cross</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">Ao Lado do Eurostar</span>
+          <span class="hotel-tag">6 Linhas de Metrô</span>
+          <span class="hotel-tag">Cama Hypnos Premium</span>
+          <span class="hotel-tag">Design Compacto</span>
+        </div>
+        <p class="hotel-desc">Localização imbatível na estação Kings Cross/St Pancras. Quarto ultra-moderno e silencioso com chuveiro de alta pressão, iluminação ambiente e conexão direta com os aeroportos de Londres.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 520</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Point+A+Hotel+London+Kings+Cross&label=pennertech-mundo-londres" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- AMSTERDAM (HOLANDA) -->
+    <article class="hotel-card" data-cat="mundo" data-preco="495" data-busca="amsterdam holanda meininger hotel amsterdam city west sloterdijk trem centro">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Amsterdam · Holanda</span>
+        <span class="badge-nota">⭐ 8.6 · Fabuloso</span>
+        <img src="https://images.unsplash.com/photo-1534351590666-13e3e96b5017?auto=format&fit=crop&w=800&q=80" alt="Meininger Hotel Amsterdam City West" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Sloterdijk · Amsterdam / Holanda</div>
+        <h2 class="hotel-title">Meininger Hotel Amsterdam City West</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">A 5 min de Trem da Central</span>
+          <span class="hotel-tag">Quarto Privativo Amplo</span>
+          <span class="hotel-tag">Bar & Lounge Descolado</span>
+          <span class="hotel-tag">Cozinha Compartilhada</span>
+        </div>
+        <p class="hotel-desc">O segredo dos viajantes experientes em Amsterdam: fuja dos preços abusivos dos canais ficando colado na estação Sloterdijk. Trem a cada 3 minutos para a Centraal e aeroporto Schiphol.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 495</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Meininger+Hotel+Amsterdam+City+West&label=pennertech-mundo-amsterdam" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ROMA (ITÁLIA) -->
+    <article class="hotel-card" data-cat="mundo" data-preco="460" data-busca="roma italia hotel sonya termini repubblica coliseu fontana di trevi cafe">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Roma · Itália</span>
+        <span class="badge-nota">⭐ 8.5 · Muito Bom</span>
+        <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80" alt="Hotel Sonya Roma" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Teatro dell'Opera / Termini · Roma / Itália</div>
+        <h2 class="hotel-title">Hotel Sonya Roma Centro</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">A 15 min do Coliseu</span>
+          <span class="hotel-tag">Próx. Estação Termini</span>
+          <span class="hotel-tag">Café Italiano Delicioso</span>
+          <span class="hotel-tag">Ar Condicionado</span>
+        </div>
+        <p class="hotel-desc">Hotel familiar charmoso em frente à Ópera de Roma. Caminhe facilmente até a Fontana di Trevi e o Coliseu, desfrute de café da manhã com cappuccino fresco e ar potente para o calor italiano.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 460</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Hotel+Sonya+Roma&label=pennertech-mundo-roma" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- BERLIM (ALEMANHA) -->
+    <article class="hotel-card" data-cat="mundo" data-preco="450" data-busca="berlim alemanha motel one berlin alexanderplatz torre tv ilha dos museus design">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Berlim · Alemanha</span>
+        <span class="badge-nota">⭐ 8.7 · Fabuloso</span>
+        <img src="https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=800&q=80" alt="Motel One Berlin-Alexanderplatz" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Alexanderplatz · Berlim / Alemanha</div>
+        <h2 class="hotel-title">Motel One Berlin-Alexanderplatz</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">Na Alexanderplatz</span>
+          <span class="hotel-tag">Design Premiado</span>
+          <span class="hotel-tag">Metrô e Trem na Porta</span>
+          <span class="hotel-tag">Lounge One Aconchegante</span>
+        </div>
+        <p class="hotel-desc">Referência europeia em design acessível no coração de Berlim. Em frente à icônica Torre de TV e Ilha dos Museus, com banheiros revestidos em granito, ducha revigorante e atmosfera cosmopolita.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 450</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Motel+One+Berlin+Alexanderplatz&label=pennertech-mundo-berlim" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- BARCELONA (ESPANHA) -->
+    <article class="hotel-card" data-cat="mundo" data-preco="475" data-busca="barcelona espanha acta city47 sants metro sagrada familia praia moderna">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Barcelona · Espanha</span>
+        <span class="badge-nota">⭐ 8.5 · Muito Bom</span>
+        <img src="https://images.unsplash.com/photo-1583422409516-2895a77efded?auto=format&fit=crop&w=800&q=80" alt="Acta CITY47 Barcelona" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Sants-Montjuïc · Barcelona / Espanha</div>
+        <h2 class="hotel-title">Acta CITY47 Hotel Barcelona</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">A 5 min da Estação Sants</span>
+          <span class="hotel-tag">Metrô Direto Sagrada Família</span>
+          <span class="hotel-tag">Quartos Insonorizados</span>
+          <span class="hotel-tag">Ar Condicionado</span>
+        </div>
+        <p class="hotel-desc">Moderno, funcional e perfeitamente conectado por metrô à Praça Catalunha, Sagrada Família e praias. Atendimento acolhedor, camas confortáveis e tarifa excelente para os padrões catalães.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 475</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Acta+CITY47+Barcelona&label=pennertech-mundo-barcelona" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- LISBOA (PORTUGAL) -->
+    <article class="hotel-card" data-cat="mundo" data-preco="420" data-busca="lisboa portugal hotel borges chiado baixa chiado fernando pessoa pastel nata">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Lisboa · Portugal</span>
+        <span class="badge-nota">⭐ 8.4 · Muito Bom</span>
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80" alt="Hotel Borges Chiado Lisboa" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Chiado / Baixa · Lisboa / Portugal</div>
+        <h2 class="hotel-title">Hotel Borges Chiado</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">Coração do Chiado</span>
+          <span class="hotel-tag">Em frente n'A Brasileira</span>
+          <span class="hotel-tag">Metrô Baixa-Chiado</span>
+          <span class="hotel-tag">Tudo a Pé</span>
+        </div>
+        <p class="hotel-desc">A melhor localização de Lisboa: saia do hotel direto no Chiado histórico, ao lado da estátua de Fernando Pessoa e dos melhores pastéis de nata. Metrô na porta e facilidade total para brasileiros.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 420</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Hotel+Borges+Chiado+Lisboa&label=pennertech-mundo-lisboa" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- MADRID (ESPANHA) -->
+    <article class="hotel-card" data-cat="mundo" data-preco="440" data-busca="madrid espanha bb hotel madrid centro puerta del sol gran via plaza mayor">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Madrid · Espanha</span>
+        <span class="badge-nota">⭐ 8.7 · Fabuloso</span>
+        <img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?auto=format&fit=crop&w=800&q=80" alt="B&B Hotel Madrid Centro Puerta del Sol" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Puerta del Sol · Madrid / Espanha</div>
+        <h2 class="hotel-title">B&B Hotel Madrid Centro Puerta del Sol</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">A passos da Puerta del Sol</span>
+          <span class="hotel-tag">Próx. Gran Vía e Plaza Mayor</span>
+          <span class="hotel-tag">Café Cortesia no Lobby</span>
+          <span class="hotel-tag">Tudo a Pé</span>
+        </div>
+        <p class="hotel-desc">Localização imbatível a menos de 100m do marco zero da Espanha. Explore museus, mercados gastronômicos (como o Mercado San Miguel) e lojas da Gran Vía sem gastar um centavo com transporte.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 440</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=BB+Hotel+Madrid+Centro+Puerta+del+Sol&label=pennertech-mundo-madrid" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- GENEBRA (SUÍÇA) -->
+    <article class="hotel-card" data-cat="mundo" data-preco="540" data-busca="genebra suica ibis geneve centre gare cornavin lago leman transporte gratis">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Genebra · Suíça</span>
+        <span class="badge-nota">⭐ 8.4 · Muito Bom</span>
+        <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=800&q=80" alt="Ibis Genève Centre Gare" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Gare Cornavin · Genebra / Suíça</div>
+        <h2 class="hotel-title">Ibis Genève Centre Gare</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">A 200m da Estação Cornavin</span>
+          <span class="hotel-tag">Geneva Transport Card Grátis</span>
+          <span class="hotel-tag">Perto do Lago Léman</span>
+          <span class="hotel-tag">Custo-Benefício Suíço</span>
+        </div>
+        <p class="hotel-desc">O achado econômico na cara Suíça: a 3 minutos da estação central e do Lago com o famoso Jet d'Eau. A diária inclui passe livre para todos os trens, bondes e barcos amarelos de Genebra durante a estadia.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 540</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Ibis+Geneve+Centre+Gare&label=pennertech-mundo-genebra" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ZURIQUE (SUÍÇA) -->
+    <article class="hotel-card" data-cat="mundo" data-preco="565" data-busca="zurique suica motel one zurich bahnhofstrasse lago bonde moderno">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Zurique · Suíça</span>
+        <span class="badge-nota">⭐ 8.8 · Fabuloso</span>
+        <img src="https://images.unsplash.com/photo-1515488764276-beab7607c1e6?auto=format&fit=crop&w=800&q=80" alt="Motel One Zürich" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Centro / Selnau · Zurique / Suíça</div>
+        <h2 class="hotel-title">Motel One Zürich</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">Próx. Lago de Zurique</span>
+          <span class="hotel-tag">Design Suíço Elegante</span>
+          <span class="hotel-tag">Ducha Efeito Chuva</span>
+          <span class="hotel-tag">Bonde na Porta</span>
+        </div>
+        <p class="hotel-desc">Hospedagem sofisticada e com preço surpreendente em Zurique. Lounge temático inspirado nos chocolates suíços, camas boxspring de alto padrão e fácil acesso a pé até a famosa Bahnhofstrasse.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 565</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Motel+One+Zurich&label=pennertech-mundo-zurique" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ESTOCOLMO (SUÉCIA) -->
+    <article class="hotel-card" data-cat="mundo" data-preco="480" data-busca="estocolmo suecia generator stockholm privativo norrmalm centralen gamla stan">
+      <div class="hotel-thumb">
+        <span class="badge-dest">Estocolmo · Suécia</span>
+        <span class="badge-nota">⭐ 8.5 · Muito Bom</span>
+        <img src="https://images.unsplash.com/photo-1509356843151-3e7d96241e11?auto=format&fit=crop&w=800&q=80" alt="Generator Stockholm" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc">Norrmalm · Estocolmo / Suécia</div>
+        <h2 class="hotel-title">Generator Stockholm (Suíte Privativa)</h2>
+        <div class="hotel-feats">
+          <span class="hotel-tag">Quarto Privativo com Banheiro</span>
+          <span class="hotel-tag">Design Escandinavo</span>
+          <span class="hotel-tag">A 10 min da Estação Central</span>
+          <span class="hotel-tag">Bar & Gastronomia Nórdica</span>
+        </div>
+        <p class="hotel-desc">Quartos privativos com design nórdico minimalista e banheiro exclusivo no centro de Estocolmo. Ambiente vibrante, seguro e com fácil caminhada até a cidade velha (Gamla Stan) e canais.</p>
+        <div class="hotel-footer">
+          <div class="hotel-preco-box">
+            <small>Diárias a partir de</small>
+            <b>R$ 480</b>
+          </div>
+          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Generator+Stockholm&label=pennertech-mundo-estocolmo" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- BUENOS AIRES (ARGENTINA) -->
     <article class="hotel-card" data-cat="mundo" data-preco="180" data-busca="hotel reconquista plaza buenos aires argentina microcentro galerias pacifico barato">
       <div class="hotel-thumb">
         <span class="badge-dest">Buenos Aires · Argentina</span>
@@ -818,6 +1119,7 @@ document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closes
       </div>
     </article>
 
+    <!-- SANTIAGO (CHILE) -->
     <article class="hotel-card" data-cat="mundo" data-preco="240" data-busca="ibis providencia santiago chile manuel montt metro seguro cordilheira">
       <div class="hotel-thumb">
         <span class="badge-dest">Santiago · Chile</span>
@@ -844,32 +1146,7 @@ document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closes
       </div>
     </article>
 
-    <article class="hotel-card" data-cat="mundo" data-preco="220" data-busca="smart hotel montevideo uruguai plaza independencia ciudad vieja design">
-      <div class="hotel-thumb">
-        <span class="badge-dest">Montevidéu · Uruguai</span>
-        <span class="badge-nota">⭐ 8.8 · Fabuloso</span>
-        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80" alt="Smart Hotel Montevideo" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc">Plaza Independencia · Montevidéu / Uruguai</div>
-        <h2 class="hotel-title">Smart Hotel Montevideo</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag">Design Minimalista</span>
-          <span class="hotel-tag">Janelões Panorâmicos</span>
-          <span class="hotel-tag">A 100m da Ciudad Vieja</span>
-          <span class="hotel-tag">Wi-Fi Veloz</span>
-        </div>
-        <p class="hotel-desc">Hotel contemporâneo e elegante situado entre o centro novo e o centro histórico de Montevidéu. Ótimo para caminhar até a Rambla, teatro Solís e Mercado del Puerto.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 220</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Smart+Hotel+Montevideo&label=pennertech-mundo-montevideo" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
-        </div>
-      </div>
-    </article>
-
+    <!-- ORLANDO (EUA) -->
     <article class="hotel-card" data-cat="mundo" data-preco="290" data-busca="rosen inn at pointe orlando fl eua parques universal sem taxa de resort piscina aquecida">
       <div class="hotel-thumb">
         <span class="badge-dest">Orlando · Estados Unidos</span>
@@ -993,6 +1270,7 @@ document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closes
   }
 })();
 </script>
+
 
 </body>
 </html>
