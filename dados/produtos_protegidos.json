@@ -1,7 +1,7 @@
 {
   "descricao": "Produtos que NUNCA podem sumir do site.",
   "versao": 1,
-  "atualizado_em": "2026-11-25",
+  "atualizado_em": "2026-11-27",
   "produtos": [
     {
       "slug": "acer-aspire-16-core-ultra-5",
@@ -789,6 +789,29 @@
       "pagina": "p/robo-aspirador-redroad-r11.html",
       "imagem": "img/robo-aspirador-redroad-r11.jpg",
       "sitemap": "https://loja.pennertech.com.br/p/robo-aspirador-redroad-r11.html",
+      "cartoes": [
+        {
+          "pagina": "index.html",
+          "grid": "id:gridDestaques"
+        },
+        {
+          "pagina": "promocoes.html",
+          "grid": "idx:0"
+        },
+        {
+          "pagina": "casa.html",
+          "grid": "idx:0"
+        }
+      ],
+      "fixado": false
+    },
+    {
+      "slug": "robo-aspirador-redroad-r11-max",
+      "titulo": "Robô Aspirador Redroad R11 Max 36.000 Pa com Base Autolimpante",
+      "link": "https://meli.la/1Uwdz2V",
+      "pagina": "p/robo-aspirador-redroad-r11-max.html",
+      "imagem": "img/robo-aspirador-redroad-r11-max.jpg",
+      "sitemap": "https://loja.pennertech.com.br/p/robo-aspirador-redroad-r11-max.html",
       "cartoes": [
         {
           "pagina": "index.html",
