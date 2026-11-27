@@ -335,29 +335,30 @@ document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closes
     </article>
 
     <!-- CAMPOS DO JORDÃO (SP) -->
-    <article class="hotel-card" data-cat="campos" data-busca="apartamento economico campos do jordao sp flat suite custo beneficio renato penner barato 100 reais aquecedor cozinha capivari">
+    <article class="hotel-card" data-cat="campos" data-busca="refugio alpino economy apto economico campos do jordao sp flat suite custo beneficio renato penner barato 100 reais aquecedor capivari 7024051">
       <div class="hotel-thumb">
         <span class="badge-dest" style="background:#059669">⭐ Destaque · Testado pelo Renato</span>
-        <span class="badge-nota">⭐ 9.2 · Melhor Preço</span>
-        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80" alt="Apartamento Econômico em Campos do Jordão" loading="lazy">
+        <span class="badge-nota">⭐ 8.8 · Fabuloso</span>
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/657574021.jpg?k=81df7048adc3da5fb5d1d54846896facf91b2c6e99686af63683ae6062cde408&o=" alt="Refúgio Alpino Economy - Apto Econômico Campos do Jordão" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Região Próxima ao Capivari · Campos do Jordão / SP</div>
-        <h2 class="hotel-title">Apartamento Econômico Aconchegante em Campos do Jordão</h2>
+        <div class="hotel-loc">Rua Rodolfo Augusto R. Alonso (Refúgio Alpino) · Campos do Jordão / SP (1,7 km do centro)</div>
+        <h2 class="hotel-title">Refúgio Alpino Economy (Apto Econômico)</h2>
         <div class="hotel-feats">
           <span class="hotel-tag" style="background:#ecfdf5;color:#065f46;border-color:#a7f3d0;font-weight:700">✓ Testado & Aprovado pelo Renato</span>
-          <span class="hotel-tag">Cozinha Compacta</span>
-          <span class="hotel-tag">Aquecedor Eficiente</span>
+          <span class="hotel-tag">Custo-Benefício 9.0</span>
+          <span class="hotel-tag">Chuveiro Quente a Gás</span>
+          <span class="hotel-tag">Aquecedor para o Frio</span>
           <span class="hotel-tag">Estacionamento Grátis</span>
-          <span class="hotel-tag">Wi-Fi Rápido</span>
+          <span class="hotel-tag">Café da Manhã Incluso</span>
         </div>
-        <p class="hotel-desc"><strong>Indicação pessoal do Renato:</strong> O melhor custo-benefício de Campos do Jordão para quem quer curtir a serra pagando pouco. Apartamento prático, muito limpo, com cama confortável, chuveiro bem quente a gás, aquecedor para o frio da serra e mini-cozinha completa. Excelente para descansar com economia real.</p>
+        <p class="hotel-desc"><strong>Indicação pessoal do Renato:</strong> O melhor custo-benefício real de Campos do Jordão para quem quer curtir a serra pagando pouco (pouco mais de R$ 100 a diária). Já me hospedei nele e recomendo: quarto limpo e confortável, chuveiro com aquecimento a gás forte, aquecedor térmico para as noites frias, excelente atendimento e ambiente tranquilo cercado de natureza a 5 minutos do Capivari.</p>
         <div class="hotel-footer">
           <div class="hotel-preco-box">
             <small>Diárias a partir de</small>
             <b>R$ 115</b>
           </div>
-          <a class="hotel-btn" style="background:#059669" href="https://www.booking.com/searchresults.pt-br.html?ss=apartamento+economico+campos+do+jordao" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+          <a class="hotel-btn" style="background:#059669" href="https://www.booking.com/hotel/br/apto-economico.pt-br.html?label=pennertech-campos-apto-economico" target="_blank" rel="noopener sponsored" data-hotel-id="7024051">Ver Vagas no Booking →</a>
         </div>
       </div>
     </article>
@@ -726,6 +727,22 @@ document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closes
   if(inputBusca){
     inputBusca.addEventListener('input', filtrar);
   }
+
+  // Gestão Unificada de Links de Afiliado Booking.com
+  var aidPadrao = (window.BOOKING_AID || new URLSearchParams(window.location.search).get('aid') || '8138741').trim();
+  var cjPid = '101942522';
+  document.querySelectorAll('a[href*="booking.com"]').forEach(function(a){
+    try {
+      var u = new URL(a.href);
+      if(!u.searchParams.has('aid') && aidPadrao){
+        u.searchParams.set('aid', aidPadrao);
+      }
+      if(!u.searchParams.has('label')){
+        u.searchParams.set('label', 'pennertech-viagens');
+      }
+      a.href = u.toString();
+    } catch(err){}
+  });
 
   // Alternar Tema Claro / Escuro
   var btnTema = document.getElementById('btn-tema');
