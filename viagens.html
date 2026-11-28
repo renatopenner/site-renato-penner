@@ -2005,36 +2005,7 @@ document.querySelectorAll('.chip-luxe').forEach(function(btn){
 
 // AUTOCOMPLETE INTELIGENTE DISCRETO (FILTRA APENAS O QUE DIGITAR)
 (function(){
-  var cidades = [
-    "Campos do Jordão, SP",
-    "Salinópolis, PA",
-    "Gramado, RS",
-    "Canela, RS",
-    "Belém, PA",
-    "Porto de Galinhas, PE",
-    "Maragogi, AL",
-    "Maceió, AL",
-    "Praia da Pipa, RN",
-    "Natal, RN",
-    "Fortaleza, CE",
-    "Cumbuco, CE",
-    "Jericoacoara, CE",
-    "Salvador, BA",
-    "Rio de Janeiro, RJ",
-    "Arraial do Cabo, RJ",
-    "Armação dos Búzios, RJ",
-    "Foz do Iguaçu, PR",
-    "Florianópolis, SC",
-    "Balneário Camboriú, SC",
-    "São Paulo, SP",
-    "Caldas Novas, GO",
-    "Pirenópolis, GO",
-    "Santiago, Chile",
-    "Buenos Aires, Argentina",
-    "Orlando, EUA",
-    "Paris, França",
-    "Lisboa, Portugal"
-  ];
+  var cidades = ["São Paulo, SP", "Campos do Jordão, SP", "Ubatuba, SP", "Ilhabela, SP", "Santos, SP", "Guarujá, SP", "São Sebastião, SP", "Brotas, SP", "Holambra, SP", "Águas de Lindóia, SP", "Cunha, SP", "Santo Antônio do Pinhal, SP", "Serra Negra, SP", "Atibaia, SP", "Socorro, SP", "Olímpia, SP", "Campinas, SP", "Sorocaba, SP", "Ribeirão Preto, SP", "São José dos Campos, SP", "Bertioga, SP", "Caraguatatuba, SP", "Maresias, SP", "Paranapiacaba, SP", "Joanópolis, SP", "Rio de Janeiro, RJ", "Arraial do Cabo, RJ", "Armação dos Búzios, RJ", "Cabo Frio, RJ", "Paraty, RJ", "Petrópolis, RJ", "Angra dos Reis, RJ", "Ilha Grande, RJ", "Teresópolis, RJ", "Visconde de Mauá, RJ", "Penedo, RJ", "Nova Friburgo, RJ", "Niterói, RJ", "Saquarema, RJ", "Itatiaia, RJ", "Maricá, RJ", "Rio das Ostras, RJ", "Vassouras, RJ", "Belo Horizonte, MG", "Ouro Preto, MG", "Tiradentes, MG", "Capitólio, MG", "Monte Verde, MG", "Diamantina, MG", "Poços de Caldas, MG", "São Thomé das Letras, MG", "São João del Rei, MG", "Mariana, MG", "Serra do Cipó, MG", "Lavras Novas, MG", "Caxambu, MG", "Vitória, ES", "Vila Velha, ES", "Guarapari, ES", "Domingos Martins, ES", "Gramado, RS", "Canela, RS", "Bento Gonçalves, RS", "Porto Alegre, RS", "Torres, RS", "Garibaldi, RS", "Carlos Barbosa, RS", "Cambará do Sul, RS", "Três Coroas, RS", "Nova Petrópolis, RS", "Caxias do Sul, RS", "Passo Fundo, RS", "Pelotas, RS", "Santa Maria, RS", "São Miguel das Missões, RS", "Bagé, RS", "Florianópolis, SC", "Balneário Camboriú, SC", "Penha, SC", "Bombinhas, SC", "Urubici, SC", "Blumenau, SC", "Pomerode, SC", "Garopaba, SC", "Imbituba, SC", "Joinville, SC", "São Joaquim, SC", "Laguna, SC", "Itapema, SC", "Guarda do Embaú, SC", "Curitiba, PR", "Foz do Iguaçu, PR", "Morretes, PR", "Ilha do Mel, PR", "Londrina, PR", "Maringá, PR", "Ponta Grossa, PR", "Antonina, PR", "Paranaguá, PR", "Tibagi, PR", "Salvador, BA", "Porto Seguro, BA", "Trancoso, BA", "Arraial d'Ajuda, RJ", "Morro de São Paulo, BA", "Itacaré, BA", "Ilhéus, BA", "Praia do Forte, BA", "Lençóis, BA", "Boipeba, BA", "Barra Grande, BA", "Caraíva, BA", "Mata de São João, BA", "Juazeiro, BA", "Vitória da Conquista, BA", "Porto de Galinhas, PE", "Recife, PE", "Fernando de Noronha, PE", "Olinda, PE", "Carneiros, PE", "Gravatá, PE", "Caruaru, PE", "Muro Alto, PE", "Cabo de Santo Agostinho, PE", "Triunfo, PE", "Maragogi, AL", "Maceió, AL", "São Miguel dos Milagres, AL", "Japaratinga, AL", "Marechal Deodoro, AL", "Piranhas, AL", "Praia da Pipa, RN", "Natal, RN", "São Miguel do Gostoso, RN", "Genipabu, RN", "Maracajaú, RN", "Galinhos, RN", "Fortaleza, CE", "Jericoacoara, CE", "Cumbuco, CE", "Canoa Quebrada, CE", "Aquiraz, CE", "Morro Branco, CE", "Guaramiranga, CE", "Flecheiras, CE", "João Pessoa, PB", "Cabedelo, PB", "Campina Grande, PB", "Conde, PB", "Aracaju, SE", "Canindé de São Francisco, SE", "São Cristóvão, SE", "São Luís, MA", "Barreirinhas, MA", "Atins, MA", "Santo Amaro do Maranhão, MA", "Teresina, PI", "Parnaíba, PI", "Barra Grande do Piauí, PI", "São Raimundo Nonato, PI", "Caldas Novas, GO", "Rio Quente, GO", "Pirenópolis, GO", "Chapada dos Veadeiros, GO", "Goiânia, GO", "Bonito, MS", "Pantanal, MS", "Chapada dos Guimarães, MT", "Nobres, MT", "Brasília, DF", "Belém, PA", "Salinópolis, PA", "Alter do Chão, PA", "Ilha de Marajó, PA", "Manaus, AM", "Presidente Figueiredo, AM", "Palmas, TO", "Jalapão, TO", "Macapá, AP", "Boa Vista, RR", "Rio Branco, AC", "Porto Velho, RO", "Bauru, SP", "Piracicaba, SP", "Franca, SP", "Botucatu, SP", "Itu, SP", "Itanhaém, SP", "Peruíbe, SP", "Barretos, SP", "Jundiaí, SP", "Presidente Prudente, SP", "Marília, SP", "Araçatuba, SP", "São Carlos, SP", "Americana, SP", "Araraquara, SP", "Guaratinguetá, SP", "Aparecida, SP", "Eldorado, SP", "Iporanga, SP", "Cananéia, SP", "Iguape, SP", "Ilha Comprida, SP", "Mogi das Cruzes, SP", "Indaiatuba, SP", "Barueri, SP", "Resende, RJ", "Mangaratiba, RJ", "Volta Redonda, RJ", "Barra do Piraí, RJ", "Valença, RJ", "Conservatória, RJ", "Macaé, RJ", "Sana, RJ", "Casimiro de Abreu, RJ", "Guapimirim, RJ", "Cachoeiras de Macacu, RJ", "Rio Bonito, RJ", "Juiz de Fora, MG", "Uberlândia, MG", "Uberaba, MG", "Governador Valadares, MG", "Ipatinga, MG", "Montes Claros, MG", "Pouso Alegre, MG", "Varginha, MG", "Itajubá, MG", "São Lourenço, MG", "Baependi, MG", "Conceição do Ibitipoca, MG", "Santana dos Montes, MG", "Cordisburgo, MG", "Sete Lagoas, MG", "Caeté, MG", "Sabará, MG", "Congonhas, MG", "Barbacena, MG", "Anchieta, ES", "Iriri, ES", "Conceição da Barra, ES", "Itaúnas, ES", "Santa Teresa, ES", "Venda Nova do Imigrante, ES", "Linhares, ES", "Colatina, ES", "Cachoeiro de Itapemirim, ES", "Erechim, RS", "Novo Hamburgo, RS", "Gramado Xavier, RS", "Lages, SC", "Chapecó, SC", "Criciúma, SC", "São Bento do Sul, SC", "Treze Tílias, SC", "Piratuba, SC", "Guaratuba, PR", "Matinhos, PR", "Caiobá, PR", "Guarapuava, PR", "Prudentópolis, PR", "Cascavel, PR", "Toledo, PR", "Umuarama, PR", "Campo Mourão, PR"];
 
   function normalizar(txt) {
     return (txt || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
