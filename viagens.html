@@ -844,6 +844,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 25%;
   transition: transform .35s ease;
 }
 .hub360-card-item:hover .hub360-card-thumb img {
@@ -1775,7 +1776,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
       <article class="hotel-card" data-cidade="Gramado">
         <div class="hotel-thumb">
           <span class="card-badge-pill">❄️ Neve de Verdade o Ano Todo</span>
-          <img src="https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=800&q=80" alt="Snowland Gramado" loading="lazy">
+          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/RenatoSoares_SnowLand_Gramado_RS_%2840193258034%29.jpg/960px-RenatoSoares_SnowLand_Gramado_RS_%2840193258034%29.jpg" alt="Snowland Gramado" loading="lazy">
         </div>
         <div class="hotel-body">
           <div class="hotel-loc-line"><span>📍 Gramado / RS (Serra Gaúcha)</span> · <span>🧥 Roupas Térmicas Inclusas</span></div>
@@ -2033,7 +2034,7 @@ var destinosBrasilDB = [];
 var destinosIndex = {};
 
 (function carregarCatalogoDestinos() {
-  fetch('data/destinos_brasil_200.json?v=20261128_v6')
+  fetch('data/destinos_brasil_200.json?v=20261128_v7')
     .then(function(r){ return r.json(); })
     .then(function(d){
       destinosBrasilDB = d;
