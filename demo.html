@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Showroom de Layouts — PennerTech Viagens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* Reset e Barra Fixa de Alternância dos 3 Modelos */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;color:#1e293b;background:#f8fafc;transition:background .3s ease,color .3s ease}
+
+.barra-showroom{position:sticky;top:0;z-index:99999;background:rgba(15,23,42,.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.1);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;color:#fff}
+.barra-showroom .marca-box{display:flex;align-items:center;gap:10px}
+.barra-showroom .marca-box b{font-size:15px;letter-spacing:.03em;color:#fff}
+.barra-showroom .marca-box span{font-size:12px;color:#94a3b8;background:rgba(255,255,255,.08);padding:3px 8px;border-radius:6px}
+
+.seletor-modelos{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);padding:4px;border-radius:12px;border:1px solid rgba(255,255,255,.12)}
+.btn-modelo{background:transparent;border:none;color:#cbd5e1;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s ease;display:inline-flex;align-items:center;gap:6px}
+.btn-modelo:hover{color:#fff;background:rgba(255,255,255,.1)}
+.btn-modelo.ativo{background:#0284c7;color:#fff;box-shadow:0 2px 10px rgba(2,132,199,.4)}
+
+.modelo-conteudo{display:none}
+.modelo-conteudo.ativo{display:block}
+
+/* ========================================================
+   MODELO 1: LUXE EXPLORER (Airbnb Luxe / Sonder)
+   ======================================================== */
+.m-luxe{background:#faf8f5;color:#292524;min-height:100vh}
+.m-luxe .luxe-hero{position:relative;padding:90px 24px 60px;text-align:center;background:radial-gradient(circle at 50% 20%,rgba(217,119,6,.08),transparent 60%)}
+.m-luxe .luxe-badge{display:inline-block;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:#b45309;font-weight:700;margin-bottom:16px}
+.m-luxe .luxe-title{font-family:'Newsreader',serif;font-size:48px;font-weight:400;line-height:1.15;color:#1c1917;margin-bottom:14px;max-width:820px;margin-left:auto;margin-right:auto}
+.m-luxe .luxe-title em{font-style:italic}
+.m-luxe .luxe-sub{font-size:16px;color:#78716c;max-width:620px;margin:0 auto 36px;line-height:1.6}
+
+/* Ilha Flutuante Glassmorphism (Estilo Airbnb Luxe) */
+.m-luxe .luxe-search{max-width:880px;margin:0 auto;background:rgba(255,255,255,.9);backdrop-filter:blur(20px);border:1px solid rgba(0,0,0,.08);border-radius:999px;box-shadow:0 16px 40px -10px rgba(0,0,0,.08);display:flex;align-items:center;padding:8px 12px;transition:box-shadow .2s}
+.m-luxe .luxe-search:hover{box-shadow:0 20px 48px -10px rgba(0,0,0,.12)}
+.m-luxe .search-col{flex:1;padding:8px 20px;text-align:left;border-right:1px solid #f0ede8}
+.m-luxe .search-col:last-of-type{border-right:none}
+.m-luxe .search-col label{display:block;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#a8a29e;margin-bottom:2px}
+.m-luxe .search-col input{border:none;background:transparent;width:100%;font-size:14px;font-weight:600;color:#1c1917;outline:none}
+.m-luxe .search-btn-circle{width:48px;height:48px;border-radius:50%;background:#b45309;color:#fff;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;transition:transform .15s,background .15s}
+.m-luxe .search-btn-circle:hover{transform:scale(1.05);background:#92400e}
+
+/* Cards Luxe */
+.m-luxe .wrap{max-width:1200px;margin:0 auto;padding:40px 24px}
+.m-luxe .sec-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px}
+.m-luxe .sec-header h2{font-family:'Newsreader',serif;font-size:32px;font-weight:400;color:#1c1917}
+.m-luxe .sec-header a{font-size:13px;font-weight:700;color:#b45309;text-decoration:none}
+.m-luxe .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:32px}
+.m-luxe .card{border-radius:24px;overflow:hidden;background:#fff;border:1px solid rgba(0,0,0,.06);box-shadow:0 8px 24px rgba(0,0,0,.04);transition:transform .25s ease,box-shadow .25s ease}
+.m-luxe .card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(0,0,0,.08)}
+.m-luxe .card-thumb{position:relative;height:240px;overflow:hidden}
+.m-luxe .card-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.m-luxe .card:hover .card-thumb img{transform:scale(1.04)}
+.m-luxe .card-badge-pill{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);color:#1c1917;font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:999px}
+.m-luxe .card-body{padding:22px}
+.m-luxe .card-loc{font-size:12px;color:#78716c;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.m-luxe .card-title{font-size:19px;font-weight:700;color:#1c1917;line-height:1.3;margin-bottom:10px}
+.m-luxe .card-desc{font-size:13.5px;color:#57534e;line-height:1.55;margin-bottom:18px}
+.m-luxe .card-footer{display:flex;align-items:baseline;justify-content:space-between;border-top:1px solid #f5f5f4;padding-top:14px}
+.m-luxe .card-price{font-size:22px;font-weight:800;color:#1c1917}
+.m-luxe .card-price small{font-size:12px;color:#a8a29e;font-weight:500}
+.m-luxe .card-action{font-size:13px;font-weight:700;color:#b45309;text-decoration:none}
+
+/* ========================================================
+   MODELO 2: HUB 360° (Skyscanner / Kayak Next-Gen)
+   ======================================================== */
+.m-hub{background:#f1f5f9;color:#0f172a;min-height:100vh}
+.m-hub .hub-topbar{background:#0a2540;color:#fff;padding:48px 24px 32px;text-align:center}
+.m-hub .hub-topbar h1{font-size:36px;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+.m-hub .hub-topbar p{font-size:15px;color:#94a3b8;max-width:640px;margin:0 auto 28px}
+
+/* Console de Busca em Abas 360 */
+.m-hub .hub-console{max-width:980px;margin:0 auto;background:#fff;border-radius:20px;padding:20px 24px;box-shadow:0 12px 36px rgba(0,0,0,.15);text-align:left}
+.m-hub .hub-tabs{display:flex;gap:8px;margin-bottom:16px;border-bottom:1px solid #e2e8f0;padding-bottom:12px;overflow-x:auto}
+.m-hub .hub-tab-btn{background:transparent;border:none;padding:8px 14px;border-radius:10px;font-size:13.5px;font-weight:700;color:#64748b;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.m-hub .hub-tab-btn.ativo{background:#0284c7;color:#fff}
+.m-hub .hub-grid-inputs{display:grid;grid-template-columns:1.2fr 1.2fr 140px 140px auto;gap:10px}
+.m-hub .hub-input{border:1px solid #cbd5e1;background:#f8fafc;padding:12px 14px;border-radius:10px;font-size:14px;font-weight:600;color:#0f172a;width:100%}
+.m-hub .hub-submit{background:linear-gradient(135deg,#059669,#0284c7);color:#fff;border:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:800;cursor:pointer}
+
+/* Rota e Comparador Side-by-Side */
+.m-hub .wrap{max-width:1200px;margin:0 auto;padding:40px 24px}
+.m-hub .voos-banner{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:20px;margin-bottom:36px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.m-hub .cia-badge{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:10px;font-size:13px;font-weight:800;color:#fff;text-decoration:none}
+
+.m-hub .hub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(350px,1fr));gap:24px}
+.m-hub .hub-card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.04);display:flex;flex-direction:column}
+.m-hub .hub-thumb{height:200px;position:relative}
+.m-hub .hub-thumb img{width:100%;height:100%;object-fit:cover}
+.m-hub .hub-nota{position:absolute;top:12px;right:12px;background:#003580;color:#fff;font-size:12.5px;font-weight:800;padding:4px 8px;border-radius:6px}
+.m-hub .hub-body{padding:18px 20px;display:flex;flex-direction:column;flex:1}
+.m-hub .hub-dist{font-size:11.5px;font-weight:700;color:#0284c7;background:#eff6ff;padding:4px 8px;border-radius:6px;display:inline-block;margin-bottom:8px}
+.m-hub .hub-title{font-size:18px;font-weight:800;color:#0f172a;margin-bottom:8px}
+.m-hub .hub-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.m-hub .hub-tag{font-size:11px;font-weight:600;padding:3px 8px;border-radius:6px;background:#f1f5f9;color:#334155}
+.m-hub .hub-footer{border-top:1px solid #e2e8f0;padding-top:14px;margin-top:auto;display:flex;align-items:center;justify-content:space-between}
+.m-hub .hub-preco{font-size:22px;font-weight:800;color:#059669}
+.m-hub .hub-btn{background:#003580;color:#fff;padding:10px 18px;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none}
+
+/* ========================================================
+   MODELO 3: BOUTIQUE TECH (Linear / Dark Monocle)
+   ======================================================== */
+.m-boutique{background:#090d16;color:#f8fafc;min-height:100vh}
+.m-boutique .btq-hero{padding:80px 24px 50px;text-align:center;position:relative;background:radial-gradient(circle at 50% 0%,rgba(16,185,129,.12),transparent 70%)}
+.m-boutique .btq-chancela{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:6px 14px;border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#34d399;margin-bottom:20px}
+.m-boutique .btq-title{font-size:44px;font-weight:800;letter-spacing:-.03em;background:linear-gradient(135deg,#ffffff 20%,#94a3b8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;max-width:760px;margin:0 auto 16px}
+.m-boutique .btq-lead{font-size:16px;color:#94a3b8;max-width:600px;margin:0 auto 36px}
+
+/* Buscador Minimalista Tech */
+.m-boutique .btq-search-box{max-width:840px;margin:0 auto;background:rgba(15,23,42,.6);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:16px 20px;display:flex;align-items:center;gap:12px}
+.m-boutique .btq-input{flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:#fff;padding:12px 16px;border-radius:10px;font-size:14px;outline:none}
+.m-boutique .btq-submit{background:#10b981;color:#090d16;font-weight:800;border:none;padding:12px 24px;border-radius:10px;font-size:14px;cursor:pointer}
+
+.m-boutique .wrap{max-width:1200px;margin:0 auto;padding:40px 24px}
+.m-boutique .btq-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(350px,1fr));gap:28px}
+.m-boutique .btq-card{background:rgba(15,23,42,.45);border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;transition:all .25s ease}
+.m-boutique .btq-card:hover{border-color:#10b981;transform:translateY(-3px);box-shadow:0 12px 30px -10px rgba(16,185,129,.25)}
+.m-boutique .btq-thumb{height:210px;position:relative}
+.m-boutique .btq-thumb img{width:100%;height:100%;object-fit:cover}
+.m-boutique .btq-seal{position:absolute;top:12px;left:12px;background:rgba(9,13,22,.85);border:1px solid rgba(52,211,153,.4);color:#34d399;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;padding:4px 10px;border-radius:8px}
+.m-boutique .btq-body{padding:20px}
+.m-boutique .btq-specs{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#38bdf8;margin-bottom:8px}
+.m-boutique .btq-title-card{font-size:18px;font-weight:800;color:#fff;margin-bottom:10px}
+.m-boutique .btq-desc{font-size:13.5px;color:#94a3b8;line-height:1.55;margin-bottom:18px}
+.m-boutique .btq-footer{border-top:1px solid rgba(255,255,255,.08);padding-top:14px;display:flex;align-items:center;justify-content:space-between}
+.m-boutique .btq-val{font-size:22px;font-weight:800;color:#34d399}
+.m-boutique .btq-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#fff;padding:9px 16px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;transition:background .2s}
+.m-boutique .btq-btn:hover{background:#10b981;color:#090d16;border-color:#10b981}
+</style>
+</head>
+<body>
+
+<!-- BARRA FIXA DO SHOWROOM -->
+<aside class="barra-showroom">
+  <div class="marca-box">
+    <b>PENNER VIAGENS</b>
+    <span>Showroom de Layouts 2026</span>
+  </div>
+  <div class="seletor-modelos">
+    <button class="btn-modelo ativo" onclick="trocarModelo('luxe')">✨ 1. Luxe Explorer (Airbnb Style)</button>
+    <button class="btn-modelo" onclick="trocarModelo('hub')">⚡ 2. Hub 360° (Skyscanner Style)</button>
+    <button class="btn-modelo" onclick="trocarModelo('boutique')">💎 3. Boutique Tech (Linear Style)</button>
+  </div>
+  <div style="font-size:12px;color:#94a3b8">
+    Clique nos modelos para alternar ao vivo
+  </div>
+</aside>
+
+<!-- ========================================================
+     MODELO 1: LUXE EXPLORER
+     ======================================================== -->
+<section id="mod-luxe" class="modelo-conteudo m-luxe ativo">
+  <div class="luxe-hero">
+    <span class="luxe-badge">✦ Curadoria Autêntica de Viagens</span>
+    <h1 class="luxe-title">Viaje com critério. Estadias memoráveis<br><em>selecionadas pelo verdadeiro custo-benefício.</em></h1>
+    <p class="luxe-sub">Resorts de praia, chalés alpinos e apartamentos privativos testados no Brasil e no exterior — parceria oficial Booking.com.</p>
+    
+    <!-- Barra Flutuante Estilo Airbnb Luxe -->
+    <div class="luxe-search">
+      <div class="search-col">
+        <label>Destino</label>
+        <input type="text" placeholder="Para onde você vai?" value="Campos do Jordão, SP">
+      </div>
+      <div class="search-col">
+        <label>Quando</label>
+        <input type="text" placeholder="Datas flexíveis" value="16 a 23 de Janeiro 2027">
+      </div>
+      <div class="search-col">
+        <label>Estilo de Viagem</label>
+        <input type="text" placeholder="Casal, Família ou Solo" value="💑 Casal Econômico (~R$ 200)">
+      </div>
+      <button class="search-btn-circle" title="Buscar Estadias">🔍</button>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="sec-header">
+      <div>
+        <span style="font-size:12px;font-weight:700;color:#b45309;text-transform:uppercase;letter-spacing:.05em">Seleção Destaque Serra da Mantiqueira</span>
+        <h2>Hotéis com Alma e Custo-Benefício Real</h2>
+      </div>
+      <a href="#">Ver todos os 42 hotéis →</a>
+    </div>
+
+    <div class="grid">
+      <!-- Card 1: Refúgio Alpino -->
+      <article class="card">
+        <div class="card-thumb">
+          <span class="card-badge-pill">⭐ Testado pelo Renato</span>
+          <img src="img/refugio-alpino-economy.jpg" alt="Refúgio Alpino Economy">
+        </div>
+        <div class="card-body">
+          <div class="card-loc"><span>📍 1,7 km do Capivari</span> · <span>☕ Café Incluso</span></div>
+          <h3 class="card-title">Refúgio Alpino Economy (Campos do Jordão)</h3>
+          <p class="card-desc">Salão alpino com lareira rústica e adega em barril. Chuveiro a gás de alta pressão e aquecedor para as noites frias por pouco mais de R$ 100.</p>
+          <div class="card-footer">
+            <div class="card-price">R$ 115 <small>/ diária</small></div>
+            <a class="card-action" href="https://www.booking.com/hotel/br/apto-economico.pt-br.html" target="_blank">Reservar no Booking →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2: Salinas Park -->
+      <article class="card">
+        <div class="card-thumb">
+          <span class="card-badge-pill">🏖️ Litoral Norte</span>
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Salinas Park">
+        </div>
+        <div class="card-body">
+          <div class="card-loc"><span>📍 3,8 km do centro</span> · <span>🎯 800m do Atalaia</span></div>
+          <h3 class="card-title">Salinas Park Resort (Flat Particular)</h3>
+          <p class="card-desc">Parque aquático completo com toboáguas e piscinas com tarifa econômica de flat particular. Cozinha privativa integrada.</p>
+          <div class="card-footer">
+            <div class="card-price">R$ 280 <small>/ diária</small></div>
+            <a class="card-action" href="#">Reservar no Booking →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3: Ibis Santiago -->
+      <article class="card">
+        <div class="card-thumb">
+          <span class="card-badge-pill">🌍 Casal Exterior</span>
+          <img src="img/refugio-alpino-economy.jpg" alt="Ibis Providencia">
+        </div>
+        <div class="card-body">
+          <div class="card-loc"><span>📍 3,2 km da Plaza de Armas</span> · <span>🚇 80m do Metrô</span></div>
+          <h3 class="card-title">Ibis Providencia Santiago (Quarto Casal)</h3>
+          <p class="card-desc">Localização nobre em Providencia com vista para a Cordilheira e metrô na porta. A melhor relação custo-benefício em Santiago.</p>
+          <div class="card-footer">
+            <div class="card-price">R$ 240 <small>/ diária</small></div>
+            <a class="card-action" href="#">Reservar no Booking →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     MODELO 2: HUB 360° (Skyscanner / Kayak Next-Gen)
+     ======================================================== -->
+<section id="mod-hub" class="modelo-conteudo m-hub">
+  <div class="hub-topbar">
+    <h1>Super Buscador de Viagens Penner 360°</h1>
+    <p>Compare voos de todas as companhias aéreas, hotéis com cancelamento grátis e pacotes com o menor preço garantido.</p>
+    
+    <!-- Console de Busca Completo 360 -->
+    <div class="hub-console">
+      <div class="hub-tabs">
+        <button class="hub-tab-btn ativo">✈️ Voos Mais Baratos</button>
+        <button class="hub-tab-btn">🏨 Hotéis & Resorts</button>
+        <button class="hub-tab-btn">🎒 Pacotes de Viagem</button>
+        <button class="hub-tab-btn">🎟️ Ingressos & Passeios</button>
+        <button class="hub-tab-btn">🍽️ Restaurantes com Desconto</button>
+      </div>
+      <div class="hub-grid-inputs">
+        <input class="hub-input" type="text" placeholder="Origem" value="Belém (BEL)">
+        <input class="hub-input" type="text" placeholder="Destino" value="Macapá (MCP)">
+        <input class="hub-input" type="text" value="16/01/2027">
+        <input class="hub-input" type="text" value="23/01/2027">
+        <button class="hub-submit">⚡ COMPARAR TODAS</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <!-- Banner de Companhias e Comparativo -->
+    <div class="voos-banner">
+      <div>
+        <span style="font-size:11px;font-weight:800;color:#059669;text-transform:uppercase">🎯 Rota em Alta Procura</span>
+        <h3 style="font-size:17px;font-weight:800;margin-top:2px">Belém (BEL) ⇄ Macapá (MCP) · 16 a 23 de Janeiro 2027</h3>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a class="cia-badge" style="background:#ff6700" href="#">✈️ GOL Direto</a>
+        <a class="cia-badge" style="background:#004b87" href="#">✈️ Azul Direto</a>
+        <a class="cia-badge" style="background:#e30613" href="#">✈️ LATAM Direto</a>
+        <a class="cia-badge" style="background:#0284c7" href="#">🔍 Menor Preço Geral</a>
+      </div>
+    </div>
+
+    <div class="hub-grid">
+      <!-- Card Hub 1 -->
+      <article class="hub-card">
+        <div class="hub-thumb">
+          <img src="img/refugio-alpino-economy.jpg" alt="Refúgio Alpino">
+          <span class="hub-nota">⭐ 8.8 Fabuloso</span>
+        </div>
+        <div class="hub-body">
+          <span class="hub-dist">📍 1,7 km do centro · 🎯 1,5 km do Capivari</span>
+          <h3 class="hub-title">Refúgio Alpino Economy</h3>
+          <div class="hub-tags">
+            <span class="hub-tag" style="background:#ecfdf5;color:#065f46;font-weight:700">☕ Café da Manhã Incluso</span>
+            <span class="hub-tag">Chuveiro a Gás</span>
+            <span class="hub-tag">Estacionamento Grátis</span>
+          </div>
+          <div class="hub-footer">
+            <div>
+              <small style="font-size:11px;color:#64748b">A partir de</small>
+              <div class="hub-preco">R$ 115</div>
+            </div>
+            <a class="hub-btn" href="#">Ver Ofertas Booking →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card Hub 2 -->
+      <article class="hub-card">
+        <div class="hub-thumb">
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Salinas Park">
+          <span class="hub-nota">⭐ 8.7 Fabuloso</span>
+        </div>
+        <div class="hub-body">
+          <span class="hub-dist">📍 3,8 km do centro · 🎯 800m do Atalaia</span>
+          <h3 class="hub-title">Salinas Park Resort (Flat)</h3>
+          <div class="hub-tags">
+            <span class="hub-tag" style="background:#eff6ff;color:#1e40af;font-weight:700">🍳 Cozinha no Flat</span>
+            <span class="hub-tag">Parque Aquático</span>
+            <span class="hub-tag">Até 5 pessoas</span>
+          </div>
+          <div class="hub-footer">
+            <div>
+              <small style="font-size:11px;color:#64748b">A partir de</small>
+              <div class="hub-preco">R$ 280</div>
+            </div>
+            <a class="hub-btn" href="#">Ver Ofertas Booking →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     MODELO 3: BOUTIQUE TECH (Linear / Dark Monocle)
+     ======================================================== -->
+<section id="mod-boutique" class="modelo-conteudo m-boutique">
+  <div class="btq-hero">
+    <div class="btq-chancela">
+      <span>●</span> ENGENHARIA & CRITÉRIO TÉCNICO APLICADO AO TURISMO
+    </div>
+    <h1 class="btq-title">Hospedagens e voos filtrados pelo rigor técnico de engenharia.</h1>
+    <p class="btq-lead">Sem pegadinhas ou marketing vazio: selecionamos as melhores opções por custo real, conforto comprovado e localização aferida.</p>
+
+    <div class="btq-search-box">
+      <input class="btq-input" type="text" placeholder="Digite a cidade ou hotel desejado..." value="Salinópolis, PA">
+      <input class="btq-input" style="max-width:180px" type="text" value="Faixa: R$ 200–250">
+      <button class="btq-submit">Filtrar Aferições →</button>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="btq-grid">
+      <!-- Card Boutique 1 -->
+      <article class="btq-card">
+        <div class="btq-thumb">
+          <span class="btq-seal">AUDITADO · 100% CUSTO/BENEFÍCIO</span>
+          <img src="img/refugio-alpino-economy.jpg" alt="Refúgio Alpino">
+        </div>
+        <div class="btq-body">
+          <div class="btq-specs">[LOC: 1.7KM CAPIVARI] · [CHUV: GÁS FORTE] · [CAFÉ: INCLUSO]</div>
+          <h3 class="btq-title-card">Refúgio Alpino Economy · Campos do Jordão</h3>
+          <p class="btq-desc">Aferição de campo realizada pessoalmente pelo Renato Penner. Suíte confortável com aquecimento térmico real, salão com lareira e tarifa 60% abaixo da média de Capivari.</p>
+          <div class="btq-footer">
+            <div class="btq-val">R$ 115 <span style="font-size:12px;color:#64748b">/ dia</span></div>
+            <a class="btq-btn" href="#">Acessar Reserva ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card Boutique 2 -->
+      <article class="btq-card">
+        <div class="btq-thumb">
+          <span class="btq-seal">RESORT TOP-RATED · SALINAS</span>
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Salinas Park">
+        </div>
+        <div class="btq-body">
+          <div class="btq-specs">[LOC: ATALAIA 800M] · [LAZER: PARQUE AQUÁTICO] · [MODO: FLAT]</div>
+          <h3 class="btq-title-card">Salinas Park Resort (Flat Particular)</h3>
+          <p class="btq-desc">A melhor estratégia financeira para curtir a estrutura de lazer do resort premium pagando tarifa de condomínio. Amplo espaço para família.</p>
+          <div class="btq-footer">
+            <div class="btq-val">R$ 280 <span style="font-size:12px;color:#64748b">/ dia</span></div>
+            <a class="btq-btn" href="#">Acessar Reserva ↗</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<script>
+function trocarModelo(id){
+  document.querySelectorAll('.btn-modelo').forEach(function(b){ b.classList.remove('ativo'); });
+  document.querySelectorAll('.modelo-conteudo').forEach(function(m){ m.classList.remove('ativo'); });
+  
+  if(id === 'luxe'){
+    document.querySelector('.btn-modelo:nth-child(1)').classList.add('ativo');
+    document.getElementById('mod-luxe').classList.add('ativo');
+  } else if(id === 'hub'){
+    document.querySelector('.btn-modelo:nth-child(2)').classList.add('ativo');
+    document.getElementById('mod-hub').classList.add('ativo');
+  } else {
+    document.querySelector('.btn-modelo:nth-child(3)').classList.add('ativo');
+    document.getElementById('mod-boutique').classList.add('ativo');
+  }
+}
+</script>
+</body>
+</html>
