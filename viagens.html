@@ -812,6 +812,116 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   color: #fff;
 }
 
+
+.hub360-cards-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+.hub360-card-item {
+  background: var(--card);
+  border: 1px solid var(--card-borda);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+.hub360-card-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  border-color: var(--acento);
+}
+.hub360-card-thumb {
+  position: relative;
+  width: 100%;
+  height: 165px;
+  overflow: hidden;
+  background: var(--bg2);
+}
+.hub360-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .35s ease;
+}
+.hub360-card-item:hover .hub360-card-thumb img {
+  transform: scale(1.05);
+}
+.hub360-card-pill {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+.hub360-pill-gastro {
+  background: rgba(180, 83, 9, 0.88);
+}
+.hub360-card-body {
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.hub360-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--texto);
+  margin: 0 0 8px 0;
+  line-height: 1.35;
+}
+.hub360-card-desc {
+  font-size: 13px;
+  color: var(--texto-sub);
+  line-height: 1.55;
+  margin: 0 0 16px 0;
+  flex: 1;
+}
+.hub360-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--linha);
+}
+.hub360-card-tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--texto-sub);
+}
+.hub360-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-decoration: none;
+  background: var(--acento);
+  color: #ffffff !important;
+  transition: all .2s ease;
+  box-shadow: 0 4px 12px rgba(180, 83, 9, 0.2);
+}
+.hub360-card-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+.hub360-btn-gastro {
+  background: var(--verde);
+  box-shadow: 0 4px 12px rgba(4, 120, 87, 0.2);
+}
+
 </style>
 
 <script>
@@ -2032,31 +2142,56 @@ function executarFiltroPorDestino(destino, cin, cout) {
     htmlBanner += '      <a href="' + urlGastro + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao">🍽️ Descontos em Restaurantes →</a>';
     htmlBanner += '    </div>';
 
-    // Sub-bloco de Atrações
+    // Sub-bloco de Atrações com Fotos Reais
     if (destInfo.atracoes && destInfo.atracoes.length > 0) {
       htmlBanner += '    <div class="hub360-subsecao">';
-      htmlBanner += '      <div class="hub360-subsecao-titulo">🎟️ Principais Atrações & Passeios Imperdíveis em ' + destInfo.nome + '</div>';
+      htmlBanner += '      <div class="hub360-subsecao-titulo">🎟️ Principais Atrações & Ingressos Oficiais em ' + destInfo.nome + '</div>';
       htmlBanner += '      <div class="hub360-cards-row">';
       destInfo.atracoes.forEach(function(atr){
-        htmlBanner += '        <div class="hub360-mini-card">';
-        htmlBanner += '          <div class="hub360-mini-nome">🎯 ' + atr.nome + '</div>';
-        htmlBanner += '          <a href="' + atr.link + '" target="_blank" rel="noopener sponsored" class="hub360-mini-btn">Reservar no Viator →</a>';
-        htmlBanner += '        </div>';
+        var fotoAtr = atr.foto || 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80';
+        var descAtr = atr.desc || ('Ingresso e passeio oficial com confirmação imediata em ' + destInfo.nome + '.');
+        htmlBanner += '        <article class="hub360-card-item">';
+        htmlBanner += '          <div class="hub360-card-thumb">';
+        htmlBanner += '            <span class="hub360-card-pill">🎟️ Ingresso / Passeio</span>';
+        htmlBanner += '            <img src="' + fotoAtr + '" alt="' + atr.nome + '" loading="lazy">';
+        htmlBanner += '          </div>';
+        htmlBanner += '          <div class="hub360-card-body">';
+        htmlBanner += '            <h5 class="hub360-card-title">' + atr.nome + '</h5>';
+        htmlBanner += '            <p class="hub360-card-desc">' + descAtr + '</p>';
+        htmlBanner += '            <div class="hub360-card-footer">';
+        htmlBanner += '              <span class="hub360-card-tag">Viator Oficial</span>';
+        htmlBanner += '              <a href="' + atr.link + '" target="_blank" rel="noopener sponsored" class="hub360-card-btn">Reservar no Viator →</a>';
+        htmlBanner += '            </div>';
+        htmlBanner += '          </div>';
+        htmlBanner += '        </article>';
       });
       htmlBanner += '      </div>';
       htmlBanner += '    </div>';
     }
 
-    // Sub-bloco de Gastronomia
+    // Sub-bloco de Gastronomia com Fotos Reais
     if (destInfo.gastronomia && destInfo.gastronomia.length > 0) {
       htmlBanner += '    <div class="hub360-subsecao">';
       htmlBanner += '      <div class="hub360-subsecao-titulo">🍽️ Polos Gastronômicos & Onde Comer com Economia em ' + destInfo.nome + '</div>';
       htmlBanner += '      <div class="hub360-cards-row">';
       destInfo.gastronomia.forEach(function(gastr){
-        htmlBanner += '        <div class="hub360-mini-card">';
-        htmlBanner += '          <div class="hub360-mini-nome">🍷 ' + gastr.nome + '</div>';
-        htmlBanner += '          <a href="' + gastr.link + '" target="_blank" rel="noopener sponsored" class="hub360-mini-btn">Ver Restaurantes →</a>';
-        htmlBanner += '        </div>';
+        var fotoGastr = gastr.foto || 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80';
+        var badgeGastr = gastr.badge || 'Desconto na Conta';
+        var descGastr = gastr.desc || ('Restaurante e culinária de alta gastronomia com economia real em ' + destInfo.nome + '.');
+        htmlBanner += '        <article class="hub360-card-item">';
+        htmlBanner += '          <div class="hub360-card-thumb">';
+        htmlBanner += '            <span class="hub360-card-pill hub360-pill-gastro">🍽️ ' + badgeGastr + '</span>';
+        htmlBanner += '            <img src="' + fotoGastr + '" alt="' + gastr.nome + '" loading="lazy">';
+        htmlBanner += '          </div>';
+        htmlBanner += '          <div class="hub360-card-body">';
+        htmlBanner += '            <h5 class="hub360-card-title">' + gastr.nome + '</h5>';
+        htmlBanner += '            <p class="hub360-card-desc">' + descGastr + '</p>';
+        htmlBanner += '            <div class="hub360-card-footer">';
+        htmlBanner += '              <span class="hub360-card-tag">Reserva com Desconto</span>';
+        htmlBanner += '              <a href="' + gastr.link + '" target="_blank" rel="noopener sponsored" class="hub360-card-btn hub360-btn-gastro">Garantir Desconto →</a>';
+        htmlBanner += '            </div>';
+        htmlBanner += '          </div>';
+        htmlBanner += '        </article>';
       });
       htmlBanner += '      </div>';
       htmlBanner += '    </div>';
