@@ -1066,6 +1066,92 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
+  
+    /* GRID RIGOROSO DE 3 COLUNAS (2 FILEIRAS) NO DESKTOP */
+    .grid-hoteis-luxe {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 24px !important;
+      margin-bottom: 60px !important;
+    }
+    @media (max-width: 960px) {
+      .grid-hoteis-luxe {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 18px !important;
+      }
+    }
+    @media (max-width: 640px) {
+      .grid-hoteis-luxe {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+    }
+
+    /* CABECALHO DE SECAO COM BOTAO ALINHADO A DIREITA */
+    .secao-cabecalho-luxe {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      flex-wrap: nowrap !important;
+      gap: 16px !important;
+      margin-bottom: 24px !important;
+      padding-bottom: 12px !important;
+      border-bottom: 1px solid var(--linha) !important;
+    }
+    .secao-cabecalho-info {
+      flex: 1 1 auto !important;
+      min-width: 0 !important;
+    }
+    .secao-cabecalho-info h2 {
+      margin: 0 0 4px 0 !important;
+      font-size: 21px !important;
+      font-weight: 800 !important;
+      color: var(--texto) !important;
+      line-height: 1.25 !important;
+    }
+    .secao-cabecalho-info span {
+      font-size: 13px !important;
+      color: var(--texto-sub) !important;
+      display: block !important;
+    }
+    .secao-cabecalho-acao {
+      flex: 0 0 auto !important;
+      margin-left: auto !important;
+    }
+    .btn-secao-expandir {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      background: var(--card) !important;
+      color: var(--texto) !important;
+      border: 1px solid var(--borda-suave, #e2e8f0) !important;
+      padding: 9px 18px !important;
+      border-radius: 9999px !important;
+      font-size: 13.5px !important;
+      font-weight: 700 !important;
+      text-decoration: none !important;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04) !important;
+      transition: all 0.2s ease !important;
+      white-space: nowrap !important;
+    }
+    .btn-secao-expandir:hover {
+      background: var(--bg2, #f4efe8) !important;
+      border-color: var(--acento) !important;
+      color: var(--acento) !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+    }
+    @media (max-width: 720px) {
+      .secao-cabecalho-luxe {
+        flex-wrap: wrap !important;
+      }
+      .secao-cabecalho-acao {
+        margin-left: 0 !important;
+        margin-top: 6px !important;
+      }
+    }
+
+    /* FIM GRID RIGOROSO */
   </style>
 
 <script>
@@ -1212,6 +1298,18 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
       </a>
     </div>
 
+    <!-- SEÇÃO 1: HOSPEDAGENS SELECIONADAS -->
+    <section id="secaoHoteis" style="scroll-margin-top:90px;margin-bottom:60px">
+      <div class="secao-cabecalho-luxe">
+        <div class="secao-cabecalho-info">
+          <h2>🏨 Melhores Hospedagens Custo x Benefício</h2>
+          <span>Curadoria rigorosa custo x benefício no Pará e nos principais destinos do Brasil</span>
+        </div>
+        <div class="secao-cabecalho-acao">
+          <a href="hospedagens.html" class="btn-secao-expandir">Ver Todas as Hospedagens (40+) →</a>
+        </div>
+      </div>
+
       <div class="grid-hoteis-luxe" id="gridHoteis">
 
         <article class="hotel-card" data-cidade="Alter do Chão" data-cat="para praia 200a300" data-preco="280">
@@ -1297,7 +1395,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
         <article class="hotel-card" data-cidade="Maragogi" data-cat="nordeste praia 200a300" data-preco="230">
           <div class="hotel-thumb">
             <span class="card-badge-pill">★ 9.2 Fabuloso · Caribe Brasileiro</span>
-            <img src="img/maragogi-praia-gales.jpg" alt="Pousada dos Corais (Maragogi / AL)" loading="lazy">
+            <img src="img/maragogi-praia-coqueiro.jpg" alt="Pousada dos Corais (Maragogi / AL)" loading="lazy">
           </div>
           <div class="hotel-body">
             <div class="hotel-loc-line"><span>📍 50m da Praia Central · 🤿 Embarque Galés</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
@@ -1320,7 +1418,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
           <h2>🎟️ Atrações & Ingressos com Menor Preço</h2>
           <span>Ingressos oficiais para parques temáticos, passeios e pontos turísticos sem filas no Brasil</span>
         </div>
-        <div>
+        <div class="secao-cabecalho-acao">
           <a href="atracoes.html" class="btn-secao-expandir">Ver Todas as Atrações (13+) →</a>
         </div>
       </div>
@@ -1433,7 +1531,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
           <h2>🍽️ Gastronomia & Descontos em Restaurantes (Até 50% OFF)</h2>
           <span>Coma muito bem economizando até metade da conta nos melhores polos gastronômicos do país</span>
         </div>
-        <div>
+        <div class="secao-cabecalho-acao">
           <a href="gastronomia.html" class="btn-secao-expandir">Ver Todos os Restaurantes & Cupons →</a>
         </div>
       </div>
@@ -1546,7 +1644,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
           <h2>🚗 Aluguel de Carros & Cupons de Desconto</h2>
           <span>Compare as melhores locadoras (Localiza, Unidas, Movida e redes internacionais) com até 30% OFF e sem IOF</span>
         </div>
-        <div>
+        <div class="secao-cabecalho-acao">
           <a href="https://www.rentcars.com/pt-br/?requestorid=6864" target="_blank" rel="noopener sponsored" class="btn-secao-expandir">Comparar Todas as Locadoras →</a>
         </div>
       </div>
