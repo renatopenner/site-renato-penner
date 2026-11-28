@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://loja.pennertech.com.br/sitemap.xml
+Sitemap: https://viagens.pennertech.com.br/sitemap.xml
