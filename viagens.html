@@ -657,6 +657,161 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   background: #92400e;
 }
 
+
+/* Hub 360° do Destino Expandido */
+.hub360-container {
+  background: var(--card);
+  border: 1.5px solid var(--acento);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+  margin: 25px 0 35px;
+  animation: fadeInBanner .3s ease;
+}
+.hub360-hero {
+  position: relative;
+  min-height: 220px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding: 28px 32px;
+}
+.hub360-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.85) 100%);
+}
+.hub360-hero-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.hub360-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.hub360-badge {
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.hub360-badge-price {
+  background: var(--verde);
+  color: #fff;
+}
+.hub360-title {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 30px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+  color: #fff;
+}
+.hub360-desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.92);
+  max-width: 860px;
+  margin: 0;
+}
+.hub360-body {
+  padding: 24px 28px;
+}
+.hub360-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+.hub360-top-bar h4 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--texto);
+  margin: 0;
+}
+.hub360-actions-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--linha);
+}
+.hub360-subsecao {
+  margin-top: 22px;
+}
+.hub360-subsecao-titulo {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--texto);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hub360-cards-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+.hub360-mini-card {
+  background: var(--bg2);
+  border: 1px solid var(--borda-suave);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.hub360-mini-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra);
+}
+.hub360-mini-nome {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--texto);
+  line-height: 1.45;
+}
+.hub360-mini-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  background: var(--card);
+  color: var(--acento);
+  border: 1px solid var(--acento);
+  transition: all .2s ease;
+}
+.hub360-mini-btn:hover {
+  background: var(--acento);
+  color: #fff;
+}
+
 </style>
 
 <script>
@@ -1761,14 +1916,48 @@ function dispararSuper360() {
   executarFiltroPorDestino(d, cin, cout);
 }
 
+// ========================================================
+// CATÁLOGO E HUB 360° DE 265 DESTINOS DO BRASIL (ON-DEMAND)
+// ========================================================
+var destinosBrasilDB = [];
+var destinosIndex = {};
+
+(function carregarCatalogoDestinos() {
+  fetch('data/destinos_brasil_200.json')
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      destinosBrasilDB = d;
+      d.forEach(function(item){
+        var n1 = normalizarTexto(item.cidade_uf);
+        var n2 = normalizarTexto(item.nome);
+        destinosIndex[n1] = item;
+        if (!destinosIndex[n2]) destinosIndex[n2] = item;
+      });
+    })
+    .catch(function(err){
+      console.warn('Carregamento de destinos_brasil_200.json:', err);
+    });
+})();
+
 function extrairCidadeBase(str) {
-  var s = str.split(',')[0].trim(); // Pega apenas a cidade se tiver 'São Paulo, SP' -> 'São Paulo'
+  var s = (str || '').split(',')[0].trim();
   return s;
 }
 
 function executarFiltroPorDestino(destino, cin, cout) {
   var cidadeBase = extrairCidadeBase(destino);
   var cidadeBaseNorm = normalizarTexto(cidadeBase);
+  var destinoNorm = normalizarTexto(destino);
+
+  // Busca dados completos no catálogo de 265 destinos do Brasil
+  var destInfo = destinosIndex[destinoNorm] || destinosIndex[cidadeBaseNorm] || null;
+  if (!destInfo && destinosBrasilDB.length > 0) {
+    destInfo = destinosBrasilDB.find(function(item){
+      var k1 = normalizarTexto(item.cidade_uf);
+      var k2 = normalizarTexto(item.nome);
+      return k1 === destinoNorm || k2 === cidadeBaseNorm || k1.indexOf(cidadeBaseNorm) !== -1;
+    }) || null;
+  }
 
   var cards = document.querySelectorAll('.hotel-card');
   var totalEncontrados = 0;
@@ -1776,9 +1965,7 @@ function executarFiltroPorDestino(destino, cin, cout) {
   cards.forEach(function(card){
     var cardCidade = card.getAttribute('data-cidade') || '';
     var cardCidadeNorm = normalizarTexto(cardCidade);
-    var cardTexto = normalizarTexto(card.innerText);
 
-    // Match exato de cidade pelo data-cidade ou inclusão direta do nome da cidade
     var match = (cardCidadeNorm === cidadeBaseNorm) || 
                 (cidadeBaseNorm.length > 3 && cardCidadeNorm.indexOf(cidadeBaseNorm) !== -1) ||
                 (cardCidadeNorm.length > 3 && cidadeBaseNorm.indexOf(cardCidadeNorm) !== -1);
@@ -1791,15 +1978,23 @@ function executarFiltroPorDestino(destino, cin, cout) {
     }
   });
 
-  // Atualizar o banner de resultado da cidade
   var enc = encodeURIComponent(destino);
-  var rawBooking = 'https://www.booking.com/searchresults.pt-br.html?ss=' + enc + (cin ? '&checkin=' + cin : '') + (cout ? '&checkout=' + cout : '');
-  var urlBooking = 'https://tp.media/r?marker=812990&p=4115&u=' + encodeURIComponent(rawBooking);
-  // datas ja inclusas em rawBooking
+  var rawBooking = (destInfo && destInfo.link_booking) 
+    ? (destInfo.link_booking + (cin ? '&checkin=' + cin : '') + (cout ? '&checkout=' + cout : ''))
+    : ('https://tp.media/r?marker=812990&p=4115&u=' + encodeURIComponent('https://www.booking.com/searchresults.pt-br.html?ss=' + enc + (cin ? '&checkin=' + cin : '') + (cout ? '&checkout=' + cout : '')));
+  var urlBooking = rawBooking;
 
-  var urlVoos = 'https://www.aviasales.com/search?marker=812990&destination_name=' + enc;
-  if (cin) urlVoos += '&depart_date=' + cin;
-  if (cout) urlVoos += '&return_date=' + cout;
+  var urlVoos = (destInfo && destInfo.link_voos) ? destInfo.link_voos : ('https://www.aviasales.com/search?marker=812990&destination_name=' + enc);
+  if (cin && urlVoos.indexOf('depart_date') === -1) urlVoos += '&depart_date=' + cin;
+  if (cout && urlVoos.indexOf('return_date') === -1) urlVoos += '&return_date=' + cout;
+
+  var urlViator = (destInfo && destInfo.link_atracoes) 
+    ? destInfo.link_atracoes 
+    : ('https://tp.media/r?marker=812990&p=3249&u=' + encodeURIComponent('https://www.viator.com/searchResults/all?text=' + destino));
+
+  var urlGastro = (destInfo && destInfo.link_gastronomia) 
+    ? destInfo.link_gastronomia 
+    : ('https://www.thefork.com.br/search?text=' + enc);
 
   var bannerBox = document.getElementById('bannerResultadoCidade');
   if (!bannerBox) {
@@ -1810,26 +2005,94 @@ function executarFiltroPorDestino(destino, cin, cout) {
     grid.parentNode.insertBefore(bannerBox, grid);
   }
 
-  var htmlBanner = '<div class="banner-cidade-box">';
-  htmlBanner += '<div class="banner-cidade-topo">';
-  htmlBanner += '  <div>';
-  htmlBanner += '    <h3>📍 Resultados para: <em>' + destino + '</em></h3>';
-  if (totalEncontrados > 0) {
-    htmlBanner += '    <p class="banner-cidade-sub">Exibindo <strong>' + totalEncontrados + ' hospedagens selecionadas</strong> em ' + destino + (cin ? ' para ' + cin : '') + '.</p>';
-  } else {
-    htmlBanner += '    <p class="banner-cidade-sub">Nenhum hotel na curadoria local fixa para esta cidade, mas você pode consultar <strong>todas as vagas no Booking.com</strong> abaixo:</p>';
-  }
-  htmlBanner += '  </div>';
-  htmlBanner += '  <button type="button" onclick="limparFiltroCidade()" class="btn-limpar-filtro">✕ Ver todos os destinos</button>';
-  htmlBanner += '</div>';
+  var htmlBanner = '';
+  if (destInfo) {
+    var bgImg = destInfo.imagem || 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80';
+    htmlBanner += '<div class="hub360-container">';
+    htmlBanner += '  <div class="hub360-hero" style="background-image:url('' + bgImg + '')">';
+    htmlBanner += '    <div class="hub360-hero-content">';
+    htmlBanner += '      <div class="hub360-badges">';
+    htmlBanner += '        <span class="hub360-badge">📍 ' + (destInfo.regiao || 'Brasil') + '</span>';
+    htmlBanner += '        <span class="hub360-badge hub360-badge-price">Diária Média: ' + (destInfo.preco_diaria_estimada || 'Econômica') + '</span>';
+    htmlBanner += '      </div>';
+    htmlBanner += '      <h3 class="hub360-title">Hub 360° PennerTech: ' + destInfo.cidade_uf + '</h3>';
+    htmlBanner += '      <p class="hub360-desc">' + destInfo.descricao + '</p>';
+    htmlBanner += '    </div>';
+    htmlBanner += '  </div>';
+    htmlBanner += '  <div class="hub360-body">';
+    htmlBanner += '    <div class="hub360-top-bar">';
+    htmlBanner += '      <h4>⚡ Cotações Oficiais & Descontos em ' + destInfo.nome + ':</h4>';
+    htmlBanner += '      <button type="button" onclick="limparFiltroCidade()" class="btn-limpar-filtro">✕ Ver todos os destinos</button>';
+    htmlBanner += '    </div>';
+    htmlBanner += '    <div class="hub360-actions-grid">';
+    htmlBanner += '      <a href="' + urlBooking + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao btn-booking-destaque">🏨 Hospedagens no Booking.com →</a>';
+    htmlBanner += '      <a href="' + urlVoos + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao">✈️ Passagens Aéreas (' + destInfo.nome + ') →</a>';
+    htmlBanner += '      <a href="https://www.decolar.com/pacotes/" target="_blank" rel="noopener sponsored" class="banner-btn-acao">🎒 Pacotes Voo + Hotel →</a>';
+    htmlBanner += '      <a href="' + urlViator + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao">🎟️ Passeios & Ingressos no Viator →</a>';
+    htmlBanner += '      <a href="' + urlGastro + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao">🍽️ Descontos em Restaurantes →</a>';
+    htmlBanner += '    </div>';
 
-  htmlBanner += '<div class="banner-cidade-links">';
-  htmlBanner += '  <a href="' + urlBooking + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao btn-booking-destaque">🏨 Ver todas as vagas no Booking.com →</a>';
-  htmlBanner += '  <a href="' + urlVoos + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao">✈️ Passagens Aéreas (' + destino + ') →</a>';
-  htmlBanner += '  <a href="https://www.decolar.com/pacotes/" target="_blank" rel="noopener sponsored" class="banner-btn-acao">🎒 Pacotes Voo + Hotel →</a>';
-  htmlBanner += '  <a href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3D%27%20%2B%20enc%20%2B%20%27" target="_blank" rel="noopener sponsored" class="banner-btn-acao">🎟️ Passeios & Ingressos →</a>';
-  htmlBanner += '</div>';
-  htmlBanner += '</div>';
+    // Sub-bloco de Atrações
+    if (destInfo.atracoes && destInfo.atracoes.length > 0) {
+      htmlBanner += '    <div class="hub360-subsecao">';
+      htmlBanner += '      <div class="hub360-subsecao-titulo">🎟️ Principais Atrações & Passeios Imperdíveis em ' + destInfo.nome + '</div>';
+      htmlBanner += '      <div class="hub360-cards-row">';
+      destInfo.atracoes.forEach(function(atr){
+        htmlBanner += '        <div class="hub360-mini-card">';
+        htmlBanner += '          <div class="hub360-mini-nome">🎯 ' + atr.nome + '</div>';
+        htmlBanner += '          <a href="' + atr.link + '" target="_blank" rel="noopener sponsored" class="hub360-mini-btn">Reservar no Viator →</a>';
+        htmlBanner += '        </div>';
+      });
+      htmlBanner += '      </div>';
+      htmlBanner += '    </div>';
+    }
+
+    // Sub-bloco de Gastronomia
+    if (destInfo.gastronomia && destInfo.gastronomia.length > 0) {
+      htmlBanner += '    <div class="hub360-subsecao">';
+      htmlBanner += '      <div class="hub360-subsecao-titulo">🍽️ Polos Gastronômicos & Onde Comer com Economia em ' + destInfo.nome + '</div>';
+      htmlBanner += '      <div class="hub360-cards-row">';
+      destInfo.gastronomia.forEach(function(gastr){
+        htmlBanner += '        <div class="hub360-mini-card">';
+        htmlBanner += '          <div class="hub360-mini-nome">🍷 ' + gastr.nome + '</div>';
+        htmlBanner += '          <a href="' + gastr.link + '" target="_blank" rel="noopener sponsored" class="hub360-mini-btn">Ver Restaurantes →</a>';
+        htmlBanner += '        </div>';
+      });
+      htmlBanner += '      </div>';
+      htmlBanner += '    </div>';
+    }
+
+    if (totalEncontrados > 0) {
+      htmlBanner += '    <div class="hub360-subsecao" style="margin-top:28px">';
+      htmlBanner += '      <div class="hub360-subsecao-titulo">🏨 Hospedagens Selecionadas pela Curadoria Fixa em ' + destInfo.nome + ' (' + totalEncontrados + ' opções abaixo)</div>';
+      htmlBanner += '    </div>';
+    }
+
+    htmlBanner += '  </div>';
+    htmlBanner += '</div>';
+  } else {
+    // Banner fallback
+    htmlBanner = '<div class="banner-cidade-box">';
+    htmlBanner += '<div class="banner-cidade-topo">';
+    htmlBanner += '  <div>';
+    htmlBanner += '    <h3>📍 Resultados para: <em>' + destino + '</em></h3>';
+    if (totalEncontrados > 0) {
+      htmlBanner += '    <p class="banner-cidade-sub">Exibindo <strong>' + totalEncontrados + ' hospedagens selecionadas</strong> em ' + destino + (cin ? ' para ' + cin : '') + '.</p>';
+    } else {
+      htmlBanner += '    <p class="banner-cidade-sub">Consulte todas as opções de hotéis, voos e passeios para ' + destino + ' nos canais oficiais abaixo:</p>';
+    }
+    htmlBanner += '  </div>';
+    htmlBanner += '  <button type="button" onclick="limparFiltroCidade()" class="btn-limpar-filtro">✕ Ver todos os destinos</button>';
+    htmlBanner += '</div>';
+    htmlBanner += '<div class="banner-cidade-links">';
+    htmlBanner += '  <a href="' + urlBooking + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao btn-booking-destaque">🏨 Ver todas as vagas no Booking.com →</a>';
+    htmlBanner += '  <a href="' + urlVoos + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao">✈️ Passagens Aéreas (' + destino + ') →</a>';
+    htmlBanner += '  <a href="https://www.decolar.com/pacotes/" target="_blank" rel="noopener sponsored" class="banner-btn-acao">🎒 Pacotes Voo + Hotel →</a>';
+    htmlBanner += '  <a href="' + urlViator + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao">🎟️ Passeios & Ingressos →</a>';
+    htmlBanner += '  <a href="' + urlGastro + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao">🍽️ Descontos em Restaurantes →</a>';
+    htmlBanner += '</div>';
+    htmlBanner += '</div>';
+  }
 
   bannerBox.innerHTML = htmlBanner;
   bannerBox.style.display = 'block';
@@ -1858,14 +2121,7 @@ function limparFiltroCidade() {
 
   // Marcar botão "Todos"
   var btnTodos = document.querySelector('.chip-luxe[data-cat="todos"]');
-  if (btnTodos) {
-    document.querySelectorAll('.chip-luxe').forEach(function(b){ b.classList.remove('on'); });
-    btnTodos.classList.add('on');
-  }
-
-  // Limpar input de destino
-  var inp = document.getElementById('destSuperInput');
-  if (inp) inp.value = '';
+  if (btnTodos) btnTodos.classList.add('on');
 }
 
 
