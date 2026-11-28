@@ -1,6 +1,437 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
+<script>(function(){try{var m=document.cookie.match(/(?:^|;\s*)pt_tema=(escuro|claro)/);document.documentElement.setAttribute("data-tema",m?m[1]:"claro")}catch(e){document.documentElement.setAttribute("data-tema","claro")}})();</script>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-store">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PennerTech Viagens — Curadoria de Hotéis, Resorts e Passagens</title>
+<meta name="description" content="Portal oficial de viagens e turismo PennerTech: seleção das melhores hospedagens econômicas e resorts no Brasil e no mundo. Parceria oficial Booking.com com cancelamento grátis e tarifas exclusivas.">
+<link rel="canonical" href="https://viagens.pennertech.com.br/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PennerTech Viagens">
+<meta property="og:title" content="PennerTech Viagens — Curadoria de Hotéis, Resorts e Passagens">
+<meta property="og:description" content="Portal oficial de viagens e turismo PennerTech: seleção das melhores hospedagens econômicas e resorts no Brasil e no mundo. Parceria oficial Booking.com.">
+<meta property="og:url" content="https://viagens.pennertech.com.br/">
+<meta property="og:locale" content="pt_BR">
+<meta name="theme-color" content="#faf8f5">
+<link rel="icon" type="image/png" sizes="64x64" href="img/favicon-64.png?v=9fb83174">
+<link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png?v=c11102d6">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png?v=8f32fdca">
+
+<!-- Folha de estilo base PennerTech -->
+<link rel="stylesheet" href="css/style.css?v=4cf08b7c">
+
+<!-- Google Fonts: Newsreader (Editorial Serif) & Plus Jakarta Sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ========================================================
+   MODELO 1: LUXE EXPLORER OFICIAL (AIRBNB STYLE & EDITORIAL)
+   ======================================================== */
+:root {
+  --bg: #faf8f5;
+  --bg2: #f4efe8;
+  --card: #ffffff;
+  --card-borda: rgba(0, 0, 0, 0.06);
+  --texto: #1c1917;
+  --texto-corpo: #44403c;
+  --texto-sub: #78716c;
+  --acento: #b45309;
+  --acento-rgb: 180, 83, 9;
+  --verde: #047857;
+  --linha: #f0ede8;
+  --borda-suave: #e7e5e4;
+  --sombra: 0 8px 24px rgba(0, 0, 0, 0.04);
+  --sombra-hover: 0 16px 36px rgba(0, 0, 0, 0.08);
+}
+[data-tema="escuro"] {
+  --bg: #141210;
+  --bg2: #1c1917;
+  --card: #211e1b;
+  --card-borda: rgba(255, 255, 255, 0.08);
+  --texto: #fbfaf9;
+  --texto-corpo: #d6d3d1;
+  --texto-sub: #a8a29e;
+  --acento: #f59e0b;
+  --acento-rgb: 245, 158, 11;
+  --verde: #10b981;
+  --linha: rgba(255, 255, 255, 0.08);
+  --borda-suave: rgba(255, 255, 255, 0.12);
+  --sombra: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --sombra-hover: 0 16px 36px rgba(0, 0, 0, 0.65);
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif !important;
+  background: var(--bg) !important;
+  color: var(--texto) !important;
+  margin: 0;
+  padding: 0;
+}
+
+/* Marca no topo - tamanho correto e contido */
+.logo img {
+  width: 40px !important;
+  height: 40px !important;
+  object-fit: contain;
+}
+
+h1, h2, .luxe-title {
+  font-family: 'Newsreader', Georgia, serif !important;
+  font-weight: 400 !important;
+}
+h1 em, .luxe-title em { font-style: italic !important; }
+
+/* HERO EDITORIAL */
+.luxe-hero {
+  text-align: center;
+  padding: 40px 16px 20px;
+}
+.luxe-badge {
+  display: inline-block;
+  font-size: 11.5px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--acento);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.luxe-title {
+  font-size: 44px;
+  line-height: 1.15;
+  color: var(--texto);
+  max-width: 820px;
+  margin: 0 auto 12px;
+}
+.luxe-sub {
+  font-size: 15px;
+  color: var(--texto-sub);
+  max-width: 640px;
+  margin: 0 auto 28px;
+  line-height: 1.6;
+}
+
+/* SELETOR DOS 2 BOTÕES PRINCIPAIS */
+.botoes-modos-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.btn-modo-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 700;
+  border: 1.5px solid var(--borda-suave);
+  background: var(--card);
+  color: var(--texto-sub);
+  cursor: pointer;
+  transition: all .2s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.btn-modo-pill:hover {
+  border-color: var(--acento);
+  color: var(--texto);
+}
+.btn-modo-pill.ativo {
+  background: var(--acento);
+  color: #fff !important;
+  border-color: var(--acento);
+  box-shadow: 0 4px 14px rgba(var(--acento-rgb), .3);
+}
+
+/* ILHA FLUTUANTE DE BUSCA COM BOTÃO BONITO */
+.luxe-search-container {
+  max-width: 900px;
+  margin: 0 auto 36px;
+}
+.luxe-search-bar {
+  background: var(--card);
+  border: 1px solid var(--card-borda);
+  border-radius: 999px;
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  padding: 7px 10px 7px 18px;
+  transition: box-shadow .2s ease, border-color .2s ease;
+}
+[data-tema="escuro"] .luxe-search-bar {
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.5);
+}
+.luxe-search-bar:focus-within, .luxe-search-bar:hover {
+  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.12);
+  border-color: rgba(var(--acento-rgb), .3);
+}
+
+.search-col {
+  flex: 1;
+  padding: 6px 14px;
+  text-align: left;
+  border-right: 1px solid var(--linha);
+}
+.search-col:last-of-type {
+  border-right: none;
+}
+.search-col label {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--texto-sub);
+  margin-bottom: 2px;
+}
+.search-col input, .search-col select {
+  border: none;
+  background: transparent;
+  width: 100%;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--texto);
+  outline: none;
+}
+.search-col select {
+  cursor: pointer;
+}
+
+/* BOTÃO DE BUSCA BONITO & REFINADO */
+.btn-luxe-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #b45309 0%, #d97706 100%);
+  color: #fff;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(180, 83, 9, 0.35);
+  transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
+  white-space: nowrap;
+}
+.btn-luxe-submit:hover {
+  transform: scale(1.02);
+  filter: brightness(1.08);
+  box-shadow: 0 6px 18px rgba(180, 83, 9, 0.45);
+}
+.btn-luxe-submit svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* RESULTADOS 360 */
+.res360-popup {
+  background: var(--card);
+  border: 1px solid var(--card-borda);
+  border-radius: 20px;
+  padding: 18px 22px;
+  margin-top: 14px;
+  box-shadow: 0 14px 36px rgba(0,0,0,0.08);
+  animation: fadeIn .2s ease;
+}
+@keyframes fadeIn { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:translateY(0)} }
+.res360-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+.res360-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--bg2);
+  border: 1px solid var(--borda-suave);
+  border-radius: 14px;
+  text-decoration: none;
+  color: var(--texto);
+  font-size: 13px;
+  font-weight: 700;
+  transition: border-color .15s, transform .15s;
+}
+.res360-item:hover {
+  border-color: var(--acento);
+  transform: translateY(-2px);
+}
+
+/* FILTROS DE HOTÉIS DISCRETOS EM 1 LINHA */
+.filtros-luxe-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 32px 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--linha);
+}
+.filtros-luxe-bar h2 {
+  font-family: 'Newsreader', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--texto);
+}
+.filtros-grupos {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.chip-luxe {
+  background: var(--card);
+  border: 1px solid var(--card-borda);
+  color: var(--texto-sub);
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+.chip-luxe:hover { border-color: var(--acento); color: var(--texto); }
+.chip-luxe.on {
+  background: var(--acento);
+  color: #fff !important;
+  border-color: var(--acento);
+}
+
+/* CARDS DE HOTÉIS LUXE (EXATAMENTE A IMAGEM 2 DO RENATO) */
+.grid-hoteis-luxe {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 32px;
+  margin-bottom: 60px;
+}
+.hotel-card {
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--card-borda);
+  box-shadow: var(--sombra);
+  transition: transform .25s ease, box-shadow .25s ease;
+  display: flex;
+  flex-direction: column;
+}
+.hotel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-hover);
+}
+.hotel-thumb {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+  background: var(--bg2);
+}
+.hotel-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s ease;
+  display: block;
+}
+.hotel-card:hover .hotel-thumb img {
+  transform: scale(1.04);
+}
+.card-badge-pill {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #1c1917;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+[data-tema="escuro"] .card-badge-pill {
+  background: rgba(33, 30, 27, 0.92);
+  color: #fbfaf9;
+}
+.hotel-body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.hotel-loc-line {
+  font-size: 12px;
+  color: var(--texto-sub);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+.hotel-title-luxe {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--texto);
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+.hotel-desc-luxe {
+  font-size: 13.5px;
+  color: var(--texto-corpo);
+  line-height: 1.55;
+  margin-bottom: 18px;
+  flex: 1;
+}
+.hotel-footer-luxe {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-top: 1px solid var(--linha);
+  padding-top: 14px;
+  margin-top: auto;
+}
+.hotel-price-luxe {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--texto);
+}
+.hotel-price-luxe small {
+  font-size: 12px;
+  color: var(--texto-sub);
+  font-weight: 500;
+}
+.hotel-action-link {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--acento);
+  text-decoration: none;
+  transition: color .15s;
+}
+.hotel-action-link:hover {
+  color: #92400e;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .luxe-search-bar { flex-direction: column; border-radius: 20px; padding: 14px; }
+  .search-col { width: 100%; border-right: none; border-bottom: 1px solid var(--linha); padding: 8px 4px; }
+  .btn-luxe-submit { width: 100%; margin-top: 10px; }
+  .grid-hoteis-luxe { grid-template-columns: 1fr; }
+}
+</style>
 
 <script>
 (function(){
