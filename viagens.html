@@ -527,6 +527,93 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   opacity: .8;
 }
 
+
+/* Banner de Resultados da Cidade Pesquisada */
+.banner-cidade-wrap {
+  margin: 20px 0 30px;
+  animation: fadeInBanner .25s ease;
+}
+@keyframes fadeInBanner { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+.banner-cidade-box {
+  background: var(--card);
+  border: 1.5px solid var(--acento);
+  border-radius: 20px;
+  padding: 22px 26px;
+  box-shadow: 0 12px 32px rgba(180, 83, 9, 0.1);
+}
+.banner-cidade-topo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.banner-cidade-topo h3 {
+  font-family: 'Newsreader', serif;
+  font-size: 26px;
+  color: var(--texto);
+  margin-bottom: 4px;
+}
+.banner-cidade-topo h3 em {
+  color: var(--acento);
+  font-style: italic;
+}
+.banner-cidade-sub {
+  font-size: 13.5px;
+  color: var(--texto-sub);
+  margin: 0;
+}
+.btn-limpar-filtro {
+  background: var(--bg2);
+  border: 1px solid var(--borda-suave);
+  color: var(--texto);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+.btn-limpar-filtro:hover {
+  background: #fee2e2;
+  color: #991b1b;
+  border-color: #fca5a5;
+}
+.banner-cidade-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.banner-btn-acao {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  background: var(--bg2);
+  color: var(--texto);
+  border: 1px solid var(--borda-suave);
+  transition: all .15s ease;
+}
+.banner-btn-acao:hover {
+  border-color: var(--acento);
+  color: var(--acento);
+  transform: translateY(-1px);
+}
+.btn-booking-destaque {
+  background: var(--acento);
+  color: #fff !important;
+  border-color: var(--acento);
+  box-shadow: 0 4px 12px rgba(180, 83, 9, 0.25);
+}
+.btn-booking-destaque:hover {
+  background: #92400e;
+}
+
 </style>
 
 <script>
@@ -1368,6 +1455,14 @@ function alternarModo(modo) {
   }
 }
 
+
+// ========================================================
+// SUPER BUSCA 360° POR CIDADE / DESTINO (FILTRA A PÁGINA)
+// ========================================================
+function normalizarTexto(txt) {
+  return (txt || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+}
+
 function dispararSuper360() {
   var d = (document.getElementById('destSuperInput').value || '').trim();
   if (!d) return;
@@ -1375,24 +1470,113 @@ function dispararSuper360() {
   var cin = document.getElementById('dataCheckinSuper') ? document.getElementById('dataCheckinSuper').value : '';
   var cout = document.getElementById('dataCheckoutSuper') ? document.getElementById('dataCheckoutSuper').value : '';
 
-  var enc = encodeURIComponent(d);
-  document.getElementById('nomeDest360').textContent = d;
+  executarFiltroPorDestino(d, cin, cout);
+}
 
+function executarFiltroPorDestino(destino, cin, cout) {
+  var dNorm = normalizarTexto(destino);
+  // Extrair palavras significativas
+  var palavras = dNorm.replace(/,/g, ' ').split(/[ \t]+/).filter(function(p){
+    return p.length > 2 && ['dos', 'das', 'de', 'do', 'em', 'para'].indexOf(p) === -1;
+  });
+
+  var cards = document.querySelectorAll('.hotel-card');
+  var totalEncontrados = 0;
+
+  cards.forEach(function(card){
+    var cardTexto = normalizarTexto(card.innerText);
+    var match = false;
+
+    for (var i = 0; i < palavras.length; i++) {
+      if (cardTexto.indexOf(palavras[i]) !== -1) {
+        match = true;
+        break;
+      }
+    }
+
+    if (match) {
+      card.style.display = 'flex';
+      totalEncontrados++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  // Atualizar o banner de resultado da cidade
+  var enc = encodeURIComponent(destino);
   var urlBooking = 'https://www.booking.com/searchresults.pt-br.html?ss=' + enc + '&label=pennertech-360';
   if (cin) urlBooking += '&checkin=' + cin;
   if (cout) urlBooking += '&checkout=' + cout;
-  document.getElementById('link360Hoteis').href = urlBooking;
 
   var urlVoos = 'https://www.aviasales.com/search?marker=812990&destination_name=' + enc;
   if (cin) urlVoos += '&depart_date=' + cin;
   if (cout) urlVoos += '&return_date=' + cout;
-  document.getElementById('link360Voos').href = urlVoos;
 
-  document.getElementById('link360Pacotes').href = 'https://www.decolar.com/pacotes/';
-  document.getElementById('link360Atracoes').href = 'https://www.viator.com/searchResults/all?text=' + enc;
+  var bannerBox = document.getElementById('bannerResultadoCidade');
+  if (!bannerBox) {
+    bannerBox = document.createElement('div');
+    bannerBox.id = 'bannerResultadoCidade';
+    bannerBox.className = 'banner-cidade-wrap';
+    var grid = document.getElementById('gridHoteis');
+    grid.parentNode.insertBefore(bannerBox, grid);
+  }
 
-  document.getElementById('popup360').style.display = 'block';
+  var htmlBanner = '<div class="banner-cidade-box">';
+  htmlBanner += '<div class="banner-cidade-topo">';
+  htmlBanner += '  <div>';
+  htmlBanner += '    <h3>📍 Resultados para: <em>' + destino + '</em></h3>';
+  if (totalEncontrados > 0) {
+    htmlBanner += '    <p class="banner-cidade-sub">Exibindo <strong>' + totalEncontrados + ' hospedagens selecionadas</strong> em ' + destino + (cin ? ' para ' + cin : '') + '.</p>';
+  } else {
+    htmlBanner += '    <p class="banner-cidade-sub">Nenhum hotel na curadoria fixa inicial para esta cidade, mas você pode consultar <strong>todas as vagas no Booking.com</strong> abaixo:</p>';
+  }
+  htmlBanner += '  </div>';
+  htmlBanner += '  <button type="button" onclick="limparFiltroCidade()" class="btn-limpar-filtro">✕ Ver todos os destinos</button>';
+  htmlBanner += '</div>';
+
+  htmlBanner += '<div class="banner-cidade-links">';
+  htmlBanner += '  <a href="' + urlBooking + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao btn-booking-destaque">🏨 Ver todas as vagas no Booking.com →</a>';
+  htmlBanner += '  <a href="' + urlVoos + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao">✈️ Passagens Aéreas (' + destino + ') →</a>';
+  htmlBanner += '  <a href="https://www.decolar.com/pacotes/" target="_blank" rel="noopener sponsored" class="banner-btn-acao">🎒 Pacotes Voo + Hotel →</a>';
+  htmlBanner += '  <a href="https://www.viator.com/searchResults/all?text=' + enc + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao">🎟️ Passeios & Ingressos →</a>';
+  htmlBanner += '</div>';
+  htmlBanner += '</div>';
+
+  bannerBox.innerHTML = htmlBanner;
+  bannerBox.style.display = 'block';
+
+  // Fechar o popup antigo se existir
+  var p360 = document.getElementById('popup360');
+  if (p360) p360.style.display = 'none';
+
+  // Desmarcar pílulas de categorias
+  document.querySelectorAll('.chip-luxe').forEach(function(b){ b.classList.remove('on'); });
+
+  // Rolar suavemente para a seção de resultados
+  bannerBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
+
+function limparFiltroCidade() {
+  var bannerBox = document.getElementById('bannerResultadoCidade');
+  if (bannerBox) bannerBox.style.display = 'none';
+
+  // Restaurar todos os cards
+  document.querySelectorAll('.hotel-card').forEach(function(card){
+    card.style.display = 'flex';
+  });
+
+  // Marcar botão "Todos"
+  var btnTodos = document.querySelector('.chip-luxe[data-cat="todos"]');
+  if (btnTodos) {
+    document.querySelectorAll('.chip-luxe').forEach(function(b){ b.classList.remove('on'); });
+    btnTodos.classList.add('on');
+  }
+
+  // Limpar input de destino
+  var inp = document.getElementById('destSuperInput');
+  if (inp) inp.value = '';
+}
+
 
 function atualizarHintCat() {
   var v = document.getElementById('selectSubOpcao').value;
