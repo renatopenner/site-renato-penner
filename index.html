@@ -28,18 +28,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png?v=c11102d6">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png?v=8f32fdca">
 <link rel="stylesheet" href="css/style.css?v=4cf08b7c">
-<script>
-addEventListener('load',function(){try{var u='https://renatopennersoares1783016458000.0871043.meusitehostgator.com.br/c.php?p='+encodeURIComponent(location.pathname)+'&o='+encodeURIComponent(location.hostname);
-  if(navigator.sendBeacon){navigator.sendBeacon(u);}else{fetch(u,{keepalive:true});}}catch(e){}});
-document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closest?ev.target.closest('a'):null;if(!a)return;
-  var h=a.href||'',d='';
-  if(h.indexOf('mercadolivre')>=0||h.indexOf('meli.la')>=0)d='mercadolivre';
-  else if(h.indexOf('amazon')>=0)d='amazon';
-  else if(h.indexOf('wa.me')>=0||h.indexOf('whatsapp')>=0)d='whatsapp';
-  else if(h.indexOf('youtu')>=0)d='youtube';
-  if(!d)return;try{var u='https://renatopennersoares1783016458000.0871043.meusitehostgator.com.br/c.php?e=c&d='+d+'&p='+encodeURIComponent(location.pathname)+'&o='+encodeURIComponent(location.hostname);
-  if(navigator.sendBeacon){navigator.sendBeacon(u);}else{fetch(u,{keepalive:true});}}catch(e){}});
-</script>
+
 
 <script>
 (function(){
@@ -60,6 +49,54 @@ document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closes
 })();
 </script>
 <script defer src="js/ofertas.js"></script>
+<script>
+/* Telemetria Oficial PennerServer2 (Loja Penner Tech) */
+(function(){
+  var EPS = [
+    'https://baixa.duckdns.org:8095/monitor/api/web-analytics/hit',
+    'https://pennerflix.duckdns.org:8095/monitor/api/web-analytics/hit',
+    'https://pennerserver2.tail69feb4.ts.net/monitor/api/web-analytics/hit'
+  ];
+
+  function sendHit(tipo, extra) {
+    var payload = {
+      site: 'loja',
+      type: tipo || 'pageview',
+      path: location.pathname || '/',
+      ref: document.referrer || '',
+      target: (extra && extra.target) || '',
+      label: (extra && extra.label) || ''
+    };
+    var body = JSON.stringify(payload);
+    for (var i = 0; i < EPS.length; i++) {
+      try {
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon(EPS[i], body);
+          return;
+        } else {
+          fetch(EPS[i], { method: 'POST', headers: {'Content-Type': 'text/plain;charset=UTF-8'}, body: body, keepalive: true });
+          return;
+        }
+      } catch (e) {}
+    }
+  }
+
+  if (document.readyState === 'complete') sendHit('pageview');
+  else window.addEventListener('load', function(){ sendHit('pageview'); });
+
+  document.addEventListener('click', function(ev){
+    var a = ev.target && ev.target.closest ? ev.target.closest('a') : null;
+    if (!a) return;
+    var h = a.href || '', tgt = '';
+    if (h.indexOf('mercadolivre') !== -1 || h.indexOf('meli.la') !== -1) tgt = 'mercadolivre';
+    else if (h.indexOf('amazon') !== -1) tgt = 'amazon';
+    else if (h.indexOf('booking.com') !== -1) tgt = 'booking';
+    else if (h.indexOf('wa.me') !== -1 || h.indexOf('whatsapp') !== -1) tgt = 'whatsapp';
+    else if (h.indexOf('youtu') !== -1) tgt = 'youtube';
+    if (tgt) sendHit('click', { target: tgt, label: a.innerText.trim().slice(0, 50) });
+  });
+})();
+</script>
 </head>
 <body>
 <header><div class="wrap nav">

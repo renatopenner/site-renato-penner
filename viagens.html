@@ -1,556 +1,7 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<script>(function(){try{var m=document.cookie.match(/(?:^|;\s*)pt_tema=(escuro|claro)/);document.documentElement.setAttribute("data-tema",m?m[1]:"claro")}catch(e){document.documentElement.setAttribute("data-tema","claro")}})();</script>
-<meta charset="utf-8">
-<meta http-equiv="Cache-Control" content="no-store">
-<meta name="build" content="2026-11-26 17:00">
-<meta name="robots" content="index,follow,max-image-preview:large">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PennerTech Viagens — Curadoria de Hotéis, Resorts e Passagens</title>
-<meta name="description" content="Portal oficial de viagens e turismo PennerTech: seleção das melhores hospedagens econômicas e resorts no Brasil e no mundo. Parceria oficial Booking.com com cancelamento grátis e tarifas exclusivas.">
-<link rel="canonical" href="https://viagens.pennertech.com.br/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="PennerTech Viagens">
-<meta property="og:title" content="PennerTech Viagens — Curadoria de Hotéis, Resorts e Passagens">
-<meta property="og:description" content="Portal oficial de viagens e turismo PennerTech: seleção das melhores hospedagens econômicas e resorts no Brasil e no mundo. Parceria oficial Booking.com.">
-<meta property="og:url" content="https://viagens.pennertech.com.br/">
-<meta property="og:locale" content="pt_BR">
-<meta name="theme-color" content="#f7fafc">
-<link rel="icon" type="image/png" sizes="64x64" href="img/favicon-64.png?v=9fb83174">
-<link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png?v=c11102d6">
-<link rel="apple-touch-icon" href="img/apple-touch-icon.png?v=8f32fdca">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=4cf08b7c">
-<style>
-/* ========================================================
-   TEMA & PALETA: MODELO 1 - LUXE EXPLORER (Airbnb Style)
-   ======================================================== */
-:root {
-  --bg: #faf8f5;
-  --bg2: #f4efe8;
-  --card: #ffffff;
-  --card-borda: rgba(0, 0, 0, 0.06);
-  --texto: #1c1917;
-  --texto-corpo: #44403c;
-  --texto-sub: #78716c;
-  --acento: #b45309;
-  --acento-rgb: 180, 83, 9;
-  --verde: #047857;
-  --btn: #b45309;
-  --btn-hover: #92400e;
-  --btn-texto: #ffffff;
-  --linha: #f0ede8;
-  --borda-suave: #e7e5e4;
-  --sombra: 0 12px 32px -6px rgba(0, 0, 0, 0.05);
-  --sombra-hover: 0 20px 44px -10px rgba(0, 0, 0, 0.1);
-}
-[data-tema="escuro"] {
-  --bg: #141210;
-  --bg2: #1c1917;
-  --card: #211e1b;
-  --card-borda: rgba(255, 255, 255, 0.08);
-  --texto: #fbfaf9;
-  --texto-corpo: #d6d3d1;
-  --texto-sub: #a8a29e;
-  --acento: #f59e0b;
-  --acento-rgb: 245, 158, 11;
-  --verde: #10b981;
-  --btn: #d97706;
-  --btn-hover: #b45309;
-  --btn-texto: #ffffff;
-  --linha: rgba(255, 255, 255, 0.08);
-  --borda-suave: rgba(255, 255, 255, 0.12);
-  --sombra: 0 12px 32px -6px rgba(0, 0, 0, 0.45);
-  --sombra-hover: 0 20px 44px -10px rgba(0, 0, 0, 0.65);
-}
 
-body {
-  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-  background: var(--bg) !important;
-  color: var(--texto) !important;
-}
-
-h1, h2, h3, .hotel-title, .hero h1, .luxe-title {
-  font-family: 'Newsreader', Georgia, serif !important;
-  font-weight: 400 !important;
-  letter-spacing: -0.01em;
-}
-.hero h1 em, h1 em, h2 em {
-  font-style: italic !important;
-}
-
-/* CARDS DE HOTÉIS LUXE EXPLORER */
-.hotel-card {
-  display: flex;
-  flex-direction: column;
-  background: var(--card);
-  border: 1px solid var(--card-borda);
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: var(--sombra);
-  transition: transform .28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow .28s ease, border-color .25s ease;
-}
-.hotel-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(var(--acento-rgb), .35);
-  box-shadow: var(--sombra-hover);
-}
-.hotel-thumb {
-  position: relative;
-  width: 100%;
-  height: 240px;
-  overflow: hidden;
-  background: var(--bg2);
-}
-.hotel-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform .45s ease;
-}
-.hotel-card:hover .hotel-thumb img {
-  transform: scale(1.05);
-}
-.badge-dest {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  color: #1c1917;
-  font-size: 11.5px;
-  font-weight: 700;
-  padding: 5px 12px;
-  border-radius: 999px;
-  letter-spacing: .02em;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-[data-tema="escuro"] .badge-dest {
-  background: rgba(33, 30, 27, 0.92);
-  color: #fbfaf9;
-}
-.badge-nota {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  background: rgba(28, 25, 23, 0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  color: #fbbf24;
-  font-size: 12px;
-  font-weight: 800;
-  padding: 5px 11px;
-  border-radius: 999px;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-.hotel-body {
-  padding: 22px 24px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-.hotel-loc {
-  font-size: 11.5px;
-  font-weight: 700;
-  color: var(--acento);
-  letter-spacing: .02em;
-  margin-bottom: 6px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.hotel-title {
-  font-size: 21px !important;
-  font-weight: 500 !important;
-  color: var(--texto) !important;
-  line-height: 1.3 !important;
-  margin-bottom: 8px;
-}
-.hotel-feats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin: 6px 0 14px;
-}
-.hotel-tag {
-  font-size: 11px;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: var(--bg2);
-  color: var(--texto-corpo);
-  border: 1px solid var(--borda-suave);
-}
-.hotel-desc {
-  font-size: 13.5px;
-  color: var(--texto-corpo);
-  line-height: 1.55;
-  margin-bottom: 18px;
-  flex: 1;
-}
-.hotel-footer {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  border-top: 1px solid var(--linha);
-  padding-top: 16px;
-  margin-top: auto;
-}
-.hotel-preco-box {
-  display: flex;
-  flex-direction: column;
-}
-.hotel-preco-box small {
-  font-size: 11.5px;
-  color: var(--texto-sub);
-  margin-bottom: 2px;
-}
-.hotel-preco-box b {
-  font-size: 22px;
-  color: var(--texto);
-  font-weight: 800;
-  font-family: 'Newsreader', Georgia, serif;
-}
-.hotel-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 20px;
-  background: var(--btn);
-  color: var(--btn-texto) !important;
-  font-size: 13px;
-  font-weight: 700;
-  border-radius: 999px;
-  text-decoration: none;
-  transition: all .2s ease;
-  box-shadow: 0 4px 14px rgba(var(--acento-rgb), 0.25);
-}
-.hotel-btn:hover {
-  background: var(--btn-hover);
-  color: #fff !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(var(--acento-rgb), 0.35);
-}
-
-/* HERO EDITORIAL LUXE */
-.hero {
-  text-align: center;
-  padding: 48px 16px 20px !important;
-}
-.hero h1 {
-  font-size: 46px !important;
-  line-height: 1.15 !important;
-  color: var(--texto) !important;
-  max-width: 860px;
-  margin: 0 auto 16px !important;
-}
-.hero .lead {
-  font-size: 16px !important;
-  color: var(--texto-sub) !important;
-  max-width: 660px;
-  margin: 0 auto 28px !important;
-  line-height: 1.6 !important;
-}
-
-/* SELO DE GARANTIA & QUALIDADE */
-.selo-garantia {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 16px;
-  background: transparent;
-  border: none;
-  padding: 0;
-  margin: 18px 0 26px;
-  font-size: 12.5px;
-  color: var(--texto-sub);
-}
-.selo-garantia span {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--card);
-  border: 1px solid var(--card-borda);
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-weight: 600;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-}
-
-/* ABAS DE BUSCA (HOTÉIS x VOOS) */
-.tabs-busca {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin: 20px auto 22px;
-  max-width: 640px;
-}
-.tab-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
-  border-radius: 999px;
-  font-size: 13.5px;
-  font-weight: 700;
-  border: 1px solid var(--card-borda);
-  background: var(--card);
-  color: var(--texto-sub);
-  cursor: pointer;
-  transition: all .2s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-}
-.tab-btn:hover {
-  color: var(--texto);
-  border-color: var(--acento);
-}
-.tab-btn.ativo {
-  background: var(--acento);
-  color: #fff;
-  border-color: var(--acento);
-  box-shadow: 0 4px 14px rgba(var(--acento-rgb), .3);
-}
-.painel-busca { display: none; }
-.painel-busca.ativo { display: block; }
-
-/* ILHA FLUTUANTE DE BUSCA BOOKING (AIRBNB LUXE STYLE) */
-.booking-search-box {
-  background: var(--card);
-  border: 1px solid var(--card-borda);
-  border-radius: 999px;
-  box-shadow: 0 16px 44px -10px rgba(0, 0, 0, 0.08);
-  padding: 8px 12px;
-  max-width: 900px;
-  margin: 0 auto 36px;
-  transition: box-shadow .2s ease, border-color .2s ease;
-}
-[data-tema="escuro"] .booking-search-box {
-  box-shadow: 0 16px 44px -10px rgba(0, 0, 0, 0.5);
-}
-.booking-search-box:hover {
-  box-shadow: 0 20px 52px -10px rgba(0, 0, 0, 0.12);
-  border-color: rgba(var(--acento-rgb), .3);
-}
-.booking-form {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  width: 100%;
-}
-.booking-input {
-  border: none !important;
-  background: transparent !important;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--texto);
-  padding: 10px 18px;
-  outline: none;
-}
-.booking-input:first-child {
-  flex: 2.2;
-  border-right: 1px solid var(--linha) !important;
-}
-.booking-input[type="date"] {
-  flex: 1.1;
-  border-right: 1px solid var(--linha) !important;
-}
-.booking-submit {
-  width: 48px;
-  height: 48px;
-  min-width: 48px;
-  border-radius: 50%;
-  background: var(--acento);
-  color: #fff;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 18px;
-  transition: transform .15s, background .15s;
-  padding: 0;
-  margin-left: 6px;
-  box-shadow: 0 4px 12px rgba(var(--acento-rgb), .35);
-}
-.booking-submit:hover {
-  transform: scale(1.06);
-  background: var(--btn-hover);
-}
-
-@media (max-width: 768px) {
-  .booking-search-box {
-    border-radius: 20px;
-    padding: 16px;
-  }
-  .booking-form {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .booking-input:first-child, .booking-input[type="date"] {
-    border-right: none !important;
-    border-bottom: 1px solid var(--linha) !important;
-    width: 100%;
-    padding: 8px 10px;
-  }
-  .booking-submit {
-    width: 100%;
-    border-radius: 12px;
-    height: 44px;
-    margin-left: 0;
-    margin-top: 6px;
-  }
-}
-
-/* MÓDULO DE PASSAGENS AÉREAS LUXE */
-.voos-search-box {
-  background: var(--card);
-  border: 1px solid var(--card-borda);
-  border-radius: 24px;
-  padding: 28px 32px;
-  margin: 0 auto 36px;
-  max-width: 900px;
-  box-shadow: 0 16px 44px -10px rgba(0, 0, 0, 0.08);
-}
-.voos-search-box h3 {
-  font-size: 24px !important;
-  font-weight: 500 !important;
-  color: var(--texto);
-  margin-bottom: 6px;
-}
-.voos-search-box p {
-  font-size: 14px;
-  color: var(--texto-sub);
-  margin-bottom: 18px;
-}
-.voos-form {
-  display: grid;
-  grid-template-columns: 1.2fr 1.2fr 140px 140px;
-  gap: 12px;
-  margin-bottom: 18px;
-}
-.voos-input {
-  background: var(--bg2);
-  border: 1px solid var(--borda-suave);
-  color: var(--texto);
-  padding: 12px 14px;
-  border-radius: 12px;
-  font-size: 14px;
-  font-weight: 600;
-  outline: none;
-}
-.voos-acoes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
-}
-.btn-cia {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 12px 20px;
-  border-radius: 999px;
-  font-size: 13.5px;
-  font-weight: 800;
-  color: #fff !important;
-  border: none;
-  cursor: pointer;
-  transition: transform .15s, filter .15s;
-  text-decoration: none;
-}
-.btn-cia:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.08);
-}
-.btn-gol { background: #ff6700; }
-.btn-azul { background: #004b87; }
-.btn-latam { background: #e30613; }
-.btn-decolar { background: #5f27cd; }
-.btn-todas-cias {
-  background: linear-gradient(135deg, #059669 0%, #0284c7 100%);
-  box-shadow: 0 4px 16px rgba(5, 150, 105, 0.3);
-}
-.destaque-rota {
-  background: var(--bg2);
-  border: 1px solid var(--borda-suave);
-  padding: 16px 20px;
-  border-radius: 16px;
-  margin-top: 18px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-/* FILTROS & CHIPS EM PÍLULA */
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 16px 0;
-  justify-content: center;
-}
-.chip {
-  background: var(--card);
-  border: 1px solid var(--card-borda);
-  color: var(--texto-sub);
-  padding: 8px 18px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all .2s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-}
-.chip:hover {
-  border-color: var(--acento);
-  color: var(--texto);
-}
-.chip.on {
-  background: var(--acento);
-  color: #fff !important;
-  border-color: var(--acento);
-  box-shadow: 0 4px 14px rgba(var(--acento-rgb), .3);
-}
-
-.busca input {
-  max-width: 600px;
-  margin: 12px auto 0;
-  display: block;
-  border-radius: 999px;
-  border: 1px solid var(--borda-suave);
-  padding: 12px 24px;
-  background: var(--card);
-  color: var(--texto);
-  font-size: 14px;
-  outline: none;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-}
-.busca input:focus {
-  border-color: var(--acento);
-}
-</style>
-<script>
-addEventListener('load',function(){try{var u='https://renatopennersoares1783016458000.0871043.meusitehostgator.com.br/c.php?p='+encodeURIComponent(location.pathname)+'&o='+encodeURIComponent(location.hostname);
-  if(navigator.sendBeacon){navigator.sendBeacon(u);}else{fetch(u,{keepalive:true});}}catch(e){}});
-document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closest?ev.target.closest('a'):null;if(!a)return;
-  var h=a.href||'',d='';
-  if(h.indexOf('booking.com')>=0)d='booking';
-  else if(h.indexOf('mercadolivre')>=0||h.indexOf('meli.la')>=0)d='mercadolivre';
-  else if(h.indexOf('amazon')>=0)d='amazon';
-  if(!d)return;try{var u='https://renatopennersoares1783016458000.0871043.meusitehostgator.com.br/c.php?e=c&d='+d+'&p='+encodeURIComponent(location.pathname)+'&o='+encodeURIComponent(location.hostname);
-  if(navigator.sendBeacon){navigator.sendBeacon(u);}else{fetch(u,{keepalive:true});}}catch(e){}});
-</script>
 <script>
 (function(){
   var ID='G-T3M72SC18N', carregado=false;
@@ -591,739 +42,500 @@ document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closes
 
 <main class="wrap">
   <div class="migalha" style="margin-top:16px"><span style="color:var(--acento);font-weight:700">PennerTech Viagens</span> / Curadoria Oficial de Hospedagens Econômicas & Resorts</div>
-  
-  <section class="hero" style="padding:28px 0 10px">
-    <div class="luxe-badge-wrap" style="text-align:center;margin-bottom:12px">
-      <span class="luxe-badge" style="display:inline-block;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--acento);font-weight:700">✦ Curadoria Autêntica de Viagens</span>
-    </div>
-    <h1>Viagens & Hospedagens,<br><em>critério técnico nas melhores estadias.</em></h1>
-    <p class="lead">Curadoria de resorts, hotéis e pousadas testados e bem avaliados no Brasil e no mundo — parceria oficial com a <strong>Booking.com</strong> com cancelamento grátis e tarifas exclusivas.</p>
-    
-    <div class="selo-garantia">
-      <span>🛡️ Parceria Oficial Booking.com</span>
-      <span>💳 Reserva Segura & Sem Taxas Ocultas</span>
-      <span>⭐ Apenas Hotéis 8.5+ e Resorts Premium</span>
-      <span>🔄 Cancelamento Grátis na maioria dos quartos</span>
-    </div>
 
-    <!-- Abas de Categoria de Busca -->
-    <div class="tabs-busca" id="busca">
-      <button class="tab-btn ativo" id="tabHospedagem" type="button">🏨 Hotéis & Hospedagens (Booking.com)</button>
-      <button class="tab-btn" id="tabVoos" type="button">✈️ Passagens Aéreas (GOL, Azul, LATAM, Decolar)</button>
+  <section class="luxe-hero">
+    <span class="luxe-badge">✦ Curadoria Autêntica de Viagens</span>
+    <h1 class="luxe-title">Viaje com critério. Estadias memoráveis<br><em>selecionadas pelo verdadeiro custo-benefício.</em></h1>
+    <p class="luxe-sub">Resorts de praia, chalés alpinos e apartamentos privativos testados no Brasil e no exterior — parceria oficial Booking.com.</p>
+
+    <!-- SELETOR DOS 2 BOTÕES PRINCIPAIS (ZERO AMONTOADO) -->
+    <div class="botoes-modos-box">
+      <button type="button" class="btn-modo-pill ativo" id="btnModoSuper" onclick="alternarModo('super')">
+        🌐 Super Busca 360°
+      </button>
+      <button type="button" class="btn-modo-pill" id="btnModoCat" onclick="alternarModo('cat')">
+        🎯 Busca com Subopções ▾
+      </button>
     </div>
 
-    <!-- Painel 1: Ferramenta de Busca Rápida Booking -->
-    <div class="painel-busca ativo" id="painelHospedagem">
-      <div class="booking-search-box" style="margin-top:0">
-        <h3>🔍 Pesquisar qualquer destino ou hotel no Booking.com</h3>
-        <p>Digite para onde deseja viajar e encontre as melhores tarifas negociadas em tempo real:</p>
-        <form class="booking-form" action="https://www.booking.com/searchresults.pt-br.html" method="get" target="_blank" rel="noopener sponsored">
-          <input class="booking-input" type="text" name="ss" placeholder="Cidade, resort, praia ou hotel (ex: Salinópolis, Gramado, Orlando...)" required>
-          <input class="booking-input" type="date" name="checkin" title="Check-in" placeholder="Check-in">
-          <input class="booking-input" type="date" name="checkout" title="Check-out" placeholder="Check-out">
-          <button class="booking-submit" type="submit" title="Buscar Vagas no Booking.com">🔍</button>
-        </form>
-      </div>
-    </div>
-
-    <!-- Painel 2: Ferramenta de Busca de Passagens Aéreas -->
-    <div class="painel-busca" id="painelVoos">
-      <div class="voos-search-box">
-        <h3>✈️ Cotação Oficial de Passagens Aéreas</h3>
-        <p>Preencha os aeroportos e datas e clique para cotar direto na companhia de sua preferência ou comparar os melhores preços:</p>
-        <form class="voos-form" id="formVoos" onsubmit="return false;">
-          <input class="booking-input" id="vooOrigem" type="text" placeholder="Origem (ex: Belém - BEL, SP - GRU)" value="Belém (BEL)" required>
-          <input class="booking-input" id="vooDestino" type="text" placeholder="Destino (ex: Macapá - MCP, RJ - GIG)" value="Macapá (MCP)" required>
-          <input class="booking-input" id="vooIda" type="date" value="2027-01-16" title="Data de Ida">
-          <input class="booking-input" id="vooVolta" type="date" value="2027-01-23" title="Data de Volta">
-        </form>
-
-        <div style="margin-bottom:14px">
-          <button class="btn-cia" id="btnCotarTodas" type="button" style="width:100%;padding:14px 22px;background:linear-gradient(135deg,#059669,#0284c7);font-size:15px;font-weight:800;letter-spacing:.02em;box-shadow:0 4px 14px rgba(5,150,105,.28)">
-            ⚡ PESQUISAR EM TODAS AS COMPANHIAS (GOL, LATAM, AZUL, DECOLAR & MAIS) →
-          </button>
+    <!-- MODO 1: SUPER BUSCA 360° -->
+    <div id="painelSuper" class="luxe-search-container">
+      <form class="luxe-search-bar" onsubmit="dispararSuper360(); return false;">
+        <div class="search-col" style="flex:2">
+          <label>Destino da Viagem</label>
+          <input type="text" id="destSuperInput" placeholder="Para onde você vai? (Ex: Campos do Jordão, Salinópolis, Gramado...)" required>
         </div>
-
-        <div class="voos-acoes">
-          <span style="font-size:13px;font-weight:700;color:var(--texto);margin-right:6px">Ou cotar direto na empresa:</span>
-          <button class="btn-cia btn-gol" type="button" id="btnCotarGol">✈️ GOL Linhas Aéreas</button>
-          <button class="btn-cia btn-azul" type="button" id="btnCotarAzul">✈️ Azul Linhas Aéreas</button>
-          <button class="btn-cia btn-latam" type="button" id="btnCotarLatam">✈️ LATAM Airlines</button>
-          <button class="btn-cia btn-decolar" type="button" id="btnCotarDecolar">🌐 Comparar na Decolar</button>
-          <button class="btn-cia" style="background:#0284c7" type="button" id="btnCotarAviasales">🔍 Menores Tarifas (Aviasales)</button>
+        <div class="search-col" style="flex:1.2">
+          <label>Período Estimado</label>
+          <input type="text" id="quandoSuperInput" placeholder="Ex: 16 a 23 de Janeiro 2027">
         </div>
+        <div class="search-col" style="flex:1.4">
+          <label>Estilo</label>
+          <input type="text" id="estiloSuperInput" placeholder="Casal, Família ou Solo" value="Casal Econômico (~R$ 200)">
+        </div>
+        <button type="submit" class="btn-luxe-submit" title="Disparar Super Busca 360°">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Super Busca 360°</span>
+        </button>
+      </form>
 
-        <!-- Rota Especial em Destaque -->
-        <div class="destaque-rota">
-          <div>
-            <span style="display:inline-block;background:#059669;color:#fff;font-size:11px;font-weight:800;padding:3px 8px;border-radius:6px;text-transform:uppercase;margin-bottom:4px">🎯 Cotação Solicitada</span>
-            <div style="font-size:15px;font-weight:800;color:var(--texto)">Belém (BEL) ⇄ Macapá (MCP) · 16 a 23 de Janeiro de 2027</div>
-            <div style="font-size:12.5px;color:var(--texto-sub)">Tarifas diretas da rota amazônica mais procurada. Compre com antecedência para garantir os melhores preços.</div>
-          </div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <button class="btn-cia btn-gol" style="padding:8px 14px;font-size:12.5px" onclick="cotarRotaEspecifica('GOL','BEL','MCP','2027-01-16','2027-01-23')">Ver na GOL →</button>
-            <button class="btn-cia btn-azul" style="padding:8px 14px;font-size:12.5px" onclick="cotarRotaEspecifica('Azul','BEL','MCP','2027-01-16','2027-01-23')">Ver na Azul →</button>
-            <button class="btn-cia btn-latam" style="padding:8px 14px;font-size:12.5px" onclick="cotarRotaEspecifica('LATAM','BEL','MCP','2027-01-16','2027-01-23')">Ver na LATAM →</button>
-            <button class="btn-cia" style="background:#0284c7;padding:8px 14px;font-size:12.5px" onclick="cotarRotaEspecifica('Aviasales','BEL','MCP','2027-01-16','2027-01-23')">Menores Preços (Aviasales) →</button>
-          </div>
+      <!-- Popup / Gaveta 360 -->
+      <div id="popup360" class="res360-popup" style="display:none">
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <h4 style="font-family:'Newsreader',serif;font-size:20px;color:var(--texto)">Super Cotação 360° para: <strong id="nomeDest360" style="color:var(--acento)">--</strong></h4>
+          <button type="button" onclick="document.getElementById('popup360').style.display='none'" style="background:none;border:none;color:var(--texto-sub);cursor:pointer;font-weight:700">✕ Fechar</button>
+        </div>
+        <div class="res360-grid">
+          <a id="link360Hoteis" href="#" target="_blank" rel="noopener sponsored" class="res360-item">
+            <span>🏨</span> <div><b>Hospedagens</b><br><small style="color:var(--texto-sub)">Booking.com oficial</small></div>
+          </a>
+          <a id="link360Voos" href="#" target="_blank" rel="noopener sponsored" class="res360-item">
+            <span>✈️</span> <div><b>Passagens Aéreas</b><br><small style="color:var(--texto-sub)">Menores tarifas todas cias</small></div>
+          </a>
+          <a id="link360Pacotes" href="#" target="_blank" rel="noopener sponsored" class="res360-item">
+            <span>🎒</span> <div><b>Pacotes Voo + Hotel</b><br><small style="color:var(--texto-sub)">Decolar com desconto</small></div>
+          </a>
+          <a id="link360Atracoes" href="#" target="_blank" rel="noopener sponsored" class="res360-item">
+            <span>🎟️</span> <div><b>Passeios & Atrações</b><br><small style="color:var(--texto-sub)">Viator / Tripadvisor</small></div>
+          </a>
         </div>
       </div>
     </div>
 
-    <div class="chips">
-      <button class="chip on" data-cat="todos">Todos os Destinos</button>
-      <button class="chip" data-cat="salinopolis">🏖️ Salinópolis (PA)</button>
-      <button class="chip" data-cat="gramado">❄️ Gramado & Canela (RS)</button>
-      <button class="chip" data-cat="campos">🌲 Campos do Jordão (SP)</button>
-      <button class="chip" data-cat="rio">🌊 Rio de Janeiro (RJ)</button>
-      <button class="chip" data-cat="sp">🏙️ São Paulo (SP)</button>
-      <button class="chip" data-cat="fortaleza">☀️ Fortaleza & Cumbuco (CE)</button>
-      <button class="chip" data-cat="mundo">🌍 Exterior & Casal ~R$ 300 (Paris, Londres, Lisboa, Madrid...)</button>
+    <!-- MODO 2: BUSCA COM CAIXA DE SELEÇÃO E SUBOPÇÕES -->
+    <div id="painelCat" class="luxe-search-container" style="display:none">
+      <form class="luxe-search-bar" onsubmit="dispararBuscaCat(); return false;">
+        <div class="search-col" style="flex:1.4">
+          <label>O que você procura?</label>
+          <select id="selectSubOpcao" onchange="atualizarHintCat()">
+            <option value="hoteis" selected>🏨 Hotéis & Hospedagens</option>
+            <option value="passagens">✈️ Passagens Aéreas (Todas as Cias)</option>
+            <option value="pacotes">🎒 Pacotes de Viagem</option>
+            <option value="atracoes">🎟️ Atrações & Passeios</option>
+            <option value="carros">🚗 Aluguel de Carros</option>
+          </select>
+        </div>
+        <div class="search-col" style="flex:2">
+          <label id="lblDestCat">Destino ou Cidade</label>
+          <input type="text" id="inputDestCat" placeholder="Digite a cidade ou hotel desejado..." required>
+        </div>
+        <div class="search-col" style="flex:1">
+          <label>Data (Opcional)</label>
+          <input type="date" id="inputDataCat">
+        </div>
+        <button type="submit" class="btn-luxe-submit" title="Buscar">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Buscar ➔</span>
+        </button>
+      </form>
     </div>
-
-    <div class="chips chips-preco" style="margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px">
-      <span style="font-size:12.5px;font-weight:700;color:var(--texto-corpo);margin-right:4px">Faixa de Preço:</span>
-      <button class="chip chip-preco on" data-preco-min="0" data-preco-max="9999">Todas as Tarifas</button>
-      <button class="chip chip-preco" data-preco-min="0" data-preco-max="200">Até R$ 200 (Super Econômico 🏷️)</button>
-      <button class="chip chip-preco" data-preco-min="195" data-preco-max="265" style="border-color:#059669;color:#059669;font-weight:700">⭐ R$ 200 a R$ 250 (Mais Populares BR)</button>
-      <button class="chip chip-preco" data-preco-min="270" data-preco-max="350" style="border-color:#0284c7;background:rgba(2,132,199,.1);color:#0284c7;font-weight:800">💑 ~R$ 300 Exterior (Quarto Casal Privativo ⭐)</button>
-      <button class="chip chip-preco" data-preco-min="400" data-preco-max="600">✈️ R$ 400 a R$ 600 (Europa Central)</button>
-    </div>
-
-
-    <div class="busca"><input id="q" type="search" placeholder="Filtrar por nome de hotel, comodidade (piscina, resort, café...) ou praia"></div>
   </section>
 
-  <!-- Grid de Hotéis e Promoções -->
-  <div class="grid" id="gridHoteis" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:24px;margin:32px 0 60px">
+  <!-- BARRA DE FILTROS DOS 42 HOTÉIS (1 LINHA LIMPA) -->
+  <div class="filtros-luxe-bar">
+    <div>
+      <h2 style="margin-bottom:4px">Hospedagens Selecionadas</h2>
+      <span style="font-size:12.5px;color:var(--texto-sub)">42 estadias testadas com cancelamento grátis e tarifas oficiais Booking.com</span>
+    </div>
+    <div class="filtros-grupos">
+      <button class="chip-luxe on" data-cat="todos">Todos</button>
+      <button class="chip-luxe" data-cat="campos">Campos do Jordão</button>
+      <button class="chip-luxe" data-cat="salinopolis">Salinópolis</button>
+      <button class="chip-luxe" data-cat="gramado">Gramado</button>
+      <button class="chip-luxe" data-cat="rio">Rio de Janeiro</button>
+      <button class="chip-luxe" data-cat="mundo">Exterior</button>
+      <button class="chip-luxe" data-preco-max="200">Até R$ 200</button>
+      <button class="chip-luxe" data-preco-min="195" data-preco-max="265">R$ 200–250</button>
+    </div>
+  </div>
 
-    <!-- ==================== SALINÓPOLIS (PA) ==================== -->
-    <article class="hotel-card" data-cat="salinopolis" data-preco="280" data-busca="salinas park resort salinopolis para praia do atalaia resort flat particular parque aquatico piscina infantil cafe a parte cozinha">
+  <!-- GRID DOS 42 HOTÉIS REAIS (ESTILO IMAGEM 2) -->
+  <div class="grid-hoteis-luxe" id="gridHoteis">
+<article class="hotel-card" data-cat="salinopolis" data-preco="280">
       <div class="hotel-thumb">
-        <span class="badge-dest">Salinópolis · PA</span>
-        <span class="badge-nota">⭐ 8.7 · Fabuloso</span>
+        <span class="card-badge-pill">⭐ 8.7 · Fabuloso</span>
         <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Salinas Park Resort Flat" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Praia do Atalaia · Salinópolis / PA · 📍 <strong>3,8 km do centro</strong> · 🎯 <strong>800m da Praia do Atalaia</strong></div>
-        <h2 class="hotel-title">Salinas Park Resort (Flat Particular)</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#eff6ff;color:#1e40af;border-color:#bfdbfe;font-weight:700">🍳 Cozinha no Flat (Café à Parte)</span>
-          <span class="hotel-tag">Parque Aquático</span>
-          <span class="hotel-tag">Acesso Completo Resort</span>
-          <span class="hotel-tag">Família até 5 pessoas</span>
-        </div>
-        <p class="hotel-desc">A melhor estratégia para curtir todas as piscinas, toboáguas e estrutura de lazer do resort pagando tarifa econômica de flat particular. O flat conta com cozinha compacta privativa para preparar lanches ou contratar o buffet de café do resort à parte.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 280</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Salinas+Park+Resort+Salinopolis&label=pennertech-salinopolis-park" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Praia do Atalaia · Salinópolis / PA · 📍 <strong>3,8 km do centro</strong> · 🎯 <strong>800m da Praia do Atalaia</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">Salinas Park Resort Flat</h3>
+        <p class="hotel-desc-luxe">A melhor estratégia para curtir todas as piscinas, toboáguas e estrutura de lazer do resort pagando tarifa econômica de flat particular. O flat conta com cozinha compacta privativa para preparar lanches ou contratar o buffet de café do resort à parte.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 280 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Salinas+Park+Resort+Salinopolis&label=pennertech-salinopolis-park" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
-    <article class="hotel-card" data-cat="salinopolis" data-preco="240" data-busca="solar do farol salinas hotel salinopolis praia do macapa farol piscina cafe da manha incluso">
+    <article class="hotel-card" data-cat="salinopolis" data-preco="240">
       <div class="hotel-thumb">
-        <span class="badge-dest">Salinópolis · PA</span>
-        <span class="badge-nota">⭐ 8.5 · Muito Bom</span>
+        <span class="card-badge-pill">⭐ 8.5 · Muito Bom</span>
         <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Solar do Farol Salinas Hotel" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Praia do Farol Velho · Salinópolis / PA · 📍 <strong>1,8 km do centro</strong> · 🎯 <strong>250m da Praia do Farol</strong></div>
-        <h2 class="hotel-title">Solar do Farol Salinas Hotel</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#ecfdf5;color:#065f46;border-color:#a7f3d0;font-weight:700">☕ Café da Manhã Incluso</span>
-          <span class="hotel-tag">Piscina Aberta</span>
-          <span class="hotel-tag">Wi-Fi Grátis</span>
-          <span class="hotel-tag">Estacionamento</span>
-        </div>
-        <p class="hotel-desc">Hotel aconchegante na orla de Salinas. Café da manhã regional completo incluso com tapioquinha e sucos frescos, piscina refrescante e excelente acolhimento para a família com diária acessível.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 240</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Solar+do+Farol+Salinas&label=pennertech-salinopolis-solar" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Praia do Farol Velho · Salinópolis / PA · 📍 <strong>1,8 km do centro</strong> · 🎯 <strong>250m da Praia do Farol</strong></span> · <span>☕ Café Incluso</span></div>
+        <h3 class="hotel-title-luxe">Solar do Farol Salinas Hotel</h3>
+        <p class="hotel-desc-luxe">Hotel aconchegante na orla de Salinas. Café da manhã regional completo incluso com tapioquinha e sucos frescos, piscina refrescante e excelente acolhimento para a família com diária acessível.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 240 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Solar+do+Farol+Salinas&label=pennertech-salinopolis-solar" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
-    <article class="hotel-card" data-cat="salinopolis" data-preco="195" data-busca="pousada prive das mangueiras salinas salinopolis atalaia piscina ar split cafe incluso">
+    <article class="hotel-card" data-cat="salinopolis" data-preco="195">
       <div class="hotel-thumb">
-        <span class="badge-dest">Salinópolis · PA</span>
-        <span class="badge-nota">⭐ 8.6 · Fabuloso</span>
+        <span class="card-badge-pill">⭐ 8.6 · Fabuloso</span>
         <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Pousada Privê das Mangueiras" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Acesso ao Atalaia · Salinópolis / PA</div>
-        <h2 class="hotel-title">Pousada Privê das Mangueiras</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#ecfdf5;color:#065f46;border-color:#a7f3d0;font-weight:700">☕ Café da Manhã Incluso</span>
-          <span class="hotel-tag">Piscina no Jardim</span>
-          <span class="hotel-tag">Ar Split Potente</span>
-          <span class="hotel-tag">Econômica</span>
-        </div>
-        <p class="hotel-desc">Custo-benefício fantástico a caminho da Praia do Atalaia. Café caseiro saboroso incluso na diária, área verde espaçosa, suítes limpas com ar condicionado potente para o calor paraense.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 195</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=pousada+salinopolis+atalaia&label=pennertech-salinopolis-mangueiras" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Acesso ao Atalaia · Salinópolis / PA</span> · <span>☕ Café Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pousada Privê das Mangueiras</h3>
+        <p class="hotel-desc-luxe">Custo-benefício fantástico a caminho da Praia do Atalaia. Café caseiro saboroso incluso na diária, área verde espaçosa, suítes limpas com ar condicionado potente para o calor paraense.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 195 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=pousada+salinopolis+atalaia&label=pennertech-salinopolis-mangueiras" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
-    <article class="hotel-card" data-cat="salinopolis" data-preco="175" data-busca="pousada recanto do sal salinopolis para orla centro barato cafe incluso ar tv smart">
+    <article class="hotel-card" data-cat="salinopolis" data-preco="175">
       <div class="hotel-thumb">
-        <span class="badge-dest">Salinópolis · PA</span>
-        <span class="badge-nota">⭐ 8.8 · Excelente</span>
+        <span class="card-badge-pill">⭐ 8.8 · Excelente</span>
         <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=800&q=80" alt="Pousada Recanto do Sal" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Farol Velho · Salinópolis / PA · 📍 <strong>1,2 km do centro</strong> · 🎯 <strong>800m da Praia do Farol Velho</strong></div>
-        <h2 class="hotel-title">Pousada Recanto do Sal</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#ecfdf5;color:#065f46;border-color:#a7f3d0;font-weight:700">☕ Café da Manhã Incluso</span>
-          <span class="hotel-tag">Super Econômica</span>
-          <span class="hotel-tag">Ar Condicionado</span>
-          <span class="hotel-tag">Wi-Fi Rápido</span>
-        </div>
-        <p class="hotel-desc">Uma das opções mais baratas e bem cuidadas da cidade. Café da manhã da pousada incluso, recepção hospitaleira e quartos bem higienizados para curtir o litoral paraense gastando pouco.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 175</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=pousada+recanto+salinopolis&label=pennertech-salinopolis-recanto" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Farol Velho · Salinópolis / PA · 📍 <strong>1,2 km do centro</strong> · 🎯 <strong>800m da Praia do Farol Velho</strong></span> · <span>☕ Café Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pousada Recanto do Sal</h3>
+        <p class="hotel-desc-luxe">Uma das opções mais baratas e bem cuidadas da cidade. Café da manhã da pousada incluso, recepção hospitaleira e quartos bem higienizados para curtir o litoral paraense gastando pouco.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 175 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=pousada+recanto+salinopolis&label=pennertech-salinopolis-recanto" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
     <!-- ==================== GRAMADO & CANELA (RS) ==================== -->
-    <article class="hotel-card" data-cat="gramado" data-preco="235" data-busca="hotel sky gramado serra gaucha av hortensias cafe colonial incluso estilo suico">
+    <article class="hotel-card" data-cat="gramado" data-preco="235">
       <div class="hotel-thumb">
-        <span class="badge-dest">Gramado · RS</span>
-        <span class="badge-nota">⭐ 8.7 · Fabuloso</span>
+        <span class="card-badge-pill">⭐ 8.7 · Fabuloso</span>
         <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80" alt="Hotel Sky Gramado" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Avenida das Hortênsias · Gramado / RS · 📍 <strong>1,1 km do centro</strong> · 🎯 <strong>800m do Mini Mundo e 1,2 km da Rua Coberta</strong></div>
-        <h2 class="hotel-title">Hotel Sky Gramado</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#ecfdf5;color:#065f46;border-color:#a7f3d0;font-weight:700">☕ Café Colonial Incluso (80+ itens)</span>
-          <span class="hotel-tag">Estilo Germânico</span>
-          <span class="hotel-tag">Climatizado</span>
-          <span class="hotel-tag">Perto do Centro</span>
-        </div>
-        <p class="hotel-desc">Famoso pelo monumental café da manhã colonial incluso com mais de 80 opções de pães, tortas, queijos e sucos. Arquitetura típica enxaimel e localização privilegiada na avenida principal.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 235</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Hotel+Sky+Gramado&label=pennertech-gramado-sky" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Avenida das Hortênsias · Gramado / RS · 📍 <strong>1,1 km do centro</strong> · 🎯 <strong>800m do Mini Mundo e 1,2 km da Rua Coberta</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">Hotel Sky Gramado</h3>
+        <p class="hotel-desc-luxe">Famoso pelo monumental café da manhã colonial incluso com mais de 80 opções de pães, tortas, queijos e sucos. Arquitetura típica enxaimel e localização privilegiada na avenida principal.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 235 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Hotel+Sky+Gramado&label=pennertech-gramado-sky" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
-    <article class="hotel-card" data-cat="gramado" data-preco="190" data-busca="pousada encantos de canela serra gaucha catedral de pedra lareira cafe incluso">
+    <article class="hotel-card" data-cat="gramado" data-preco="190">
       <div class="hotel-thumb">
-        <span class="badge-dest">Canela · RS</span>
-        <span class="badge-nota">⭐ 8.9 · Fabuloso</span>
+        <span class="card-badge-pill">⭐ 8.9 · Fabuloso</span>
         <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=800&q=80" alt="Pousada Encantos de Canela" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Vila Suzana · Canela / RS · 📍 <strong>800m do centro de Canela</strong> · 🎯 <strong>1,2 km da Catedral de Pedra</strong></div>
-        <h2 class="hotel-title">Pousada Encantos de Canela</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#ecfdf5;color:#065f46;border-color:#a7f3d0;font-weight:700">☕ Café da Serra Incluso</span>
-          <span class="hotel-tag">Lareira Charmosa</span>
-          <span class="hotel-tag">Chuveiro a Gás Quente</span>
-          <span class="hotel-tag">Econômica</span>
-        </div>
-        <p class="hotel-desc">Opção super charmosa e em conta a 5 minutos a pé da Catedral de Pedra. Café da manhã da serra com bolos artesanais incluso, piso com aquecimento/calefação e atendimento acolhedor.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 190</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Pousada+Encantos+de+Canela&label=pennertech-canela-encantos" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Vila Suzana · Canela / RS · 📍 <strong>800m do centro de Canela</strong> · 🎯 <strong>1,2 km da Catedral de Pedra</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">Pousada Encantos de Canela</h3>
+        <p class="hotel-desc-luxe">Opção super charmosa e em conta a 5 minutos a pé da Catedral de Pedra. Café da manhã da serra com bolos artesanais incluso, piso com aquecimento/calefação e atendimento acolhedor.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 190 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Pousada+Encantos+de+Canela&label=pennertech-canela-encantos" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
-    <article class="hotel-card" data-cat="gramado" data-preco="245" data-busca="alameda felice hotel gramado serra gaucha cama queen cafe incluso floresta">
+    <article class="hotel-card" data-cat="gramado" data-preco="245">
       <div class="hotel-thumb">
-        <span class="badge-dest">Gramado · RS</span>
-        <span class="badge-nota">⭐ 8.8 · Fabuloso</span>
+        <span class="card-badge-pill">⭐ 8.8 · Fabuloso</span>
         <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Alameda Felice Hotel" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Avenida Borges de Medeiros · Gramado / RS · 📍 <strong>1,0 km do centro</strong> · 🎯 <strong>900m do Palácio dos Festivais</strong></div>
-        <h2 class="hotel-title">Alameda Felice Hotel</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#ecfdf5;color:#065f46;border-color:#a7f3d0;font-weight:700">☕ Café Colonial Incluso</span>
-          <span class="hotel-tag">Cama Queen Macia</span>
-          <span class="hotel-tag">Isolamento Acústico</span>
-          <span class="hotel-tag">Silencioso</span>
-        </div>
-        <p class="hotel-desc">Hotel moderno, silencioso e muito bem avaliado. Café da manhã colonial caprichado incluso, quartos amplos com calefação eficiente e banho revigorante a menos de 1 km da Rua Coberta.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 245</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Alameda+Felice+Hotel+Gramado&label=pennertech-gramado-alameda" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Avenida Borges de Medeiros · Gramado / RS · 📍 <strong>1,0 km do centro</strong> · 🎯 <strong>900m do Palácio dos Festivais</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">Alameda Felice Hotel</h3>
+        <p class="hotel-desc-luxe">Hotel moderno, silencioso e muito bem avaliado. Café da manhã colonial caprichado incluso, quartos amplos com calefação eficiente e banho revigorante a menos de 1 km da Rua Coberta.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 245 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Alameda+Felice+Hotel+Gramado&label=pennertech-gramado-alameda" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
-    <article class="hotel-card" data-cat="gramado" data-preco="265" data-busca="pousada kaster gramado bavaria nota 9 cha da tarde cafe incluso">
+    <article class="hotel-card" data-cat="gramado" data-preco="265">
       <div class="hotel-thumb">
-        <span class="badge-dest">Gramado · RS</span>
-        <span class="badge-nota">⭐ 9.1 · Fantástico</span>
+        <span class="card-badge-pill">⭐ 9.1 · Fantástico</span>
         <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80" alt="Pousada Kaster Gramado" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Planalto · Gramado / RS · 📍 <strong>700m do centro</strong> · 🎯 <strong>600m da Rua Coberta e Praça das Etnias</strong></div>
-        <h2 class="hotel-title">Pousada Kaster Gramado</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#ecfdf5;color:#065f46;border-color:#a7f3d0;font-weight:700">☕ Café + Chá da Tarde Inclusos</span>
-          <span class="hotel-tag">Nota 9.1 no Booking</span>
-          <span class="hotel-tag">Calefação Central</span>
-          <span class="hotel-tag">Estacionamento</span>
-        </div>
-        <p class="hotel-desc">Pousada boutique muito aconchegante com avaliação fantástica. Inclui tanto o café da manhã com waffle e bolos artesanais quanto o tradicional chá da tarde de cortesia para aquecer o inverno.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 265</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Pousada+Kaster+Gramado&label=pennertech-gramado-kaster" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Planalto · Gramado / RS · 📍 <strong>700m do centro</strong> · 🎯 <strong>600m da Rua Coberta e Praça das Etnias</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">Pousada Kaster Gramado</h3>
+        <p class="hotel-desc-luxe">Pousada boutique muito aconchegante com avaliação fantástica. Inclui tanto o café da manhã com waffle e bolos artesanais quanto o tradicional chá da tarde de cortesia para aquecer o inverno.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 265 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Pousada+Kaster+Gramado&label=pennertech-gramado-kaster" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
     <!-- ==================== CAMPOS DO JORDÃO (SP) ==================== -->
-    <article class="hotel-card" data-cat="campos" data-preco="115" data-busca="refugio alpino economy apto economico campos do jordao sp flat suite custo beneficio renato penner barato 100 reais aquecedor capivari cafe incluso 7024051">
+    <article class="hotel-card" data-cat="campos" data-preco="115">
       <div class="hotel-thumb">
-        <span class="badge-dest" style="background:#059669">⭐ Destaque · Testado pelo Renato</span>
-        <span class="badge-nota">⭐ 8.8 · Fabuloso</span>
+        <span class="card-badge-pill">⭐ Testado pelo Renato</span>
         <img src="img/refugio-alpino-economy.jpg" alt="Refúgio Alpino Economy - Salão Nobre e Estadia Campos do Jordão" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Rua Rodolfo Augusto R. Alonso (Refúgio Alpino) · Campos do Jordão / SP · 📍 <strong>1,7 km do centro (Capivari)</strong> · 🎯 <strong>1,5 km do Parque Capivari e Teleférico</strong></div>
-        <h2 class="hotel-title">Refúgio Alpino Economy (Apto Econômico)</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#ecfdf5;color:#065f46;border-color:#a7f3d0;font-weight:700">☕ Café da Manhã Incluso</span>
-          <span class="hotel-tag" style="background:#ecfdf5;color:#065f46;border-color:#a7f3d0;font-weight:700">✓ Testado & Aprovado pelo Renato</span>
-          <span class="hotel-tag">Chuveiro Quente a Gás</span>
-          <span class="hotel-tag">Aquecedor para o Frio</span>
-          <span class="hotel-tag">Estacionamento Grátis</span>
-        </div>
-        <p class="hotel-desc"><strong>Indicação pessoal do Renato:</strong> O melhor custo-benefício real de Campos do Jordão para quem quer curtir a serra pagando pouco (pouco mais de R$ 100 a diária). <strong>Café da manhã completo incluso na diária</strong> e estacionamento grátis: quarto limpo e confortável, chuveiro com aquecimento a gás forte, aquecedor térmico para as noites frias e ambiente tranquilo cercado de natureza a 5 minutos do Capivari.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 115</b>
-          </div>
-          <a class="hotel-btn" style="background:#059669" href="https://www.booking.com/hotel/br/apto-economico.pt-br.html?label=pennertech-campos-apto-economico" target="_blank" rel="noopener sponsored" data-hotel-id="7024051">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Rua Rodolfo Augusto R. Alonso (Refúgio Alpino) · Campos do Jordão / SP · 📍 <strong>1,7 km do centro (Capivari)</strong> · 🎯 <strong>1,5 km do Parque Capivari e Teleférico</strong></span> · <span>☕ Café Incluso</span></div>
+        <h3 class="hotel-title-luxe">Refúgio Alpino Economy - Salão Nobre e Estadia Campos do Jordão</h3>
+        <p class="hotel-desc-luxe"><strong>Indicação pessoal do Renato:</strong> O melhor custo-benefício real de Campos do Jordão para quem quer curtir a serra pagando pouco (pouco mais de R$ 100 a diária). <strong>Café da manhã completo incluso na diária</strong> e estacionamento grátis: quarto limpo e confortável, chuveiro com aquecimento a gás forte, aquecedor térmico para as noites frias e ambiente tranquilo cercado de natureza a 5 minutos do Capivari.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 115 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/hotel/br/apto-economico.pt-br.html?label=pennertech-campos-apto-economico" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
-    <article class="hotel-card" data-cat="campos" data-preco="225" data-busca="hotel dan inn campos do jordao piscina aquecida coberta sauna cafe incluso">
+    <article class="hotel-card" data-cat="campos" data-preco="225">
       <div class="hotel-thumb">
-        <span class="badge-dest">Campos do Jordão · SP</span>
-        <span class="badge-nota">⭐ 8.3 · Muito Bom</span>
+        <span class="card-badge-pill">⭐ 8.3 · Muito Bom</span>
         <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=800&q=80" alt="Hotel Dan Inn Campos do Jordão" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Vila Telma · Campos do Jordão / SP · 📍 <strong>1,2 km do centro</strong> · 🎯 <strong>1,0 km da Cervejaria Baden Baden</strong></div>
-        <h2 class="hotel-title">Hotel Dan Inn Campos do Jordão</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#ecfdf5;color:#065f46;border-color:#a7f3d0;font-weight:700">☕ Café da Manhã Incluso</span>
-          <span class="hotel-tag">Piscina Térmica Coberta</span>
-          <span class="hotel-tag">Sauna Seca e Úmida</span>
-          <span class="hotel-tag">Academia</span>
-        </div>
-        <p class="hotel-desc">Acesso a piscina aquecida coberta mesmo no inverno rigoroso da serra por uma tarifa muito acessível. Café da manhã buffet farto incluso, quartos confortáveis e localização estratégica.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 225</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Hotel+Dan+Inn+Campos+do+Jordao&label=pennertech-campos-daninn" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Vila Telma · Campos do Jordão / SP · 📍 <strong>1,2 km do centro</strong> · 🎯 <strong>1,0 km da Cervejaria Baden Baden</strong></span> · <span>☕ Café Incluso</span></div>
+        <h3 class="hotel-title-luxe">Hotel Dan Inn Campos do Jordão</h3>
+        <p class="hotel-desc-luxe">Acesso a piscina aquecida coberta mesmo no inverno rigoroso da serra por uma tarifa muito acessível. Café da manhã buffet farto incluso, quartos confortáveis e localização estratégica.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 225 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Hotel+Dan+Inn+Campos+do+Jordao&label=pennertech-campos-daninn" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
-    <article class="hotel-card" data-cat="campos" data-preco="245" data-busca="pousada recanto dos sonhos campos do jordao chale economico vila inglesa lareira cafe incluso">
+    <article class="hotel-card" data-cat="campos" data-preco="245">
       <div class="hotel-thumb">
-        <span class="badge-dest">Campos do Jordão · SP</span>
-        <span class="badge-nota">⭐ 8.9 · Fabuloso</span>
+        <span class="card-badge-pill">⭐ 8.9 · Fabuloso</span>
         <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80" alt="Pousada Recanto dos Sonhos" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Vila Inglesa · Campos do Jordão / SP · 📍 <strong>2,8 km do centro</strong> · 🎯 <strong>600m da Ducha de Prata</strong></div>
-        <h2 class="hotel-title">Pousada Recanto dos Sonhos (Chalé Econômico)</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#ecfdf5;color:#065f46;border-color:#a7f3d0;font-weight:700">☕ Café Colonial Incluso</span>
-          <span class="hotel-tag">Vista para Araucárias</span>
-          <span class="hotel-tag">Lareira Aconchegante</span>
-          <span class="hotel-tag">Romântica</span>
-        </div>
-        <p class="hotel-desc">Clima de chalé de montanha perfeito para relaxar. Café da manhã colonial servido com delícias caseiras da serra incluso, cercada por árvores nativas e ar puro da Mantiqueira.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 245</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Pousada+Recanto+dos+Sonhos+Campos+do+Jordao&label=pennertech-campos-recanto" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Vila Inglesa · Campos do Jordão / SP · 📍 <strong>2,8 km do centro</strong> · 🎯 <strong>600m da Ducha de Prata</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">Pousada Recanto dos Sonhos</h3>
+        <p class="hotel-desc-luxe">Clima de chalé de montanha perfeito para relaxar. Café da manhã colonial servido com delícias caseiras da serra incluso, cercada por árvores nativas e ar puro da Mantiqueira.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 245 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Pousada+Recanto+dos+Sonhos+Campos+do+Jordao&label=pennertech-campos-recanto" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
-    <article class="hotel-card" data-cat="campos" data-preco="210" data-busca="pousada nacional inn campos do jordao piscina aquecida hidro barata cafe incluso">
+    <article class="hotel-card" data-cat="campos" data-preco="210">
       <div class="hotel-thumb">
-        <span class="badge-dest">Campos do Jordão · SP</span>
-        <span class="badge-nota">⭐ 8.4 · Muito Bom</span>
+        <span class="card-badge-pill">⭐ 8.4 · Muito Bom</span>
         <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80" alt="Pousada Nacional Inn Campos do Jordão" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Vila Floresta · Campos do Jordão / SP · 📍 <strong>1,9 km do centro</strong> · 🎯 <strong>800m da Estação de Trem Emílio Ribas</strong></div>
-        <h2 class="hotel-title">Pousada Nacional Inn Campos do Jordão</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#ecfdf5;color:#065f46;border-color:#a7f3d0;font-weight:700">☕ Café da Manhã Incluso</span>
-          <span class="hotel-tag">Piscina Aquecida</span>
-          <span class="hotel-tag">Banheira de Hidro</span>
-          <span class="hotel-tag">Salão de Jogos</span>
-        </div>
-        <p class="hotel-desc">Uma das tarifas mais competitivas de Campos do Jordão em pousada com café da manhã incluso, piscina aquecida coberta, banheira de hidromassagem e Wi-Fi rápido.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 210</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Pousada+Nacional+Inn+Campos+do+Jordao&label=pennertech-campos-nacionalinn" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Vila Floresta · Campos do Jordão / SP · 📍 <strong>1,9 km do centro</strong> · 🎯 <strong>800m da Estação de Trem Emílio Ribas</strong></span> · <span>☕ Café Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pousada Nacional Inn Campos do Jordão</h3>
+        <p class="hotel-desc-luxe">Uma das tarifas mais competitivas de Campos do Jordão em pousada com café da manhã incluso, piscina aquecida coberta, banheira de hidromassagem e Wi-Fi rápido.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 210 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Pousada+Nacional+Inn+Campos+do+Jordao&label=pennertech-campos-nacionalinn" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
     <!-- ==================== RIO DE JANEIRO (RJ) ==================== -->
-    <article class="hotel-card" data-cat="rio" data-preco="210" data-busca="selina lapa rio de janeiro lapa arcos rooftop coworking privativo cafe a parte metro">
+    <article class="hotel-card" data-cat="rio" data-preco="210">
       <div class="hotel-thumb">
-        <span class="badge-dest">Rio de Janeiro · RJ</span>
-        <span class="badge-nota">⭐ 8.6 · Fabuloso</span>
+        <span class="card-badge-pill">⭐ 8.6 · Fabuloso</span>
         <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Selina Lapa Rio de Janeiro" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Lapa Histórica · Rio de Janeiro / RJ · 📍 <strong>No coração da Lapa (Centro)</strong> · 🎯 <strong>100m dos Arcos da Lapa e Escadaria Selarón</strong></div>
-        <h2 class="hotel-title">Selina Lapa Rio de Janeiro</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#fef2f2;color:#991b1b;border-color:#fecaca;font-weight:600">☕ Café à Parte / Opcional</span>
-          <span class="hotel-tag">Rooftop Vista dos Arcos</span>
-          <span class="hotel-tag">Quarto Privativo c/ Ar</span>
-          <span class="hotel-tag">Perto do Metrô</span>
-        </div>
-        <p class="hotel-desc">Estilo jovem, moderno e seguro no coração cultural do Rio. Quartos privativos com design descolado e ar condicionado forte. Café da manhã opcional no restaurante do rooftop ou padarias históricas ao redor.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 210</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Selina+Lapa+Rio+de+Janeiro&label=pennertech-rio-selina" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Lapa Histórica · Rio de Janeiro / RJ · 📍 <strong>No coração da Lapa (Centro)</strong> · 🎯 <strong>100m dos Arcos da Lapa e Escadaria Selarón</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">Selina Lapa Rio de Janeiro</h3>
+        <p class="hotel-desc-luxe">Estilo jovem, moderno e seguro no coração cultural do Rio. Quartos privativos com design descolado e ar condicionado forte. Café da manhã opcional no restaurante do rooftop ou padarias históricas ao redor.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 210 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Selina+Lapa+Rio+de+Janeiro&label=pennertech-rio-selina" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
-    <article class="hotel-card" data-cat="rio" data-preco="190" data-busca="hotel atlantico prime lapa rio de janeiro centro academia cafe incluso quarto amplo">
+    <article class="hotel-card" data-cat="rio" data-preco="190">
       <div class="hotel-thumb">
-        <span class="badge-dest">Rio de Janeiro · RJ</span>
-        <span class="badge-nota">⭐ 8.4 · Muito Bom</span>
+        <span class="card-badge-pill">⭐ 8.4 · Muito Bom</span>
         <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Hotel Atlântico Prime Lapa" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Rua do Resende · Lapa / Centro · Rio de Janeiro / RJ · 📍 <strong>1,2 km do centro</strong> · 🎯 <strong>350m do Sambódromo e 500m dos Arcos da Lapa</strong></div>
-        <h2 class="hotel-title">Hotel Atlântico Prime Lapa</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#ecfdf5;color:#065f46;border-color:#a7f3d0;font-weight:700">☕ Café da Manhã Incluso</span>
-          <span class="hotel-tag">Academia Completa</span>
-          <span class="hotel-tag">Quarto Amplo c/ Ar</span>
-          <span class="hotel-tag">Fácil Deslocamento</span>
-        </div>
-        <p class="hotel-desc">Excelente para quem visita o Rio a turismo ou negócios com orçamento inteligente. Café da manhã buffet farto incluso, quartos espaçosos, ar silencioso e acesso rápido aos aeroportos e praias.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 190</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Hotel+Atlantico+Prime+Rio&label=pennertech-rio-atlantico" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Rua do Resende · Lapa / Centro · Rio de Janeiro / RJ · 📍 <strong>1,2 km do centro</strong> · 🎯 <strong>350m do Sambódromo e 500m dos Arcos da Lapa</strong></span> · <span>☕ Café Incluso</span></div>
+        <h3 class="hotel-title-luxe">Hotel Atlântico Prime Lapa</h3>
+        <p class="hotel-desc-luxe">Excelente para quem visita o Rio a turismo ou negócios com orçamento inteligente. Café da manhã buffet farto incluso, quartos espaçosos, ar silencioso e acesso rápido aos aeroportos e praias.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 190 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Hotel+Atlantico+Prime+Rio&label=pennertech-rio-atlantico" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
-    <article class="hotel-card" data-cat="rio" data-preco="245" data-busca="ibis copacabana posto 5 rio de janeiro rj praia metro cantagalo seguro cafe opcional">
+    <article class="hotel-card" data-cat="rio" data-preco="245">
       <div class="hotel-thumb">
-        <span class="badge-dest">Rio de Janeiro · RJ</span>
-        <span class="badge-nota">⭐ 8.5 · Muito Bom</span>
+        <span class="card-badge-pill">⭐ 8.5 · Muito Bom</span>
         <img src="https://images.unsplash.com/photo-1512353087810-25dfcd100962?auto=format&fit=crop&w=800&q=80" alt="Ibis Copacabana Posto 5" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Copacabana (Posto 5) · Rio de Janeiro / RJ</div>
-        <h2 class="hotel-title">Ibis Copacabana Posto 5</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#fef2f2;color:#991b1b;border-color:#fecaca;font-weight:600">☕ Café à Parte / Opcional</span>
-          <span class="hotel-tag">A 2 Quadras da Praia</span>
-          <span class="hotel-tag">Metrô Cantagalo ao Lado</span>
-          <span class="hotel-tag">Cama Sweet Bed</span>
-        </div>
-        <p class="hotel-desc">Localização nobre em Copacabana por preço justo. Vá a pé à praia e conte com a segurança e padronização Accor. Buffet de café da manhã disponível à parte ou lanches rápidos em Copacabana.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 245</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Ibis+Copacabana+Posto+5&label=pennertech-rio-ibis" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Copacabana (Posto 5) · Rio de Janeiro / RJ</span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">Ibis Copacabana Posto 5</h3>
+        <p class="hotel-desc-luxe">Localização nobre em Copacabana por preço justo. Vá a pé à praia e conte com a segurança e padronização Accor. Buffet de café da manhã disponível à parte ou lanches rápidos em Copacabana.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 245 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Ibis+Copacabana+Posto+5&label=pennertech-rio-ibis" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
-    <article class="hotel-card" data-cat="rio" data-preco="285" data-busca="windsor martinique hotel copacabana posto 5 piscina terraco vista mar cafe incluso">
+    <article class="hotel-card" data-cat="rio" data-preco="285">
       <div class="hotel-thumb">
-        <span class="badge-dest">Rio de Janeiro · RJ</span>
-        <span class="badge-nota">⭐ 8.7 · Fabuloso</span>
+        <span class="card-badge-pill">⭐ 8.7 · Fabuloso</span>
         <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=800&q=80" alt="Windsor Martinique Copacabana" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Rua Sá Ferreira · Copacabana Posto 5 / RJ</div>
-        <h2 class="hotel-title">Windsor Martinique (Tarifa Smart)</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#ecfdf5;color:#065f46;border-color:#a7f3d0;font-weight:700">☕ Café da Manhã Incluso</span>
-          <span class="hotel-tag">Piscina no Terraço</span>
-          <span class="hotel-tag">Vista da Orla</span>
-          <span class="hotel-tag">Praia a 100m</span>
-        </div>
-        <p class="hotel-desc">Estrutura conceituada da rede Windsor na zona sul por uma tarifa muito competitiva. Café da manhã buffet completo incluso, piscina na cobertura e atendimento elogiado na melhor região de Copacabana.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 285</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Windsor+Martinique+Copacabana&label=pennertech-rio-windsor" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Rua Sá Ferreira · Copacabana Posto 5 / RJ</span> · <span>☕ Café Incluso</span></div>
+        <h3 class="hotel-title-luxe">Windsor Martinique Copacabana</h3>
+        <p class="hotel-desc-luxe">Estrutura conceituada da rede Windsor na zona sul por uma tarifa muito competitiva. Café da manhã buffet completo incluso, piscina na cobertura e atendimento elogiado na melhor região de Copacabana.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 285 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Windsor+Martinique+Copacabana&label=pennertech-rio-windsor" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
     <!-- ==================== SÃO PAULO (SP) ==================== -->
-    <article class="hotel-card" data-cat="sp" data-preco="215" data-busca="ibis budget sao paulo paulista consolacao metro paulista av paulista cafe opcional">
+    <article class="hotel-card" data-cat="sp" data-preco="215">
       <div class="hotel-thumb">
-        <span class="badge-dest">São Paulo · SP</span>
-        <span class="badge-nota">⭐ 8.4 · Muito Bom</span>
+        <span class="card-badge-pill">⭐ 8.4 · Muito Bom</span>
         <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80" alt="Ibis Budget São Paulo Paulista" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Consolação / Av. Paulista · São Paulo / SP · 📍 <strong>2,5 km da Sé (Centro Histórico)</strong> · 🎯 <strong>150m da Av. Paulista e Estação Consolação</strong></div>
-        <h2 class="hotel-title">Ibis Budget São Paulo Paulista</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#fef2f2;color:#991b1b;border-color:#fecaca;font-weight:600">☕ Café à Parte / Opcional</span>
-          <span class="hotel-tag">A 50m da Av. Paulista</span>
-          <span class="hotel-tag">Metrô Paulista na Porta</span>
-          <span class="hotel-tag">Wi-Fi Ágil</span>
-        </div>
-        <p class="hotel-desc">A melhor localização de São Paulo para quem quer economizar sem perder tempo no trânsito. Desça direto na Paulista e pegue o metrô. Café buffet servido à parte no local ou em padarias clássicas da Paulista.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 215</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Ibis+Budget+Paulista&label=pennertech-sp-ibisbudget" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Consolação / Av. Paulista · São Paulo / SP · 📍 <strong>2,5 km da Sé (Centro Histórico)</strong> · 🎯 <strong>150m da Av. Paulista e Estação Consolação</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">Ibis Budget São Paulo Paulista</h3>
+        <p class="hotel-desc-luxe">A melhor localização de São Paulo para quem quer economizar sem perder tempo no trânsito. Desça direto na Paulista e pegue o metrô. Café buffet servido à parte no local ou em padarias clássicas da Paulista.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 215 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Ibis+Budget+Paulista&label=pennertech-sp-ibisbudget" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
-    <article class="hotel-card" data-cat="sp" data-preco="185" data-busca="bb hotel sao paulo luz centro 25 de marco bras compras cafe incluso novo">
+    <article class="hotel-card" data-cat="sp" data-preco="185">
       <div class="hotel-thumb">
-        <span class="badge-dest">São Paulo · SP</span>
-        <span class="badge-nota">⭐ 8.5 · Muito Bom</span>
+        <span class="card-badge-pill">⭐ 8.5 · Muito Bom</span>
         <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80" alt="B&B Hotel São Paulo Luz" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Bairro da Luz / Próx. 25 de Março · São Paulo / SP</div>
-        <h2 class="hotel-title">B&B Hotel São Paulo Luz - Centro</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#ecfdf5;color:#065f46;border-color:#a7f3d0;font-weight:700">☕ Café da Manhã Incluso</span>
-          <span class="hotel-tag">Hotel Novo e Moderno</span>
-          <span class="hotel-tag">Próx. 25 de Março e Brás</span>
-          <span class="hotel-tag">Isolamento Acústico</span>
-        </div>
-        <p class="hotel-desc">Imbatível para quem viaja para compras na 25 de Março, Brás e Bom Retiro. Café da manhã saboroso incluso na diária, prédio novíssimo, camas macias e chuveiro forte.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 185</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=B%26B+Hotel+Sao+Paulo+Luz&label=pennertech-sp-bbhotel" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Bairro da Luz / Próx. 25 de Março · São Paulo / SP</span> · <span>☕ Café Incluso</span></div>
+        <h3 class="hotel-title-luxe">B&B Hotel São Paulo Luz</h3>
+        <p class="hotel-desc-luxe">Imbatível para quem viaja para compras na 25 de Março, Brás e Bom Retiro. Café da manhã saboroso incluso na diária, prédio novíssimo, camas macias e chuveiro forte.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 185 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=B%26B+Hotel+Sao+Paulo+Luz&label=pennertech-sp-bbhotel" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
-    <article class="hotel-card" data-cat="sp" data-preco="240" data-busca="slaviero downtown sao paulo republica centro piscina coberta cafe incluso varanda">
+    <article class="hotel-card" data-cat="sp" data-preco="240">
       <div class="hotel-thumb">
-        <span class="badge-dest">São Paulo · SP</span>
-        <span class="badge-nota">⭐ 8.6 · Fabuloso</span>
+        <span class="card-badge-pill">⭐ 8.6 · Fabuloso</span>
         <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80" alt="Slaviero Downtown São Paulo" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Rua Araújo · República / Centro · São Paulo / SP · 📍 <strong>No centro histórico</strong> · 🎯 <strong>300m da Praça da República e Edifício Copan</strong></div>
-        <h2 class="hotel-title">Slaviero Downtown São Paulo</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#ecfdf5;color:#065f46;border-color:#a7f3d0;font-weight:700">☕ Café da Manhã Incluso</span>
-          <span class="hotel-tag">Piscina Climatizada Coberta</span>
-          <span class="hotel-tag">Varanda Privativa</span>
-          <span class="hotel-tag">Mesa de Trabalho</span>
-        </div>
-        <p class="hotel-desc">Apartamentos amplos com sacada e mesa de trabalho. Café da manhã buffet completo incluso, piscina climatizada coberta e academia, a poucos passos do metrô República e teatros.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 240</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Slaviero+Downtown+Sao+Paulo&label=pennertech-sp-slaviero" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Rua Araújo · República / Centro · São Paulo / SP · 📍 <strong>No centro histórico</strong> · 🎯 <strong>300m da Praça da República e Edifício Copan</strong></span> · <span>☕ Café Incluso</span></div>
+        <h3 class="hotel-title-luxe">Slaviero Downtown São Paulo</h3>
+        <p class="hotel-desc-luxe">Apartamentos amplos com sacada e mesa de trabalho. Café da manhã buffet completo incluso, piscina climatizada coberta e academia, a poucos passos do metrô República e teatros.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 240 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Slaviero+Downtown+Sao+Paulo&label=pennertech-sp-slaviero" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
-    <article class="hotel-card" data-cat="sp" data-preco="230" data-busca="studio moderno pinheiros faria lima sao paulo rooftop piscina cozinha metro cafe nao incluso">
+    <article class="hotel-card" data-cat="sp" data-preco="230">
       <div class="hotel-thumb">
-        <span class="badge-dest">São Paulo · SP</span>
-        <span class="badge-nota">⭐ 9.0 · Fantástico</span>
+        <span class="card-badge-pill">⭐ 9.0 · Fantástico</span>
         <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80" alt="Studio Moderno Pinheiros" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Pinheiros / Faria Lima · São Paulo / SP · 📍 <strong>4,5 km do centro</strong> · 🎯 <strong>250m do Metrô Faria Lima e Beco do Batman</strong></div>
-        <h2 class="hotel-title">Studio Moderno Pinheiros / Faria Lima</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#eff6ff;color:#1e40af;border-color:#bfdbfe;font-weight:700">🍳 Cozinha Completa no Studio</span>
-          <span class="hotel-tag">Próx. Metrô Faria Lima</span>
-          <span class="hotel-tag">Piscina no Rooftop</span>
-          <span class="hotel-tag">Design Contemporâneo</span>
-        </div>
-        <p class="hotel-desc">Apartamento compacto completo com cozinha privativa equipada (sem café incluso, ideal para preparar refeições a seu gosto). Prédio moderno com piscina na cobertura, academia e localização fantástica em Pinheiros.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 230</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=studio+pinheiros+sao+paulo&label=pennertech-sp-pinheiros" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Pinheiros / Faria Lima · São Paulo / SP · 📍 <strong>4,5 km do centro</strong> · 🎯 <strong>250m do Metrô Faria Lima e Beco do Batman</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">Studio Moderno Pinheiros</h3>
+        <p class="hotel-desc-luxe">Apartamento compacto completo com cozinha privativa equipada (sem café incluso, ideal para preparar refeições a seu gosto). Prédio moderno com piscina na cobertura, academia e localização fantástica em Pinheiros.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 230 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=studio+pinheiros+sao+paulo&label=pennertech-sp-pinheiros" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
     <!-- ==================== FORTALEZA & CUMBUCO (CE) ==================== -->
-    <article class="hotel-card" data-cat="fortaleza" data-preco="190" data-busca="pousada meireles fortaleza ceara beira mar feirinha praia piscina cafe incluso tapioca">
+    <article class="hotel-card" data-cat="fortaleza" data-preco="190">
       <div class="hotel-thumb">
-        <span class="badge-dest">Fortaleza · CE</span>
-        <span class="badge-nota">⭐ 8.7 · Fabuloso</span>
+        <span class="card-badge-pill">⭐ 8.7 · Fabuloso</span>
         <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Pousada Meireles Fortaleza" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Meireles · Fortaleza / CE · 📍 <strong>3,2 km do centro</strong> · 🎯 <strong>150m da Feirinha da Beira-Mar e Praia do Meireles</strong></div>
-        <h2 class="hotel-title">Pousada Meireles Fortaleza</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#ecfdf5;color:#065f46;border-color:#a7f3d0;font-weight:700">☕ Café com Tapioca Fresca Incluso</span>
-          <span class="hotel-tag">A 200m da Feirinha</span>
-          <span class="hotel-tag">Ar Split Silencioso</span>
-          <span class="hotel-tag">Piscina</span>
-        </div>
-        <p class="hotel-desc">Localização privilegiada no Meireles. Café da manhã delicioso incluso com tapiocas feitas na hora, frutas frescas e bolos regionais. Caminhe à praia e curta a piscina após o mar.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 190</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Pousada+Meireles+Fortaleza&label=pennertech-fortaleza-meireles" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Meireles · Fortaleza / CE · 📍 <strong>3,2 km do centro</strong> · 🎯 <strong>150m da Feirinha da Beira-Mar e Praia do Meireles</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">Pousada Meireles Fortaleza</h3>
+        <p class="hotel-desc-luxe">Localização privilegiada no Meireles. Café da manhã delicioso incluso com tapiocas feitas na hora, frutas frescas e bolos regionais. Caminhe à praia e curta a piscina após o mar.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 190 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Pousada+Meireles+Fortaleza&label=pennertech-fortaleza-meireles" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
-    <article class="hotel-card" data-cat="fortaleza" data-preco="225" data-busca="hotel praia centro fortaleza ceara iracema meireles piscina cobertura cafe incluso">
+    <article class="hotel-card" data-cat="fortaleza" data-preco="225">
       <div class="hotel-thumb">
-        <span class="badge-dest">Fortaleza · CE</span>
-        <span class="badge-nota">⭐ 8.5 · Muito Bom</span>
+        <span class="card-badge-pill">⭐ 8.5 · Muito Bom</span>
         <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Hotel Praia Centro" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Praia de Iracema · Fortaleza / CE · 📍 <strong>1,8 km do centro</strong> · 🎯 <strong>200m da Praia de Iracema e Feirinha da Beira-Mar</strong></div>
-        <h2 class="hotel-title">Hotel Praia Centro</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#ecfdf5;color:#065f46;border-color:#a7f3d0;font-weight:700">☕ Café da Manhã Incluso</span>
-          <span class="hotel-tag">Piscina na Cobertura</span>
-          <span class="hotel-tag">Vista Mar Panorâmica</span>
-          <span class="hotel-tag">Restaurante Regional</span>
-        </div>
-        <p class="hotel-desc">Ampla área de lazer no topo com vista panorâmica para o mar. Café da manhã farto incluso com itens quentes e frutas tropicais, com acesso rápido aos melhores pontos da orla.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 225</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Hotel+Praia+Centro+Fortaleza&label=pennertech-fortaleza-praiacentro" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Praia de Iracema · Fortaleza / CE · 📍 <strong>1,8 km do centro</strong> · 🎯 <strong>200m da Praia de Iracema e Feirinha da Beira-Mar</strong></span> · <span>☕ Café Incluso</span></div>
+        <h3 class="hotel-title-luxe">Hotel Praia Centro</h3>
+        <p class="hotel-desc-luxe">Ampla área de lazer no topo com vista panorâmica para o mar. Café da manhã farto incluso com itens quentes e frutas tropicais, com acesso rápido aos melhores pontos da orla.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 225 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Hotel+Praia+Centro+Fortaleza&label=pennertech-fortaleza-praiacentro" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
-    <article class="hotel-card" data-cat="fortaleza" data-preco="210" data-busca="pousada villa cumbuco ceara praia dunas kitesurf piscina cafe incluso">
+    <article class="hotel-card" data-cat="fortaleza" data-preco="210">
       <div class="hotel-thumb">
-        <span class="badge-dest">Cumbuco · CE</span>
-        <span class="badge-nota">⭐ 9.1 · Fantástico</span>
+        <span class="card-badge-pill">⭐ 9.1 · Fantástico</span>
         <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Pousada Villa Cumbuco" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Praia do Cumbuco · Caucaia / CE · 📍 <strong>27 km de Fortaleza / 300m da vila</strong> · 🎯 <strong>Pé na areia na Praia do Cumbuco</strong></div>
-        <h2 class="hotel-title">Pousada Villa Cumbuco</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#ecfdf5;color:#065f46;border-color:#a7f3d0;font-weight:700">☕ Café da Manhã Incluso</span>
-          <span class="hotel-tag">Piscina Tropical</span>
-          <span class="hotel-tag">Perto da Praia e Kitesurf</span>
-          <span class="hotel-tag">Paz Total</span>
-        </div>
-        <p class="hotel-desc">Paraíso dos amantes de sossego e esportes náuticos. Café da manhã tropical incluso, quartos rústicos confortáveis, jardim verde e piscina relaxante a passos da praia do Cumbuco.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 210</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Pousada+Villa+Cumbuco&label=pennertech-cumbuco-villa" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Praia do Cumbuco · Caucaia / CE · 📍 <strong>27 km de Fortaleza / 300m da vila</strong> · 🎯 <strong>Pé na areia na Praia do Cumbuco</strong></span> · <span>☕ Café Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pousada Villa Cumbuco</h3>
+        <p class="hotel-desc-luxe">Paraíso dos amantes de sossego e esportes náuticos. Café da manhã tropical incluso, quartos rústicos confortáveis, jardim verde e piscina relaxante a passos da praia do Cumbuco.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 210 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Pousada+Villa+Cumbuco&label=pennertech-cumbuco-villa" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
-    <article class="hotel-card" data-cat="fortaleza" data-preco="255" data-busca="hotel brasil tropical fortaleza meireles suite flat varanda cozinha cafe incluso">
+    <article class="hotel-card" data-cat="fortaleza" data-preco="255">
       <div class="hotel-thumb">
-        <span class="badge-dest">Fortaleza · CE</span>
-        <span class="badge-nota">⭐ 8.6 · Fabuloso</span>
+        <span class="card-badge-pill">⭐ 8.6 · Fabuloso</span>
         <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Hotel Brasil Tropical Flat" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Meireles · Fortaleza / CE · 📍 <strong>3,0 km do centro</strong> · 🎯 <strong>100m da Praia do Meireles e Feirinha da Beira-Mar</strong></div>
-        <h2 class="hotel-title">Hotel Brasil Tropical (Suíte Econômica)</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#ecfdf5;color:#065f46;border-color:#a7f3d0;font-weight:700">☕ Café da Manhã Incluso</span>
-          <span class="hotel-tag">Suíte Flat com Varanda</span>
-          <span class="hotel-tag">Cozinha Compacta</span>
-          <span class="hotel-tag">A 1 Quadra da Praia</span>
-        </div>
-        <p class="hotel-desc">Conforto de apart-hotel com cozinha privativa e <strong>café da manhã completo incluso</strong> no restaurante. Piscina panorâmica na cobertura e localização excelente no Meireles.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 255</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Hotel+Brasil+Tropical+Fortaleza&label=pennertech-fortaleza-brasiltropical" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Meireles · Fortaleza / CE · 📍 <strong>3,0 km do centro</strong> · 🎯 <strong>100m da Praia do Meireles e Feirinha da Beira-Mar</strong></span> · <span>☕ Café Incluso</span></div>
+        <h3 class="hotel-title-luxe">Hotel Brasil Tropical Flat</h3>
+        <p class="hotel-desc-luxe">Conforto de apart-hotel com cozinha privativa e <strong>café da manhã completo incluso</strong> no restaurante. Piscina panorâmica na cobertura e localização excelente no Meireles.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 255 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Hotel+Brasil+Tropical+Fortaleza&label=pennertech-fortaleza-brasiltropical" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
@@ -1331,484 +543,304 @@ document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closes
     <!-- ==================== EXTERIOR: QUARTO PRIVATIVO DE CASAL (~R$ 300) ==================== -->
 
     <!-- LISBOA (PORTUGAL) - CASAL R$ 295 -->
-    <article class="hotel-card" data-cat="mundo" data-preco="295" data-busca="lisboa portugal easyhotel lisbon marques de pombal casal quarto privativo particular cafe a parte metro">
+    <article class="hotel-card" data-cat="mundo" data-preco="295">
       <div class="hotel-thumb">
-        <span class="badge-dest" style="background:#0284c7">💑 Quarto Casal Privativo · Lisboa</span>
-        <span class="badge-nota">⭐ 8.3 · Muito Bom</span>
+        <span class="card-badge-pill">⭐ 8.3 · Muito Bom</span>
         <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80" alt="easyHotel Lisbon Casal Privativo" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Marquês de Pombal / Santo António · Lisboa / Portugal · 📍 <strong>1,5 km da Praça do Rossio (Baixa Pombalina)</strong> · 🎯 <strong>350m da Av. da Liberdade e Metrô Marquês de Pombal</strong></div>
-        <h2 class="hotel-title">easyHotel Lisbon (Quarto Duplo Casal)</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#fef2f2;color:#991b1b;border-color:#fecaca;font-weight:600">☕ Café à Parte / Padarias ao Redor</span>
-          <span class="hotel-tag" style="background:#eff6ff;color:#1e40af;font-weight:700">💑 Cama de Casal Privativa</span>
-          <span class="hotel-tag">Banheiro Privativo</span>
-          <span class="hotel-tag">Metrô a 300m</span>
-        </div>
-        <p class="hotel-desc">Quarto privativo de casal com banheiro exclusivo e cama macia a 5 minutos a pé do Marquês de Pombal. <strong>Café não incluso na tarifa econômica</strong>: nas imediações há excelentes padarias com pastéis de nata e galão por menos de 3 euros.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diária Casal a partir de</small>
-            <b>R$ 295</b>
-          </div>
-          <a class="hotel-btn" style="background:#0284c7" href="https://www.booking.com/searchresults.pt-br.html?ss=easyHotel+Lisbon&label=pennertech-mundo-lisboa-casal" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Marquês de Pombal / Santo António · Lisboa / Portugal · 📍 <strong>1,5 km da Praça do Rossio (Baixa Pombalina)</strong> · 🎯 <strong>350m da Av. da Liberdade e Metrô Marquês de Pombal</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">easyHotel Lisbon Casal Privativo</h3>
+        <p class="hotel-desc-luxe">Quarto privativo de casal com banheiro exclusivo e cama macia a 5 minutos a pé do Marquês de Pombal. <strong>Café não incluso na tarifa econômica</strong>: nas imediações há excelentes padarias com pastéis de nata e galão por menos de 3 euros.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 295 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=easyHotel+Lisbon&label=pennertech-mundo-lisboa-casal" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
     <!-- MADRID (ESPANHA) - CASAL R$ 290 -->
-    <article class="hotel-card" data-cat="mundo" data-preco="290" data-busca="madrid espanha ibis budget madrid calle alcala suanzes casal quarto privativo cafe a parte metro">
+    <article class="hotel-card" data-cat="mundo" data-preco="290">
       <div class="hotel-thumb">
-        <span class="badge-dest" style="background:#0284c7">💑 Quarto Casal Privativo · Madrid</span>
-        <span class="badge-nota">⭐ 8.4 · Muito Bom</span>
+        <span class="card-badge-pill">⭐ 8.4 · Muito Bom</span>
         <img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?auto=format&fit=crop&w=800&q=80" alt="Ibis Budget Madrid Alcalá Casal" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Calle Alcalá · Madrid / Espanha · 📍 <strong>5,0 km da Puerta del Sol (Centro)</strong> · 🎯 <strong>150m do Metrô Suanzes e Quinta de los Molinos</strong></div>
-        <h2 class="hotel-title">Ibis Budget Madrid Calle Alcalá (Casal)</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#fef2f2;color:#991b1b;border-color:#fecaca;font-weight:600">☕ Café à Parte / Buffet Opcional</span>
-          <span class="hotel-tag" style="background:#eff6ff;color:#1e40af;font-weight:700">💑 Cama Casal Sweet Bed</span>
-          <span class="hotel-tag">Banheiro Privativo</span>
-          <span class="hotel-tag">Metrô Direto Linha 5</span>
-        </div>
-        <p class="hotel-desc">Quarto privativo moderno para casal na famosa Calle de Alcalá com metrô na porta direto para a Gran Vía em 15 minutos. <strong>Café da manhã buffet disponível à parte</strong> ou cafeterias madrilenhas na calçada.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diária Casal a partir de</small>
-            <b>R$ 290</b>
-          </div>
-          <a class="hotel-btn" style="background:#0284c7" href="https://www.booking.com/searchresults.pt-br.html?ss=Ibis+Budget+Madrid+Calle+Alcala&label=pennertech-mundo-madrid-casal" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Calle Alcalá · Madrid / Espanha · 📍 <strong>5,0 km da Puerta del Sol (Centro)</strong> · 🎯 <strong>150m do Metrô Suanzes e Quinta de los Molinos</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">Ibis Budget Madrid Alcalá Casal</h3>
+        <p class="hotel-desc-luxe">Quarto privativo moderno para casal na famosa Calle de Alcalá com metrô na porta direto para a Gran Vía em 15 minutos. <strong>Café da manhã buffet disponível à parte</strong> ou cafeterias madrilenhas na calçada.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 290 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Ibis+Budget+Madrid+Calle+Alcala&label=pennertech-mundo-madrid-casal" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
     <!-- BERLIM (ALEMANHA) - CASAL R$ 285 -->
-    <article class="hotel-card" data-cat="mundo" data-preco="285" data-busca="berlim alemanha easyhotel berlin hackescher markt mitte casal quarto privativo cafe a parte">
+    <article class="hotel-card" data-cat="mundo" data-preco="285">
       <div class="hotel-thumb">
-        <span class="badge-dest" style="background:#0284c7">💑 Quarto Casal Privativo · Berlim</span>
-        <span class="badge-nota">⭐ 8.3 · Muito Bom</span>
+        <span class="card-badge-pill">⭐ 8.3 · Muito Bom</span>
         <img src="https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=800&q=80" alt="easyHotel Berlin Hackescher Markt" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Mitte / Hackescher Markt · Berlim / Alemanha · 📍 <strong>1,2 km da Alexanderplatz</strong> · 🎯 <strong>200m do Hackescher Markt e Ilha dos Museus</strong></div>
-        <h2 class="hotel-title">easyHotel Berlin Hackescher Markt (Casal)</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#fef2f2;color:#991b1b;border-color:#fecaca;font-weight:600">☕ Café à Parte / Cafés no Bairro</span>
-          <span class="hotel-tag" style="background:#eff6ff;color:#1e40af;font-weight:700">💑 Quarto Privativo de Casal</span>
-          <span class="hotel-tag">Banheiro Privativo</span>
-          <span class="hotel-tag">U-Bahn na Esquina</span>
-        </div>
-        <p class="hotel-desc">No bairro mais descolado de Berlim (Mitte). Quarto privativo para casal com banheiro privativo e ar condicionado. <strong>Café da manhã à parte</strong>: a praça conta com dezenas de padarias e cafés alemães artesanais.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diária Casal a partir de</small>
-            <b>R$ 285</b>
-          </div>
-          <a class="hotel-btn" style="background:#0284c7" href="https://www.booking.com/searchresults.pt-br.html?ss=easyHotel+Berlin+Hackescher+Markt&label=pennertech-mundo-berlim-casal" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Mitte / Hackescher Markt · Berlim / Alemanha · 📍 <strong>1,2 km da Alexanderplatz</strong> · 🎯 <strong>200m do Hackescher Markt e Ilha dos Museus</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">easyHotel Berlin Hackescher Markt</h3>
+        <p class="hotel-desc-luxe">No bairro mais descolado de Berlim (Mitte). Quarto privativo para casal com banheiro privativo e ar condicionado. <strong>Café da manhã à parte</strong>: a praça conta com dezenas de padarias e cafés alemães artesanais.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 285 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=easyHotel+Berlin+Hackescher+Markt&label=pennertech-mundo-berlim-casal" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
     <!-- ROMA (ITÁLIA) - CASAL R$ 310 -->
-    <article class="hotel-card" data-cat="mundo" data-preco="310" data-busca="roma italia bb hotel roma tuscolana san giovanni casal quarto privativo cafe opcional metro">
+    <article class="hotel-card" data-cat="mundo" data-preco="310">
       <div class="hotel-thumb">
-        <span class="badge-dest" style="background:#0284c7">💑 Quarto Casal Privativo · Roma</span>
-        <span class="badge-nota">⭐ 8.4 · Muito Bom</span>
+        <span class="card-badge-pill">⭐ 8.4 · Muito Bom</span>
         <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80" alt="B&B Hotel Roma Tuscolana Casal" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Tuscolana / San Giovanni · Roma / Itália · 📍 <strong>4,2 km do Coliseu (Centro)</strong> · 🎯 <strong>250m da Estação Tuscolana e Metrô Ponte Lungo</strong></div>
-        <h2 class="hotel-title">B&B Hotel Roma Tuscolana (Quarto Casal)</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#fef2f2;color:#991b1b;border-color:#fecaca;font-weight:600">☕ Café à Parte / Opcional</span>
-          <span class="hotel-tag" style="background:#eff6ff;color:#1e40af;font-weight:700">💑 Cama de Casal Queen</span>
-          <span class="hotel-tag">Banheiro Privativo com Ducha</span>
-          <span class="hotel-tag">A 10 min do Coliseu</span>
-        </div>
-        <p class="hotel-desc">Quarto privativo espaçoso para casal na Linha A do metrô (Ponte Lungo). Chegue em 10 minutos à Estação Termini e Coliseu. <strong>Café da manhã buffet italiano opcional</strong> com croissants e cappuccino cremoso.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diária Casal a partir de</small>
-            <b>R$ 310</b>
-          </div>
-          <a class="hotel-btn" style="background:#0284c7" href="https://www.booking.com/searchresults.pt-br.html?ss=BB+Hotel+Roma+Tuscolana&label=pennertech-mundo-roma-casal" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Tuscolana / San Giovanni · Roma / Itália · 📍 <strong>4,2 km do Coliseu (Centro)</strong> · 🎯 <strong>250m da Estação Tuscolana e Metrô Ponte Lungo</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">B&B Hotel Roma Tuscolana Casal</h3>
+        <p class="hotel-desc-luxe">Quarto privativo espaçoso para casal na Linha A do metrô (Ponte Lungo). Chegue em 10 minutos à Estação Termini e Coliseu. <strong>Café da manhã buffet italiano opcional</strong> com croissants e cappuccino cremoso.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 310 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=BB+Hotel+Roma+Tuscolana&label=pennertech-mundo-roma-casal" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
     <!-- PARIS (FRANÇA) - CASAL R$ 315 -->
-    <article class="hotel-card" data-cat="mundo" data-preco="315" data-busca="paris franca ibis budget paris porte de montmartre casal quarto privativo cafe a parte metro">
+    <article class="hotel-card" data-cat="mundo" data-preco="315">
       <div class="hotel-thumb">
-        <span class="badge-dest" style="background:#0284c7">💑 Quarto Casal Privativo · Paris</span>
-        <span class="badge-nota">⭐ 8.2 · Muito Bom</span>
+        <span class="card-badge-pill">⭐ 8.2 · Muito Bom</span>
         <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80" alt="Ibis Budget Paris Porte de Montmartre" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Montmartre / 18º Arr. · Paris / França · 📍 <strong>4,5 km do centro</strong> · 🎯 <strong>600m da Basílica de Sacré-Cœur e Metrô Porte de Saint-Ouen</strong></div>
-        <h2 class="hotel-title">Ibis Budget Paris Porte de Montmartre (Casal)</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#fef2f2;color:#991b1b;border-color:#fecaca;font-weight:600">☕ Café à Parte / Opcional</span>
-          <span class="hotel-tag" style="background:#eff6ff;color:#1e40af;font-weight:700">💑 Quarto Privativo de Casal</span>
-          <span class="hotel-tag">Banheiro Privativo</span>
-          <span class="hotel-tag">Próx. Montmartre</span>
-        </div>
-        <p class="hotel-desc">O segredo para casal se hospedar em Paris gastando cerca de R$ 300. Quarto privativo com cama de casal confortável, banheiro completo e metrô na porta direto para a Champs-Élysées. <strong>Café buffet continental servido à parte</strong>.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diária Casal a partir de</small>
-            <b>R$ 315</b>
-          </div>
-          <a class="hotel-btn" style="background:#0284c7" href="https://www.booking.com/searchresults.pt-br.html?ss=Ibis+Budget+Paris+Porte+de+Montmartre&label=pennertech-mundo-paris-casal" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Montmartre / 18º Arr. · Paris / França · 📍 <strong>4,5 km do centro</strong> · 🎯 <strong>600m da Basílica de Sacré-Cœur e Metrô Porte de Saint-Ouen</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">Ibis Budget Paris Porte de Montmartre</h3>
+        <p class="hotel-desc-luxe">O segredo para casal se hospedar em Paris gastando cerca de R$ 300. Quarto privativo com cama de casal confortável, banheiro completo e metrô na porta direto para a Champs-Élysées. <strong>Café buffet continental servido à parte</strong>.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 315 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Ibis+Budget+Paris+Porte+de+Montmartre&label=pennertech-mundo-paris-casal" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
     <!-- BARCELONA (ESPANHA) - CASAL R$ 295 -->
-    <article class="hotel-card" data-cat="mundo" data-preco="295" data-busca="barcelona espanha easyhotel barcelona fira casal quarto privativo cafe a parte metro">
+    <article class="hotel-card" data-cat="mundo" data-preco="295">
       <div class="hotel-thumb">
-        <span class="badge-dest" style="background:#0284c7">💑 Quarto Casal Privativo · Barcelona</span>
-        <span class="badge-nota">⭐ 8.3 · Muito Bom</span>
+        <span class="card-badge-pill">⭐ 8.3 · Muito Bom</span>
         <img src="https://images.unsplash.com/photo-1583422409516-2895a77efded?auto=format&fit=crop&w=800&q=80" alt="easyHotel Barcelona Fira Casal" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">L'Hospitalet / Fira · Barcelona / Espanha · 📍 <strong>3,8 km da Plaça Catalunya</strong> · 🎯 <strong>200m da Estação Ildefons Cerdà e Fira Barcelona</strong></div>
-        <h2 class="hotel-title">easyHotel Barcelona Fira (Quarto Casal)</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#fef2f2;color:#991b1b;border-color:#fecaca;font-weight:600">☕ Café à Parte / Cafeterias ao Lado</span>
-          <span class="hotel-tag" style="background:#eff6ff;color:#1e40af;font-weight:700">💑 Cama de Casal Confortável</span>
-          <span class="hotel-tag">Banheiro Privativo En-Suite</span>
-          <span class="hotel-tag">Metrô na Porta</span>
-        </div>
-        <p class="hotel-desc">Quarto privativo moderno para casal com banheiro privativo e ar condicionado. Metrô conecta direto à Praça Espanha e Sagrada Família. <strong>Café não incluso na tarifa promocional</strong>, com ótimas padarias catalãs no quarteirão.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diária Casal a partir de</small>
-            <b>R$ 295</b>
-          </div>
-          <a class="hotel-btn" style="background:#0284c7" href="https://www.booking.com/searchresults.pt-br.html?ss=easyHotel+Barcelona+Fira&label=pennertech-mundo-barcelona-casal" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>L'Hospitalet / Fira · Barcelona / Espanha · 📍 <strong>3,8 km da Plaça Catalunya</strong> · 🎯 <strong>200m da Estação Ildefons Cerdà e Fira Barcelona</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">easyHotel Barcelona Fira Casal</h3>
+        <p class="hotel-desc-luxe">Quarto privativo moderno para casal com banheiro privativo e ar condicionado. Metrô conecta direto à Praça Espanha e Sagrada Família. <strong>Café não incluso na tarifa promocional</strong>, com ótimas padarias catalãs no quarteirão.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 295 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=easyHotel+Barcelona+Fira&label=pennertech-mundo-barcelona-casal" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
     <!-- LONDRES (REINO UNIDO) - CASAL R$ 325 -->
-    <article class="hotel-card" data-cat="mundo" data-preco="325" data-busca="londres reino unido easyhotel london croydon casal quarto privativo cafe a parte trem">
+    <article class="hotel-card" data-cat="mundo" data-preco="325">
       <div class="hotel-thumb">
-        <span class="badge-dest" style="background:#0284c7">💑 Quarto Casal Privativo · Londres</span>
-        <span class="badge-nota">⭐ 8.2 · Muito Bom</span>
+        <span class="card-badge-pill">⭐ 8.2 · Muito Bom</span>
         <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80" alt="easyHotel London Casal Privativo" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Zona Central 2 · Londres / UK · 📍 <strong>3,5 km do centro de Londres</strong> · 🎯 <strong>300m da Estação de Metrô e conexão rápida</strong></div>
-        <h2 class="hotel-title">easyHotel London (Quarto Duplo Casal)</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#fef2f2;color:#991b1b;border-color:#fecaca;font-weight:600">☕ Café à Parte / Cafeterias ao Lado</span>
-          <span class="hotel-tag" style="background:#eff6ff;color:#1e40af;font-weight:700">💑 Quarto Privativo de Casal</span>
-          <span class="hotel-tag">Banheiro Privativo com Ducha</span>
-          <span class="hotel-tag">Trem Expresso a cada 3 min</span>
-        </div>
-        <p class="hotel-desc">A tática dos viajantes econômicos em Londres: quarto privativo para casal com banheiro privativo ao lado da estação expressa (14 min até London Bridge). <strong>Café da manhã à parte</strong> em cafés britânicos tradicionais colados à estação.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diária Casal a partir de</small>
-            <b>R$ 325</b>
-          </div>
-          <a class="hotel-btn" style="background:#0284c7" href="https://www.booking.com/searchresults.pt-br.html?ss=easyHotel+London+Croydon&label=pennertech-mundo-londres-casal" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Zona Central 2 · Londres / UK · 📍 <strong>3,5 km do centro de Londres</strong> · 🎯 <strong>300m da Estação de Metrô e conexão rápida</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">easyHotel London Casal Privativo</h3>
+        <p class="hotel-desc-luxe">A tática dos viajantes econômicos em Londres: quarto privativo para casal com banheiro privativo ao lado da estação expressa (14 min até London Bridge). <strong>Café da manhã à parte</strong> em cafés britânicos tradicionais colados à estação.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 325 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=easyHotel+London+Croydon&label=pennertech-mundo-londres-casal" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
     <!-- AMSTERDAM (HOLANDA) - CASAL R$ 320 -->
-    <article class="hotel-card" data-cat="mundo" data-preco="320" data-busca="amsterdam holanda easyhotel amsterdam zaandam casal quarto privativo cafe a parte trem">
+    <article class="hotel-card" data-cat="mundo" data-preco="320">
       <div class="hotel-thumb">
-        <span class="badge-dest" style="background:#0284c7">💑 Quarto Casal Privativo · Amsterdam</span>
-        <span class="badge-nota">⭐ 8.3 · Muito Bom</span>
+        <span class="card-badge-pill">⭐ 8.3 · Muito Bom</span>
         <img src="https://images.unsplash.com/photo-1534351590666-13e3e96b5017?auto=format&fit=crop&w=800&q=80" alt="easyHotel Amsterdam Casal" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Zaandam Central · Amsterdam / Holanda · 📍 <strong>12 min de trem da Estação Central de Amsterdam</strong> · 🎯 <strong>200m da Estação Zaandam</strong></div>
-        <h2 class="hotel-title">easyHotel Amsterdam Zaandam (Casal)</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#fef2f2;color:#991b1b;border-color:#fecaca;font-weight:600">☕ Café à Parte / Cafés na Estação</span>
-          <span class="hotel-tag" style="background:#eff6ff;color:#1e40af;font-weight:700">💑 Cama de Casal Privativa</span>
-          <span class="hotel-tag">Banheiro Privativo</span>
-          <span class="hotel-tag">A 12 min de Trem da Centraal</span>
-        </div>
-        <p class="hotel-desc">Quarto privativo moderno para casal ao lado da estação de Zaandam. Trem a cada 5 minutos até a Centraal de Amsterdam em 12 minutos. <strong>Café da manhã à parte</strong> com ótimas opções de waffles e cafés na praça da estação.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diária Casal a partir de</small>
-            <b>R$ 320</b>
-          </div>
-          <a class="hotel-btn" style="background:#0284c7" href="https://www.booking.com/searchresults.pt-br.html?ss=easyHotel+Amsterdam+Zaandam&label=pennertech-mundo-amsterdam-casal" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Zaandam Central · Amsterdam / Holanda · 📍 <strong>12 min de trem da Estação Central de Amsterdam</strong> · 🎯 <strong>200m da Estação Zaandam</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">easyHotel Amsterdam Casal</h3>
+        <p class="hotel-desc-luxe">Quarto privativo moderno para casal ao lado da estação de Zaandam. Trem a cada 5 minutos até a Centraal de Amsterdam em 12 minutos. <strong>Café da manhã à parte</strong> com ótimas opções de waffles e cafés na praça da estação.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 320 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=easyHotel+Amsterdam+Zaandam&label=pennertech-mundo-amsterdam-casal" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
     <!-- GENEBRA (SUÍÇA / FRONTEIRA SMART) - CASAL R$ 315 -->
-    <article class="hotel-card" data-cat="mundo" data-preco="315" data-busca="genebra suica ibis saint genis pouilly casal quarto privativo cafe a parte onibus direto">
+    <article class="hotel-card" data-cat="mundo" data-preco="315">
       <div class="hotel-thumb">
-        <span class="badge-dest" style="background:#0284c7">💑 Quarto Casal Privativo · Genebra</span>
-        <span class="badge-nota">⭐ 8.4 · Muito Bom</span>
+        <span class="card-badge-pill">⭐ 8.4 · Muito Bom</span>
         <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=800&q=80" alt="Ibis Saint-Genis Pouilly Genève Casal" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Saint-Genis-Pouilly · Genebra / Suíça · 📍 <strong>9 km do centro de Genebra</strong> · 🎯 <strong>500m do CERN e transporte direto para o Lago Genebra</strong></div>
-        <h2 class="hotel-title">Ibis Saint-Genis Genève (Casal Smart)</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#fef2f2;color:#991b1b;border-color:#fecaca;font-weight:600">☕ Café à Parte / Opcional</span>
-          <span class="hotel-tag" style="background:#eff6ff;color:#1e40af;font-weight:700">💑 Cama Casal Sweet Bed</span>
-          <span class="hotel-tag">Banheiro Privativo Completo</span>
-          <span class="hotel-tag">Ônibus Direto p/ Genebra</span>
-        </div>
-        <p class="hotel-desc">O grande truque para curtir Genebra pagando preço de Brasil: quarto de casal privativo na fronteira francesa colada em Genebra com ônibus direto até a estação Cornavin e Lago Léman. <strong>Buffet de café francês disponível à parte</strong>.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diária Casal a partir de</small>
-            <b>R$ 315</b>
-          </div>
-          <a class="hotel-btn" style="background:#0284c7" href="https://www.booking.com/searchresults.pt-br.html?ss=Ibis+Saint+Genis+Pouilly+Geneve&label=pennertech-mundo-genebra-casal" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Saint-Genis-Pouilly · Genebra / Suíça · 📍 <strong>9 km do centro de Genebra</strong> · 🎯 <strong>500m do CERN e transporte direto para o Lago Genebra</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">Ibis Saint-Genis Pouilly Genève Casal</h3>
+        <p class="hotel-desc-luxe">O grande truque para curtir Genebra pagando preço de Brasil: quarto de casal privativo na fronteira francesa colada em Genebra com ônibus direto até a estação Cornavin e Lago Léman. <strong>Buffet de café francês disponível à parte</strong>.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 315 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Ibis+Saint+Genis+Pouilly+Geneve&label=pennertech-mundo-genebra-casal" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
     <!-- ZURIQUE (SUÍÇA) - CASAL R$ 340 -->
-    <article class="hotel-card" data-cat="mundo" data-preco="340" data-busca="zurique suica ibis budget zurich airport casal quarto privativo cafe opcional trem">
+    <article class="hotel-card" data-cat="mundo" data-preco="340">
       <div class="hotel-thumb">
-        <span class="badge-dest" style="background:#0284c7">💑 Quarto Casal Privativo · Zurique</span>
-        <span class="badge-nota">⭐ 8.3 · Muito Bom</span>
+        <span class="card-badge-pill">⭐ 8.3 · Muito Bom</span>
         <img src="https://images.unsplash.com/photo-1515488764276-beab7607c1e6?auto=format&fit=crop&w=800&q=80" alt="Ibis Budget Zurich Airport Casal" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Glattbrugg · Zurique / Suíça · 📍 <strong>7 km do centro de Zurique</strong> · 🎯 <strong>600m do Aeroporto e Estação de Tram direto</strong></div>
-        <h2 class="hotel-title">Ibis Budget Zurich Airport (Casal)</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#fef2f2;color:#991b1b;border-color:#fecaca;font-weight:600">☕ Café à Parte / Opcional</span>
-          <span class="hotel-tag" style="background:#eff6ff;color:#1e40af;font-weight:700">💑 Quarto Casal Privativo</span>
-          <span class="hotel-tag">Banheiro Privativo En-Suite</span>
-          <span class="hotel-tag">Bonde e Trem a 12 min</span>
-        </div>
-        <p class="hotel-desc">Tarifa imbatível para casal em Zurique. Quarto privativo com cama macia, banheiro privativo e ar condicionado. Trem urbano S-Bahn e bonde conectam ao centro e lago de Zurique. <strong>Café buffet suíço servido à parte</strong>.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diária Casal a partir de</small>
-            <b>R$ 340</b>
-          </div>
-          <a class="hotel-btn" style="background:#0284c7" href="https://www.booking.com/searchresults.pt-br.html?ss=Ibis+Budget+Zurich+Airport&label=pennertech-mundo-zurique-casal" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Glattbrugg · Zurique / Suíça · 📍 <strong>7 km do centro de Zurique</strong> · 🎯 <strong>600m do Aeroporto e Estação de Tram direto</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">Ibis Budget Zurich Airport Casal</h3>
+        <p class="hotel-desc-luxe">Tarifa imbatível para casal em Zurique. Quarto privativo com cama macia, banheiro privativo e ar condicionado. Trem urbano S-Bahn e bonde conectam ao centro e lago de Zurique. <strong>Café buffet suíço servido à parte</strong>.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 340 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Ibis+Budget+Zurich+Airport&label=pennertech-mundo-zurique-casal" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
     <!-- ESTOCOLMO (SUÉCIA) - CASAL R$ 310 -->
-    <article class="hotel-card" data-cat="mundo" data-preco="310" data-busca="estocolmo suecia motel l hammarby sjostad casal quarto privativo cafe a parte metro">
+    <article class="hotel-card" data-cat="mundo" data-preco="310">
       <div class="hotel-thumb">
-        <span class="badge-dest" style="background:#0284c7">💑 Quarto Casal Privativo · Estocolmo</span>
-        <span class="badge-nota">⭐ 8.6 · Fabuloso</span>
+        <span class="card-badge-pill">⭐ 8.6 · Fabuloso</span>
         <img src="https://images.unsplash.com/photo-1509356843151-3e7d96241e11?auto=format&fit=crop&w=800&q=80" alt="Motel L Hammarby Sjöstad Casal" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Hammarby Sjöstad · Estocolmo / Suécia · 📍 <strong>3,0 km do centro (Gamla Stan)</strong> · 🎯 <strong>100m da Estação de Tram Mårtensdal</strong></div>
-        <h2 class="hotel-title">Motel L Hammarby Sjöstad (Casal)</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#fef2f2;color:#991b1b;border-color:#fecaca;font-weight:600">☕ Café à Parte / Opcional</span>
-          <span class="hotel-tag" style="background:#eff6ff;color:#1e40af;font-weight:700">💑 Cama Casal Carpe Diem</span>
-          <span class="hotel-tag">Ducha de Efeito Chuva</span>
-          <span class="hotel-tag">Bonde & Metrô na Porta</span>
-        </div>
-        <p class="hotel-desc">Hotel moderno em bairro ecológico premiado de Estocolmo. Quarto privativo para casal com cama sueca de alto conforto e banheiro de design contemporâneo. <strong>Café da manhã escandinavo servido à parte</strong> no lounge.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diária Casal a partir de</small>
-            <b>R$ 310</b>
-          </div>
-          <a class="hotel-btn" style="background:#0284c7" href="https://www.booking.com/searchresults.pt-br.html?ss=Motel+L+Hammarby+Sjostad&label=pennertech-mundo-estocolmo-casal" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Hammarby Sjöstad · Estocolmo / Suécia · 📍 <strong>3,0 km do centro (Gamla Stan)</strong> · 🎯 <strong>100m da Estação de Tram Mårtensdal</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">Motel L Hammarby Sjöstad Casal</h3>
+        <p class="hotel-desc-luxe">Hotel moderno em bairro ecológico premiado de Estocolmo. Quarto privativo para casal com cama sueca de alto conforto e banheiro de design contemporâneo. <strong>Café da manhã escandinavo servido à parte</strong> no lounge.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 310 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Motel+L+Hammarby+Sjostad&label=pennertech-mundo-estocolmo-casal" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
     <!-- BUENOS AIRES (ARGENTINA) - CASAL R$ 180 -->
-    <article class="hotel-card" data-cat="mundo" data-preco="180" data-busca="hotel reconquista plaza buenos aires argentina microcentro galerias pacifico casal quarto privativo cafe incluso">
+    <article class="hotel-card" data-cat="mundo" data-preco="180">
       <div class="hotel-thumb">
-        <span class="badge-dest" style="background:#059669">💑 Quarto Casal · Buenos Aires</span>
-        <span class="badge-nota">⭐ 8.5 · Muito Bom</span>
+        <span class="card-badge-pill">⭐ 8.5 · Muito Bom</span>
         <img src="https://images.unsplash.com/photo-1589553416260-f586c8f1514f?auto=format&fit=crop&w=800&q=80" alt="Hotel Reconquista Plaza Buenos Aires" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Microcentro · Buenos Aires / Argentina · 📍 <strong>No centro financeiro</strong> · 🎯 <strong>400m da Calle Florida e 500m da Plaza de Mayo</strong></div>
-        <h2 class="hotel-title">Hotel Reconquista Plaza (Casal)</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#ecfdf5;color:#065f46;border-color:#a7f3d0;font-weight:700">☕ Café da Manhã Incluso</span>
-          <span class="hotel-tag" style="background:#eff6ff;color:#1e40af;font-weight:700">💑 Quarto Casal Privativo</span>
-          <span class="hotel-tag">Banheira no Quarto</span>
-          <span class="hotel-tag">Perto da Rua Florida</span>
-        </div>
-        <p class="hotel-desc">Uma das viagens internacionais mais baratas do mundo para casal. Quarto privativo espaçoso com banheira e <strong>café da manhã completo incluso na diária</strong> no centro histórico de Buenos Aires por menos de R$ 200.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diária Casal a partir de</small>
-            <b>R$ 180</b>
-          </div>
-          <a class="hotel-btn" style="background:#059669" href="https://www.booking.com/searchresults.pt-br.html?ss=Hotel+Reconquista+Plaza+Buenos+Aires&label=pennertech-mundo-buenosaires" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Microcentro · Buenos Aires / Argentina · 📍 <strong>No centro financeiro</strong> · 🎯 <strong>400m da Calle Florida e 500m da Plaza de Mayo</strong></span> · <span>☕ Café Incluso</span></div>
+        <h3 class="hotel-title-luxe">Hotel Reconquista Plaza Buenos Aires</h3>
+        <p class="hotel-desc-luxe">Uma das viagens internacionais mais baratas do mundo para casal. Quarto privativo espaçoso com banheira e <strong>café da manhã completo incluso na diária</strong> no centro histórico de Buenos Aires por menos de R$ 200.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 180 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Hotel+Reconquista+Plaza+Buenos+Aires&label=pennertech-mundo-buenosaires" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
     <!-- SANTIAGO (CHILE) - CASAL R$ 240 -->
-    <article class="hotel-card" data-cat="mundo" data-preco="240" data-busca="ibis providencia santiago chile manuel montt metro seguro cordilheira casal quarto privativo cafe opcional">
+    <article class="hotel-card" data-cat="mundo" data-preco="240">
       <div class="hotel-thumb">
-        <span class="badge-dest" style="background:#059669">💑 Quarto Casal · Santiago</span>
-        <span class="badge-nota">⭐ 8.6 · Fabuloso</span>
+        <span class="card-badge-pill">⭐ 8.6 · Fabuloso</span>
         <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Ibis Providencia Santiago" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Providencia / Manuel Montt · Santiago / Chile · 📍 <strong>3,2 km da Plaza de Armas (Centro Histórico)</strong> · 🎯 <strong>80m da Estação de Metrô Manuel Montt</strong></div>
-        <h2 class="hotel-title">Ibis Providencia Santiago (Casal)</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#fef2f2;color:#991b1b;border-color:#fecaca;font-weight:600">☕ Café à Parte / Opcional</span>
-          <span class="hotel-tag" style="background:#eff6ff;color:#1e40af;font-weight:700">💑 Cama de Casal Sweet Bed</span>
-          <span class="hotel-tag">Bairro Nobre & Seguro</span>
-          <span class="hotel-tag">Metrô na Porta</span>
-        </div>
-        <p class="hotel-desc">Excelente opção para casal em bairro nobre e seguro de Santiago. Quarto privativo confortável com vista para a Cordilheira e metrô na porta. <strong>Café buffet opcional servido no restaurante</strong>.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diária Casal a partir de</small>
-            <b>R$ 240</b>
-          </div>
-          <a class="hotel-btn" style="background:#059669" href="https://www.booking.com/searchresults.pt-br.html?ss=Ibis+Providencia+Santiago&label=pennertech-mundo-santiago" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Providencia / Manuel Montt · Santiago / Chile · 📍 <strong>3,2 km da Plaza de Armas (Centro Histórico)</strong> · 🎯 <strong>80m da Estação de Metrô Manuel Montt</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">Ibis Providencia Santiago</h3>
+        <p class="hotel-desc-luxe">Excelente opção para casal em bairro nobre e seguro de Santiago. Quarto privativo confortável com vista para a Cordilheira e metrô na porta. <strong>Café buffet opcional servido no restaurante</strong>.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 240 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Ibis+Providencia+Santiago&label=pennertech-mundo-santiago" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
     <!-- ORLANDO (EUA) - CASAL R$ 290 -->
-    <article class="hotel-card" data-cat="mundo" data-preco="290" data-busca="rosen inn at pointe orlando fl eua parques universal sem taxa de resort casal quarto privativo cafe a parte">
+    <article class="hotel-card" data-cat="mundo" data-preco="290">
       <div class="hotel-thumb">
-        <span class="badge-dest" style="background:#059669">💑 Quarto Casal · Orlando</span>
-        <span class="badge-nota">⭐ 8.5 · Muito Bom</span>
+        <span class="card-badge-pill">⭐ 8.5 · Muito Bom</span>
         <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=800&q=80" alt="Rosen Inn at Pointe Orlando" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">International Drive · Orlando / EUA · 📍 <strong>15 km do centro de Orlando</strong> · 🎯 <strong>300m do Pointe Orlando e 5 min da Universal Studios</strong></div>
-        <h2 class="hotel-title">Rosen Inn at Pointe Orlando (Casal)</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#eff6ff;color:#1e40af;border-color:#bfdbfe;font-weight:700">🍳 Frigobar & Micro-ondas (Café à Parte)</span>
-          <span class="hotel-tag" style="background:#eff6ff;color:#1e40af;font-weight:700">💑 2 Camas Queen/King</span>
-          <span class="hotel-tag">Sem Taxa Oculta de Resort</span>
-          <span class="hotel-tag">Piscinas Climatizadas</span>
-        </div>
-        <p class="hotel-desc">Quarto privativo espaçoso para casal na International Drive. Sem taxas abusivas de resort, piscinas aquecidas e quarto com frigobar e micro-ondas para tomar café no quarto ou no buffet do hotel à parte.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diária Casal a partir de</small>
-            <b>R$ 290</b>
-          </div>
-          <a class="hotel-btn" style="background:#059669" href="https://www.booking.com/searchresults.pt-br.html?ss=Rosen+Inn+at+Pointe+Orlando&label=pennertech-mundo-orlando" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>International Drive · Orlando / EUA · 📍 <strong>15 km do centro de Orlando</strong> · 🎯 <strong>300m do Pointe Orlando e 5 min da Universal Studios</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">Rosen Inn at Pointe Orlando</h3>
+        <p class="hotel-desc-luxe">Quarto privativo espaçoso para casal na International Drive. Sem taxas abusivas de resort, piscinas aquecidas e quarto com frigobar e micro-ondas para tomar café no quarto ou no buffet do hotel à parte.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 290 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Rosen+Inn+at+Pointe+Orlando&label=pennertech-mundo-orlando" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
     <!-- ==================== OPÇÕES CENTRAIS PREMIUM NO EXTERIOR (R$ 420 A R$ 565) ==================== -->
-    <article class="hotel-card" data-cat="mundo" data-preco="420" data-busca="lisboa portugal hotel borges chiado baixa chiado fernando pessoa pastel nata cafe incluso">
+    <article class="hotel-card" data-cat="mundo" data-preco="420">
       <div class="hotel-thumb">
-        <span class="badge-dest">Lisboa · Portugal</span>
-        <span class="badge-nota">⭐ 8.4 · Muito Bom</span>
+        <span class="card-badge-pill">⭐ 8.4 · Muito Bom</span>
         <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80" alt="Hotel Borges Chiado Lisboa" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Chiado / Baixa · Lisboa / Portugal · 📍 <strong>No coração do Chiado (Centro)</strong> · 🎯 <strong>100m do Elevador de Santa Justa e Praça Luís de Camões</strong></div>
-        <h2 class="hotel-title">Hotel Borges Chiado (Centro Histórico)</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#ecfdf5;color:#065f46;border-color:#a7f3d0;font-weight:700">☕ Café da Manhã Incluso</span>
-          <span class="hotel-tag">Coração do Chiado</span>
-          <span class="hotel-tag">Em frente n'A Brasileira</span>
-          <span class="hotel-tag">Tudo a Pé</span>
-        </div>
-        <p class="hotel-desc">Para quem quer ficar literalmente no miolo histórico de Lisboa: <strong>café da manhã completo incluso</strong>, saia na porta do histórico café A Brasileira, ao lado do metrô Baixa-Chiado e bondes amarelos.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 420</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Hotel+Borges+Chiado+Lisboa&label=pennertech-mundo-lisboa" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Chiado / Baixa · Lisboa / Portugal · 📍 <strong>No coração do Chiado (Centro)</strong> · 🎯 <strong>100m do Elevador de Santa Justa e Praça Luís de Camões</strong></span> · <span>☕ Café Incluso</span></div>
+        <h3 class="hotel-title-luxe">Hotel Borges Chiado Lisboa</h3>
+        <p class="hotel-desc-luxe">Para quem quer ficar literalmente no miolo histórico de Lisboa: <strong>café da manhã completo incluso</strong>, saia na porta do histórico café A Brasileira, ao lado do metrô Baixa-Chiado e bondes amarelos.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 420 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Hotel+Borges+Chiado+Lisboa&label=pennertech-mundo-lisboa" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
-    <article class="hotel-card" data-cat="mundo" data-preco="440" data-busca="madrid espanha bb hotel madrid centro puerta del sol gran via plaza mayor cafe cortesia">
+    <article class="hotel-card" data-cat="mundo" data-preco="440">
       <div class="hotel-thumb">
-        <span class="badge-dest">Madrid · Espanha</span>
-        <span class="badge-nota">⭐ 8.7 · Fabuloso</span>
+        <span class="card-badge-pill">⭐ 8.7 · Fabuloso</span>
         <img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?auto=format&fit=crop&w=800&q=80" alt="B&B Hotel Madrid Centro Puerta del Sol" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Puerta del Sol · Madrid / Espanha · 📍 <strong>No marco zero de Madrid</strong> · 🎯 <strong>50m da Puerta del Sol e Plaza Mayor</strong></div>
-        <h2 class="hotel-title">B&B Hotel Madrid Puerta del Sol</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#ecfdf5;color:#065f46;border-color:#a7f3d0;font-weight:700">☕ Café & Chá Cortesia no Lobby</span>
-          <span class="hotel-tag">A passos da Puerta del Sol</span>
-          <span class="hotel-tag">Próx. Gran Vía</span>
-          <span class="hotel-tag">Tudo a Pé</span>
-        </div>
-        <p class="hotel-desc">Localização imbatível a menos de 100m do marco zero da Espanha. Máquina de café expresso e chás de cortesia 24h no lobby, além de mercados e cafeterias colados na porta.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 440</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=BB+Hotel+Madrid+Centro+Puerta+del+Sol&label=pennertech-mundo-madrid" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Puerta del Sol · Madrid / Espanha · 📍 <strong>No marco zero de Madrid</strong> · 🎯 <strong>50m da Puerta del Sol e Plaza Mayor</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">B&B Hotel Madrid Centro Puerta del Sol</h3>
+        <p class="hotel-desc-luxe">Localização imbatível a menos de 100m do marco zero da Espanha. Máquina de café expresso e chás de cortesia 24h no lobby, além de mercados e cafeterias colados na porta.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 440 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=BB+Hotel+Madrid+Centro+Puerta+del+Sol&label=pennertech-mundo-madrid" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
-    <article class="hotel-card" data-cat="mundo" data-preco="490" data-busca="paris franca ibis tour eiffel cambronne 15eme metro torre eiffel louvre cafe opcional">
+    <article class="hotel-card" data-cat="mundo" data-preco="490">
       <div class="hotel-thumb">
-        <span class="badge-dest">Paris · França</span>
-        <span class="badge-nota">⭐ 8.3 · Muito Bom</span>
+        <span class="card-badge-pill">⭐ 8.3 · Muito Bom</span>
         <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80" alt="Ibis Paris Tour Eiffel Cambronne" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">15º Arr. / Cambronne · Paris / França · 📍 <strong>3,2 km do centro</strong> · 🎯 <strong>800m da Torre Eiffel e 100m do Metrô Cambronne</strong></div>
-        <h2 class="hotel-title">Ibis Paris Tour Eiffel Cambronne</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#fef2f2;color:#991b1b;border-color:#fecaca;font-weight:600">☕ Café à Parte / Opcional</span>
-          <span class="hotel-tag">A 15 min a pé da Torre</span>
-          <span class="hotel-tag">Metrô Cambronne na Porta</span>
-          <span class="hotel-tag">Ar Condicionado</span>
-        </div>
-        <p class="hotel-desc">Para quem quer ficar a passos da Torre Eiffel em bairro charmoso e seguro. Metrô colado para o Museu do Louvre. <strong>Buffet de café francês com croissants servido à parte</strong> ou nas padarias vizinhas.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 490</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Ibis+Paris+Tour+Eiffel+Cambronne&label=pennertech-mundo-paris" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>15º Arr. / Cambronne · Paris / França · 📍 <strong>3,2 km do centro</strong> · 🎯 <strong>800m da Torre Eiffel e 100m do Metrô Cambronne</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">Ibis Paris Tour Eiffel Cambronne</h3>
+        <p class="hotel-desc-luxe">Para quem quer ficar a passos da Torre Eiffel em bairro charmoso e seguro. Metrô colado para o Museu do Louvre. <strong>Buffet de café francês com croissants servido à parte</strong> ou nas padarias vizinhas.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 490 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Ibis+Paris+Tour+Eiffel+Cambronne&label=pennertech-mundo-paris" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
 
-    <article class="hotel-card" data-cat="mundo" data-preco="520" data-busca="londres reino unido inglaterra point a hotel kings cross st pancras eurostar metro cafe opcional">
+    <article class="hotel-card" data-cat="mundo" data-preco="520">
       <div class="hotel-thumb">
-        <span class="badge-dest">Londres · Reino Unido</span>
-        <span class="badge-nota">⭐ 8.4 · Muito Bom</span>
+        <span class="card-badge-pill">⭐ 8.4 · Muito Bom</span>
         <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80" alt="Point A Hotel London Kings Cross" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc">Kings Cross / St Pancras · Londres / UK · 📍 <strong>2,5 km do centro de Londres</strong> · 🎯 <strong>250m da Estação Kings Cross / St Pancras (Eurostar)</strong></div>
-        <h2 class="hotel-title">Point A Hotel London Kings Cross</h2>
-        <div class="hotel-feats">
-          <span class="hotel-tag" style="background:#fef2f2;color:#991b1b;border-color:#fecaca;font-weight:600">☕ Café à Parte / Opcional</span>
-          <span class="hotel-tag">Ao Lado do Eurostar</span>
-          <span class="hotel-tag">6 Linhas de Metrô</span>
-          <span class="hotel-tag">Cama Hypnos Premium</span>
-        </div>
-        <p class="hotel-desc">Localização imbatível na estação Kings Cross/St Pancras. Quarto ultra-moderno e silencioso com chuveiro de alta pressão e conexão direta com todos os aeroportos de Londres. <strong>Opção de café expresso e lanches no lobby à parte</strong>.</p>
-        <div class="hotel-footer">
-          <div class="hotel-preco-box">
-            <small>Diárias a partir de</small>
-            <b>R$ 520</b>
-          </div>
-          <a class="hotel-btn" href="https://www.booking.com/searchresults.pt-br.html?ss=Point+A+Hotel+London+Kings+Cross&label=pennertech-mundo-londres" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+        <div class="hotel-loc-line"><span>Kings Cross / St Pancras · Londres / UK · 📍 <strong>2,5 km do centro de Londres</strong> · 🎯 <strong>250m da Estação Kings Cross / St Pancras (Eurostar)</strong></span> · <span>☕ Café Opcional</span></div>
+        <h3 class="hotel-title-luxe">Point A Hotel London Kings Cross</h3>
+        <p class="hotel-desc-luxe">Localização imbatível na estação Kings Cross/St Pancras. Quarto ultra-moderno e silencioso com chuveiro de alta pressão e conexão direta com todos os aeroportos de Londres. <strong>Opção de café expresso e lanches no lobby à parte</strong>.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 520 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://www.booking.com/searchresults.pt-br.html?ss=Point+A+Hotel+London+Kings+Cross&label=pennertech-mundo-londres" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
@@ -1985,6 +1017,163 @@ document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closes
 </script>
 
 
+
+
+<script>
+// CONTROLE DOS 2 MODOS DE BUSCA
+function alternarModo(modo) {
+  var bSuper = document.getElementById('btnModoSuper');
+  var bCat = document.getElementById('btnModoCat');
+  var pSuper = document.getElementById('painelSuper');
+  var pCat = document.getElementById('painelCat');
+
+  if (modo === 'super') {
+    bSuper.classList.add('ativo');
+    bCat.classList.remove('ativo');
+    pSuper.style.display = 'block';
+    pCat.style.display = 'none';
+    document.getElementById('destSuperInput').focus();
+  } else {
+    bCat.classList.add('ativo');
+    bSuper.classList.remove('ativo');
+    pSuper.style.display = 'none';
+    pCat.style.display = 'block';
+    document.getElementById('inputDestCat').focus();
+  }
+}
+
+function dispararSuper360() {
+  var d = (document.getElementById('destSuperInput').value || '').trim();
+  if (!d) return;
+
+  var enc = encodeURIComponent(d);
+  document.getElementById('nomeDest360').textContent = d;
+
+  document.getElementById('link360Hoteis').href = 'https://www.booking.com/searchresults.pt-br.html?ss=' + enc + '&label=pennertech-360';
+  document.getElementById('link360Voos').href = 'https://www.aviasales.com/search?marker=812990&destination_name=' + enc;
+  document.getElementById('link360Pacotes').href = 'https://www.decolar.com/pacotes/';
+  document.getElementById('link360Atracoes').href = 'https://www.viator.com/searchResults/all?text=' + enc;
+
+  document.getElementById('popup360').style.display = 'block';
+}
+
+function atualizarHintCat() {
+  var v = document.getElementById('selectSubOpcao').value;
+  var l = document.getElementById('lblDestCat');
+  var i = document.getElementById('inputDestCat');
+
+  if (v === 'hoteis') {
+    l.textContent = 'Destino ou Hotel';
+    i.placeholder = 'Digite a cidade, resort ou praia (Booking)...';
+  } else if (v === 'passagens') {
+    l.textContent = 'Destino do Voo';
+    i.placeholder = 'Cidade ou aeroporto de destino (Todas as Cias)...';
+  } else if (v === 'pacotes') {
+    l.textContent = 'Destino do Pacote';
+    i.placeholder = 'Destino completo (Voo + Hotel)...';
+  } else if (v === 'atracoes') {
+    l.textContent = 'Cidade ou Atração';
+    i.placeholder = 'Cidade dos passeios e ingressos...';
+  } else if (v === 'carros') {
+    l.textContent = 'Cidade de Retirada';
+    i.placeholder = 'Aeroporto ou cidade para aluguel...';
+  }
+}
+
+function dispararBuscaCat() {
+  var v = document.getElementById('selectSubOpcao').value;
+  var q = (document.getElementById('inputDestCat').value || '').trim();
+  var dt = document.getElementById('inputDataCat').value || '';
+  if (!q) return;
+
+  var enc = encodeURIComponent(q);
+
+  if (v === 'hoteis') {
+    var u = 'https://www.booking.com/searchresults.pt-br.html?ss=' + enc + '&label=pennertech-cat';
+    if (dt) u += '&checkin=' + dt;
+    window.open(u, '_blank');
+  } else if (v === 'passagens') {
+    window.open('https://www.aviasales.com/search?marker=812990&destination_name=' + enc, '_blank');
+  } else if (v === 'pacotes') {
+    window.open('https://www.decolar.com/pacotes/', '_blank');
+  } else if (v === 'atracoes') {
+    window.open('https://www.viator.com/searchResults/all?text=' + enc, '_blank');
+  } else if (v === 'carros') {
+    window.open('https://www.booking.com/cars/index.pt-br.html?label=pennertech-cars', '_blank');
+  }
+}
+
+// FILTRAGEM SUAVE DOS 42 CARDS
+document.querySelectorAll('.chip-luxe').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.chip-luxe').forEach(function(b){ b.classList.remove('on'); });
+    btn.classList.add('on');
+
+    var cat = btn.getAttribute('data-cat');
+    var pMax = parseFloat(btn.getAttribute('data-preco-max') || '9999');
+    var pMin = parseFloat(btn.getAttribute('data-preco-min') || '0');
+
+    document.querySelectorAll('.hotel-card').forEach(function(card){
+      var cCat = card.getAttribute('data-cat') || '';
+      var cPreco = parseFloat(card.getAttribute('data-preco') || '0');
+      var matchCat = (!cat || cat === 'todos' || cCat.indexOf(cat) !== -1);
+      var matchPreco = (cPreco >= pMin && cPreco <= pMax);
+
+      if (matchCat && matchPreco) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+
+// TELEMETRIA OFICIAL PENNERSERVER2 (SEM HOSTGATOR)
+(function(){
+  var EPS = [
+    'https://baixa.duckdns.org:8095/monitor/api/web-analytics/hit',
+    'https://pennerflix.duckdns.org:8095/monitor/api/web-analytics/hit',
+    'https://pennerserver2.tail69feb4.ts.net/monitor/api/web-analytics/hit'
+  ];
+
+  function sendHit(tipo, extra) {
+    var payload = {
+      site: 'viagens',
+      type: tipo || 'pageview',
+      path: location.pathname || '/',
+      ref: document.referrer || '',
+      target: (extra && extra.target) || '',
+      label: (extra && extra.label) || ''
+    };
+    var body = JSON.stringify(payload);
+    for (var i = 0; i < EPS.length; i++) {
+      try {
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon(EPS[i], body);
+          return;
+        } else {
+          fetch(EPS[i], { method: 'POST', headers: {'Content-Type': 'text/plain;charset=UTF-8'}, body: body, keepalive: true });
+          return;
+        }
+      } catch (e) {}
+    }
+  }
+
+  if (document.readyState === 'complete') sendHit('pageview');
+  else window.addEventListener('load', function(){ sendHit('pageview'); });
+
+  document.addEventListener('click', function(ev){
+    var a = ev.target && ev.target.closest ? ev.target.closest('a') : null;
+    if (!a) return;
+    var h = a.href || '', tgt = '';
+    if (h.indexOf('booking.com') !== -1) tgt = 'booking';
+    else if (h.indexOf('aviasales') !== -1) tgt = 'aviasales';
+    else if (h.indexOf('decolar') !== -1) tgt = 'decolar';
+    else if (h.indexOf('viator') !== -1) tgt = 'viator';
+    if (tgt) sendHit('click', { target: tgt, label: a.innerText.trim().slice(0, 50) });
+  });
+})();
+</script>
 
 </body>
 </html>
