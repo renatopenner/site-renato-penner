@@ -86,7 +86,8 @@ body { background: var(--bg); color: var(--texto-corpo); font-family: 'Plus Jaka
 .pilar-nav-link.ativo { background: var(--acento); color: #fff !important; border-color: var(--acento); box-shadow: 0 4px 14px rgba(180, 83, 9, 0.25); }
 .grid-hoteis-luxe { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 60px; }
 @media (max-width: 960px) { .grid-hoteis-luxe { grid-template-columns: repeat(2, 1fr); gap: 18px; } }
-@media (max-width: 640px) { .grid-hoteis-luxe { grid-template-columns: 1fr; gap: 16px; } }
+@media (max-width: 520px) {
+  .grid-hoteis-luxe { grid-template-columns: 1fr; gap: 16px; } }
 .hotel-card { border-radius: 20px; overflow: hidden; background: var(--card); border: 1px solid var(--card-borda); display: flex; flex-direction: column; box-shadow: 0 4px 16px rgba(0,0,0,0.04); transition: transform 0.2s ease, box-shadow 0.2s ease; }
 .hotel-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.08); }
 .hotel-thumb { position: relative; width: 100%; aspect-ratio: 16/10; overflow: hidden; background: var(--bg2); }
@@ -111,13 +112,13 @@ body { background: var(--bg); color: var(--texto-corpo); font-family: 'Plus Jaka
   gap: 20px !important;
   margin-bottom: 50px !important;
 }
-@media (max-width: 992px) {
+@media (max-width: 768px) {
   .grid-hoteis-luxe {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 16px !important;
+    gap: 14px !important;
   }
 }
-@media (max-width: 640px) {
+@media (max-width: 520px) {
   .grid-hoteis-luxe {
     grid-template-columns: 1fr !important;
     gap: 16px !important;
