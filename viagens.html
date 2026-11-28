@@ -485,12 +485,12 @@ header .dir {
   <a href="/" class="logo" aria-label="PennerTech Viagens"><img width="1024" height="1024" src="img/marca.png?v=37f05fa5" alt=""><span><b>PENNER</b> <em>VIAGENS</em><small>HOTÉIS, RESORTS & PASSAGENS</small></span></a>
   <nav class="links">
     <a class="link on" href="/">Início</a>
-    <a class="link" href="#destinos" onclick="var b=document.querySelector('[data-cat=salinopolis]');if(b)b.click();">🏖️ Destinos Brasil</a>
-    <a class="link" href="#exterior" onclick="var b=document.querySelector('[data-cat=mundo]');if(b)b.click();">🌍 Exterior</a>
-    <a class="link" href="#economicos" onclick="var b=document.querySelector('[data-preco-max=\'200\']');if(b)b.click();">🏷️ Até R$ 200</a>
-    <a class="link" href="#populares" onclick="var b=document.querySelector('[data-preco-min=\'195\']');if(b)b.click();">⭐ R$ 200–250</a>
-    <a class="link" href="#casal" onclick="var b=document.querySelector('[data-preco-min=\'270\']');if(b)b.click();">💑 Casal ~R$ 300</a>
-    <a class="link" href="#busca" onclick="var el=document.querySelector('.booking-input');if(el){el.focus();el.scrollIntoView({behavior:'smooth',block:'center'});}">🔍 Buscar Vagas</a>
+    <a class="link" href="#ate150" onclick="var b=document.querySelector('[data-cat=ate150]');if(b){b.click();b.scrollIntoView({behavior:'smooth',block:'center'});}">🏷️ Até R$ 150</a>
+    <a class="link" href="#200a300" onclick="var b=document.querySelector('[data-cat=\'200a300\']');if(b){b.click();b.scrollIntoView({behavior:'smooth',block:'center'});}">⭐ R$ 200 a R$ 300</a>
+    <a class="link" href="#praias" onclick="var b=document.querySelector('[data-cat=praia]');if(b){b.click();b.scrollIntoView({behavior:'smooth',block:'center'});}">🏖️ Praias & Nordeste</a>
+    <a class="link" href="#serra" onclick="var b=document.querySelector('[data-cat=serra]');if(b){b.click();b.scrollIntoView({behavior:'smooth',block:'center'});}">🌲 Serra & Frio</a>
+    <a class="link" href="#para" onclick="var b=document.querySelector('[data-cat=para]');if(b){b.click();b.scrollIntoView({behavior:'smooth',block:'center'});}">🌴 Pará (Salinas & Belém)</a>
+    <a class="link" href="#busca" onclick="var el=document.getElementById('destSuperInput');if(el){el.focus();el.scrollIntoView({behavior:'smooth',block:'center'});}">🌐 Super Busca 360°</a>
   </nav>
   <div class="dir">
     <button id="btn-tema" class="tema" type="button" aria-label="Alternar tema claro e escuro" title="Ativar tema escuro">🌙</button>
@@ -610,7 +610,6 @@ header .dir {
   </div>
 
   <div class="grid-hoteis-luxe" id="gridHoteis">
-<
 
     <article class="hotel-card" data-cat="campos serra ate150" data-preco="115">
       <div class="hotel-thumb">
