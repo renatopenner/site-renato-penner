@@ -409,6 +409,39 @@ h1 em, .luxe-title em { font-style: italic !important; }
   flex-direction: column;
   flex: 1;
 }
+.btn-ver-tudo-secao {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card);
+  border: 1.5px solid var(--borda-suave);
+  color: var(--texto);
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  box-shadow: var(--sombra);
+}
+.btn-ver-tudo-secao:hover {
+  border-color: var(--acento);
+  color: var(--acento);
+  background: rgba(var(--acento-rgb), 0.05);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-hover);
+}
+[data-tema="escuro"] .btn-ver-tudo-secao {
+  background: var(--card);
+  border-color: var(--linha);
+  color: var(--texto);
+}
+[data-tema="escuro"] .btn-ver-tudo-secao:hover {
+  border-color: var(--acento);
+  color: var(--acento);
+}
 .hotel-loc-line {
   font-size: 12px;
   color: var(--texto-sub);
@@ -987,7 +1020,53 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   box-shadow: 0 4px 12px rgba(4, 120, 87, 0.2);
 }
 
-</style>
+
+    /* BOTAO EXPANDIR SECAO */
+    .secao-cabecalho-luxe {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--linha);
+    }
+    .secao-cabecalho-info h2 {
+      margin: 0 0 4px 0;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--texto);
+    }
+    .secao-cabecalho-info span {
+      font-size: 13px;
+      color: var(--texto-sub);
+    }
+    .btn-secao-expandir {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--card);
+      color: var(--texto);
+      border: 1px solid var(--linha);
+      padding: 9px 18px;
+      border-radius: 9999px;
+      font-size: 13.5px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-secao-expandir:hover {
+      background: var(--bg);
+      border-color: var(--acento);
+      color: var(--acento);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+  </style>
 
 <script>
 (function(){
@@ -1117,1052 +1196,431 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   </section>
 
       <!-- NAVEGAÇÃO DOS 3 PILARES: HOSPEDAGEM, ATRAÇÕES E GASTRONOMIA -->
-  <div class="pilares-navegacao-wrap" id="secaoHoteis">
-    <a href="#secaoHoteis" class="pilar-nav-link ativo" onclick="ativarPilar(this)">
-      🏨 Hospedagens Custo x Benefício (41)
-    </a>
-    <a href="#secaoAtracoes" class="pilar-nav-link" onclick="ativarPilar(this)">
-      🎟️ Atrações & Ingressos Populares (13)
-    </a>
-    <a href="#secaoGastronomia" class="pilar-nav-link" onclick="ativarPilar(this)">
-      🍽️ Gastronomia & Desconto em Comida (Até 50% OFF)
-    </a>
-  </div>
-
-    <!-- BARRA DE FILTROS DOS MELHORES DESTINOS DO BRASIL -->
-  <div class="filtros-luxe-bar">
-    <div>
-      <h2 style="margin-bottom:4px">Melhores Destinos do Brasil</h2>
-      <span style="font-size:12.5px;color:var(--texto-sub)">Curadoria rigorosa custo x benefício: até R$ 150 e seleção ouro entre R$ 200 e R$ 300</span>
-    </div>
-    <div class="filtros-grupos">
-      <button class="chip-luxe on" data-cat="todos">Todos (41)</button>
-      <button class="chip-luxe" data-cat="ate150" style="border-color:#b45309;font-weight:700">🏷️ Até R$ 150 (Super Econômicos)</button>
-      <button class="chip-luxe" data-cat="200a300" style="border-color:#059669;color:#059669;font-weight:700">⭐ R$ 200 a R$ 300 (Destaques Ouro)</button>
-      <button class="chip-luxe" data-cat="praia">🏖️ Praias & Litoral</button>
-      <button class="chip-luxe" data-cat="serra">🌲 Serra & Frio</button>
-      <button class="chip-luxe" data-cat="para">🌴 Pará (Salinas & Belém)</button>
-      <button class="chip-luxe" data-cat="nordeste">☀️ Nordeste</button>
-      <button class="chip-luxe" data-cat="rio">🌊 Rio de Janeiro</button>
-      <button class="chip-luxe" data-cat="sul">❄️ Sul (Foz & Floripa)</button>
+      <!-- NAVEGAÇÃO DOS PILARES -->
+    <div class="pilares-navegacao-wrap">
+      <a href="#secaoHoteis" class="pilar-nav-link ativo" onclick="ativarPilar(this)">
+        🏨 Hospedagens Selecionadas
+      </a>
+      <a href="#secaoAtracoes" class="pilar-nav-link" onclick="ativarPilar(this)">
+        🎟️ Atrações & Ingressos
+      </a>
+      <a href="#secaoGastronomia" class="pilar-nav-link" onclick="ativarPilar(this)">
+        🍽️ Gastronomia & Cupons
+      </a>
+      <a href="#secaoCarros" class="pilar-nav-link" onclick="ativarPilar(this)">
+        🚗 Aluguel de Carros
+      </a>
     </div>
 
-  <div class="grid-hoteis-luxe" id="gridHoteis">
+      <div class="grid-hoteis-luxe" id="gridHoteis">
 
-    <article class="hotel-card" data-cidade="Campos do Jordão" data-cat="campos serra ate150" data-preco="115">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">⭐ Testado pelo Renato</span>
-        <img src="img/refugio-alpino-economy.jpg" alt="Refúgio Alpino Economy (Campos do Jordão)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 1,7 km do Capivari · 🎯 1,2 km do Teleférico</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Refúgio Alpino Economy (Campos do Jordão)</h3>
-        <p class="hotel-desc-luxe">Salão alpino com lareira rústica e adega em barril. Chuveiro a gás de alta pressão e aquecedor para noites frias com economia real perto de Capivari.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 115 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DRefugio%2BAlpino%2BCampos%2Bdo%2BJordao%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Campos do Jordão" data-cat="campos serra ate150" data-preco="145">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 8.9 Excelente</span>
-        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80" alt="Pousada das Hortênsias Economy (Campos do Jordão)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 2,1 km do Capivari · 🎯 900m da Vila Jaguaribe</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Pousada das Hortênsias Economy (Campos do Jordão)</h3>
-        <p class="hotel-desc-luxe">Quartos confortáveis com aquecimento elétrico e jardim florido de hortênsias. Ótima localização em bairro silencioso e seguro.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 145 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BHortensias%2BCampos%2Bdo%2BJordao%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Gramado" data-cat="gramado serra 200a300" data-preco="220">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 9.1 Excelente</span>
-        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Hotel Sky Gramado (Suíte Clássica)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 800m da Rua Coberta · 🎯 500m do Mini Mundo</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café Colonial Incluso</span></div>
-        <h3 class="hotel-title-luxe">Hotel Sky Gramado (Suíte Clássica)</h3>
-        <p class="hotel-desc-luxe">Arquitetura alemã alpina tradicional na principal avenida de Gramado. Café da manhã estilo colonial farto com mais de 80 variedades.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 220 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DHotel%2BSky%2BGramado%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Gramado" data-cat="gramado serra ate150" data-preco="140">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 8.8 Fabuloso</span>
-        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Pousada Sky Centro Economy (Gramado)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 600m da Rua Coberta · 🎯 300m da Igreja Matriz</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Pousada Sky Centro Economy (Gramado)</h3>
-        <p class="hotel-desc-luxe">Localização imbatível para fazer tudo a pé no centro de Gramado pagando diária super econômica. Quarto casal privativo com Wi-Fi rápido.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 140 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DSky%2BCentro%2BHotel%2BGramado%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Gramado" data-cat="gramado serra 200a300" data-preco="270">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 9.4 Excepcional</span>
-        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Pousada Jardim Secreto (Gramado)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 1,1 km do Lago Negro · 🎯 950m da Rua Torta</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café Colonial Incluso</span></div>
-        <h3 class="hotel-title-luxe">Pousada Jardim Secreto (Gramado)</h3>
-        <p class="hotel-desc-luxe">Ambiente boutique acolhedor com lareira acesa e jardins floridos. Perfeito para casais que buscam charme e descanso na Serra Gaúcha.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 270 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BJardim%2BSecreto%2BGramado%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Canela" data-cat="gramado serra 200a300" data-preco="195">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 9.0 Fantástico</span>
-        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80" alt="Pousada Villa Bella (Canela)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 900m da Catedral de Pedra · 🎯 2,5 km do Alpen Park</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Pousada Villa Bella (Canela)</h3>
-        <p class="hotel-desc-luxe">Pousada aconchegante a poucos minutos da Catedral de Pedra iluminada de Canela. Excelente custo-benefício para quem quer fugir dos preços altos.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 195 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BVilla%2BBella%2BCanela%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Salinópolis" data-cat="salinopolis para praia ate150" data-preco="120">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 8.7 Fabuloso</span>
-        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80" alt="Pousada Recanto do Sal (Salinópolis)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 1,4 km da Praia do Maçarico · 🎯 2,8 km do Atalaia</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Pousada Recanto do Sal (Salinópolis)</h3>
-        <p class="hotel-desc-luxe">Ambiente familiar, piscina ao ar livre e estacionamento privativo. Diária justa e estratégica perto da orla de Salinas.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 120 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BRecanto%2Bdo%2BSal%2BSalinopolis%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Salinópolis" data-cat="salinopolis para praia ate150" data-preco="130">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 8.9 Excelente</span>
-        <img src="https://images.unsplash.com/photo-1563911302283-d2bc129e7570?auto=format&fit=crop&w=800&q=80" alt="Pousada Privê das Mangueiras (Salinópolis)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 850m da Orla do Maçarico · 🎯 3,5 km do Farol Velho</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Pousada Privê das Mangueiras (Salinópolis)</h3>
-        <p class="hotel-desc-luxe">Chalés privativos com varanda, rede de descanso e área verde. Localização tranquila e arborizada para casais e famílias.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 130 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BPrive%2Bdas%2BMangueiras%2BSalinopolis%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Salinópolis" data-cat="salinopolis para praia 200a300" data-preco="240">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 9.2 Fantástico</span>
-        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Salinas Park Resort (Salinópolis)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 3,8 km do centro · 🎯 800m da Praia do Atalaia</span> · <span>🌊 Resort Completo</span> · <span class="hotel-cafe-nao-incluso"><span class="bolinha-cinza-simbolo">✕</span> Café da manhã não incluso</span></div>
-        <h3 class="hotel-title-luxe">Salinas Park Resort (Salinópolis)</h3>
-        <p class="hotel-desc-luxe">Parque aquático completo com piscina de ondas, toboáguas, hidromassagens e estrutura de resort na Amazônia Atlântica com cancelamento grátis.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 240 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DSalinas%2BPark%2BResort%2BSalinopolis%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Salinópolis" data-cat="salinopolis para praia 200a300" data-preco="210">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 8.8 Fabuloso</span>
-        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=800&q=80" alt="Solar do Farol Salinas Hotel" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 1,1 km da Praia do Farol Velho · 🎯 2,2 km do Maçarico</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Solar do Farol Salinas Hotel</h3>
-        <p class="hotel-desc-luxe">Piscina com bar molhado, quartos amplos com ar-condicionado potente e localização estratégica entre as praias de Salinas.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 210 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DSolar%2Bdo%2BFarol%2BSalinas%2BHotel%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Belém" data-cat="para belem ate150" data-preco="145">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 8.6 Muito Bom</span>
-        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Hotel Princesa Louçã (Belém)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 400m da Praça da República · 🎯 1,2 km da Estação das Docas</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Hotel Princesa Louçã (Belém)</h3>
-        <p class="hotel-desc-luxe">Hotel tradicional no coração histórico de Belém, em frente ao Theatro da Paz. Piscina grande, academia e quartos espaçosos.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 145 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DHotel%2BPrincesa%2BLouca%2BBelem%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Belém" data-cat="para belem 200a300" data-preco="230">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 8.9 Excelente</span>
-        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Ibis Styles Belém Batista Campos" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 300m da Praça Batista Campos · 🎯 1,8 km do Ver-o-Peso</span> · <span class="hotel-cafe-nao-incluso"><span class="bolinha-cinza-simbolo">✕</span> Café da manhã não incluso</span></div>
-        <h3 class="hotel-title-luxe">Ibis Styles Belém Batista Campos</h3>
-        <p class="hotel-desc-luxe">Hotel moderno no bairro mais nobre e arborizado de Belém. Quarto casal privativo com cama Sweet Bed, silêncio e segurança.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 230 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DIbis%2BStyles%2BBelem%2BBatista%2BCampos%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Porto de Galinhas" data-cat="nordeste praia ate150" data-preco="140">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 8.8 Fabuloso</span>
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Pousada Recanto dos Corais (Porto de Galinhas)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 250m das Piscinas Naturais · 🎯 150m da Vila</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Pousada Recanto dos Corais (Porto de Galinhas)</h3>
-        <p class="hotel-desc-luxe">Localização excelente a poucos passos das piscinas naturais de Porto de Galinhas. Quartos com ar split, piscina e café regional.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 140 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BRecanto%2Bdos%2BCorais%2BPorto%2Bde%2BGalinhas%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Porto de Galinhas" data-cat="nordeste praia 200a300" data-preco="260">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 9.1 Fantástico</span>
-        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Pousada Tabapitanga Eco (Porto de Galinhas)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 Pé na areia Praia do Cupe · 🎯 3,5 km de Maracaípe</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Pousada Tabapitanga Eco (Porto de Galinhas)</h3>
-        <p class="hotel-desc-luxe">Pé na areia com piscina de frente para o mar calmo do Cupe. Coqueiral privativo, restaurante beira-mar e tranquilidade total.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 260 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BTabapitanga%2BPorto%2Bde%2BGalinhas%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Maragogi" data-cat="nordeste praia ate150" data-preco="140">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 8.7 Fabuloso</span>
-        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=800&q=80" alt="Pousada Estrela de Maragogi Economy" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 350m da Praia Central · 🎯 2,5 km das Galés</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Pousada Estrela de Maragogi Economy</h3>
-        <p class="hotel-desc-luxe">Base econômica e limpa para conhecer o Caribe Brasileiro e fazer os passeios de catamarã às piscinas naturais de Maragogi.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 140 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BEstrela%2Bde%2BMaragogi%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Maceió" data-cat="nordeste praia ate150" data-preco="150">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 8.9 Excelente</span>
-        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80" alt="Pajuçara Flat & Suítes (Maceió)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 200m da Praia de Pajuçara · 🎯 300m das Jangadas</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Pajuçara Flat & Suítes (Maceió)</h3>
-        <p class="hotel-desc-luxe">Quartos modernos e arejados a poucos passos da feirinha de artesanato e do embarque para as piscinas de água morna de Pajuçara.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 150 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPajucara%2BFlat%2BMaceio%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Maceió" data-cat="nordeste praia 200a300" data-preco="260">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 9.2 Fantástico</span>
-        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Hotel Ponta Verde Suítes (Maceió)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 80m da Praia de Ponta Verde · 🎯 600m do Marco dos Corais</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Hotel Ponta Verde Suítes (Maceió)</h3>
-        <p class="hotel-desc-luxe">Localização de ouro no melhor trecho da orla de Maceió. Piscina com vista mar, atendimento nota 10 e café da manhã alagoano premiado.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 260 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DHotel%2BPonta%2BVerde%2BMaceio%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Praia da Pipa" data-cat="nordeste praia ate150" data-preco="145">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 9.0 Fantástico</span>
-        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80" alt="Pousada Morada das Torres (Praia da Pipa)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 400m da Praia do Amor · 🎯 350m da Rua do Céu</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Pousada Morada das Torres (Praia da Pipa)</h3>
-        <p class="hotel-desc-luxe">Ambiente rústico e arborizado pertinho das falésias da Praia do Amor e do burburinho charmoso de Pipa. Piscina e jardim relaxante.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 145 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BMorada%2Bdas%2BTorres%2BPipa%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Praia da Pipa" data-cat="nordeste praia 200a300" data-preco="275">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 9.3 Fantástico</span>
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Ponta do Madeiro Suítes (Praia da Pipa)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 150m da Praia do Madeiro · 🎯 1,2 km da Baía dos Golfinhos</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Ponta do Madeiro Suítes (Praia da Pipa)</h3>
-        <p class="hotel-desc-luxe">Vista espetacular do alto das falésias para a praia onde os golfinhos nadam livres. Piscina de borda infinita e contato íntimo com a natureza.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 275 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPonta%2Bdo%2BMadeiro%2BPipa%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Fortaleza" data-cat="nordeste praia ate150" data-preco="135">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 8.7 Fabuloso</span>
-        <img src="https://images.unsplash.com/photo-1563911302283-d2bc129e7570?auto=format&fit=crop&w=800&q=80" alt="Pousada Praias de Fortaleza" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 300m da Praia de Iracema · 🎯 800m do Dragão do Mar</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Pousada Praias de Fortaleza</h3>
-        <p class="hotel-desc-luxe">Quartos privativos com ar-condicionado e frigobar pertinho do calçadão de Iracema. Economia certa para explorar a capital cearense.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 135 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BPraias%2Bde%2BFortaleza%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Cumbuco" data-cat="nordeste praia 200a300" data-preco="230">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 9.0 Fantástico</span>
-        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Vila Galé & Pousada Cumbuco Beach" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 Pé na areia do Cumbuco · 🎯 1,1 km da Lagoa do Banana</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Vila Galé & Pousada Cumbuco Beach</h3>
-        <p class="hotel-desc-luxe">Resort pé na areia famoso pelos ventos de kitesurf e passeios de buggy nas dunas. Infraestrutura de lazer completa e mar quente.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 230 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BCumbuco%2BBeach%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Salvador" data-cat="nordeste praia ate150" data-preco="145">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 8.8 Fabuloso</span>
-        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=800&q=80" alt="Pousada Solar da Barra (Salvador)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 250m do Farol da Barra · 🎯 150m da Praia do Porto</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Pousada Solar da Barra (Salvador)</h3>
-        <p class="hotel-desc-luxe">Localização privilegiada para ver o pôr do sol mais famoso da Bahia no Farol da Barra. Quarto casal privativo com ar e Wi-Fi.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 145 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BSolar%2Bda%2BBarra%2BSalvador%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Salvador" data-cat="nordeste 200a300" data-preco="220">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 9.1 Excelente</span>
-        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Pousada do Pilão (Pelourinho / Salvador)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 100m do Largo do Pelourinho · 🎯 300m do Elevador Lacerda</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Pousada do Pilão (Pelourinho / Salvador)</h3>
-        <p class="hotel-desc-luxe">Casarão colonial restaurado com vista para o casario histórico e baía de Todos os Santos. Cultura, axé e segurança no centro histórico.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 220 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2Bdo%2BPilao%2BPelourinho%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Rio de Janeiro" data-cat="rio ate150" data-preco="140">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 8.8 Fabuloso</span>
-        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Selina Lapa Rio Economy (Rio de Janeiro)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 180m dos Arcos da Lapa · 🎯 450m da Escadaria Selarón</span> · <span class="hotel-cafe-nao-incluso"><span class="bolinha-cinza-simbolo">✕</span> Café da manhã não incluso</span></div>
-        <h3 class="hotel-title-luxe">Selina Lapa Rio Economy (Rio de Janeiro)</h3>
-        <p class="hotel-desc-luxe">Ambiente descolado, rooftop com vista para a Lapa e quartos privativos modernos com ar-condicionado perto do metrô Cinelândia.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 140 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DSelina%2BLapa%2BRio%2Bde%2BJaneiro%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Rio de Janeiro" data-cat="rio praia 200a300" data-preco="260">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 9.0 Fantástico</span>
-        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="B&B Hotel Rio Copacabana Forte" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 150m de Copacabana Posto 6 · 🎯 400m do Forte</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">B&B Hotel Rio Copacabana Forte</h3>
-        <p class="hotel-desc-luxe">Piscina na cobertura com vista deslumbrante para a orla de Copacabana e Pão de Açúcar. A poucos passos também da praia do Arpoador.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 260 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DBB%2BHotel%2BRio%2BCopacabana%2BForte%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Rio de Janeiro" data-cat="rio praia 200a300" data-preco="290">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 9.2 Fantástico</span>
-        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80" alt="Ipanema Inn Economy Suíte (Rio de Janeiro)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 120m da Praia de Ipanema · 🎯 300m da Praça N. Sra da Paz</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Ipanema Inn Economy Suíte (Rio de Janeiro)</h3>
-        <p class="hotel-desc-luxe">Hotel boutique charmoso em uma das ruas mais arborizadas e seguras de Ipanema. Serviço atencioso e praia a uma quadra.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 290 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DIpanema%2BInn%2BRio%2Bde%2BJaneiro%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Arraial do Cabo" data-cat="rio praia ate150" data-preco="140">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 8.9 Excelente</span>
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Pousada Capitão Nado (Arraial do Cabo)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 350m da Praia dos Anjos · 🎯 800m do Pontal do Atalaia</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Pousada Capitão Nado (Arraial do Cabo)</h3>
-        <p class="hotel-desc-luxe">Pousada simples, limpa e muito bem recomendada pertinho do porto de onde saem os passeios de barco para as praias paradisíacas de Arraial.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 140 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BCapitao%2BNado%2BArraial%2Bdo%2BCabo%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Armação dos Búzios" data-cat="rio praia 200a300" data-preco="250">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 9.1 Fantástico</span>
-        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Pousada Praia da Tartaruga (Búzios)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 200m da Praia da Tartaruga · 🎯 1,2 km da Rua das Pedras</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Pousada Praia da Tartaruga (Búzios)</h3>
-        <p class="hotel-desc-luxe">Charmosa pousada com piscina cercada por coqueiros e mata atlântica a uma caminhada curta das águas calmas e mornas da Tartaruga.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 250 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BPraia%2Bda%2BTartaruga%2BBuzios%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Foz do Iguaçu" data-cat="sul ate150" data-preco="125">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 8.9 Excelente</span>
-        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80" alt="Pousada Canto dos Pássaros (Foz do Iguaçu)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 1,5 km do Centro · 🎯 12 km das Cataratas</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Pousada Canto dos Pássaros (Foz do Iguaçu)</h3>
-        <p class="hotel-desc-luxe">Pousada tranquila e acolhedora com piscina e muito verde. Ideal para descansar após os dias intensos de passeios nas Cataratas e compras no Paraguai.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 125 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BCanto%2Bdos%2BPassaros%2BFoz%2Bdo%2BIguacu%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Foz do Iguaçu" data-cat="sul 200a300" data-preco="265">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 9.1 Fantástico</span>
-        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="San Martin Resort & Park (Foz do Iguaçu)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 400m do Parque das Cataratas · 🎯 300m do Parque das Aves</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">San Martin Resort & Park (Foz do Iguaçu)</h3>
-        <p class="hotel-desc-luxe">Resort ecológico vizinho imediato da entrada das Cataratas do Iguaçu. Piscina ampla, trilhas ecológicas privativas e buffet de café farto.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 265 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DSan%2BMartin%2BResort%2BFoz%2Bdo%2BIguacu%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Florianópolis" data-cat="sul praia ate150" data-preco="135">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 8.8 Fabuloso</span>
-        <img src="https://images.unsplash.com/photo-1563911302283-d2bc129e7570?auto=format&fit=crop&w=800&q=80" alt="Pousada Barra Sul Economy (Florianópolis)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 250m da Barra da Lagoa · 🎯 1,1 km do Projeto Tamar</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Pousada Barra Sul Economy (Florianópolis)</h3>
-        <p class="hotel-desc-luxe">Pousadinha limpa e aconchegante a poucos passos da praia e das piscinas naturais da Barra da Lagoa na Ilha da Magia.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 135 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BBarra%2BSul%2BFlorianopolis%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Florianópolis" data-cat="sul praia 200a300" data-preco="220">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 9.0 Fantástico</span>
-        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Pousada Sonho Meu (Florianópolis - Canasvieiras)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 150m da Praia de Canasvieiras · 🎯 3,5 km de Jurerê</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Pousada Sonho Meu (Florianópolis - Canasvieiras)</h3>
-        <p class="hotel-desc-luxe">Piscina, churrasqueira, quartos com ar split e varanda pertinho do mar calmo do norte da ilha. Excelente relação custo x benefício.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 220 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BSonho%2BMeu%2BCanasvieiras%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Balneário Camboriú" data-cat="sul praia 200a300" data-preco="280">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 9.1 Fantástico</span>
-        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=800&q=80" alt="Hotel Mercure Balneário Camboriú" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 Frente para a Praia Central · 🎯 900m do Parque Unipraias</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Hotel Mercure Balneário Camboriú</h3>
-        <p class="hotel-desc-luxe">Hotel de rede internacional de frente para a praia central revitalizada de BC. Piscina aquecida, sauna, academia e quartos com vista mar.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 280 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DMercure%2BBalneario%2BCamboriu%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="São Paulo" data-cat="sp ate150" data-preco="140">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 8.7 Fabuloso</span>
-        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Ibis Budget Paulista / Consolação (São Paulo)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 150m da Av. Paulista · 🎯 500m do MASP</span> · <span class="hotel-cafe-nao-incluso"><span class="bolinha-cinza-simbolo">✕</span> Café da manhã não incluso</span></div>
-        <h3 class="hotel-title-luxe">Ibis Budget Paulista / Consolação (São Paulo)</h3>
-        <p class="hotel-desc-luxe">Localização mais prática de São Paulo na esquina da Paulista com Consolação. Metrô na porta para turismo gastronômico e cultural.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 140 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DIbis%2BBudget%2BPaulista%2BSao%2BPaulo%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="São Paulo" data-cat="sp 200a300" data-preco="275">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 9.0 Fantástico</span>
-        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Transamerica Prime International Plaza (São Paulo)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 1 quadra da Av. Paulista (Al. Santos) · 🎯 400m do Trianon</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Transamerica Prime International Plaza (São Paulo)</h3>
-        <p class="hotel-desc-luxe">Apart-hotel 4 estrelas com cozinha americana, varanda, sauna e piscina no Jardins. Padrão executivo com conforto de casal.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 275 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DTransamerica%2BPrime%2BInternational%2BPlaza%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Caldas Novas" data-cat="centrooeste ate150" data-preco="135">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 8.9 Excelente</span>
-        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80" alt="Pousada Recanto das Águas (Caldas Novas)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 800m do Centro · 🎯 1,2 km do diRoma Acqua Park</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Pousada Recanto das Águas (Caldas Novas)</h3>
-        <p class="hotel-desc-luxe">Piscinas de águas termais naturais no próprio hotel para relaxar 24h. Ambiente aconchegante e silencioso por diária econômica.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 135 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BRecanto%2Bdas%2BAguas%2BCaldas%2BNovas%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Caldas Novas" data-cat="centrooeste 200a300" data-preco="230">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 9.2 Fantástico</span>
-        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Piazza diRoma Flat Resort (Caldas Novas)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 Acesso ao complexo termal diRoma · 🎯 900m do Jardim Japonês</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Piazza diRoma Flat Resort (Caldas Novas)</h3>
-        <p class="hotel-desc-luxe">Estrutura moderna de resort de águas quentes com toboáguas, hidromassagem e gastronomia típica goiana. Tarifa econômica de flat.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 230 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPiazza%2BdiRoma%2BCaldas%2BNovas%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Pirenópolis" data-cat="centrooeste 200a300" data-preco="260">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 9.3 Fantástico</span>
-        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Pousada Casarão Villa do Império (Pirenópolis)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 300m da Rua do Lazer · 🎯 450m da Igreja Matriz</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café Colonial Incluso</span></div>
-        <h3 class="hotel-title-luxe">Pousada Casarão Villa do Império (Pirenópolis)</h3>
-        <p class="hotel-desc-luxe">Charme imperial e arquitetura histórica tombada em Pirenópolis. Piscina aquecida entre pedras, sauna e café colonial inesquecível.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 260 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BCasarao%2BVilla%2Bdo%2BImperio%2BPirenopolis%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Foz do Iguaçu" data-cat="sul luxo acima300" data-preco="460">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 9.2 Resort Comparativo</span>
-        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Wish Foz do Iguaçu Luxury Golf Resort" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 8 km do Parque Nacional · 🎯 Campos de Golf Profissionais</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Wish Foz do Iguaçu Luxury Golf Resort</h3>
-        <p class="hotel-desc-luxe">Resort 5 estrelas em estilo vilas americanas com piscinas privativas por setor e alta gastronomia internacional para quem deseja luxo.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 460 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DWish%2BFoz%2Bdo%2BIguacu%2BResort%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Cumbuco" data-cat="nordeste praia luxo acima300" data-preco="480">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 9.4 Resort Comparativo</span>
-        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Carmel Cumbuco Luxury Beach Resort" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 Pé na areia Praia do Cumbuco · 🎯 Spa Caudalie & Jacuzzis</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Carmel Cumbuco Luxury Beach Resort</h3>
-        <p class="hotel-desc-luxe">Design sofisticado e moderno integrado às dunas cearenses. Jacuzzis aquecidas de frente para o mar e culinária contemporânea.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 480 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DCarmel%2BCumbuco%2BResort%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Gramado" data-cat="gramado serra luxo acima300" data-preco="520">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 9.6 Referência SPA</span>
-        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80" alt="Kurotel Centro Contemporâneo de Saúde (Gramado)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 1,5 km do Centro de Gramado · 🎯 Bosque Privativo</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Alimentação Integral Inclusa</span></div>
-        <h3 class="hotel-title-luxe">Kurotel Centro Contemporâneo de Saúde (Gramado)</h3>
-        <p class="hotel-desc-luxe">Premiado internacionalmente como um dos melhores retiros de saúde e bem-estar do mundo. Referência de luxo e longevidade na Serra Gaúcha.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 520 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DKurotel%2BGramado%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-  </div>
-
-  <article class="hotel-card" data-cidade="Alter do Chão" data-cat="alter praia 200a300" data-preco="280">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 9.3 Fantástico</span>
-        <img src="img/alter-do-chao-ilha-do-amor.jpg" alt="Beloalter Hotel (Alter do Chão)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 Praia privativa no Lago Verde · 🎯 1,8 km da Vila</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Beloalter Hotel (Alter do Chão / PA)</h3>
-        <p class="hotel-desc-luxe">Hotel integrado à floresta com praia particular de água doce cristalina, piscina cercada por árvores nativas e restaurante com os melhores peixes do Tapajós.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 280 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DBeloalter%2BHotel%2BAlter%2Bdo%2BChao%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Ilha de Marajó" data-cat="marajo praia 200a300" data-preco="260">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 8.8 Fabuloso</span>
-        <img src="img/marajo-praia-pesqueiro.jpg" alt="Pousada dos Guarás (Salvaterra / Marajó)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 Pé na areia da Praia Grande · 🎯 2 km do porto</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Pousada dos Guarás (Salvaterra / Marajó)</h3>
-        <p class="hotel-desc-luxe">Localização paradisíaca pé na areia com piscina de frente para a baía, passeios a cavalo e de búfalo e gastronomia marajoara autêntica.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 260 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2Bdos%2BGuaras%2BSalvaterra%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Belém" data-cat="belem cidade acima300" data-preco="380">
-      <div class="hotel-thumb">
-        <span class="card-badge-pill">★ 9.1 Excelente</span>
-        <img src="img/belem-basilica-nazare.jpg" alt="Radisson Hotel Belém (Nazaré)" loading="lazy">
-      </div>
-      <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 Av. Braz de Aguiar · 🎯 800m da Basílica de Nazaré</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
-        <h3 class="hotel-title-luxe">Radisson Hotel Belém (Nazaré)</h3>
-        <p class="hotel-desc-luxe">Hospedagem de alto padrão no bairro nobre de Nazaré. Piscina com vista panorâmica da cidade, sauna, fitness center e café da manhã requintado com delícias regionais.</p>
-        <div class="hotel-footer-luxe">
-          <div class="hotel-price-luxe">R$ 380 <small>/ diária</small></div>
-          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DRadisson%2BHotel%2BBelem%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-        </div>
-      </div>
-    </article>
-  </div>
-
-  <!-- SEÇÃO DE ATRAÇÕES & PASSEIOS POPULARES -->
-  <section id="secaoAtracoes" style="scroll-margin-top:90px;margin-top:60px;margin-bottom:60px">
-    <div class="filtros-luxe-bar" style="margin-top:0">
-      <div>
-        <h2 style="margin-bottom:4px">🎟️ Atrações & Ingressos com Menor Preço</h2>
-        <span style="font-size:12.5px;color:var(--texto-sub)">Ingressos oficiais para parques temáticos, passeios e pontos turísticos sem filas no Brasil</span>
-      </div>
-      <div class="filtros-grupos">
-        <span style="font-size:12.5px;color:var(--acento);font-weight:700">✦ Parceria Oficial Viator & Civitatis</span>
-      </div>
-    </div>
-
-    <div class="grid-hoteis-luxe" id="gridAtracoes">
-
-      <article class="hotel-card" data-cidade="Penha">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">⭐ Parque Nº 1 da América Latina</span>
-          <img src="img/beto-carrero-world.jpg" alt="Beto Carrero World (Penha / SC)" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Penha / SC (Perto de Balneário Camboriú)</span> · <span>🎟️ Entrada Direta</span></div>
-          <h3 class="hotel-title-luxe">Beto Carrero World (Passaporte Oficial)</h3>
-          <p class="hotel-desc-luxe">O maior parque temático da América Latina: montanhas-russas radicais (FireWhip, Star Mountain), shows temáticos internacionais e a área oficial Hot Wheels com desconto antecipado.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 109 <small>/ a partir de</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DBeto%2BCarrero%2BWorld" target="_blank" rel="noopener sponsored">Garantir Ingresso Oficial →</a>
+        <article class="hotel-card" data-cidade="Alter do Chão" data-cat="para praia 200a300" data-preco="280">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill">★ 8.8 Fabuloso · Pará</span>
+            <img src="img/hotel-beloalter.jpg" alt="Beloalter Hotel (Alter do Chão / PA)" loading="lazy">
           </div>
-        </div>
-      </article>
-
-      <article class="hotel-card" data-cidade="Gramado">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">❄️ Neve de Verdade o Ano Todo</span>
-          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/RenatoSoares_SnowLand_Gramado_RS_%2840193258034%29.jpg/960px-RenatoSoares_SnowLand_Gramado_RS_%2840193258034%29.jpg" alt="Snowland Gramado" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Gramado / RS (Serra Gaúcha)</span> · <span>🧥 Roupas Térmicas Inclusas</span></div>
-          <h3 class="hotel-title-luxe">Snowland Gramado (Parque de Neve Coberto)</h3>
-          <p class="hotel-desc-luxe">Viva a experiência única de neve real a -5°C no Brasil: pista de esqui, snowboard, patinação no gelo, castelo de neve e vila alpina completa com aluguel de botas e casacos inclusos.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 149 <small>/ passaporte</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DSnowland%2BGramado" target="_blank" rel="noopener sponsored">Garantir Ingresso Oficial →</a>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Praia privativa no Lago Verde · 🚲 1,8 km da Vila</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+            <h3 class="hotel-title-luxe">Beloalter Hotel (Alter do Chão / PA)</h3>
+            <p class="hotel-desc-luxe">Hotel integrado à floresta com praia particular de água doce cristalina, piscina cercada por árvores nativas e restaurante com os melhores peixes do Tapajós.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 280 <small>/ diária</small></div>
+              <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DBeloalter%2BHotel%2BAlter%2Bdo%2BChao%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="hotel-card" data-cidade="Rio de Janeiro">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">★ Maravilha do Mundo Moderno</span>
-          <img src="img/cristo-redentor-corcovado.jpg" alt="Cristo Redentor e Trem do Corcovado" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Rio de Janeiro / RJ (Cosme Velho)</span> · <span>🚂 Sem Fila de Bilheteria</span></div>
-          <h3 class="hotel-title-luxe">Cristo Redentor + Trem Oficial do Corcovado</h3>
-          <p class="hotel-desc-luxe">Subida histórica cortando a Mata Atlântica no Parque Nacional da Tijuca até o topo do Cristo Redentor. Vista panorâmica de 360° da Baía de Guanabara, Pão de Açúcar e praias cariocas.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 93 <small>/ ingresso e trem</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DTrem%2Bdo%2BCorcovado%2BCristo%2BRedentor" target="_blank" rel="noopener sponsored">Garantir Ingresso Oficial →</a>
+        <article class="hotel-card" data-cidade="Salvaterra" data-cat="para praia 200a300" data-preco="220">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill">★ 8.8 Fabuloso · Marajó</span>
+            <img src="img/hotel-marajo-guaras.jpg" alt="Pousada dos Guarás (Salvaterra / Marajó)" loading="lazy">
           </div>
-        </div>
-      </article>
-
-      <article class="hotel-card" data-cidade="Maragogi">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">🌊 O Caribe Brasileiro</span>
-          <img src="img/maragogi-piscinas-naturais-gales.jpg" alt="Piscinas Naturais de Galés em Catamarã" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Maragogi / AL (Costa dos Corais)</span> · <span>🤿 Snorkel & Mergulho</span></div>
-          <h3 class="hotel-title-luxe">Piscinas Naturais de Galés em Catamarã (Maragogi)</h3>
-          <p class="hotel-desc-luxe">Navegação em catamarã moderno até os recifes de coral a 6 km da costa durante a maré baixa. Águas mornas, cristalinas em tom turquesa repletas de peixes coloridos para mergulho livre.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 110 <small>/ passeio de barco</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DPasseio%2Bde%2BCatamara%2BMaragogi" target="_blank" rel="noopener sponsored">Garantir Vaga Oficial →</a>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Pé na areia da Praia Grande · 🛳️ 2 km do porto</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+            <h3 class="hotel-title-luxe">Pousada dos Guarás (Salvaterra / Marajó)</h3>
+            <p class="hotel-desc-luxe">Localização paradisíaca pé na areia com piscina de frente para a baía, passeios a cavalo e de búfalo e gastronomia marajoara autêntica.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 220 <small>/ diária</small></div>
+              <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2Bdos%2BGuaras%2BSalvaterra%2BMarajo%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="hotel-card" data-cidade="Foz do Iguaçu">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">⭐ Patrimônio Natural da Humanidade</span>
-          <img src="img/cataratas-do-iguacu.jpg" alt="Cataratas do Iguaçu e Macuco Safari" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Foz do Iguaçu / PR</span> · <span>🌊 Passarela Garganta do Diabo</span></div>
-          <h3 class="hotel-title-luxe">Cataratas do Iguaçu (Entrada Parque Nacional)</h3>
-          <p class="hotel-desc-luxe">Acesso oficial com transporte panorâmico às passarelas da Garganta do Diabo. O maior conjunto de quedas d'água do planeta cercado por trilhas e exuberante fauna da Mata Atlântica.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 88 <small>/ entrada oficial</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DCataratas%2Bdo%2BIguacu" target="_blank" rel="noopener sponsored">Garantir Ingresso Oficial →</a>
+        <article class="hotel-card" data-cidade="Belém" data-cat="para serra 200a300" data-preco="295">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill">★ 9.0 Fantástico · Nazaré</span>
+            <img src="img/hotel-radisson-belem.jpg" alt="Radisson Hotel Maiorana (Belém / PA)" loading="lazy">
           </div>
-        </div>
-      </article>
-
-      <article class="hotel-card" data-cidade="Praia da Pipa">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">🏜️ Dunas & Lagoas com Emoção</span>
-          <img src="img/natal-pipa-buggy-dunas-genipabu.jpg" alt="Passeio de Buggy pelas Dunas de Genipabu e Pipa" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Natal & Pipa / RN</span> · <span>🚙 Bugueiro Credenciado</span></div>
-          <h3 class="hotel-title-luxe">Passeio de Buggy pelas Dunas Móveis e Lagoas</h3>
-          <p class="hotel-desc-luxe">A clássica rota potiguar com opção 'com emoção' pelas dunas móveis, parada para banho nas lagoas cristalinas de Pitangui e Jacumã com tirolesa e esquibunda tradicionais.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 120 <small>/ pessoa</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DBuggy%2BGenipabu%2BPipa" target="_blank" rel="noopener sponsored">Reservar Buggy Oficial →</a>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Bairro nobre de Nazaré · 🏛️ Perto da Basílica e Docas</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+            <h3 class="hotel-title-luxe">Radisson Hotel Maiorana (Belém / PA)</h3>
+            <p class="hotel-desc-luxe">O ápice de conforto executivo e lazer em Belém: piscina panorâmica no rooftop com vista para a Baía do Guajará, sauna, academia e restaurante internacional.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 295 <small>/ diária</small></div>
+              <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DRadisson%2BHotel%2BMaiorana%2BBelem%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="hotel-card" data-cidade="Fortaleza">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">🌊 O Maior Toboágua do Mundo</span>
-          <img src="img/beach-park-fortaleza.jpg" alt="Beach Park Fortaleza" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Aquiraz / CE (20 min de Fortaleza)</span> · <span>🏖️ À Beira-Mar</span></div>
-          <h3 class="hotel-title-luxe">Beach Park (Passaporte Parque Aquático)</h3>
-          <p class="hotel-desc-luxe">Eleito o melhor parque aquático das Américas: toboáguas radicais como o icônico Insano de 41 metros, piscina de ondas gigantes e rio lento familiar à beira da Praia de Porto das Dunas.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 260 <small>/ passaporte</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DBeach%2BPark%2BFortaleza" target="_blank" rel="noopener sponsored">Garantir Passaporte Oficial →</a>
+        <article class="hotel-card" data-cidade="Campos do Jordão" data-cat="campos serra ate150" data-preco="115">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill">★ Testado pelo Renato</span>
+            <img src="img/refugio-alpino-economy.jpg" alt="Refúgio Alpino Economy (Campos do Jordão)" loading="lazy">
           </div>
-        </div>
-      </article>
-
-      <article class="hotel-card" data-cidade="Belém">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">🛶 Experiência Autêntica Amazônica</span>
-          <img src="img/belem-ilha-do-combu.jpg" alt="Travessia e Gastronomia na Ilha do Combu" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Belém / PA (Praça Princesa Isabel)</span> · <span>🍫 Chocolates da Dona Nena</span></div>
-          <h3 class="hotel-title-luxe">Travessia Ribeirinha e Rota do Combu (Belém)</h3>
-          <p class="hotel-desc-luxe">Passeio tradicional de popopô pelo Rio Guamá até a Ilha do Combu: visite a produção artesanal de cacau e chocolate da Dona Nena e desfrute de almoço ribeirinho com peixe frito e açaí.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 50 <small>/ travessia e guia</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DBelem%2BIlha%2Bdo%2BCombu" target="_blank" rel="noopener sponsored">Ver Passeios em Belém →</a>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 1,7 km do Capivari · 🎯 1,2 km do Teleférico</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+            <h3 class="hotel-title-luxe">Refúgio Alpino Economy (Campos do Jordão)</h3>
+            <p class="hotel-desc-luxe">Salão alpino com lareira rústica e adega em barril. Chuveiro a gás de alta pressão e aquecedor para noites frias com economia real perto de Capivari.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 115 <small>/ diária</small></div>
+              <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DRefugio%2BAlpino%2BCampos%2Bdo%2BJordao%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-<article class="hotel-card" data-cidade="Belém">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">⭐ Patrimônio Cultural Amazônico</span>
-          <img src="img/belem-theatro-da-paz.jpg" alt="City Tour Histórico em Belém e Theatro da Paz" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Belém / PA (Centro Histórico)</span> · <span>🏛️ Guia Cultural Credenciado</span></div>
-          <h3 class="hotel-title-luxe">City Tour Histórico Belém + Theatro da Paz & Ver-o-Peso</h3>
-          <p class="hotel-desc-luxe">Roteiro a pé e van pelo Theatro da Paz, Basílica de Nazaré, Complexo Feliz Lusitânia, Forte do Presépio e Mercado Ver-o-Peso com degustação de castanhas e frutas típicas da Amazônia.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 85 <small>/ pessoa</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DBelem%2BTheatro%2Bda%2BPaz" target="_blank" rel="noopener sponsored">Reservar City Tour Oficial →</a>
+        <article class="hotel-card" data-cidade="Gramado" data-cat="gramado serra 200a300" data-preco="220">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill">★ 9.1 Excelente</span>
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Hotel Sky Gramado (Suíte Clássica)" loading="lazy">
           </div>
-        </div>
-      </article>
-
-      <article class="hotel-card" data-cidade="Belém">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">🌅 Pôr do Sol na Amazônia</span>
-          <img src="img/belem-estacao-das-docas.jpg" alt="Passeio de Barco Orla de Belém Estação das Docas" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Belém / PA (Estação das Docas)</span> · <span>⛵ Música Regional & Carimbó</span></div>
-          <h3 class="hotel-title-luxe">Passeio de Barco ao Pôr do Sol na Baía do Guajará</h3>
-          <p class="hotel-desc-luxe">Navegação panorâmica pela orla de Belém a bordo de catamarã moderno ao pôr do sol. Vista única do skyline das Docas, Ver-o-Peso e ilhas fluviais com show de danças típicas a bordo.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 60 <small>/ passeio náutico</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DBelem%2BPasseio%2BBarco%2BEstacao%2Bdas%2BDocas" target="_blank" rel="noopener sponsored">Garantir Passeio de Barco →</a>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 800m da Rua Coberta · 🎯 500m do Mini Mundo</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café Colonial Incluso</span></div>
+            <h3 class="hotel-title-luxe">Hotel Sky Gramado (Suíte Clássica)</h3>
+            <p class="hotel-desc-luxe">Arquitetura alemã alpina tradicional na principal avenida de Gramado. Café da manhã estilo colonial farto com mais de 80 variedades.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 220 <small>/ diária</small></div>
+              <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DHotel%2BSky%2BGramado%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="hotel-card" data-cidade="Ilha de Marajó">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">🐃 Maior Arquipélago Fluviomarítimo</span>
-          <img src="img/marajo-bufalos.jpg" alt="Expedição Ilha de Marajó e Fazendas de Búfalos" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Soure & Salvaterra / PA (Marajó)</span> · <span>🌴 Montaria em Búfalos</span></div>
-          <h3 class="hotel-title-luxe">Expedição Ilha de Marajó: Fazendas de Búfalos & Praias</h3>
-          <p class="hotel-desc-luxe">Vivência autêntica no Marajó: montaria guiada em búfalos, trilha suspensa nos manguezais, banho na Praia do Pesqueiro e almoço com filé marajoara e queijo de búfala artesanal.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 180 <small>/ dia com guia</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DIlha%2Bde%2BMarajo%2BPasseio" target="_blank" rel="noopener sponsored">Reservar Expedição Marajó →</a>
+        <article class="hotel-card" data-cidade="Maragogi" data-cat="nordeste praia 200a300" data-preco="230">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill">★ 9.2 Fabuloso · Caribe Brasileiro</span>
+            <img src="img/maragogi-praia-gales.jpg" alt="Pousada dos Corais (Maragogi / AL)" loading="lazy">
           </div>
-        </div>
-      </article>
-
-      <article class="hotel-card" data-cidade="Alter do Chão">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">🏝️ O Caribe Amazônico</span>
-          <img src="img/alter-do-chao-ilha-do-amor.jpg" alt="Passeio de Voadeira em Alter do Chão" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Alter do Chão / PA (Rio Tapajós)</span> · <span>⛵ Águas Cristalinas Mornas</span></div>
-          <h3 class="hotel-title-luxe">Passeio de Voadeira: Ilha do Amor & Floresta Encantada</h3>
-          <p class="hotel-desc-luxe">Navegação pelas águas azuis-turquesa do Rio Tapajós até o banco de areia da Ilha do Amor, Lago Verde e canoagem mágica pelos igapós da Floresta Encantada com pirarucu na brasa.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 130 <small>/ travessia e lancha</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DAlter%2Bdo%2BChao%2BTapajos" target="_blank" rel="noopener sponsored">Garantir Voadeira Oficial →</a>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 50m da Praia Central · 🤿 Embarque Galés</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+            <h3 class="hotel-title-luxe">Pousada dos Corais (Maragogi / AL)</h3>
+            <p class="hotel-desc-luxe">Quartos claros e arejados com piscina ao ar livre no centro de Maragogi. Ponto de partida ideal para os catamarãs às piscinas naturais com diária econômica.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 230 <small>/ diária</small></div>
+              <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2Bdos%2BCorais%2BMaragogi%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="hotel-card" data-cidade="Salinópolis">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">🌊 Litoral Atlântico Paraense</span>
-          <img src="img/salinas-praia-atalaia.jpg" alt="Passeio Náutico e Dunas em Salinas" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Salinópolis / PA (Costa Atlântica)</span> · <span>🏖️ Dunas & Mar Aberto</span></div>
-          <h3 class="hotel-title-luxe">Passeio Náutico e Dunas do Farol Velho em Salinas</h3>
-          <p class="hotel-desc-luxe">Rota pelo litoral norte do Pará: areias da Praia do Atalaia, passeio de lancha pelos canais de manguezal até o Farol Velho e banho relaxante nas águas doces do Lago da Coca-Cola.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 90 <small>/ pessoa</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DSalinopolis%2BAtalaia" target="_blank" rel="noopener sponsored">Reservar Passeio em Salinas →</a>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-  </section>
-
-  <!-- SEÇÃO DE GASTRONOMIA & DESCONTOS EM COMIDA (ATÉ 50% OFF) -->
-  <section id="secaoGastronomia" style="scroll-margin-top:90px;margin-bottom:60px">
-    <div class="filtros-luxe-bar" style="margin-top:0">
-      <div>
-        <h2 style="margin-bottom:4px">🍽️ Gastronomia & Descontos em Restaurantes (Até 50% OFF)</h2>
-        <span style="font-size:12.5px;color:var(--texto-sub)">Coma muito bem economizando até metade da conta nos melhores polos gastronômicos do país</span>
       </div>
-      <div class="filtros-grupos">
-        <span style="font-size:12.5px;color:var(--acento);font-weight:700">✦ Economia Real nas Refeições</span>
+    </section>
+
+    <!-- SEÇÃO 2: ATRAÇÕES & PASSEIOS POPULARES -->
+    <section id="secaoAtracoes" style="scroll-margin-top:90px;margin-bottom:60px">
+      <div class="secao-cabecalho-luxe">
+        <div class="secao-cabecalho-info">
+          <h2>🎟️ Atrações & Ingressos com Menor Preço</h2>
+          <span>Ingressos oficiais para parques temáticos, passeios e pontos turísticos sem filas no Brasil</span>
+        </div>
+        <div>
+          <a href="atracoes.html" class="btn-secao-expandir">Ver Todas as Atrações (13+) →</a>
+        </div>
       </div>
-    </div>
 
-    <div class="grid-hoteis-luxe" id="gridGastronomia">
+      <div class="grid-hoteis-luxe" id="gridAtracoes">
 
-      <article class="hotel-card" data-cidade="Brasil">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill" style="background:#b45309;color:#fff">⭐ 50% OFF no Cardápio</span>
-          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Primeira Mesa 50% de Desconto em Restaurantes" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 SP · Rio · Curitiba · Gramado · Floripa · Salvador</span> · <span>👥 Até 6 Pessoas</span></div>
-          <h3 class="hotel-title-luxe">Primeira Mesa: 50% de Desconto em Toda a Comida</h3>
-          <p class="hotel-desc-luxe">O melhor segredo para comer barato e bem em viagens: reserve os primeiros horários dos restaurantes parceiros e ganhe 50% de desconto real em todos os pratos do cardápio para você e seus acompanhantes.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">50% OFF <small>/ na comida</small></div>
-            <a class="hotel-action-link" href="https://www.primeiramesa.com.br/" target="_blank" rel="noopener">Acessar Primeira Mesa →</a>
+        <article class="hotel-card" data-cidade="Penha">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill">★ Parque Nº 1 da América Latina</span>
+            <img src="img/beto-carrero-world.jpg" alt="Beto Carrero World (Penha / SC)" loading="lazy">
           </div>
-        </div>
-      </article>
-
-      <article class="hotel-card" data-cidade="Brasil">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill" style="background:#059669;color:#fff">★ 30% a 50% Direto na Conta</span>
-          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="TheFork e TripAdvisor Restaurantes" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Principais Capitais e Polos Gastronômicos</span> · <span>📱 Sem Imprimir Cupom</span></div>
-          <h3 class="hotel-title-luxe">TheFork / TripAdvisor: Promoções de 30% a 50%</h3>
-          <p class="hotel-desc-luxe">Reserva online 100% gratuita com descontos automáticos de até 50% aplicados diretamente na conta final. Centenas de pizzarias, bistrôs franceses, hamburguerias e restaurantes premiados.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">Até 50% OFF <small>/ conta final</small></div>
-            <a class="hotel-action-link" href="https://www.thefork.com.br/" target="_blank" rel="noopener">Reservar com Desconto →</a>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Penha / SC (Perto de Balneário Camboriú)</span> · <span>🎟️ Entrada Direta</span></div>
+            <h3 class="hotel-title-luxe">Beto Carrero World (Passaporte Oficial)</h3>
+            <p class="hotel-desc-luxe">O maior parque temático da América Latina: montanhas-russas radicais (FireWhip, Star Mountain), shows temáticos internacionais e a área oficial Hot Wheels com desconto antecipado.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 109 <small>/ a partir de</small></div>
+              <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DBeto%2BCarrero%2BWorld" target="_blank" rel="noopener sponsored">Garantir Ingresso Oficial →</a>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="hotel-card" data-cidade="Brasil">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">🏷️ Peça 2 Pratos, Pague 1</span>
-          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Duo Gourmet 2 por 1" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 +15 Capitais Brasileiras (SP, RJ, BH, BSB, Fortaleza...)</span> · <span>🍷 Casal & Amigos</span></div>
-          <h3 class="hotel-title-luxe">Duo Gourmet: Peça 2 Pratos Principais e Pague Apenas 1</h3>
-          <p class="hotel-desc-luxe">O guia gastronômico indispensável para viagens a dois ou em família: ao pedir dois pratos principais nos restaurantes credenciados, o prato de igual ou menor valor sai inteiramente por conta da casa.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">2 por 1 <small>/ pratos principais</small></div>
-            <a class="hotel-action-link" href="https://www.duogourmet.com.br/" target="_blank" rel="noopener">Conhecer o Duo Gourmet →</a>
+        <article class="hotel-card" data-cidade="Gramado">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill">❄️ Neve de Verdade o Ano Todo</span>
+            <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/RenatoSoares_SnowLand_Gramado_RS_%2840193258034%29.jpg/960px-RenatoSoares_SnowLand_Gramado_RS_%2840193258034%29.jpg" alt="Snowland Gramado" loading="lazy">
           </div>
-        </div>
-      </article>
-
-      <article class="hotel-card" data-cidade="Belém">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">💡 Curadoria Técnica do Renato</span>
-          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Polos Gastronômicos Regionais de Alta Economia" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Belém · Salvador · Canela & Gramado</span> · <span>🍲 Comida Raiz e Barata</span></div>
-          <h3 class="hotel-title-luxe">Polos Gastronômicos Autênticos de Baixo Custo</h3>
-          <p class="hotel-desc-luxe">Coma como um habitante local: peixe frito com açaí raiz no Ver-o-Peso (Belém), moquecas e acarajés de bairro no Rio Vermelho (Salvador), e os galetos e cafés coloniais econômicos tradicionais de Canela.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 25 <small>/ refeição completa</small></div>
-            <a class="hotel-action-link" href="https://www.tripadvisor.com.br/Restaurants" target="_blank" rel="noopener">Ver Melhores Avaliados →</a>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Gramado / RS (Serra Gaúcha)</span> · <span>🧥 Roupas Térmicas Inclusas</span></div>
+            <h3 class="hotel-title-luxe">Snowland Gramado (Parque de Neve Coberto)</h3>
+            <p class="hotel-desc-luxe">Viva a experiência única de neve real a -5°C no Brasil: pista de esqui, snowboard, patinação no gelo, castelo de neve e vila alpina completa com aluguel de botas e casacos inclusos.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 149 <small>/ passaporte</small></div>
+              <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DSnowland%2BGramado" target="_blank" rel="noopener sponsored">Garantir Ingresso Oficial →</a>
+            </div>
           </div>
+        </article>
+
+        <article class="hotel-card" data-cidade="Rio de Janeiro">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill">★ Maravilha do Mundo Moderno</span>
+            <img src="img/cristo-redentor-corcovado.jpg" alt="Cristo Redentor e Trem do Corcovado" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Rio de Janeiro / RJ (Cosme Velho)</span> · <span>🚂 Sem Fila de Bilheteria</span></div>
+            <h3 class="hotel-title-luxe">Cristo Redentor + Trem Oficial do Corcovado</h3>
+            <p class="hotel-desc-luxe">Subida histórica cortando a Mata Atlântica no Parque Nacional da Tijuca até o topo do Cristo Redentor. Vista panorâmica de 360° da Baía de Guanabara, Pão de Açúcar e praias cariocas.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 93 <small>/ ingresso e trem</small></div>
+              <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DTrem%2Bdo%2BCorcovado%2BCristo%2BRedentor" target="_blank" rel="noopener sponsored">Garantir Ingresso Oficial →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hotel-card" data-cidade="Maragogi">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill">🌊 O Caribe Brasileiro</span>
+            <img src="img/maragogi-piscinas-naturais-gales.jpg" alt="Piscinas Naturais de Galés em Catamarã (Maragogi)" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Maragogi / AL (Costa dos Corais)</span> · <span>🤿 Snorkel & Mergulho</span></div>
+            <h3 class="hotel-title-luxe">Piscinas Naturais de Galés em Catamarã (Maragogi)</h3>
+            <p class="hotel-desc-luxe">Navegação em catamarã moderno até os recifes de coral a 6 km da costa durante a maré baixa. Águas mornas, cristalinas em tom turquesa repletas de peixes coloridos para mergulho livre.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 110 <small>/ passeio de barco</small></div>
+              <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DPasseio%2Bde%2BCatamara%2BMaragogi" target="_blank" rel="noopener sponsored">Garantir Vaga Oficial →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hotel-card" data-cidade="Foz do Iguaçu">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill">★ Patrimônio Natural da Humanidade</span>
+            <img src="img/cataratas-do-iguacu.jpg" alt="Cataratas do Iguaçu Parque Nacional" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Foz do Iguaçu / PR</span> · <span>🌊 Passarela Garganta do Diabo</span></div>
+            <h3 class="hotel-title-luxe">Cataratas do Iguaçu (Entrada Parque Nacional)</h3>
+            <p class="hotel-desc-luxe">Acesso oficial com transporte panorâmico às passarelas da Garganta do Diabo. O maior conjunto de quedas d'água do planeta cercado por trilhas e exuberante fauna da Mata Atlântica.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 88 <small>/ entrada oficial</small></div>
+              <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DCataratas%2Bdo%2BIguacu" target="_blank" rel="noopener sponsored">Garantir Ingresso Oficial →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hotel-card" data-cidade="Natal">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill">🏜️ Dunas & Lagoas com Emoção</span>
+            <img src="img/natal-pipa-buggy-dunas-genipabu.jpg" alt="Passeio de Buggy pelas Dunas Móveis e Lagoas (Natal)" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Natal & Pipa / RN</span> · <span>🚙 Bugueiro Credenciado</span></div>
+            <h3 class="hotel-title-luxe">Passeio de Buggy pelas Dunas Móveis e Lagoas</h3>
+            <p class="hotel-desc-luxe">A clássica rota potiguar com opção 'com emoção' pelas dunas móveis, parada para banho nas lagoas cristalinas de Pitangui e Jacumã com tirolesa e esquibunda tradicionais.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 120 <small>/ pessoa</small></div>
+              <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DBuggy%2BGenipabu%2BPipa" target="_blank" rel="noopener sponsored">Reservar Buggy Oficial →</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SEÇÃO 3: GASTRONOMIA & DESCONTOS EM COMIDA (ATÉ 50% OFF) -->
+    <section id="secaoGastronomia" style="scroll-margin-top:90px;margin-bottom:60px">
+      <div class="secao-cabecalho-luxe">
+        <div class="secao-cabecalho-info">
+          <h2>🍽️ Gastronomia & Descontos em Restaurantes (Até 50% OFF)</h2>
+          <span>Coma muito bem economizando até metade da conta nos melhores polos gastronômicos do país</span>
         </div>
-      </article>
+        <div>
+          <a href="gastronomia.html" class="btn-secao-expandir">Ver Todos os Restaurantes & Cupons →</a>
+        </div>
+      </div>
 
-    </div>
-  </section>
+      <div class="grid-hoteis-luxe" id="gridGastronomia">
 
-</main>
+        <article class="hotel-card" data-cidade="Brasil">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill" style="background:#b45309;color:#fff">★ 50% OFF no Cardápio</span>
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Primeira Mesa 50% de Desconto em Restaurantes" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 SP · Rio · Curitiba · Gramado · Floripa · Salvador</span> · <span>👥 Até 6 Pessoas</span></div>
+            <h3 class="hotel-title-luxe">Primeira Mesa: 50% de Desconto em Toda a Comida</h3>
+            <p class="hotel-desc-luxe">O melhor segredo para comer barato e bem em viagens: reserve os primeiros horários dos restaurantes parceiros e ganhe 50% de desconto real em todos os pratos do cardápio para você e seus acompanhantes.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">50% OFF <small>/ na comida</small></div>
+              <a class="hotel-action-link" href="https://www.primeiramesa.com.br/" target="_blank" rel="noopener">Acessar Primeira Mesa →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hotel-card" data-cidade="Brasil">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill" style="background:#059669;color:#fff">★ 30% a 50% Direto na Conta</span>
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="TheFork e TripAdvisor Restaurantes" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Principais Capitais e Polos Gastronômicos</span> · <span>📱 Sem Imprimir Cupom</span></div>
+            <h3 class="hotel-title-luxe">TheFork / TripAdvisor: Promoções de 30% a 50%</h3>
+            <p class="hotel-desc-luxe">Reserva online 100% gratuita com descontos automáticos de até 50% aplicados diretamente na conta final. Centenas de pizzarias, bistrôs franceses, hamburguerias e restaurantes premiados.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">Até 50% OFF <small>/ conta final</small></div>
+              <a class="hotel-action-link" href="https://www.thefork.com.br/" target="_blank" rel="noopener">Reservar com Desconto →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hotel-card" data-cidade="Brasil">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill">🍷 Peça 2 Pratos, Pague 1</span>
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Duo Gourmet 2 por 1" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 +15 Capitais Brasileiras (SP, RJ, BH, BSB, Fortaleza...)</span> · <span>🍷 Casal & Amigos</span></div>
+            <h3 class="hotel-title-luxe">Duo Gourmet: Peça 2 Pratos Principais e Pague Apenas 1</h3>
+            <p class="hotel-desc-luxe">O guia gastronômico indispensável para viagens a dois ou em família: ao pedir dois pratos principais nos restaurantes credenciados, o prato de igual ou menor valor sai inteiramente por conta da casa.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">2 por 1 <small>/ pratos principais</small></div>
+              <a class="hotel-action-link" href="https://www.duogourmet.com.br/" target="_blank" rel="noopener">Conhecer Duo Gourmet →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hotel-card" data-cidade="Belém">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill" style="background:#059669;color:#fff">🍫 Gastronomia Ribeirinha · Belém</span>
+            <img src="img/belem-ilha-do-combu.jpg" alt="Polo Gastronômico da Ilha do Combu" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Ilha do Combu / Belém (15 min de barco)</span> · <span>🐟 Peixe Frito & Açaí</span></div>
+            <h3 class="hotel-title-luxe">Ilha do Combu: Restaurantes Flutuantes & Chocolates Dona Nena</h3>
+            <p class="hotel-desc-luxe">A maior experiência sensorial da Amazônia urbana: atravesse o Rio Guamá de popopô para almoçar filhote frito na brasa, tomar açaí puro da mata e provar os premiados brigadeiros rústicos de cacau 100% nativo.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 50 - 90 <small>/ almoço completo</small></div>
+              <a class="hotel-action-link" href="https://www.instagram.com/filhodacombu/" target="_blank" rel="noopener">Ver Polo Gastronômico →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hotel-card" data-cidade="Belém">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill">🍺 Orla & Galpões Históricos</span>
+            <img src="img/belem-estacao-das-docas.jpg" alt="Polo Gastronômico da Estação das Docas" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Campina / Belém (Orla da Baía)</span> · <span>🍦 Sorvete Cairu & Chopes Artesanais</span></div>
+            <h3 class="hotel-title-luxe">Estação das Docas: Cervejaria Artesanal & Alta Cozinha Paraense</h3>
+            <p class="hotel-desc-luxe">Complexo gastronômico e cultural em galpões de ferro restaurados do porto de Belém. Prove os chopes premiados com frutas amazônicas da Amazon Beer, pratos de pirarucu e os sorvetes regionais da Cairu.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">Variado <small>/ bistrôs e cervejarias</small></div>
+              <a class="hotel-action-link" href="https://www.estacaodasdocas.com.br/" target="_blank" rel="noopener">Ver Restaurantes das Docas →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hotel-card" data-cidade="Brasil">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill">★ 2 por 1 em Gastronomia & Turismo</span>
+            <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80" alt="Prime Gourmet 5.0 Vouchers 2 por 1" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Gramado · Canela · Maceió · Fortaleza · Rio · Floripa</span> · <span>🎟️ Vouchers Duplos</span></div>
+            <h3 class="hotel-title-luxe">Prime Gourmet 5.0: Vouchers 2 por 1 em Pratos & Ingressos</h3>
+            <p class="hotel-desc-luxe">O aplicativo campeão de economia para quem viaja em dupla: compre 1 prato principal e ganhe outro, ou compre 1 ingresso de atração e ganhe o segundo totalmente gratuito nas melhores regiões turísticas do Brasil.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">2 por 1 <small>/ gastronomia e lazer</small></div>
+              <a class="hotel-action-link" href="https://www.primegourmetclub.com.br/" target="_blank" rel="noopener">Conhecer Prime Gourmet →</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SEÇÃO 4: ALUGUEL DE CARROS & CUPONS DE DESCONTO -->
+    <section id="secaoCarros" style="scroll-margin-top:90px;margin-bottom:60px">
+      <div class="secao-cabecalho-luxe">
+        <div class="secao-cabecalho-info">
+          <h2>🚗 Aluguel de Carros & Cupons de Desconto</h2>
+          <span>Compare as melhores locadoras (Localiza, Unidas, Movida e redes internacionais) com até 30% OFF e sem IOF</span>
+        </div>
+        <div>
+          <a href="https://www.rentcars.com/pt-br/?requestorid=6864" target="_blank" rel="noopener sponsored" class="btn-secao-expandir">Comparar Todas as Locadoras →</a>
+        </div>
+      </div>
+
+      <div class="grid-hoteis-luxe" id="gridCarros">
+
+        <article class="hotel-card" data-cidade="Brasil">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill" style="background:#b45309;color:#fff">★ Compara Localiza, Movida, Unidas e Foco</span>
+            <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80" alt="Rentcars Comparador de Aluguel de Carros" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 +160 Países e Todos os Aeroportos do Brasil</span> · <span>💳 Em até 12x Sem Juros</span></div>
+            <h3 class="hotel-title-luxe">Rentcars: Menor Preço Garantido entre Todas as Locadoras</h3>
+            <p class="hotel-desc-luxe">O maior portal de aluguel de carros da América Latina. Compare preços em tempo real entre Localiza, Movida, Unidas, Foco e locadoras globais. Economia real de até 30%, cupons automáticos e sem cobrança de IOF no exterior.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">Até 30% OFF <small>/ comparador oficial</small></div>
+              <a class="hotel-action-link" href="https://www.rentcars.com/pt-br/?requestorid=6864" target="_blank" rel="noopener sponsored">Comparar e Alugar →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hotel-card" data-cidade="Brasil">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill" style="background:#059669;color:#fff">🏆 Líder no Brasil · Frota Mais Nova</span>
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Localiza Aluguel de Carros" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 +600 Agências em Capitais e Aeroportos</span> · <span>⚡ Retirada Rápida</span></div>
+            <h3 class="hotel-title-luxe">Localiza: A Maior Frota do Brasil com Cupom de Desconto</h3>
+            <p class="hotel-desc-luxe">Retirada rápida no aeroporto logo após desembarcar. Veículos 100% revisados, opções com quilometragem livre, assistência 24h em qualquer rodovia do país e descontos especiais nas reservas antecipadas.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">Cupom Especial <small>/ reserva online</small></div>
+              <a class="hotel-action-link" href="https://www.localiza.com/brasil/pt-br" target="_blank" rel="noopener sponsored">Acessar Localiza com Desconto →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hotel-card" data-cidade="Brasil">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill">🛡️ Custo x Benefício em SUVs e Automáticos</span>
+            <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80" alt="Unidas Aluguel de Carros" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Principais Capitais e Cidades Turísticas</span> · <span>🔑 Frota Completa</span></div>
+            <h3 class="hotel-title-luxe">Unidas: Aluguel Econômico para Viagens em Família</h3>
+            <p class="hotel-desc-luxe">Destaque em custo x benefício para viagens de lazer ou a negócios. Frota moderna com grande disponibilidade de SUVs confortáveis, sedãs e carros compactos econômicos com tarifas transparentes e seguro incluso.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">Tarifas Promocionais <small>/ diárias flexíveis</small></div>
+              <a class="hotel-action-link" href="https://www.unidas.com.br/" target="_blank" rel="noopener sponsored">Ver Ofertas Unidas →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hotel-card" data-cidade="Internacional">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill">🌍 EUA, Europa e Destinos Globais</span>
+            <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&q=80" alt="DiscoverCars Aluguel Internacional" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Orlando, Miami, Portugal, Itália, França e +140 Países</span> · <span>🛡️ Cobertura Total</span></div>
+            <h3 class="hotel-title-luxe">DiscoverCars & Sixt: Aluguel de Carro no Exterior</h3>
+            <p class="hotel-desc-luxe">Vai fazer road trip nos Estados Unidos ou Europa? Compare as melhores locadoras internacionais (Sixt, Europcar, Alamo, Hertz) com opção de cobertura total, sem franquia abusiva e cancelamento 100% grátis até 48h antes.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">Cotação Global <small>/ sem IOF</small></div>
+              <a class="hotel-action-link" href="https://www.discovercars.com/?a_aid=pennertech" target="_blank" rel="noopener sponsored">Cotar no Exterior →</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
 
 <footer style="background:var(--card);border-top:1px solid var(--linha);padding:40px 0;margin-top:60px">
   <div class="wrap" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;font-size:13px;color:var(--texto-sub)">
