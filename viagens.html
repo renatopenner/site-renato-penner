@@ -1282,19 +1282,25 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   </section>
 
       <!-- NAVEGAÇÃO DOS 3 PILARES: HOSPEDAGEM, ATRAÇÕES E GASTRONOMIA -->
-      <!-- NAVEGAÇÃO DOS PILARES -->
+          <!-- NAVEGAÇÃO DOS PILARES -->
     <div class="pilares-navegacao-wrap">
       <a href="#secaoHoteis" class="pilar-nav-link ativo" onclick="ativarPilar(this)">
-        🏨 Hospedagens Selecionadas
+        🏨 Hospedagens BR
       </a>
       <a href="#secaoAtracoes" class="pilar-nav-link" onclick="ativarPilar(this)">
-        🎟️ Atrações & Ingressos
+        🎟️ Atrações BR
       </a>
       <a href="#secaoGastronomia" class="pilar-nav-link" onclick="ativarPilar(this)">
         🍽️ Gastronomia & Cupons
       </a>
       <a href="#secaoCarros" class="pilar-nav-link" onclick="ativarPilar(this)">
         🚗 Aluguel de Carros
+      </a>
+      <a href="#secaoInternacionalHoteis" class="pilar-nav-link" onclick="ativarPilar(this)">
+        ✈️ Hotéis no Exterior
+      </a>
+      <a href="#secaoInternacionalAtracoes" class="pilar-nav-link" onclick="ativarPilar(this)">
+        🌍 Atrações no Exterior
       </a>
     </div>
 
@@ -1750,6 +1756,231 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
       </div>
     </section>
 
+      <!-- SEÇÃO 5: HOTÉIS & PACOTES INTERNACIONAIS -->
+    <section id="secaoInternacionalHoteis" style="scroll-margin-top:90px;margin-bottom:60px">
+      <div class="secao-cabecalho-luxe">
+        <div class="secao-cabecalho-info">
+          <h2>✈️ Hotéis & Pacotes Internacionais</h2>
+          <span>Os destinos favoritos no exterior: América do Sul, EUA e Europa com tarifas em reais e sem IOF</span>
+        </div>
+        <div class="secao-cabecalho-acao">
+          <a href="internacional-hospedagens.html" class="btn-secao-expandir">Ver Todas as Hospedagens Internacionais →</a>
+        </div>
+      </div>
+
+      <div class="grid-hoteis-luxe" id="gridInternacionalHoteis">
+
+        <article class="hotel-card" data-cidade="Buenos Aires">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill" style="background:#059669;color:#fff">★ 9.0 Fantástico · Argentina</span>
+            <img src="https://images.unsplash.com/photo-1612294037637-ec328d0e075e?auto=format&fit=crop&w=800&q=80" alt="Hotel Grand Brizo Buenos Aires" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 400m do Obelisco · Centro Histórico</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+            <h3 class="hotel-title-luxe">Hotel Grand Brizo (Buenos Aires / Argentina)</h3>
+            <p class="hotel-desc-luxe">Hotel 4 estrelas moderno e sofisticado no coração de Buenos Aires. Rooftop bar com vista panorâmica, piscina aquecida, spa e restaurante com os melhores cortes argentinos.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 290 <small>/ diária</small></div>
+              <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DBuenos%2BAires%2BArgentina%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hotel-card" data-cidade="Santiago">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill" style="background:#059669;color:#fff">★ 8.8 Fabuloso · Chile</span>
+            <img src="https://images.unsplash.com/photo-1578852612716-854e527abf2e?auto=format&fit=crop&w=800&q=80" alt="Hotel Diego de Almagro Providencia Santiago" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Bairro Providencia · Perto do Costanera Center</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+            <h3 class="hotel-title-luxe">Hotel Diego de Almagro Providencia (Santiago / Chile)</h3>
+            <p class="hotel-desc-luxe">Excelente localização no bairro mais nobre e seguro de Santiago, a passos do metrô e do shopping Costanera. Piscina ao ar livre e vista impressionante para a Cordilheira dos Andes.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 340 <small>/ diária</small></div>
+              <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DSantiago%2BChile%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hotel-card" data-cidade="Orlando">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill" style="background:#b45309;color:#fff">★ Econômico Disney & Universal · EUA</span>
+            <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=800&q=80" alt="Rosen Inn International Orlando" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 International Drive · 10 min da Universal</span> · <span>🚌 Transporte Grátis aos Parques</span></div>
+            <h3 class="hotel-title-luxe">Rosen Inn International (Orlando / EUA)</h3>
+            <p class="hotel-desc-luxe">O hotel campeão de custo-benefício em Orlando para brasileiros: sem taxa de resort, estacionamento gratuito, piscinas aquecidas e serviço de transfer de cortesia para Universal e SeaWorld.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 380 <small>/ diária</small></div>
+              <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DOrlando%2BFlorida%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hotel-card" data-cidade="Lisboa">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill" style="background:#059669;color:#fff">★ 8.9 Excelente · Portugal</span>
+            <img src="https://images.unsplash.com/photo-1509840841025-9088ba78a826?auto=format&fit=crop&w=800&q=80" alt="Hotel Mundial Lisboa Baixa" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Praça Martim Moniz · Centro / Baixa</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+            <h3 class="hotel-title-luxe">Hotel Mundial (Lisboa / Portugal)</h3>
+            <p class="hotel-desc-luxe">Tradicional e requintado, localizado no coração histórico de Lisboa em frente à parada do clássico Eléctrico 28. Famoso rooftop bar com vista espetacular para o Castelo de São Jorge.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 450 <small>/ diária</small></div>
+              <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DLisboa%2BPortugal%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hotel-card" data-cidade="Paris">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill">★ Charme Parisiense · França</span>
+            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80" alt="Ibis Styles Paris Montmartre" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Montmartre · 300m da Basílica de Sacré-Cœur</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+            <h3 class="hotel-title-luxe">Ibis Styles Paris Montmartre (Paris / França)</h3>
+            <p class="hotel-desc-luxe">Quartos aconchegantes com design moderno e descolado no bairro artístico mais charmoso de Paris. Metrô a poucos passos para conexão direta com a Torre Eiffel e Museu do Louvre.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 490 <small>/ diária</small></div>
+              <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DParis%2BFrance%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hotel-card" data-cidade="Cancún">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill" style="background:#0284c7;color:#fff">★ All Inclusive Pé na Areia · México</span>
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Occidental Tucancun All Inclusive Resort" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Zona Hoteleira · Praia de Mar Turquesa</span> · <span>🍹 Tudo Incluso (Comida & Bebidas)</span></div>
+            <h3 class="hotel-title-luxe">Occidental Tucancún All Inclusive (Cancún / México)</h3>
+            <p class="hotel-desc-luxe">Resort completo à beira do Mar do Caribe com 3 piscinas de borda infinita, 4 restaurantes temáticos e bares de coquetéis à vontade. Experiência all inclusive para relaxar sem preocupações.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 680 <small>/ diária casal</small></div>
+              <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DCancun%2BMexico%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SEÇÃO 6: ATRAÇÕES & PASSEIOS INTERNACIONAIS -->
+    <section id="secaoInternacionalAtracoes" style="scroll-margin-top:90px;margin-bottom:60px">
+      <div class="secao-cabecalho-luxe">
+        <div class="secao-cabecalho-info">
+          <h2>🌍 Atrações & Passeios Internacionais</h2>
+          <span>Ingressos oficiais, passeios sem fila e experiências guiadas nos pontos turísticos mais famosos do mundo</span>
+        </div>
+        <div class="secao-cabecalho-acao">
+          <a href="internacional-atracoes.html" class="btn-secao-expandir">Ver Todas as Atrações Internacionais →</a>
+        </div>
+      </div>
+
+      <div class="grid-hoteis-luxe" id="gridInternacionalAtracoes">
+
+        <article class="hotel-card" data-cidade="Orlando">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill" style="background:#b45309;color:#fff">★ Os Parques Temáticos Nº 1 · EUA</span>
+            <img src="https://images.unsplash.com/photo-1597466765990-64ad1c35dafc?auto=format&fit=crop&w=800&q=80" alt="Disney World e Universal Studios Orlando" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Orlando / Flórida</span> · <span>🎟️ Ingressos Oficiais & Combos</span></div>
+            <h3 class="hotel-title-luxe">Disney World & Universal Studios (Ingressos Oficiais)</h3>
+            <p class="hotel-desc-luxe">Acesso direto sem bilheteria ao Magic Kingdom, Epcot, Hollywood Studios e ao Mundo Mágico de Harry Potter na Universal. Garanta passaportes com desconto antecipado e parcelamento em reais.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 450 <small>/ dia de parque</small></div>
+              <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DOrlando%2BTheme%2BParks" target="_blank" rel="noopener sponsored">Garantir Ingressos →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hotel-card" data-cidade="Paris">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill" style="background:#059669;color:#fff">★ O Ícone de Paris · França</span>
+            <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&w=800&q=80" alt="Torre Eiffel com Acesso ao Topo Paris" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Champ de Mars · Paris</span> · <span>🚢 Cruzeiro no Rio Sena Incluso</span></div>
+            <h3 class="hotel-title-luxe">Torre Eiffel: Acesso ao Topo + Passeio de Barco pelo Sena</h3>
+            <p class="hotel-desc-luxe">Evite horas de fila nas bilheterias: suba de elevador até o último andar da Torre Eiffel para contemplar a Cidade Luz a 276 metros de altura, seguido de um cruzeiro romântico pelas pontes do Sena.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 210 <small>/ ingresso oficial</small></div>
+              <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DEiffel%2BTower%2BSummit" target="_blank" rel="noopener sponsored">Reservar sem Filas →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hotel-card" data-cidade="Roma">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill">★ Maravilha da Antiguidade · Itália</span>
+            <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80" alt="Coliseu Romano e Fórum Romano" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Piazza del Colosseo · Roma</span> · <span>🏛️ Acesso Express com Guia</span></div>
+            <h3 class="hotel-title-luxe">Coliseu Romano, Fórum Romano & Monte Palatino</h3>
+            <p class="hotel-desc-luxe">Passeio completo pelas arenas onde os gladiadores lutavam no Império Romano. Entrada prioritária que pula as filas quilométricas, com fone de ouvido explicativo e acesso à área arqueológica.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 160 <small>/ entrada express</small></div>
+              <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DColosseum%2BRome" target="_blank" rel="noopener sponsored">Garantir Entrada Oficial →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hotel-card" data-cidade="Nova York">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill">★ Cartão-Postal de Manhattan · EUA</span>
+            <img src="https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=800&q=80" alt="Estátua da Liberdade e Empire State Building" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Porto de Battery Park & 5ª Avenida</span> · <span>🗽 Balsa e Mirante</span></div>
+            <h3 class="hotel-title-luxe">Estátua da Liberdade & Empire State Building</h3>
+            <p class="hotel-desc-luxe">Navegue pelas águas de Nova York em balsa oficial até Liberty Island para ver a Estátua de perto e depois suba até o 86º andar do Empire State para admirar o horizonte de arranha-céus mais famoso do planeta.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 195 <small>/ passaporte</small></div>
+              <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DStatue%2Bof%2BLiberty%2BNew%2BYork" target="_blank" rel="noopener sponsored">Garantir Passaporte →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hotel-card" data-cidade="Santiago">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill" style="background:#059669;color:#fff">★ Cordilheira & Vinhedos · Chile</span>
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Cajón del Maipo e Termas de Colina Chile" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Cordilheira dos Andes · 1h30 de Santiago</span> · <span>🍷 Piquenique & Vinhos</span></div>
+            <h3 class="hotel-title-luxe">Cajón del Maipo, Embalse el Yeso & Degustação de Vinhos</h3>
+            <p class="hotel-desc-luxe">Aventura inesquecível pelas montanhas andinas com lago de água azul-turquesa cercado por picos nevados. Inclui transporte ida e volta do hotel, queijos finos e degustação de vinhos chilenos.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 180 <small>/ passeio de dia inteiro</small></div>
+              <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DCajon%2Bdel%2BMaipo%2BSantiago" target="_blank" rel="noopener sponsored">Reservar Excursão →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hotel-card" data-cidade="Lisboa">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill">★ Palácios de Conto de Fadas · Portugal</span>
+            <img src="https://images.unsplash.com/photo-1588614959060-4d144f28b207?auto=format&fit=crop&w=800&q=80" alt="Palácio da Pena e Sintra Lisboa" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Sintra, Cabo da Roca e Cascais</span> · <span>🏰 Palácio Nacional da Pena</span></div>
+            <h3 class="hotel-title-luxe">Passeio a Sintra, Palácio da Pena & Cabo da Roca</h3>
+            <p class="hotel-desc-luxe">Excursão a partir de Lisboa para conhecer o colorido Palácio da Pena no topo da serra de Sintra, o ponto mais ocidental da Europa continental no Cabo da Roca e a charmosa vila litorânea de Cascais.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 140 <small>/ passeio completo</small></div>
+              <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DSintra%2BPena%2BPalace%2BLisbon" target="_blank" rel="noopener sponsored">Garantir Passeio Oficial →</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
   </main>
 
 <footer style="background:var(--card);border-top:1px solid var(--linha);padding:40px 0;margin-top:60px">

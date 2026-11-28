@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<script>(function(){try{var m=document.cookie.match(/(?:^|;\s*)pt_tema=(escuro|claro)/);document.documentElement.setAttribute("data-tema",m?m[1]:"claro")}catch(e){document.documentElement.setAttribute("data-tema","claro")}})();</script>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-store">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hotéis & Hospedagens no Exterior — PennerTech Viagens</title>
+<meta name="description" content="Seleção das melhores hospedagens em Buenos Aires, Santiago, Orlando, Lisboa, Paris, Cancún e mais destinos mundiais com tarifas em reais.">
+<link rel="canonical" href="https://viagens.pennertech.com.br/">
+<meta name="theme-color" content="#faf8f5">
+<link rel="icon" type="image/png" sizes="64x64" href="img/favicon-64.png?v=9fb83174">
+<link rel="stylesheet" href="css/style.css?v=4cf08b7c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f5;
+  --bg2: #f4efe8;
+  --card: #ffffff;
+  --card-borda: rgba(0, 0, 0, 0.06);
+  --texto: #1c1917;
+  --texto-corpo: #44403c;
+  --texto-sub: #78716c;
+  --acento: #b45309;
+  --linha: #f0ede8;
+  --borda-suave: #e7e5e4;
+}
+[data-tema="escuro"] {
+  --bg: #0c0a09;
+  --bg2: #1c1917;
+  --card: #171412;
+  --card-borda: rgba(255, 255, 255, 0.08);
+  --texto: #fafaf9;
+  --texto-corpo: #d6d3d1;
+  --texto-sub: #a8a29e;
+  --acento: #f59e0b;
+  --linha: #292524;
+  --borda-suave: #292524;
+}
+body { background: var(--bg); color: var(--texto-corpo); font-family: 'Plus Jakarta Sans', sans-serif; margin:0; padding:0; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.logo { display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--texto); font-weight:800; }
+.logo img { width:34px; height:34px; border-radius:50%; }
+.pilares-navegacao-wrap { display: flex; justify-content: center; align-items: center; gap: 10px; margin: 24px 0 32px; flex-wrap: wrap; }
+.pilar-nav-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px; font-size: 13.5px; font-weight: 700; text-decoration: none; background: var(--card); color: var(--texto-sub); border: 1.5px solid var(--borda-suave); transition: all .2s ease; }
+.pilar-nav-link:hover { border-color: var(--acento); color: var(--texto); }
+.pilar-nav-link.ativo { background: var(--acento); color: #fff !important; border-color: var(--acento); box-shadow: 0 4px 14px rgba(180, 83, 9, 0.25); }
+.grid-hoteis-luxe { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 60px; }
+@media (max-width: 960px) { .grid-hoteis-luxe { grid-template-columns: repeat(2, 1fr); gap: 18px; } }
+@media (max-width: 640px) { .grid-hoteis-luxe { grid-template-columns: 1fr; gap: 16px; } }
+.hotel-card { border-radius: 20px; overflow: hidden; background: var(--card); border: 1px solid var(--card-borda); display: flex; flex-direction: column; box-shadow: 0 4px 16px rgba(0,0,0,0.04); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.hotel-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.08); }
+.hotel-thumb { position: relative; width: 100%; aspect-ratio: 16/10; overflow: hidden; background: var(--bg2); }
+.hotel-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.card-badge-pill { position: absolute; top: 12px; left: 12px; background: rgba(15,23,42,0.85); backdrop-filter: blur(8px); color: #ffffff; font-size: 11.5px; font-weight: 700; padding: 4px 10px; border-radius: 999px; z-index: 2; }
+.hotel-body { padding: 18px; display: flex; flex-direction: column; flex: 1; }
+.hotel-loc-line { font-size: 12px; color: var(--texto-sub); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.hotel-title-luxe { font-size: 17px; font-weight: 800; color: var(--texto); margin: 0 0 8px 0; line-height: 1.3; }
+.hotel-desc-luxe { font-size: 13px; color: var(--texto-corpo); line-height: 1.5; margin: 0 0 16px 0; flex: 1; }
+.hotel-footer-luxe { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid var(--linha); }
+.hotel-price-luxe { font-size: 19px; font-weight: 800; color: var(--texto); }
+.hotel-price-luxe small { font-size: 12px; font-weight: 500; color: var(--texto-sub); }
+.hotel-action-link { font-size: 13px; font-weight: 700; color: var(--acento); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
+.hotel-action-link:hover { text-decoration: underline; }
+.bolinha-verde-simbolo { display: inline-flex; align-items: center; justify-content: center; width: 14px; height: 14px; border-radius: 50%; background: #10b981; color: #ffffff; font-size: 9px; font-weight: 900; margin-right: 2px; }
+.secao-cabecalho-luxe { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 24px 0; padding-bottom: 12px; border-bottom: 1px solid var(--linha); }
+</style>
+</head>
+<body>
+<header style="background:var(--card);border-bottom:1px solid var(--linha);padding:14px 0">
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between">
+    <a href="index.html" class="logo">
+      <img src="img/marca.png?v=37f05fa5" alt="PennerTech">
+      <span><b>PENNER</b> <em>VIAGENS</em></span>
+    </a>
+    <div style="font-size:13px;color:var(--texto-sub)">
+      <a href="index.html" style="color:var(--texto);text-decoration:none;font-weight:700">← Voltar ao Início</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- NAVEGAÇÃO DOS PILARES -->
+  <div class="pilares-navegacao-wrap">
+    <a href="index.html" class="pilar-nav-link">🏠 Início</a>
+    <a href="hospedagens.html" class="pilar-nav-link">🏨 Hospedagens BR (41)</a>
+    <a href="atracoes.html" class="pilar-nav-link">🎟️ Atrações BR (13)</a>
+    <a href="internacional-hospedagens.html" class="pilar-nav-link ativo">✈️ Hotéis no Exterior</a>
+    <a href="internacional-atracoes.html" class="pilar-nav-link ">🌍 Atrações no Exterior</a>
+    <a href="index.html#secaoCarros" class="pilar-nav-link">🚗 Aluguel de Carros</a>
+  </div>
+
+  <div class="secao-cabecalho-luxe">
+    <div>
+      <h1 style="margin:0 0 4px 0;font-size:24px;font-weight:800;color:var(--texto)">✈️ Hotéis & Hospedagens no Exterior</h1>
+      <span style="font-size:13.5px;color:var(--texto-sub)">Curadoria rigorosa de acomodações na América do Sul, Estados Unidos, Europa e Caribe com parceria oficial Booking.com.</span>
+    </div>
+  </div>
+
+  <div class="grid-hoteis-luxe">
+    <article class="hotel-card">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill" style="background:#059669;color:#fff">★ 9.0 Fantástico · Argentina</span>
+        <img src="https://images.unsplash.com/photo-1612294037637-ec328d0e075e?auto=format&fit=crop&w=800&q=80" alt="Hotel Grand Brizo Buenos Aires" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 400m do Obelisco · Centro Histórico</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Hotel Grand Brizo (Buenos Aires / Argentina)</h3>
+        <p class="hotel-desc-luxe">Hotel 4 estrelas moderno e sofisticado no coração de Buenos Aires. Rooftop bar com vista panorâmica, piscina aquecida, spa e restaurante com os melhores cortes argentinos.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 290 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DBuenos%2BAires%2BArgentina%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill" style="background:#059669;color:#fff">★ 8.8 Fabuloso · Chile</span>
+        <img src="https://images.unsplash.com/photo-1578852612716-854e527abf2e?auto=format&fit=crop&w=800&q=80" alt="Hotel Diego de Almagro Providencia Santiago" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 Bairro Providencia · Perto do Costanera Center</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Hotel Diego de Almagro Providencia (Santiago / Chile)</h3>
+        <p class="hotel-desc-luxe">Excelente localização no bairro mais nobre e seguro de Santiago, a passos do metrô e do shopping Costanera. Piscina ao ar livre e vista impressionante para a Cordilheira dos Andes.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 340 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DSantiago%2BChile%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill" style="background:#b45309;color:#fff">★ Econômico Disney & Universal · EUA</span>
+        <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=800&q=80" alt="Rosen Inn International Orlando" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 International Drive · 10 min da Universal</span> · <span>🚌 Transporte Grátis aos Parques</span></div>
+        <h3 class="hotel-title-luxe">Rosen Inn International (Orlando / EUA)</h3>
+        <p class="hotel-desc-luxe">O hotel campeão de custo-benefício em Orlando para brasileiros: sem taxa de resort, estacionamento gratuito, piscinas aquecidas e serviço de transfer de cortesia para Universal e SeaWorld.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 380 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DOrlando%2BFlorida%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill" style="background:#059669;color:#fff">★ 8.9 Excelente · Portugal</span>
+        <img src="https://images.unsplash.com/photo-1509840841025-9088ba78a826?auto=format&fit=crop&w=800&q=80" alt="Hotel Mundial Lisboa Baixa" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 Praça Martim Moniz · Centro / Baixa</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Hotel Mundial (Lisboa / Portugal)</h3>
+        <p class="hotel-desc-luxe">Tradicional e requintado, localizado no coração histórico de Lisboa em frente à parada do clássico Eléctrico 28. Famoso rooftop bar com vista espetacular para o Castelo de São Jorge.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 450 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DLisboa%2BPortugal%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ Charme Parisiense · França</span>
+        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80" alt="Ibis Styles Paris Montmartre" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 Montmartre · 300m da Basílica de Sacré-Cœur</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Ibis Styles Paris Montmartre (Paris / França)</h3>
+        <p class="hotel-desc-luxe">Quartos aconchegantes com design moderno e descolado no bairro artístico mais charmoso de Paris. Metrô a poucos passos para conexão direta com a Torre Eiffel e Museu do Louvre.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 490 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DParis%2BFrance%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill" style="background:#0284c7;color:#fff">★ All Inclusive Pé na Areia · México</span>
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Occidental Tucancun All Inclusive Resort" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 Zona Hoteleira · Praia de Mar Turquesa</span> · <span>🍹 Tudo Incluso (Comida & Bebidas)</span></div>
+        <h3 class="hotel-title-luxe">Occidental Tucancún All Inclusive (Cancún / México)</h3>
+        <p class="hotel-desc-luxe">Resort completo à beira do Mar do Caribe com 3 piscinas de borda infinita, 4 restaurantes temáticos e bares de coquetéis à vontade. Experiência all inclusive para relaxar sem preocupações.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 680 <small>/ diária casal</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DCancun%2BMexico%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ Neve & Esqui · Argentina</span>
+        <img src="https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=800&q=80" alt="Hotel Edelweiss Bariloche" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 Centro Cívico · Lago Nahuel Huapi</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">NH Bariloche Edelweiss (Bariloche / Argentina)</h3>
+        <p class="hotel-desc-luxe">Estilo alpino tradicional a 100m do Lago Nahuel Huapi e das famosas chocolaterias de Bariloche. Piscina coberta aquecida no terraço com vista deslumbrante para a cordilheira nevada.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 380 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DBariloche%2BArgentina%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ Pé na Areia · South Beach EUA</span>
+        <img src="https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?auto=format&fit=crop&w=800&q=80" alt="Loews Miami Beach Hotel" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 Collins Avenue · South Beach Miami</span> · <span>🏖️ Serviço de Praia Incluso</span></div>
+        <h3 class="hotel-title-luxe">Loews Miami Beach Hotel (Miami / EUA)</h3>
+        <p class="hotel-desc-luxe">Resort icônico em frente à praia mais badalada da Flórida. Piscina monumental com cabanas privativas, spa de luxo e fácil acesso a pé aos restaurantes da Ocean Drive e Lincoln Road.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 750 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DMiami%2BBeach%2BUSA%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ Cidade Eterna · Itália</span>
+        <img src="https://images.unsplash.com/photo-1529154036614-a60975f5c760?auto=format&fit=crop&w=800&q=80" alt="Hotel Quirinale Roma" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 Via Nazionale · 10 min da Fontana di Trevi</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Hotel Quirinale (Roma / Itália)</h3>
+        <p class="hotel-desc-luxe">Construção histórica imperial do século XIX com jardim interno privativo e passagem exclusiva para a Ópera de Roma. Faça os principais monumentos da capital italiana a pé.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 520 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DRome%2BItaly%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer style="background:var(--card);border-top:1px solid var(--linha);padding:40px 0;margin-top:60px">
+  <div class="wrap" style="display:flex;justify-content:space-between;gap:20px;font-size:13px;color:var(--texto-sub)">
+    <div>
+      <p style="font-weight:700;color:var(--texto);margin-bottom:6px">PENNER TECH VIAGENS — CURADORIA INTERNACIONAL</p>
+      <p>Parcerias oficiais: Booking.com, Viator, Decolar e Rentcars com tarifas garantidas e atendimento seguro.</p>
+    </div>
+    <div>
+      <p>© 2026 Renato Penner Soares. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
