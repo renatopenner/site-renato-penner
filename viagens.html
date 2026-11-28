@@ -2009,7 +2009,7 @@ function executarFiltroPorDestino(destino, cin, cout) {
   if (destInfo) {
     var bgImg = destInfo.imagem || 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80';
     htmlBanner += '<div class="hub360-container">';
-    htmlBanner += '  <div class="hub360-hero" style="background-image:url('' + bgImg + '')">';
+    htmlBanner += '  <div class="hub360-hero" style="background-image:url(' + bgImg + ')">';
     htmlBanner += '    <div class="hub360-hero-content">';
     htmlBanner += '      <div class="hub360-badges">';
     htmlBanner += '        <span class="hub360-badge">📍 ' + (destInfo.regiao || 'Brasil') + '</span>';
