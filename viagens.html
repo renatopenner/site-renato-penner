@@ -431,6 +431,34 @@ h1 em, .luxe-title em { font-style: italic !important; }
   .btn-luxe-submit { width: 100%; margin-top: 10px; }
   .grid-hoteis-luxe { grid-template-columns: 1fr; }
 }
+
+/* Anti-overflow horizontal no header */
+header .wrap.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+header .links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+  max-width: 100%;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+header .dir {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+@media (max-width: 992px) {
+  header .links { order: 3; width: 100%; padding-bottom: 4px; }
+}
+
 </style>
 
 <script>
