@@ -1116,8 +1116,8 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
           <a id="link360Atracoes" href="#" target="_blank" rel="noopener sponsored" class="res360-item">
             <span>🎟️</span> <div><b>Passeios & Atrações</b><br><small style="color:var(--texto-sub)">Ingressos no Viator</small></div>
           </a>
-          <a id="link360Comida" href="https://www.thefork.com.br/" target="_blank" rel="noopener sponsored" class="res360-item">
-            <span>🍽️</span> <div><b>Desconto em Restaurantes</b><br><small style="color:var(--texto-sub)">Até 50% OFF no TheFork / Primeira Mesa</small></div>
+          <a id="link360Comida" href="https://www.primeiramesa.com.br/" target="_blank" rel="noopener sponsored" class="res360-item">
+            <span>🍽️</span> <div><b>Desconto em Restaurantes</b><br><small style="color:var(--texto-sub)">Até 50% OFF no Primeira Mesa / Duo Gourmet</small></div>
           </a>
           <a id="link360Carros" href="https://www.rentcars.com/pt-br/?requestorid=6864" target="_blank" rel="noopener sponsored" class="res360-item">
             <span>🚗</span> <div><b>Aluguel de Carros</b><br><small style="color:var(--texto-sub)">Localiza, Movida & Unidas (Até 30% OFF)</small></div>
@@ -1412,7 +1412,7 @@ function executarFiltroPorDestino(destino, cin, cout) {
 
   var urlGastro = (destInfo && destInfo.link_gastronomia) 
     ? destInfo.link_gastronomia 
-    : ('https://www.thefork.com.br/search?text=' + enc);
+    : ('https://www.primeiramesa.com.br/busca?q=' + enc);
 
   var bannerBox = document.getElementById('bannerResultadoCidade');
   if (!bannerBox) {
@@ -1613,7 +1613,7 @@ function dispararBuscaCat() {
   } else if (v === 'atracoes') {
     window.open('https://tp.media/r?marker=812990&p=3249&u=' + encodeURIComponent('https://www.viator.com/searchResults/all?text=' + enc), '_blank');
   } else if (v === 'comida') {
-    window.open('https://www.thefork.com.br/search?text=' + enc, '_blank');
+    window.open('https://www.primeiramesa.com.br/busca?q=' + enc, '_blank');
   } else if (v === 'carros') {
     window.open('https://www.rentcars.com/pt-br/cidades/' + enc + '?requestorid=6864', '_blank');
   }
