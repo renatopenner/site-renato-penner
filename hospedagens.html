@@ -1121,7 +1121,9 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   <a href="/" class="logo" aria-label="PennerTech Viagens"><img width="1024" height="1024" src="img/marca.png?v=37f05fa5" alt=""><span><b>PENNER</b> <em>VIAGENS</em><small>HOTÉIS, RESORTS & PASSAGENS</small></span></a>
   <div class="dir">
     <button id="btn-tema" class="tema" type="button" aria-label="Alternar tema claro e escuro" title="Ativar tema escuro">🌙</button>
-    <a class="link site-link" href="https://loja.pennertech.com.br/" target="_blank" rel="noopener" title="Visitar loja de tecnologia e eletrônicos"><span style="font-weight:700">💻 Loja Tech ↗</span></a>
+    <a class="link site-link" href="https://loja.pennertech.com.br/" target="_blank" rel="noopener" title="Loja Penner Tech"><span style="font-weight:700">💻 Loja Tech ↗</span></a>
+      <a class="link site-link" href="https://baixa.pennertech.com.br/" target="_blank" rel="noopener" title="Baixa Certa — Apps Grátis Oficiais"><img src="img/baixacerta-ico.svg" alt="" width="18" height="18"><span style="font-weight:700">Baixa Certa ↗</span></a>
+      <a class="link site-link" href="https://baixatube.pennertech.com.br/" target="_blank" rel="noopener" title="BaixaTube Web — Baixar Vídeos"><img src="img/baixatube-ico.svg" alt="" width="18" height="18"><span style="font-weight:700">BaixaTube ↗</span></a>
     <a class="link" href="https://www.youtube.com/@renatopenner" target="_blank" rel="noopener">YouTube ↗</a>
   </div>
 </div></header>
@@ -1135,9 +1137,12 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     <p class="luxe-sub">Resorts de praia, chalés alpinos e pousadas testadas no Brasil — parceria oficial Booking.com com cancelamento grátis.</p>
 
     <!-- 2 MODOS DE BUSCA PRINCIPAIS (SEM BOTÃO DUPLICADO) -->
-    <div class="botoes-modos-box">
+        <div class="botoes-modos-box">
       <button type="button" class="btn-modo-pill ativo" id="btnModoSuper" onclick="alternarModo('super')">
         🌐 Super Busca 360° por Destino
+      </button>
+      <button type="button" class="btn-modo-pill" id="btnModoVoos" onclick="alternarModo('voos')" style="background:linear-gradient(135deg,#0284c7 0%,#0369a1 100%);color:#fff;border-color:#0284c7">
+        ✈️ Passagens Aéreas no Mundo Inteiro
       </button>
       <button type="button" class="btn-modo-pill" id="btnModoCat" onclick="alternarModo('cat')">
         🎯 Busca Direta por Categoria ▾
@@ -1196,6 +1201,54 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
       </div>
     </div>
 
+    <!-- MODO NOVO: BUSCA DE PASSAGENS AÉREAS NO MUNDO INTEIRO -->
+    <div id="painelVoos" class="luxe-search-container" style="display:none">
+      <form class="luxe-search-bar" onsubmit="dispararBuscaVoos(); return false;">
+        <div class="search-col search-col-autocomplete" style="flex:1.4">
+          <label>Origem (Sua Cidade / Aeroporto)</label>
+          <input type="text" id="origemVooInput" placeholder="De onde você sai? (ex: São Paulo, Rio, Belém...)" value="São Paulo (SAO)" autocomplete="off">
+          <div id="sugestoesOrigemVoo" class="sugestoes-box" style="display:none"></div>
+        </div>
+        <div class="search-col search-col-autocomplete" style="flex:1.8">
+          <label>Destino no Mundo (Para onde voar)</label>
+          <input type="text" id="destVooInput" placeholder="Para onde você quer voar? (ex: Roma, Paris, Orlando...)" autocomplete="off" required>
+          <div id="sugestoesDestVoo" class="sugestoes-box" style="display:none"></div>
+        </div>
+        <div class="search-col" style="flex:1.1">
+          <label>Data de Ida</label>
+          <input type="date" id="dataIdaVoo">
+        </div>
+        <div class="search-col" style="flex:1.1">
+          <label>Data de Volta (Opcional)</label>
+          <input type="date" id="dataVoltaVoo">
+        </div>
+        <button type="submit" class="btn-luxe-submit" title="Buscar Passagens Oficiais com Menor Tarifa">
+          <svg viewBox="0 0 24 24" style="stroke:none;fill:currentColor;width:18px;height:18px"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+          <span>Buscar Voos ✈️</span>
+        </button>
+      </form>
+
+      <!-- Painel de Comparadores Oficiais de Voos -->
+      <div id="boxOpcoesVoos" class="res360-popup" style="margin-top:16px;background:var(--card);border:1px solid var(--card-borda);border-radius:18px;padding:20px 24px;box-shadow:0 12px 30px rgba(0,0,0,0.06)">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+          <h4 style="font-family:'Newsreader',serif;font-size:18px;margin:0;color:var(--texto)">✈️ Comparador de Passagens Aéreas no Mundo Inteiro:</h4>
+          <span style="font-size:12px;font-weight:700;color:var(--acento);background:rgba(var(--acento-rgb),0.1);padding:4px 10px;border-radius:999px">Parcerias Oficiais PennerTech</span>
+        </div>
+        <div class="res360-grid">
+          <a id="linkVooTrip" href="https://www.awin1.com/cread.php?awinmid=119147&awinaffid=3169987&ued=https%3A%2F%2Fbr.trip.com%2Fflights%2F" target="_blank" rel="noopener sponsored" class="res360-item" style="border-left:4px solid #0086F6">
+            <span>✈️</span> <div><b>Trip.com Passagens Aéreas</b><br><small style="color:var(--texto-sub)">Tarifas reduzidas mundiais (Awin Parceiro Oficial)</small></div>
+          </a>
+          <a id="linkVooBooking" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fflights%2Findex.pt-br.html%3Flabel%3Dpennertech-booking" target="_blank" rel="noopener sponsored" class="res360-item" style="border-left:4px solid #003580">
+            <span>🌍</span> <div><b>Booking.com Voos Globais</b><br><small style="color:var(--texto-sub)">Pesquisa em todas as cias com desconto Genius</small></div>
+          </a>
+          <a id="linkVooAviasales" href="https://www.aviasales.com/search?marker=812990" target="_blank" rel="noopener sponsored" class="res360-item" style="border-left:4px solid #FF6D00">
+            <span>⚡</span> <div><b>Comparador Global Aviasales</b><br><small style="color:var(--texto-sub)">Varredura em tempo real em 700+ companhias aéreas</small></div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+
     <!-- MODO 2: BUSCA POR CATEGORIA COM DROPDOWN -->
     <div id="painelCat" class="luxe-search-container" style="display:none">
       <form class="luxe-search-bar" onsubmit="dispararBuscaCat(); return false;">
@@ -1229,7 +1282,10 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 
       <!-- NAVEGAÇÃO DOS PILARES: HOSPEDAGEM, ATRAÇÕES, GASTRONOMIA E ALUGUEL DE CARROS -->
       <!-- NAVEGAÇÃO DOS PILARES -->
-    <div class="pilares-navegacao-wrap">
+        <div class="pilares-navegacao-wrap">
+      <button type="button" class="pilar-nav-link" onclick="alternarModo('voos'); document.getElementById('destVooInput').focus(); window.scrollTo({top: 180, behavior:'smooth'});" style="background:rgba(2,132,199,0.12);color:#0284c7;border-color:rgba(2,132,199,0.3);font-weight:800">
+        ✈️ Passagens Aéreas
+      </button>
       <a href="index.html" class="pilar-nav-link">
         🏠 Início
       </a>
@@ -1353,21 +1409,677 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
         </div>
       </article>
 
-              <article class="hotel-card" data-cidade="Gramado" data-cat="gramado serra luxo acima300" data-preco="680">
+              <article class="hotel-card" data-cidade="Maragogi" data-cat="nordeste praia 200a300" data-preco="285">
+          <div class="hotel-thumb">
+            <span class="card-badge-pill">★ 8.9 Excelente · Pé na Areia</span>
+            <img src="img/ibis-styles-maragogi.jpg?v=20261128b" alt="Ibis Styles Maragogi" loading="lazy">
+          </div>
+          <div class="hotel-body">
+            <div class="hotel-loc-line"><span>📍 Pé na areia · 🎯 Em frente às Piscinas Naturais</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+            <h3 class="hotel-title-luxe">Ibis Styles Maragogi</h3>
+            <p class="hotel-desc-luxe">Resort contemporâneo pé na areia com deck panorâmico de madeira sobre as águas mornas de Maragogi, piscinas ao ar livre e estrutura completa.</p>
+            <div class="hotel-footer-luxe">
+              <div class="hotel-price-luxe">R$ 285 <small>/ diária</small></div>
+              <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fattractions%2Fsearchresults.pt-br.html%3Fdest_id%3D-652718" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+            </div>
+          </div>
+        </article>
+
+      <article class="hotel-card" data-cidade="Campos do Jordão" data-cat="campos serra ate150" data-preco="115">
         <div class="hotel-thumb">
-          <span class="card-badge-pill">★ 9.5 Excepcional · 5 Estrelas</span>
-          <img src="img/hotel-casa-da-montanha.jpg?v=20261128b" alt="Hotel Casa da Montanha (Gramado)" loading="lazy">
+          <span class="card-badge-pill">⭐ Testado pelo Renato</span>
+          <img src="img/refugio-alpino-economy.jpg" alt="Refúgio Alpino Economy (Campos do Jordão)" loading="lazy">
         </div>
         <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Av. Borges de Medeiros (Centro) · 🎯 Localização 9.9</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café Colonial Farto</span></div>
-          <h3 class="hotel-title-luxe">Hotel Casa da Montanha (Gramado)</h3>
-          <p class="hotel-desc-luxe">O hotel boutique 5 estrelas mais icônico de Gramado. Piscina térmica coberta, hidromassagem, sauna, spa, lareira e o tradicional carrossel iluminado na melhor localização da cidade.</p>
+          <div class="hotel-loc-line"><span>📍 1,7 km do Capivari · 🎯 1,2 km do Teleférico</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+          <h3 class="hotel-title-luxe">Refúgio Alpino Economy (Campos do Jordão)</h3>
+          <p class="hotel-desc-luxe">Salão alpino com lareira rústica e adega em barril. Chuveiro a gás de alta pressão e aquecedor para noites frias com economia real perto de Capivari.</p>
           <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 680 <small>/ diária</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fbr%2Fcasa-da-montanha.pt-br.html%3Flabel%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+            <div class="hotel-price-luxe">R$ 115 <small>/ diária</small></div>
+            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DRefugio%2BAlpino%2BCampos%2Bdo%2BJordao%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
           </div>
         </div>
       </article>
+
+<article class="hotel-card" data-cidade="Campos do Jordão" data-cat="campos serra ate150" data-preco="145">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 8.9 Excelente</span>
+        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80" alt="Pousada das Hortênsias Economy (Campos do Jordão)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 2,1 km do Capivari · 🎯 900m da Vila Jaguaribe</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pousada das Hortênsias Economy (Campos do Jordão)</h3>
+        <p class="hotel-desc-luxe">Quartos confortáveis com aquecimento elétrico e jardim florido de hortênsias. Ótima localização em bairro silencioso e seguro.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 145 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BHortensias%2BCampos%2Bdo%2BJordao%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Gramado" data-cat="gramado serra 200a300" data-preco="220">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 9.1 Excelente</span>
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Hotel Sky Gramado (Suíte Clássica)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 800m da Rua Coberta · 🎯 500m do Mini Mundo</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café Colonial Incluso</span></div>
+        <h3 class="hotel-title-luxe">Hotel Sky Gramado (Suíte Clássica)</h3>
+        <p class="hotel-desc-luxe">Arquitetura alemã alpina tradicional na principal avenida de Gramado. Café da manhã estilo colonial farto com mais de 80 variedades.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 220 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DHotel%2BSky%2BGramado%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Gramado" data-cat="gramado serra ate150" data-preco="140">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 8.8 Fabuloso</span>
+        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Pousada Sky Centro Economy (Gramado)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 600m da Rua Coberta · 🎯 300m da Igreja Matriz</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pousada Sky Centro Economy (Gramado)</h3>
+        <p class="hotel-desc-luxe">Localização imbatível para fazer tudo a pé no centro de Gramado pagando diária super econômica. Quarto casal privativo com Wi-Fi rápido.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 140 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DSky%2BCentro%2BHotel%2BGramado%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Gramado" data-cat="gramado serra 200a300" data-preco="270">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 9.4 Excepcional</span>
+        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Pousada Jardim Secreto (Gramado)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 1,1 km do Lago Negro · 🎯 950m da Rua Torta</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café Colonial Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pousada Jardim Secreto (Gramado)</h3>
+        <p class="hotel-desc-luxe">Ambiente boutique acolhedor com lareira acesa e jardins floridos. Perfeito para casais que buscam charme e descanso na Serra Gaúcha.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 270 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BJardim%2BSecreto%2BGramado%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Canela" data-cat="gramado serra 200a300" data-preco="195">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 9.0 Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80" alt="Pousada Villa Bella (Canela)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 900m da Catedral de Pedra · 🎯 2,5 km do Alpen Park</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pousada Villa Bella (Canela)</h3>
+        <p class="hotel-desc-luxe">Pousada aconchegante a poucos minutos da Catedral de Pedra iluminada de Canela. Excelente custo-benefício para quem quer fugir dos preços altos.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 195 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BVilla%2BBella%2BCanela%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Salinópolis" data-cat="salinopolis para praia ate150" data-preco="120">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 8.7 Fabuloso</span>
+        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80" alt="Pousada Recanto do Sal (Salinópolis)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 1,4 km da Praia do Maçarico · 🎯 2,8 km do Atalaia</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pousada Recanto do Sal (Salinópolis)</h3>
+        <p class="hotel-desc-luxe">Ambiente familiar, piscina ao ar livre e estacionamento privativo. Diária justa e estratégica perto da orla de Salinas.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 120 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BRecanto%2Bdo%2BSal%2BSalinopolis%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Salinópolis" data-cat="salinopolis para praia ate150" data-preco="130">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 8.9 Excelente</span>
+        <img src="https://images.unsplash.com/photo-1563911302283-d2bc129e7570?auto=format&fit=crop&w=800&q=80" alt="Pousada Privê das Mangueiras (Salinópolis)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 850m da Orla do Maçarico · 🎯 3,5 km do Farol Velho</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pousada Privê das Mangueiras (Salinópolis)</h3>
+        <p class="hotel-desc-luxe">Chalés privativos com varanda, rede de descanso e área verde. Localização tranquila e arborizada para casais e famílias.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 130 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BPrive%2Bdas%2BMangueiras%2BSalinopolis%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Salinópolis" data-cat="salinopolis para praia 200a300" data-preco="240">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 9.2 Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Salinas Park Resort (Salinópolis)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 3,8 km do centro · 🎯 800m da Praia do Atalaia</span> · <span>🌊 Resort Completo</span> · <span class="hotel-cafe-nao-incluso"><span class="bolinha-cinza-simbolo">✕</span> Café da manhã não incluso</span></div>
+        <h3 class="hotel-title-luxe">Salinas Park Resort (Salinópolis)</h3>
+        <p class="hotel-desc-luxe">Parque aquático completo com piscina de ondas, toboáguas, hidromassagens e estrutura de resort na Amazônia Atlântica com cancelamento grátis.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 240 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DSalinopolis%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Salinópolis" data-cat="salinopolis para praia 200a300" data-preco="210">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 8.8 Fabuloso</span>
+        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=800&q=80" alt="Solar do Farol Salinas Hotel" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 1,1 km da Praia do Farol Velho · 🎯 2,2 km do Maçarico</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Solar do Farol Salinas Hotel</h3>
+        <p class="hotel-desc-luxe">Piscina com bar molhado, quartos amplos com ar-condicionado potente e localização estratégica entre as praias de Salinas.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 210 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DSalinopolis%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Belém" data-cat="para belem ate150" data-preco="145">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 8.6 Muito Bom</span>
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Hotel Princesa Louçã (Belém)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 400m da Praça da República · 🎯 1,2 km da Estação das Docas</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Hotel Princesa Louçã (Belém)</h3>
+        <p class="hotel-desc-luxe">Hotel tradicional no coração histórico de Belém, em frente ao Theatro da Paz. Piscina grande, academia e quartos espaçosos.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 145 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DHotel%2BPrincesa%2BLouca%2BBelem%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Belém" data-cat="para belem 200a300" data-preco="230">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 8.9 Excelente</span>
+        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Ibis Styles Belém Batista Campos" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 300m da Praça Batista Campos · 🎯 1,8 km do Ver-o-Peso</span> · <span class="hotel-cafe-nao-incluso"><span class="bolinha-cinza-simbolo">✕</span> Café da manhã não incluso</span></div>
+        <h3 class="hotel-title-luxe">Ibis Styles Belém Batista Campos</h3>
+        <p class="hotel-desc-luxe">Hotel moderno no bairro mais nobre e arborizado de Belém. Quarto casal privativo com cama Sweet Bed, silêncio e segurança.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 230 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DIbis%2BStyles%2BBelem%2BBatista%2BCampos%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Porto de Galinhas" data-cat="nordeste praia ate150" data-preco="140">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 8.8 Fabuloso</span>
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Pousada Recanto dos Corais (Porto de Galinhas)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 250m das Piscinas Naturais · 🎯 150m da Vila</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pousada Recanto dos Corais (Porto de Galinhas)</h3>
+        <p class="hotel-desc-luxe">Localização excelente a poucos passos das piscinas naturais de Porto de Galinhas. Quartos com ar split, piscina e café regional.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 140 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BRecanto%2Bdos%2BCorais%2BPorto%2Bde%2BGalinhas%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Porto de Galinhas" data-cat="nordeste praia 200a300" data-preco="260">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 9.1 Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Pousada Tabapitanga Eco (Porto de Galinhas)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 Pé na areia Praia do Cupe · 🎯 3,5 km de Maracaípe</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pousada Tabapitanga Eco (Porto de Galinhas)</h3>
+        <p class="hotel-desc-luxe">Pé na areia com piscina de frente para o mar calmo do Cupe. Coqueiral privativo, restaurante beira-mar e tranquilidade total.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 260 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BTabapitanga%2BPorto%2Bde%2BGalinhas%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Maragogi" data-cat="nordeste praia ate150" data-preco="140">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 8.7 Fabuloso</span>
+        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=800&q=80" alt="Pousada Estrela de Maragogi Economy" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 350m da Praia Central · 🎯 2,5 km das Galés</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pousada Estrela de Maragogi Economy</h3>
+        <p class="hotel-desc-luxe">Base econômica e limpa para conhecer o Caribe Brasileiro e fazer os passeios de catamarã às piscinas naturais de Maragogi.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 140 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fattractions%2Fsearchresults.pt-br.html%3Fdest_id%3D-652718" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Maceió" data-cat="nordeste praia ate150" data-preco="150">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 8.9 Excelente</span>
+        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80" alt="Pajuçara Flat & Suítes (Maceió)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 200m da Praia de Pajuçara · 🎯 300m das Jangadas</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pajuçara Flat & Suítes (Maceió)</h3>
+        <p class="hotel-desc-luxe">Quartos modernos e arejados a poucos passos da feirinha de artesanato e do embarque para as piscinas de água morna de Pajuçara.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 150 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPajucara%2BFlat%2BMaceio%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Maceió" data-cat="nordeste praia 200a300" data-preco="260">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 9.2 Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Hotel Ponta Verde Suítes (Maceió)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 80m da Praia de Ponta Verde · 🎯 600m do Marco dos Corais</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Hotel Ponta Verde Suítes (Maceió)</h3>
+        <p class="hotel-desc-luxe">Localização de ouro no melhor trecho da orla de Maceió. Piscina com vista mar, atendimento nota 10 e café da manhã alagoano premiado.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 260 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DHotel%2BPonta%2BVerde%2BMaceio%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Praia da Pipa" data-cat="nordeste praia ate150" data-preco="145">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 9.0 Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80" alt="Pousada Morada das Torres (Praia da Pipa)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 400m da Praia do Amor · 🎯 350m da Rua do Céu</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pousada Morada das Torres (Praia da Pipa)</h3>
+        <p class="hotel-desc-luxe">Ambiente rústico e arborizado pertinho das falésias da Praia do Amor e do burburinho charmoso de Pipa. Piscina e jardim relaxante.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 145 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BMorada%2Bdas%2BTorres%2BPipa%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Praia da Pipa" data-cat="nordeste praia 200a300" data-preco="275">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 9.3 Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Ponta do Madeiro Suítes (Praia da Pipa)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 150m da Praia do Madeiro · 🎯 1,2 km da Baía dos Golfinhos</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Ponta do Madeiro Suítes (Praia da Pipa)</h3>
+        <p class="hotel-desc-luxe">Vista espetacular do alto das falésias para a praia onde os golfinhos nadam livres. Piscina de borda infinita e contato íntimo com a natureza.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 275 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPonta%2Bdo%2BMadeiro%2BPipa%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Fortaleza" data-cat="nordeste praia ate150" data-preco="135">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 8.7 Fabuloso</span>
+        <img src="https://images.unsplash.com/photo-1563911302283-d2bc129e7570?auto=format&fit=crop&w=800&q=80" alt="Pousada Praias de Fortaleza" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 300m da Praia de Iracema · 🎯 800m do Dragão do Mar</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pousada Praias de Fortaleza</h3>
+        <p class="hotel-desc-luxe">Quartos privativos com ar-condicionado e frigobar pertinho do calçadão de Iracema. Economia certa para explorar a capital cearense.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 135 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BPraias%2Bde%2BFortaleza%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Cumbuco" data-cat="nordeste praia 200a300" data-preco="230">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 9.0 Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Vila Galé & Pousada Cumbuco Beach" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 Pé na areia do Cumbuco · 🎯 1,1 km da Lagoa do Banana</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Vila Galé & Pousada Cumbuco Beach</h3>
+        <p class="hotel-desc-luxe">Resort pé na areia famoso pelos ventos de kitesurf e passeios de buggy nas dunas. Infraestrutura de lazer completa e mar quente.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 230 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BCumbuco%2BBeach%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Salvador" data-cat="nordeste praia ate150" data-preco="145">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 8.8 Fabuloso</span>
+        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=800&q=80" alt="Pousada Solar da Barra (Salvador)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 250m do Farol da Barra · 🎯 150m da Praia do Porto</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pousada Solar da Barra (Salvador)</h3>
+        <p class="hotel-desc-luxe">Localização privilegiada para ver o pôr do sol mais famoso da Bahia no Farol da Barra. Quarto casal privativo com ar e Wi-Fi.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 145 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BSolar%2Bda%2BBarra%2BSalvador%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Salvador" data-cat="nordeste 200a300" data-preco="220">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 9.1 Excelente</span>
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Pousada do Pilão (Pelourinho / Salvador)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 100m do Largo do Pelourinho · 🎯 300m do Elevador Lacerda</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pousada do Pilão (Pelourinho / Salvador)</h3>
+        <p class="hotel-desc-luxe">Casarão colonial restaurado com vista para o casario histórico e baía de Todos os Santos. Cultura, axé e segurança no centro histórico.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 220 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2Bdo%2BPilao%2BPelourinho%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Rio de Janeiro" data-cat="rio ate150" data-preco="140">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 8.8 Fabuloso</span>
+        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Selina Lapa Rio Economy (Rio de Janeiro)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 180m dos Arcos da Lapa · 🎯 450m da Escadaria Selarón</span> · <span class="hotel-cafe-nao-incluso"><span class="bolinha-cinza-simbolo">✕</span> Café da manhã não incluso</span></div>
+        <h3 class="hotel-title-luxe">Selina Lapa Rio Economy (Rio de Janeiro)</h3>
+        <p class="hotel-desc-luxe">Ambiente descolado, rooftop com vista para a Lapa e quartos privativos modernos com ar-condicionado perto do metrô Cinelândia.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 140 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DSelina%2BLapa%2BRio%2Bde%2BJaneiro%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Rio de Janeiro" data-cat="rio praia 200a300" data-preco="260">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 9.0 Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="B&B Hotel Rio Copacabana Forte" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 150m de Copacabana Posto 6 · 🎯 400m do Forte</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">B&B Hotel Rio Copacabana Forte</h3>
+        <p class="hotel-desc-luxe">Piscina na cobertura com vista deslumbrante para a orla de Copacabana e Pão de Açúcar. A poucos passos também da praia do Arpoador.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 260 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DBB%2BHotel%2BRio%2BCopacabana%2BForte%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Rio de Janeiro" data-cat="rio praia 200a300" data-preco="290">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 9.2 Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80" alt="Ipanema Inn Economy Suíte (Rio de Janeiro)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 120m da Praia de Ipanema · 🎯 300m da Praça N. Sra da Paz</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Ipanema Inn Economy Suíte (Rio de Janeiro)</h3>
+        <p class="hotel-desc-luxe">Hotel boutique charmoso em uma das ruas mais arborizadas e seguras de Ipanema. Serviço atencioso e praia a uma quadra.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 290 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DIpanema%2BInn%2BRio%2Bde%2BJaneiro%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Arraial do Cabo" data-cat="rio praia ate150" data-preco="140">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 8.9 Excelente</span>
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Pousada Capitão Nado (Arraial do Cabo)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 350m da Praia dos Anjos · 🎯 800m do Pontal do Atalaia</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pousada Capitão Nado (Arraial do Cabo)</h3>
+        <p class="hotel-desc-luxe">Pousada simples, limpa e muito bem recomendada pertinho do porto de onde saem os passeios de barco para as praias paradisíacas de Arraial.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 140 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BCapitao%2BNado%2BArraial%2Bdo%2BCabo%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Armação dos Búzios" data-cat="rio praia 200a300" data-preco="250">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 9.1 Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Pousada Praia da Tartaruga (Búzios)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 200m da Praia da Tartaruga · 🎯 1,2 km da Rua das Pedras</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pousada Praia da Tartaruga (Búzios)</h3>
+        <p class="hotel-desc-luxe">Charmosa pousada com piscina cercada por coqueiros e mata atlântica a uma caminhada curta das águas calmas e mornas da Tartaruga.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 250 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fattractions%2Fsearchresults.pt-br.html%3Fdest_id%3D-632599" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Foz do Iguaçu" data-cat="sul ate150" data-preco="125">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 8.9 Excelente</span>
+        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80" alt="Pousada Canto dos Pássaros (Foz do Iguaçu)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 1,5 km do Centro · 🎯 12 km das Cataratas</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pousada Canto dos Pássaros (Foz do Iguaçu)</h3>
+        <p class="hotel-desc-luxe">Pousada tranquila e acolhedora com piscina e muito verde. Ideal para descansar após os dias intensos de passeios nas Cataratas e compras no Paraguai.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 125 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BCanto%2Bdos%2BPassaros%2BFoz%2Bdo%2BIguacu%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Foz do Iguaçu" data-cat="sul 200a300" data-preco="265">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 9.1 Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="San Martin Resort & Park (Foz do Iguaçu)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 400m do Parque das Cataratas · 🎯 300m do Parque das Aves</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">San Martin Resort & Park (Foz do Iguaçu)</h3>
+        <p class="hotel-desc-luxe">Resort ecológico vizinho imediato da entrada das Cataratas do Iguaçu. Piscina ampla, trilhas ecológicas privativas e buffet de café farto.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 265 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DSan%2BMartin%2BResort%2BFoz%2Bdo%2BIguacu%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Florianópolis" data-cat="sul praia ate150" data-preco="135">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 8.8 Fabuloso</span>
+        <img src="https://images.unsplash.com/photo-1563911302283-d2bc129e7570?auto=format&fit=crop&w=800&q=80" alt="Pousada Barra Sul Economy (Florianópolis)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 250m da Barra da Lagoa · 🎯 1,1 km do Projeto Tamar</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pousada Barra Sul Economy (Florianópolis)</h3>
+        <p class="hotel-desc-luxe">Pousadinha limpa e aconchegante a poucos passos da praia e das piscinas naturais da Barra da Lagoa na Ilha da Magia.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 135 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BBarra%2BSul%2BFlorianopolis%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Florianópolis" data-cat="sul praia 200a300" data-preco="220">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 9.0 Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Pousada Sonho Meu (Florianópolis - Canasvieiras)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 150m da Praia de Canasvieiras · 🎯 3,5 km de Jurerê</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pousada Sonho Meu (Florianópolis - Canasvieiras)</h3>
+        <p class="hotel-desc-luxe">Piscina, churrasqueira, quartos com ar split e varanda pertinho do mar calmo do norte da ilha. Excelente relação custo x benefício.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 220 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BSonho%2BMeu%2BCanasvieiras%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Balneário Camboriú" data-cat="sul praia 200a300" data-preco="280">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 9.1 Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=800&q=80" alt="Hotel Mercure Balneário Camboriú" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 Frente para a Praia Central · 🎯 900m do Parque Unipraias</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Hotel Mercure Balneário Camboriú</h3>
+        <p class="hotel-desc-luxe">Hotel de rede internacional de frente para a praia central revitalizada de BC. Piscina aquecida, sauna, academia e quartos com vista mar.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 280 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DMercure%2BBalneario%2BCamboriu%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="São Paulo" data-cat="sp ate150" data-preco="140">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 8.7 Fabuloso</span>
+        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Ibis Budget Paulista / Consolação (São Paulo)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 150m da Av. Paulista · 🎯 500m do MASP</span> · <span class="hotel-cafe-nao-incluso"><span class="bolinha-cinza-simbolo">✕</span> Café da manhã não incluso</span></div>
+        <h3 class="hotel-title-luxe">Ibis Budget Paulista / Consolação (São Paulo)</h3>
+        <p class="hotel-desc-luxe">Localização mais prática de São Paulo na esquina da Paulista com Consolação. Metrô na porta para turismo gastronômico e cultural.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 140 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DIbis%2BBudget%2BPaulista%2BSao%2BPaulo%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="São Paulo" data-cat="sp 200a300" data-preco="275">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 9.0 Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Transamerica Prime International Plaza (São Paulo)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 1 quadra da Av. Paulista (Al. Santos) · 🎯 400m do Trianon</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Transamerica Prime International Plaza (São Paulo)</h3>
+        <p class="hotel-desc-luxe">Apart-hotel 4 estrelas com cozinha americana, varanda, sauna e piscina no Jardins. Padrão executivo com conforto de casal.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 275 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DTransamerica%2BPrime%2BInternational%2BPlaza%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Caldas Novas" data-cat="centrooeste ate150" data-preco="135">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 8.9 Excelente</span>
+        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80" alt="Pousada Recanto das Águas (Caldas Novas)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 800m do Centro · 🎯 1,2 km do diRoma Acqua Park</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pousada Recanto das Águas (Caldas Novas)</h3>
+        <p class="hotel-desc-luxe">Piscinas de águas termais naturais no próprio hotel para relaxar 24h. Ambiente aconchegante e silencioso por diária econômica.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 135 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BRecanto%2Bdas%2BAguas%2BCaldas%2BNovas%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Caldas Novas" data-cat="centrooeste 200a300" data-preco="230">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 9.2 Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Piazza diRoma Flat Resort (Caldas Novas)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 Acesso ao complexo termal diRoma · 🎯 900m do Jardim Japonês</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Piazza diRoma Flat Resort (Caldas Novas)</h3>
+        <p class="hotel-desc-luxe">Estrutura moderna de resort de águas quentes com toboáguas, hidromassagem e gastronomia típica goiana. Tarifa econômica de flat.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 230 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPiazza%2BdiRoma%2BCaldas%2BNovas%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Pirenópolis" data-cat="centrooeste 200a300" data-preco="260">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 9.3 Fantástico</span>
+        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Pousada Casarão Villa do Império (Pirenópolis)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 300m da Rua do Lazer · 🎯 450m da Igreja Matriz</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café Colonial Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pousada Casarão Villa do Império (Pirenópolis)</h3>
+        <p class="hotel-desc-luxe">Charme imperial e arquitetura histórica tombada em Pirenópolis. Piscina aquecida entre pedras, sauna e café colonial inesquecível.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 260 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2BCasarao%2BVilla%2Bdo%2BImperio%2BPirenopolis%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Foz do Iguaçu" data-cat="sul luxo acima300" data-preco="460">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 9.2 Resort Comparativo</span>
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Wish Foz do Iguaçu Luxury Golf Resort" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 8 km do Parque Nacional · 🎯 Campos de Golf Profissionais</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Wish Foz do Iguaçu Luxury Golf Resort</h3>
+        <p class="hotel-desc-luxe">Resort 5 estrelas em estilo vilas americanas com piscinas privativas por setor e alta gastronomia internacional para quem deseja luxo.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 460 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DWish%2BFoz%2Bdo%2BIguacu%2BResort%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Cumbuco" data-cat="nordeste praia luxo acima300" data-preco="480">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 9.4 Resort Comparativo</span>
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Carmel Cumbuco Luxury Beach Resort" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 Pé na areia Praia do Cumbuco · 🎯 Spa Caudalie & Jacuzzis</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Carmel Cumbuco Luxury Beach Resort</h3>
+        <p class="hotel-desc-luxe">Design sofisticado e moderno integrado às dunas cearenses. Jacuzzis aquecidas de frente para o mar e culinária contemporânea.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 480 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DCarmel%2BCumbuco%2BResort%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Gramado" data-cat="gramado serra luxo acima300" data-preco="680">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 9.5 Excepcional · 5 Estrelas</span>
+        <img src="img/hotel-casa-da-montanha.jpg?v=20261128b" alt="Hotel Casa da Montanha (Gramado)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 Av. Borges de Medeiros (Centro) · 🎯 Localização 9.9</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café Colonial Farto</span></div>
+        <h3 class="hotel-title-luxe">Hotel Casa da Montanha (Gramado)</h3>
+        <p class="hotel-desc-luxe">O hotel boutique 5 estrelas mais icônico de Gramado. Piscina térmica coberta, hidromassagem, sauna, spa, lareira e o tradicional carrossel iluminado na melhor localização da cidade.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 680 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fbr%2Fcasa-da-montanha.pt-br.html%3Flabel%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
       <article class="hotel-card" data-cidade="Cabo Frio" data-cat="rio praia ate150" data-preco="145">
         <div class="hotel-thumb">
           <span class="card-badge-pill">★ 8.8 Fabuloso</span>
@@ -1444,41 +2156,125 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     </div>
     <div>
       <p>© 2026 Renato Penner Soares. Todos os direitos reservados.</p>
-      <p><a href="https://loja.pennertech.com.br/">loja.pennertech.com.br</a> · <a href="https://instagram.com/pennerrenato" target="_blank" rel="noopener">@pennerrenato</a></p>
+      <p><a href="https://loja.pennertech.com.br/" target="_blank" rel="noopener">loja.pennertech.com.br</a> · <a href="https://baixa.pennertech.com.br/" target="_blank" rel="noopener">baixa.pennertech.com.br</a> · <a href="https://baixatube.pennertech.com.br/" target="_blank" rel="noopener">baixatube.pennertech.com.br</a> · <a href="https://instagram.com/pennerrenato" target="_blank" rel="noopener">@pennerrenato</a></p>
     </div>
 </footer>
 
 <script>
-// CONTROLE DOS 2 MODOS DE BUSCA (SUPER 360 & SUBOPÇÕES)
+// CONTROLE DOS 3 MODOS DE BUSCA (SUPER 360, PASSAGENS NO MUNDO & CATEGORIA)
 function alternarModo(modo) {
   var bSuper = document.getElementById('btnModoSuper');
+  var bVoos = document.getElementById('btnModoVoos');
   var bCat = document.getElementById('btnModoCat');
   var pSuper = document.getElementById('painelSuper');
+  var pVoos = document.getElementById('painelVoos');
   var pCat = document.getElementById('painelCat');
 
+  if (bSuper) bSuper.classList.remove('ativo');
+  if (bVoos) bVoos.classList.remove('ativo');
+  if (bCat) bCat.classList.remove('ativo');
+
+  if (pSuper) pSuper.style.display = 'none';
+  if (pVoos) pVoos.style.display = 'none';
+  if (pCat) pCat.style.display = 'none';
+
   if (modo === 'super') {
-    bSuper.classList.add('ativo');
-    bCat.classList.remove('ativo');
-    pSuper.style.display = 'block';
-    pCat.style.display = 'none';
-    document.getElementById('destSuperInput').focus();
+    if (bSuper) bSuper.classList.add('ativo');
+    if (pSuper) pSuper.style.display = 'block';
+    var inp = document.getElementById('destSuperInput');
+    if (inp) inp.focus();
+  } else if (modo === 'voos') {
+    if (bVoos) bVoos.classList.add('ativo');
+    if (pVoos) pVoos.style.display = 'block';
+    var inpV = document.getElementById('destVooInput');
+    if (inpV) inpV.focus();
   } else {
-    bCat.classList.add('ativo');
-    bSuper.classList.remove('ativo');
-    pSuper.style.display = 'none';
-    pCat.style.display = 'block';
-    document.getElementById('inputDestCat').focus();
+    if (bCat) bCat.classList.add('ativo');
+    if (pCat) pCat.style.display = 'block';
+    var inpC = document.getElementById('inputDestCat');
+    if (inpC) inpC.focus();
   }
 }
 
+// ========================================================
+// GERADOR INTELIGENTE DE LINKS DE PASSAGENS AÉREAS NO MUNDO
+// ========================================================
+var AWIN_AFFID = '3169987';
+var AWIN_MID_TRIP = '119147';
+var TRAVELPAYOUTS_MARKER = '812990';
+var TRAVELPAYOUTS_BOOKING_P = '4115';
+
+function normalizarTexto(txt) {
+  return (txt || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
+}
+
+function extrairCidadeBase(str) {
+  var s = (str || '').split('(')[0].split(',')[0].trim();
+  return s;
+}
+
+function dispararBuscaVoos() {
+  var dInp = document.getElementById('destVooInput');
+  var d = (dInp ? dInp.value : '').trim();
+  if (!d) return;
+
+  var oInp = document.getElementById('origemVooInput');
+  var orig = (oInp ? oInp.value : '').trim() || 'São Paulo';
+  var dtIda = document.getElementById('dataIdaVoo') ? document.getElementById('dataIdaVoo').value : '';
+  var dtVolta = document.getElementById('dataVoltaVoo') ? document.getElementById('dataVoltaVoo').value : '';
+
+  executarBuscaVoosMundial(orig, d, dtIda, dtVolta);
+}
+
+function executarBuscaVoosMundial(origem, destino, dtIda, dtVolta) {
+  var cidade = extrairCidadeBase(destino);
+  var cidadeNorm = normalizarTexto(cidade);
+  var enc = encodeURIComponent(cidade);
+
+  // Deep link Trip.com (Awin Oficial)
+  var urlTripDest = 'https://br.trip.com/flights/';
+  if (cidadeNorm === 'roma' || cidadeNorm === 'rome') {
+    urlTripDest = 'https://br.trip.com/flights/to-rome/airtickets-rom/';
+  } else if (cidadeNorm === 'paris') {
+    urlTripDest = 'https://br.trip.com/flights/to-paris/airtickets-par/';
+  } else if (cidadeNorm === 'lisboa' || cidadeNorm === 'lisbon') {
+    urlTripDest = 'https://br.trip.com/flights/to-lisbon/airtickets-lis/';
+  } else if (cidadeNorm === 'orlando') {
+    urlTripDest = 'https://br.trip.com/flights/to-orlando/airtickets-orl/';
+  } else if (cidadeNorm === 'miami') {
+    urlTripDest = 'https://br.trip.com/flights/to-miami/airtickets-mia/';
+  } else if (cidadeNorm === 'buenos aires') {
+    urlTripDest = 'https://br.trip.com/flights/to-buenos-aires/airtickets-bue/';
+  }
+  var urlTrip = 'https://www.awin1.com/cread.php?awinmid=' + AWIN_MID_TRIP + '&awinaffid=' + AWIN_AFFID + '&ued=' + encodeURIComponent(urlTripDest);
+
+  // Booking Flights (Travelpayouts)
+  var rawBookingFlights = 'https://www.booking.com/flights/index.pt-br.html?label=pennertech-booking&ss=' + enc;
+  var urlBookingFlights = 'https://tp.media/r?marker=' + TRAVELPAYOUTS_MARKER + '&p=' + TRAVELPAYOUTS_BOOKING_P + '&u=' + encodeURIComponent(rawBookingFlights);
+
+  // Aviasales Comparador Global
+  var urlAviasales = 'https://www.aviasales.com/search?marker=' + TRAVELPAYOUTS_MARKER + '&destination_name=' + enc;
+  if (dtIda) urlAviasales += '&depart_date=' + dtIda;
+  if (dtVolta) urlAviasales += '&return_date=' + dtVolta;
+
+  // Atualizar os links rápidos no box de voos
+  var lTrip = document.getElementById('linkVooTrip');
+  if (lTrip) lTrip.href = urlTrip;
+  var lBook = document.getElementById('linkVooBooking');
+  if (lBook) lBook.href = urlBookingFlights;
+  var lAvia = document.getElementById('linkVooAviasales');
+  if (lAvia) lAvia.href = urlAviasales;
+
+  // Abrir o comparador oficial em nova aba (Trip.com comissionado)
+  window.open(urlTrip, '_blank');
+
+  // Também renderiza o Hub 360 do destino na página para experiência completa
+  executarFiltroPorDestino(cidade, dtIda, dtVolta);
+}
 
 // ========================================================
 // SUPER BUSCA 360° POR CIDADE / DESTINO (FILTRA A PÁGINA)
 // ========================================================
-function normalizarTexto(txt) {
-  return (txt || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
-}
-
 function dispararSuper360() {
   var d = (document.getElementById('destSuperInput').value || '').trim();
   if (!d) return;
@@ -1490,13 +2286,13 @@ function dispararSuper360() {
 }
 
 // ========================================================
-// CATÁLOGO E HUB 360° DE 265 DESTINOS DO BRASIL (ON-DEMAND)
+// CATÁLOGO E HUB 360° DE DESTINOS BRASIL & MUNDIAIS
 // ========================================================
 var destinosBrasilDB = [];
 var destinosIndex = {};
 
 (function carregarCatalogoDestinos() {
-  fetch('data/destinos_brasil_200.json?v=20261128_v14')
+  fetch('data/destinos_brasil_200.json?v=20261128_v16')
     .then(function(r){ return r.json(); })
     .then(function(d){
       destinosBrasilDB = d;
@@ -1512,17 +2308,12 @@ var destinosIndex = {};
     });
 })();
 
-function extrairCidadeBase(str) {
-  var s = (str || '').split(',')[0].trim();
-  return s;
-}
-
 function executarFiltroPorDestino(destino, cin, cout) {
   var cidadeBase = extrairCidadeBase(destino);
   var cidadeBaseNorm = normalizarTexto(cidadeBase);
   var destinoNorm = normalizarTexto(destino);
 
-  // Busca dados completos no catálogo de 265 destinos do Brasil
+  // Busca dados completos no catálogo
   var destInfo = destinosIndex[destinoNorm] || destinosIndex[cidadeBaseNorm] || null;
   if (!destInfo && destinosBrasilDB.length > 0) {
     destInfo = destinosBrasilDB.find(function(item){
@@ -1551,23 +2342,48 @@ function executarFiltroPorDestino(destino, cin, cout) {
     }
   });
 
-  var enc = encodeURIComponent(destino);
+  var enc = encodeURIComponent(cidadeBase);
+
+  // Links Comissionados Inteligentes (Brasil ou Qualquer Lugar do Mundo)
   var rawBooking = (destInfo && destInfo.link_booking) 
     ? (destInfo.link_booking + (cin ? '&checkin=' + cin : '') + (cout ? '&checkout=' + cout : ''))
-    : ('https://tp.media/r?marker=812990&p=4115&u=' + encodeURIComponent('https://www.booking.com/searchresults.pt-br.html?ss=' + enc + (cin ? '&checkin=' + cin : '') + (cout ? '&checkout=' + cout : '')));
+    : ('https://tp.media/r?marker=' + TRAVELPAYOUTS_MARKER + '&p=' + TRAVELPAYOUTS_BOOKING_P + '&u=' + encodeURIComponent('https://www.booking.com/searchresults.pt-br.html?ss=' + enc + (cin ? '&checkin=' + cin : '') + (cout ? '&checkout=' + cout : '')));
   var urlBooking = rawBooking;
 
-  var urlVoos = (destInfo && destInfo.link_voos) ? destInfo.link_voos : ('https://www.aviasales.com/search?marker=812990&destination_name=' + enc);
+  // Trip.com Voos
+  var urlTripDest = 'https://br.trip.com/flights/';
+  if (cidadeBaseNorm === 'roma' || cidadeBaseNorm === 'rome') {
+    urlTripDest = 'https://br.trip.com/flights/to-rome/airtickets-rom/';
+  } else if (cidadeBaseNorm === 'paris') {
+    urlTripDest = 'https://br.trip.com/flights/to-paris/airtickets-par/';
+  } else if (cidadeBaseNorm === 'lisboa' || cidadeBaseNorm === 'lisbon') {
+    urlTripDest = 'https://br.trip.com/flights/to-lisbon/airtickets-lis/';
+  } else if (cidadeBaseNorm === 'orlando') {
+    urlTripDest = 'https://br.trip.com/flights/to-orlando/airtickets-orl/';
+  } else if (cidadeBaseNorm === 'miami') {
+    urlTripDest = 'https://br.trip.com/flights/to-miami/airtickets-mia/';
+  }
+  var urlVoosTrip = (destInfo && destInfo.link_voos_trip) ? destInfo.link_voos_trip : ('https://www.awin1.com/cread.php?awinmid=' + AWIN_MID_TRIP + '&awinaffid=' + AWIN_AFFID + '&ued=' + encodeURIComponent(urlTripDest));
+
+  // Comparador de Voos (Aviasales)
+  var urlVoos = (destInfo && destInfo.link_voos_aviasales) ? destInfo.link_voos_aviasales : ('https://www.aviasales.com/search?marker=' + TRAVELPAYOUTS_MARKER + '&destination_name=' + enc);
   if (cin && urlVoos.indexOf('depart_date') === -1) urlVoos += '&depart_date=' + cin;
   if (cout && urlVoos.indexOf('return_date') === -1) urlVoos += '&return_date=' + cout;
 
+  // Viator Ingressos
   var urlViator = (destInfo && destInfo.link_atracoes) 
     ? destInfo.link_atracoes 
-    : ('https://tp.media/r?marker=812990&p=3249&u=' + encodeURIComponent('https://www.viator.com/searchResults/all?text=' + destino));
+    : ('https://tp.media/r?marker=' + TRAVELPAYOUTS_MARKER + '&p=3249&u=' + encodeURIComponent('https://www.viator.com/searchResults/all?text=' + cidadeBase));
 
+  // Gastronomia
   var urlGastro = (destInfo && destInfo.link_gastronomia) 
     ? destInfo.link_gastronomia 
-    : ('https://www.primeiramesa.com.br/busca?q=' + enc);
+    : ('https://www.thefork.com.br/search?text=' + enc);
+
+  // eSIM e Seguro Viagem
+  var urlEsim = (destInfo && destInfo.link_esim) ? destInfo.link_esim : ('https://www.awin1.com/cread.php?awinmid=131908&awinaffid=' + AWIN_AFFID + '&ued=https%3A%2F%2Fesimprime.com%2F');
+  var urlSeguro = (destInfo && destInfo.link_seguro) ? destInfo.link_seguro : ('https://www.awin1.com/cread.php?awinmid=120992&awinaffid=' + AWIN_AFFID + '&ued=https%3A%2F%2Fwww.melhorseguro.com.br%2F');
+  var urlCarros = (destInfo && destInfo.link_carros) ? destInfo.link_carros : ('https://www.rentcars.com/pt-br/cidades/' + enc + '?requestorid=6864');
 
   var bannerBox = document.getElementById('bannerResultadoCidade');
   if (!bannerBox) {
@@ -1575,17 +2391,18 @@ function executarFiltroPorDestino(destino, cin, cout) {
     bannerBox.id = 'bannerResultadoCidade';
     bannerBox.className = 'banner-cidade-wrap';
     var grid = document.getElementById('gridHoteis');
-    grid.parentNode.insertBefore(bannerBox, grid);
+    if (grid) grid.parentNode.insertBefore(bannerBox, grid);
+    else document.body.appendChild(bannerBox);
   }
 
   var htmlBanner = '';
   if (destInfo) {
-    var bgImg = destInfo.imagem || 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80';
+    var bgImg = destInfo.imagem || 'img/coliseu-roma-italia.jpg';
     htmlBanner += '<div class="hub360-container">';
     htmlBanner += '  <div class="hub360-hero" style="background-image:url(' + bgImg + ')">';
     htmlBanner += '    <div class="hub360-hero-content">';
     htmlBanner += '      <div class="hub360-badges">';
-    htmlBanner += '        <span class="hub360-badge">📍 ' + (destInfo.regiao || 'Brasil') + '</span>';
+    htmlBanner += '        <span class="hub360-badge">📍 ' + (destInfo.regiao || 'Destino Mundial') + '</span>';
     htmlBanner += '        <span class="hub360-badge hub360-badge-price">Diária Média: ' + (destInfo.preco_diaria_estimada || 'Econômica') + '</span>';
     htmlBanner += '      </div>';
     htmlBanner += '      <h3 class="hub360-title">Hub 360° PennerTech: ' + destInfo.cidade_uf + '</h3>';
@@ -1594,16 +2411,18 @@ function executarFiltroPorDestino(destino, cin, cout) {
     htmlBanner += '  </div>';
     htmlBanner += '  <div class="hub360-body">';
     htmlBanner += '    <div class="hub360-top-bar">';
-    htmlBanner += '      <h4>⚡ Cotações Oficiais & Descontos em ' + destInfo.nome + ':</h4>';
+    htmlBanner += '      <h4>⚡ Cotações Oficiais & Menores Tarifas em ' + destInfo.nome + ':</h4>';
     htmlBanner += '      <button type="button" onclick="limparFiltroCidade()" class="btn-limpar-filtro">✕ Ver todos os destinos</button>';
     htmlBanner += '    </div>';
     htmlBanner += '    <div class="hub360-actions-grid">';
+    htmlBanner += '      <a href="' + urlVoosTrip + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao" style="background:linear-gradient(135deg,#0086F6,#0066cc);color:#fff;font-weight:700">✈️ Passagens (' + destInfo.nome + ') no Trip.com →</a>';
+    htmlBanner += '      <a href="' + urlVoos + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao">✈️ Comparar Voos em 700+ Cias (Aviasales) →</a>';
     htmlBanner += '      <a href="' + urlBooking + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao btn-booking-destaque">🏨 Hospedagens no Booking.com →</a>';
-    htmlBanner += '      <a href="' + urlVoos + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao">✈️ Passagens Aéreas (' + destInfo.nome + ') →</a>';
-    htmlBanner += '      <a href="https://www.decolar.com/pacotes/" target="_blank" rel="noopener sponsored" class="banner-btn-acao">🎒 Pacotes Voo + Hotel →</a>';
     htmlBanner += '      <a href="' + urlViator + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao">🎟️ Passeios & Ingressos no Viator →</a>';
-    htmlBanner += '      <a href="' + urlGastro + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao">🍽️ Descontos em Restaurantes →</a>';
-    htmlBanner += '      <a href="https://www.rentcars.com/pt-br/cidades/' + enc + '?requestorid=6864" target="_blank" rel="noopener sponsored" class="banner-btn-acao">🚗 Aluguel de Carros (Localiza, Movida & Unidas) →</a>';
+    htmlBanner += '      <a href="https://www.decolar.com/pacotes/" target="_blank" rel="noopener sponsored" class="banner-btn-acao">🎒 Pacotes Voo + Hotel →</a>';
+    htmlBanner += '      <a href="' + urlCarros + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao">🚗 Aluguel de Carros →</a>';
+    htmlBanner += '      <a href="' + urlEsim + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao">📶 Chip eSIM 5G Internacional →</a>';
+    htmlBanner += '      <a href="' + urlSeguro + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao">🛡️ Seguro Viagem Oficial →</a>';
     htmlBanner += '    </div>';
 
     // Sub-bloco de Atrações com Fotos Reais
@@ -1612,7 +2431,7 @@ function executarFiltroPorDestino(destino, cin, cout) {
       htmlBanner += '      <div class="hub360-subsecao-titulo">🎟️ Principais Atrações & Ingressos Oficiais em ' + destInfo.nome + '</div>';
       htmlBanner += '      <div class="hub360-cards-row">';
       destInfo.atracoes.forEach(function(atr){
-        var fotoAtr = atr.foto || 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80';
+        var fotoAtr = atr.foto || 'img/coliseu-roma-italia.jpg';
         var descAtr = atr.desc || ('Ingresso e passeio oficial com confirmação imediata em ' + destInfo.nome + '.');
         htmlBanner += '        <article class="hub360-card-item">';
         htmlBanner += '          <div class="hub360-card-thumb">';
@@ -1641,7 +2460,7 @@ function executarFiltroPorDestino(destino, cin, cout) {
       destInfo.gastronomia.forEach(function(gastr){
         var fotoGastr = gastr.foto || 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80';
         var badgeGastr = gastr.badge || 'Desconto na Conta';
-        var descGastr = gastr.desc || ('Restaurante e culinária de alta gastronomia com economia real em ' + destInfo.nome + '.');
+        var descGastr = gastr.desc || ('Restaurante e culinária autêntica com economia real em ' + destInfo.nome + '.');
         htmlBanner += '        <article class="hub360-card-item">';
         htmlBanner += '          <div class="hub360-card-thumb">';
         htmlBanner += '            <span class="hub360-card-pill hub360-pill-gastro">🍽️ ' + badgeGastr + '</span>';
@@ -1651,8 +2470,8 @@ function executarFiltroPorDestino(destino, cin, cout) {
         htmlBanner += '            <h5 class="hub360-card-title">' + gastr.nome + '</h5>';
         htmlBanner += '            <p class="hub360-card-desc">' + descGastr + '</p>';
         htmlBanner += '            <div class="hub360-card-footer">';
-        htmlBanner += '              <span class="hub360-card-tag">Reserva com Desconto</span>';
-        htmlBanner += '              <a href="' + gastr.link + '" target="_blank" rel="noopener sponsored" class="hub360-card-btn hub360-btn-gastro">Garantir Desconto →</a>';
+        htmlBanner += '              <span class="hub360-card-tag">Reserva Recomendada</span>';
+        htmlBanner += '              <a href="' + gastr.link + '" target="_blank" rel="noopener sponsored" class="hub360-card-btn hub360-btn-gastro">Ver Restaurante →</a>';
         htmlBanner += '            </div>';
         htmlBanner += '          </div>';
         htmlBanner += '        </article>';
@@ -1663,47 +2482,52 @@ function executarFiltroPorDestino(destino, cin, cout) {
 
     if (totalEncontrados > 0) {
       htmlBanner += '    <div class="hub360-subsecao" style="margin-top:28px">';
-      htmlBanner += '      <div class="hub360-subsecao-titulo">🏨 Hospedagens Selecionadas pela Curadoria Fixa em ' + destInfo.nome + ' (' + totalEncontrados + ' opções abaixo)</div>';
+      htmlBanner += '      <div class="hub360-subsecao-titulo">🏨 Hospedagens Selecionadas em ' + destInfo.nome + ' (' + totalEncontrados + ' opções abaixo)</div>';
       htmlBanner += '    </div>';
     }
 
     htmlBanner += '  </div>';
     htmlBanner += '</div>';
   } else {
-    // Banner fallback
-    htmlBanner = '<div class="banner-cidade-box">';
-    htmlBanner += '<div class="banner-cidade-topo">';
-    htmlBanner += '  <div>';
-    htmlBanner += '    <h3>📍 Resultados para: <em>' + destino + '</em></h3>';
-    if (totalEncontrados > 0) {
-      htmlBanner += '    <p class="banner-cidade-sub">Exibindo <strong>' + totalEncontrados + ' hospedagens selecionadas</strong> em ' + destino + (cin ? ' para ' + cin : '') + '.</p>';
-    } else {
-      htmlBanner += '    <p class="banner-cidade-sub">Consulte todas as opções de hotéis, voos e passeios para ' + destino + ' nos canais oficiais abaixo:</p>';
-    }
+    // Hub 360° Dinâmico Universal para 100% de Todos os Destinos Brasileiros e Mundiais
+    htmlBanner = '<div class="hub360-container">';
+    htmlBanner += '  <div class="hub360-hero" style="background-image:url(https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80)">';
+    htmlBanner += '    <div class="hub360-hero-content">';
+    htmlBanner += '      <div class="hub360-badges">';
+    htmlBanner += '        <span class="hub360-badge">📍 Destino do Brasil 🇧🇷</span>';
+    htmlBanner += '        <span class="hub360-badge hub360-badge-price">⚡ Menor Tarifa Garantida</span>';
+    htmlBanner += '      </div>';
+    htmlBanner += '      <h3 class="hub360-title">Hub 360° PennerTech: ' + cidadeBase + '</h3>';
+    htmlBanner += '      <p class="hub360-desc">Pesquisa em tempo real de passagens aéreas com menor tarifa, hospedagens com desconto oficial no Booking e serviços para ' + cidadeBase + '.</p>';
+    htmlBanner += '    </div>';
     htmlBanner += '  </div>';
-    htmlBanner += '  <button type="button" onclick="limparFiltroCidade()" class="btn-limpar-filtro">✕ Ver todos os destinos</button>';
-    htmlBanner += '</div>';
-    htmlBanner += '<div class="banner-cidade-links">';
-    htmlBanner += '  <a href="' + urlBooking + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao btn-booking-destaque">🏨 Ver todas as vagas no Booking.com →</a>';
-    htmlBanner += '  <a href="' + urlVoos + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao">✈️ Passagens Aéreas (' + destino + ') →</a>';
-    htmlBanner += '  <a href="https://www.decolar.com/pacotes/" target="_blank" rel="noopener sponsored" class="banner-btn-acao">🎒 Pacotes Voo + Hotel →</a>';
-    htmlBanner += '  <a href="' + urlViator + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao">🎟️ Passeios & Ingressos →</a>';
-    htmlBanner += '  <a href="' + urlGastro + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao">🍽️ Descontos em Restaurantes →</a>';
-    htmlBanner += '</div>';
+    htmlBanner += '  <div class="hub360-body">';
+    htmlBanner += '    <div class="hub360-top-bar">';
+    htmlBanner += '      <h4>⚡ Cotações Oficiais & Menores Tarifas em ' + cidadeBase + ':</h4>';
+    htmlBanner += '      <button type="button" onclick="limparFiltroCidade()" class="btn-limpar-filtro">✕ Ver todos os destinos</button>';
+    htmlBanner += '    </div>';
+    htmlBanner += '    <div class="hub360-actions-grid">';
+    htmlBanner += '      <a href="' + urlVoosTrip + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao" style="background:linear-gradient(135deg,#0086F6,#0066cc);color:#fff;font-weight:700">✈️ Passagens (' + cidadeBase + ') no Trip.com →</a>';
+    htmlBanner += '      <a href="' + urlVoos + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao">✈️ Comparar Voos em 700+ Cias (Aviasales) →</a>';
+    htmlBanner += '      <a href="' + urlBooking + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao btn-booking-destaque">🏨 Hospedagens em ' + cidadeBase + ' no Booking →</a>';
+    htmlBanner += '      <a href="' + urlViator + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao">🎟️ Passeios & Ingressos no Viator →</a>';
+    htmlBanner += '      <a href="https://www.decolar.com/pacotes/" target="_blank" rel="noopener sponsored" class="banner-btn-acao">🎒 Pacotes Voo + Hotel →</a>';
+    htmlBanner += '      <a href="' + urlCarros + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao">🚗 Aluguel de Carros →</a>';
+    htmlBanner += '      <a href="' + urlEsim + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao">📶 Chip de Internet Móvel →</a>';
+    htmlBanner += '      <a href="' + urlSeguro + '" target="_blank" rel="noopener sponsored" class="banner-btn-acao">🛡️ Seguro Viagem Oficial →</a>';
+    htmlBanner += '    </div>';
+    htmlBanner += '  </div>';
     htmlBanner += '</div>';
   }
 
   bannerBox.innerHTML = htmlBanner;
   bannerBox.style.display = 'block';
 
-  // Fechar o popup antigo se existir
   var p360 = document.getElementById('popup360');
   if (p360) p360.style.display = 'none';
 
-  // Desmarcar pílulas de categorias
   document.querySelectorAll('.chip-luxe').forEach(function(b){ b.classList.remove('on'); });
 
-  // Rolar suavemente com compensação do cabeçalho fixo
   var yOffset = -85;
   var yPos = bannerBox.getBoundingClientRect().top + window.pageYOffset + yOffset;
   window.scrollTo({ top: yPos, behavior: 'smooth' });
@@ -1713,17 +2537,13 @@ function limparFiltroCidade() {
   var bannerBox = document.getElementById('bannerResultadoCidade');
   if (bannerBox) bannerBox.style.display = 'none';
 
-  // Restaurar todos os cards
   document.querySelectorAll('.hotel-card').forEach(function(card){
     card.style.display = 'flex';
   });
 
-  // Marcar botão "Todos"
   var btnTodos = document.querySelector('.chip-luxe[data-cat="todos"]');
   if (btnTodos) btnTodos.classList.add('on');
 }
-
-
 function atualizarHintCat() {
   var v = document.getElementById('selectSubOpcao').value;
   var l = document.getElementById('lblDestCat');
@@ -1733,6 +2553,7 @@ function atualizarHintCat() {
     l.textContent = 'Destino ou Hotel';
     i.placeholder = 'Digite a cidade, resort ou praia (Booking)...';
   } else if (v === 'passagens') {
+
     l.textContent = 'Destino do Voo';
     i.placeholder = 'Cidade ou aeroporto de destino (Todas as Cias)...';
   } else if (v === 'pacotes') {
@@ -1855,18 +2676,22 @@ document.querySelectorAll('.chip-luxe').forEach(function(btn){
 </script>
 <script>
 
-// AUTOCOMPLETE INTELIGENTE DISCRETO (FILTRA APENAS O QUE DIGITAR)
+// AUTOCOMPLETE INTELIGENTE DISCRETO (BRASIL & MUNDO)
 (function(){
-  var cidades = ["São Paulo, SP", "Campos do Jordão, SP", "Ubatuba, SP", "Ilhabela, SP", "Santos, SP", "Guarujá, SP", "São Sebastião, SP", "Brotas, SP", "Holambra, SP", "Águas de Lindóia, SP", "Cunha, SP", "Santo Antônio do Pinhal, SP", "Serra Negra, SP", "Atibaia, SP", "Socorro, SP", "Olímpia, SP", "Campinas, SP", "Sorocaba, SP", "Ribeirão Preto, SP", "São José dos Campos, SP", "Bertioga, SP", "Caraguatatuba, SP", "Maresias, SP", "Paranapiacaba, SP", "Joanópolis, SP", "Rio de Janeiro, RJ", "Arraial do Cabo, RJ", "Armação dos Búzios, RJ", "Cabo Frio, RJ", "Paraty, RJ", "Petrópolis, RJ", "Angra dos Reis, RJ", "Ilha Grande, RJ", "Teresópolis, RJ", "Visconde de Mauá, RJ", "Penedo, RJ", "Nova Friburgo, RJ", "Niterói, RJ", "Saquarema, RJ", "Itatiaia, RJ", "Maricá, RJ", "Rio das Ostras, RJ", "Vassouras, RJ", "Belo Horizonte, MG", "Ouro Preto, MG", "Tiradentes, MG", "Capitólio, MG", "Monte Verde, MG", "Diamantina, MG", "Poços de Caldas, MG", "São Thomé das Letras, MG", "São João del Rei, MG", "Mariana, MG", "Serra do Cipó, MG", "Lavras Novas, MG", "Caxambu, MG", "Vitória, ES", "Vila Velha, ES", "Guarapari, ES", "Domingos Martins, ES", "Gramado, RS", "Canela, RS", "Bento Gonçalves, RS", "Porto Alegre, RS", "Torres, RS", "Garibaldi, RS", "Carlos Barbosa, RS", "Cambará do Sul, RS", "Três Coroas, RS", "Nova Petrópolis, RS", "Caxias do Sul, RS", "Passo Fundo, RS", "Pelotas, RS", "Santa Maria, RS", "São Miguel das Missões, RS", "Bagé, RS", "Florianópolis, SC", "Balneário Camboriú, SC", "Penha, SC", "Bombinhas, SC", "Urubici, SC", "Blumenau, SC", "Pomerode, SC", "Garopaba, SC", "Imbituba, SC", "Joinville, SC", "São Joaquim, SC", "Laguna, SC", "Itapema, SC", "Guarda do Embaú, SC", "Curitiba, PR", "Foz do Iguaçu, PR", "Morretes, PR", "Ilha do Mel, PR", "Londrina, PR", "Maringá, PR", "Ponta Grossa, PR", "Antonina, PR", "Paranaguá, PR", "Tibagi, PR", "Salvador, BA", "Porto Seguro, BA", "Trancoso, BA", "Arraial d'Ajuda, RJ", "Morro de São Paulo, BA", "Itacaré, BA", "Ilhéus, BA", "Praia do Forte, BA", "Lençóis, BA", "Boipeba, BA", "Barra Grande, BA", "Caraíva, BA", "Mata de São João, BA", "Juazeiro, BA", "Vitória da Conquista, BA", "Porto de Galinhas, PE", "Recife, PE", "Fernando de Noronha, PE", "Olinda, PE", "Carneiros, PE", "Gravatá, PE", "Caruaru, PE", "Muro Alto, PE", "Cabo de Santo Agostinho, PE", "Triunfo, PE", "Maragogi, AL", "Maceió, AL", "São Miguel dos Milagres, AL", "Japaratinga, AL", "Marechal Deodoro, AL", "Piranhas, AL", "Praia da Pipa, RN", "Natal, RN", "São Miguel do Gostoso, RN", "Genipabu, RN", "Maracajaú, RN", "Galinhos, RN", "Fortaleza, CE", "Jericoacoara, CE", "Cumbuco, CE", "Canoa Quebrada, CE", "Aquiraz, CE", "Morro Branco, CE", "Guaramiranga, CE", "Flecheiras, CE", "João Pessoa, PB", "Cabedelo, PB", "Campina Grande, PB", "Conde, PB", "Aracaju, SE", "Canindé de São Francisco, SE", "São Cristóvão, SE", "São Luís, MA", "Barreirinhas, MA", "Atins, MA", "Santo Amaro do Maranhão, MA", "Teresina, PI", "Parnaíba, PI", "Barra Grande do Piauí, PI", "São Raimundo Nonato, PI", "Caldas Novas, GO", "Rio Quente, GO", "Pirenópolis, GO", "Chapada dos Veadeiros, GO", "Goiânia, GO", "Bonito, MS", "Pantanal, MS", "Chapada dos Guimarães, MT", "Nobres, MT", "Brasília, DF", "Belém, PA", "Salinópolis, PA", "Alter do Chão, PA", "Ilha de Marajó, PA", "Manaus, AM", "Presidente Figueiredo, AM", "Palmas, TO", "Jalapão, TO", "Macapá, AP", "Boa Vista, RR", "Rio Branco, AC", "Porto Velho, RO", "Bauru, SP", "Piracicaba, SP", "Franca, SP", "Botucatu, SP", "Itu, SP", "Itanhaém, SP", "Peruíbe, SP", "Barretos, SP", "Jundiaí, SP", "Presidente Prudente, SP", "Marília, SP", "Araçatuba, SP", "São Carlos, SP", "Americana, SP", "Araraquara, SP", "Guaratinguetá, SP", "Aparecida, SP", "Eldorado, SP", "Iporanga, SP", "Cananéia, SP", "Iguape, SP", "Ilha Comprida, SP", "Mogi das Cruzes, SP", "Indaiatuba, SP", "Barueri, SP", "Resende, RJ", "Mangaratiba, RJ", "Volta Redonda, RJ", "Barra do Piraí, RJ", "Valença, RJ", "Conservatória, RJ", "Macaé, RJ", "Sana, RJ", "Casimiro de Abreu, RJ", "Guapimirim, RJ", "Cachoeiras de Macacu, RJ", "Rio Bonito, RJ", "Juiz de Fora, MG", "Uberlândia, MG", "Uberaba, MG", "Governador Valadares, MG", "Ipatinga, MG", "Montes Claros, MG", "Pouso Alegre, MG", "Varginha, MG", "Itajubá, MG", "São Lourenço, MG", "Baependi, MG", "Conceição do Ibitipoca, MG", "Santana dos Montes, MG", "Cordisburgo, MG", "Sete Lagoas, MG", "Caeté, MG", "Sabará, MG", "Congonhas, MG", "Barbacena, MG", "Anchieta, ES", "Iriri, ES", "Conceição da Barra, ES", "Itaúnas, ES", "Santa Teresa, ES", "Venda Nova do Imigrante, ES", "Linhares, ES", "Colatina, ES", "Cachoeiro de Itapemirim, ES", "Erechim, RS", "Novo Hamburgo, RS", "Gramado Xavier, RS", "Lages, SC", "Chapecó, SC", "Criciúma, SC", "São Bento do Sul, SC", "Treze Tílias, SC", "Piratuba, SC", "Guaratuba, PR", "Matinhos, PR", "Caiobá, PR", "Guarapuava, PR", "Prudentópolis, PR", "Cascavel, PR", "Toledo, PR", "Umuarama, PR", "Campo Mourão, PR"];
+  var cidades = ["Roma (FCO), Itália 🇮🇹", "Paris (CDG), França 🇫🇷", "Lisboa (LIS), Portugal 🇵🇹", "Porto (OPO), Portugal 🇵🇹", "Madri (MAD), Espanha 🇪🇸", "Barcelona (BCN), Espanha 🇪🇸", "Londres (LHR), Reino Unido 🇬🇧", "Amsterdã (AMS), Holanda 🇳🇱", "Milão (MXP), Itália 🇮🇹", "Florença (FLR), Itália 🇮🇹", "Veneza (VCE), Itália 🇮🇹", "Orlando (MCO), EUA 🇺🇸", "Miami (MIA), EUA 🇺🇸", "Nova York (JFK), EUA 🇺🇸", "Los Angeles (LAX), EUA 🇺🇸", "Las Vegas (LAS), EUA 🇺🇸", "Buenos Aires (EZE), Argentina 🇦🇷", "Bariloche (BRC), Argentina 🇦🇷", "Mendoza (MDZ), Argentina 🇦🇷", "Santiago (SCL), Chile 🇨🇱", "Montevidéu (MVD), Uruguai 🇺🇾", "Punta del Este (PDP), Uruguai 🇺🇾", "Cusco / Machu Picchu (CUZ), Peru 🇵🇪", "Lima (LIM), Peru 🇵🇪", "Salar de Uyuni, Bolívia 🇧🇴", "Cartagena das Índias (CTG), Colômbia 🇨🇴", "Bogotá (BOG), Colômbia 🇨🇴", "Cancún (CUN), México 🇲🇽", "Tóquio (NRT), Japão 🇯🇵", "Dubai (DXB), Emirados Árabes 🇦🇪", "Bangkok (BKK), Tailândia 🇹🇭", "Berlim (BER), Alemanha 🇩🇪", "São Paulo (SAO), SP 🇧🇷", "Campos do Jordão, SP 🇧🇷", "Ubatuba, SP 🇧🇷", "Ilhabela, SP 🇧🇷", "Santos, SP 🇧🇷", "Guarujá, SP 🇧🇷", "São Sebastião, SP 🇧🇷", "Brotas, SP 🇧🇷", "Holambra, SP 🇧🇷", "Águas de Lindóia, SP 🇧🇷", "Cunha, SP 🇧🇷", "Santo Antônio do Pinhal, SP 🇧🇷", "Serra Negra, SP 🇧🇷", "Atibaia, SP 🇧🇷", "Socorro, SP 🇧🇷", "Olímpia, SP 🇧🇷", "Campinas (VCP), SP 🇧🇷", "Sorocaba, SP 🇧🇷", "Ribeirão Preto (RAO), SP 🇧🇷", "São José dos Campos, SP 🇧🇷", "Bertioga, SP 🇧🇷", "Caraguatatuba, SP 🇧🇷", "Maresias, SP 🇧🇷", "Paranapiacaba, SP 🇧🇷", "Joanópolis, SP 🇧🇷", "Rio de Janeiro (RIO), RJ 🇧🇷", "Arraial do Cabo, RJ 🇧🇷", "Armação dos Búzios (BZC), RJ 🇧🇷", "Cabo Frio (CFB), RJ 🇧🇷", "Paraty, RJ 🇧🇷", "Petrópolis, RJ 🇧🇷", "Angra dos Reis, RJ 🇧🇷", "Ilha Grande, RJ 🇧🇷", "Teresópolis, RJ 🇧🇷", "Visconde de Mauá, RJ 🇧🇷", "Penedo, RJ 🇧🇷", "Nova Friburgo, RJ 🇧🇷", "Niterói, RJ 🇧🇷", "Saquarema, RJ 🇧🇷", "Itatiaia, RJ 🇧🇷", "Maricá, RJ 🇧🇷", "Rio das Ostras, RJ 🇧🇷", "Vassouras, RJ 🇧🇷", "Belo Horizonte (CNF), MG 🇧🇷", "Ouro Preto, MG 🇧🇷", "Tiradentes, MG 🇧🇷", "Capitólio, MG 🇧🇷", "Monte Verde, MG 🇧🇷", "Diamantina, MG 🇧🇷", "Poços de Caldas, MG 🇧🇷", "São Thomé das Letras, MG 🇧🇷", "São João del Rei, MG 🇧🇷", "Mariana, MG 🇧🇷", "Serra do Cipó, MG 🇧🇷", "Lavras Novas, MG 🇧🇷", "Caxambu, MG 🇧🇷", "Vitória (VIX), ES 🇧🇷", "Vila Velha (VIX), ES 🇧🇷", "Guarapari, ES 🇧🇷", "Domingos Martins, ES 🇧🇷", "Gramado, RS 🇧🇷", "Canela, RS 🇧🇷", "Bento Gonçalves, RS 🇧🇷", "Porto Alegre (POA), RS 🇧🇷", "Torres, RS 🇧🇷", "Garibaldi, RS 🇧🇷", "Carlos Barbosa, RS 🇧🇷", "Cambará do Sul, RS 🇧🇷", "Três Coroas, RS 🇧🇷", "Nova Petrópolis, RS 🇧🇷", "Caxias do Sul (CXJ), RS 🇧🇷", "Passo Fundo (PFB), RS 🇧🇷", "Pelotas (PET), RS 🇧🇷", "Santa Maria (RIA), RS 🇧🇷", "São Miguel das Missões, RS 🇧🇷", "Bagé, RS 🇧🇷", "Florianópolis (FLN), SC 🇧🇷", "Balneário Camboriú (NVT), SC 🇧🇷", "Penha (NVT), SC 🇧🇷", "Bombinhas, SC 🇧🇷", "Urubici, SC 🇧🇷", "Blumenau (NVT), SC 🇧🇷", "Pomerode, SC 🇧🇷", "Garopaba, SC 🇧🇷", "Imbituba, SC 🇧🇷", "Joinville (JOI), SC 🇧🇷", "São Joaquim, SC 🇧🇷", "Laguna, SC 🇧🇷", "Itapema, SC 🇧🇷", "Guarda do Embaú, SC 🇧🇷", "Curitiba (CWB), PR 🇧🇷", "Foz do Iguaçu (IGU), PR 🇧🇷", "Morretes, PR 🇧🇷", "Ilha do Mel, PR 🇧🇷", "Londrina (LDB), PR 🇧🇷", "Maringá (MGF), PR 🇧🇷", "Ponta Grossa (PGZ), PR 🇧🇷", "Antonina, PR 🇧🇷", "Paranaguá, PR 🇧🇷", "Tibagi, PR 🇧🇷", "Salvador (SSA), BA 🇧🇷", "Porto Seguro (BPS), BA 🇧🇷", "Trancoso (BPS), BA 🇧🇷", "Arraial d'Ajuda (BPS), RJ 🇧🇷", "Morro de São Paulo, BA 🇧🇷", "Itacaré (IOS), BA 🇧🇷", "Ilhéus (IOS), BA 🇧🇷", "Praia do Forte, BA 🇧🇷", "Lençóis, BA 🇧🇷", "Boipeba, BA 🇧🇷", "Barra Grande, BA 🇧🇷", "Caraíva (BPS), BA 🇧🇷", "Mata de São João, BA 🇧🇷", "Juazeiro (PNZ), BA 🇧🇷", "Vitória da Conquista (VDC), BA 🇧🇷", "Porto de Galinhas (REC), PE 🇧🇷", "Recife (REC), PE 🇧🇷", "Fernando de Noronha (FEN), PE 🇧🇷", "Olinda (REC), PE 🇧🇷", "Carneiros, PE 🇧🇷", "Gravatá, PE 🇧🇷", "Caruaru (CAU), PE 🇧🇷", "Muro Alto, PE 🇧🇷", "Cabo de Santo Agostinho, PE 🇧🇷", "Triunfo, PE 🇧🇷", "Maragogi, AL 🇧🇷", "Maceió (MCZ), AL 🇧🇷", "São Miguel dos Milagres, AL 🇧🇷", "Japaratinga, AL 🇧🇷", "Marechal Deodoro, AL 🇧🇷", "Piranhas, AL 🇧🇷", "Praia da Pipa, RN 🇧🇷", "Natal (NAT), RN 🇧🇷", "São Miguel do Gostoso, RN 🇧🇷", "Genipabu, RN 🇧🇷", "Maracajaú, RN 🇧🇷", "Galinhos, RN 🇧🇷", "Fortaleza (FOR), CE 🇧🇷", "Jericoacoara (JJD), CE 🇧🇷", "Cumbuco, CE 🇧🇷", "Canoa Quebrada (ARX), CE 🇧🇷", "Aquiraz (FOR), CE 🇧🇷", "Morro Branco, CE 🇧🇷", "Guaramiranga, CE 🇧🇷", "Flecheiras, CE 🇧🇷", "João Pessoa (JPA), PB 🇧🇷", "Cabedelo, PB 🇧🇷", "Campina Grande (CPV), PB 🇧🇷", "Conde, PB 🇧🇷", "Aracaju (AJU), SE 🇧🇷", "Canindé de São Francisco, SE 🇧🇷", "São Cristóvão, SE 🇧🇷", "São Luís (SLZ), MA 🇧🇷", "Barreirinhas (BRB), MA 🇧🇷", "Atins, MA 🇧🇷", "Santo Amaro do Maranhão, MA 🇧🇷", "Teresina (THE), PI 🇧🇷", "Parnaíba (PHB), PI 🇧🇷", "Barra Grande do Piauí, PI 🇧🇷", "São Raimundo Nonato (NSR), PI 🇧🇷", "Caldas Novas (CLV), GO 🇧🇷", "Rio Quente (CLV), GO 🇧🇷", "Pirenópolis, GO 🇧🇷", "Chapada dos Veadeiros, GO 🇧🇷", "Goiânia (GYN), GO 🇧🇷", "Bonito (BYO), MS 🇧🇷", "Pantanal, MS 🇧🇷", "Chapada dos Guimarães, MT 🇧🇷", "Nobres, MT 🇧🇷", "Brasília (BSB), DF 🇧🇷", "Belém (BEL), PA 🇧🇷", "Salinópolis, PA 🇧🇷", "Alter do Chão (STM), PA 🇧🇷", "Ilha de Marajó, PA 🇧🇷", "Manaus (MAO), AM 🇧🇷", "Presidente Figueiredo, AM 🇧🇷", "Palmas (PMW), TO 🇧🇷", "Jalapão, TO 🇧🇷", "Macapá (MCP), AP 🇧🇷", "Boa Vista (BVB), RR 🇧🇷", "Rio Branco (RBR), AC 🇧🇷", "Porto Velho (PVH), RO 🇧🇷", "Bauru (JTC), SP 🇧🇷", "Piracicaba, SP 🇧🇷", "Franca, SP 🇧🇷", "Botucatu, SP 🇧🇷", "Itu, SP 🇧🇷", "Itanhaém, SP 🇧🇷", "Peruíbe, SP 🇧🇷", "Barretos, SP 🇧🇷", "Jundiaí, SP 🇧🇷", "Presidente Prudente (PPB), SP 🇧🇷", "Marília, SP 🇧🇷", "Araçatuba, SP 🇧🇷", "São Carlos, SP 🇧🇷", "Americana, SP 🇧🇷", "Araraquara, SP 🇧🇷", "Guaratinguetá, SP 🇧🇷", "Aparecida, SP 🇧🇷", "Eldorado, SP 🇧🇷", "Iporanga, SP 🇧🇷", "Cananéia, SP 🇧🇷", "Iguape, SP 🇧🇷", "Ilha Comprida, SP 🇧🇷", "Mogi das Cruzes, SP 🇧🇷", "Indaiatuba, SP 🇧🇷", "Barueri, SP 🇧🇷", "Resende, RJ 🇧🇷", "Mangaratiba, RJ 🇧🇷", "Volta Redonda, RJ 🇧🇷", "Barra do Piraí, RJ 🇧🇷", "Valença, RJ 🇧🇷", "Conservatória, RJ 🇧🇷", "Macaé, RJ 🇧🇷", "Sana, RJ 🇧🇷", "Casimiro de Abreu, RJ 🇧🇷", "Guapimirim, RJ 🇧🇷", "Cachoeiras de Macacu, RJ 🇧🇷", "Rio Bonito, RJ 🇧🇷", "Juiz de Fora (IZA), MG 🇧🇷", "Uberlândia (UDI), MG 🇧🇷", "Uberaba, MG 🇧🇷", "Governador Valadares (GVR), MG 🇧🇷", "Ipatinga (IPN), MG 🇧🇷", "Montes Claros (MOC), MG 🇧🇷", "Pouso Alegre, MG 🇧🇷", "Varginha, MG 🇧🇷", "Itajubá, MG 🇧🇷", "São Lourenço, MG 🇧🇷", "Baependi, MG 🇧🇷", "Conceição do Ibitipoca, MG 🇧🇷", "Santana dos Montes, MG 🇧🇷", "Cordisburgo, MG 🇧🇷", "Sete Lagoas, MG 🇧🇷", "Caeté, MG 🇧🇷", "Sabará, MG 🇧🇷", "Congonhas, MG 🇧🇷", "Barbacena, MG 🇧🇷", "Anchieta, ES 🇧🇷", "Iriri, ES 🇧🇷", "Conceição da Barra, ES 🇧🇷", "Itaúnas, ES 🇧🇷", "Santa Teresa, ES 🇧🇷", "Venda Nova do Imigrante, ES 🇧🇷", "Linhares, ES 🇧🇷", "Colatina, ES 🇧🇷", "Cachoeiro de Itapemirim, ES 🇧🇷", "Erechim, RS 🇧🇷", "Novo Hamburgo, RS 🇧🇷", "Gramado Xavier, RS 🇧🇷", "Lages, SC 🇧🇷", "Chapecó (XAP), SC 🇧🇷", "Criciúma, SC 🇧🇷", "São Bento do Sul, SC 🇧🇷", "Treze Tílias, SC 🇧🇷", "Piratuba, SC 🇧🇷", "Guaratuba, PR 🇧🇷", "Matinhos, PR 🇧🇷", "Caiobá, PR 🇧🇷", "Guarapuava, PR 🇧🇷", "Prudentópolis, PR 🇧🇷", "Cascavel (CAC), PR 🇧🇷", "Toledo, PR 🇧🇷", "Umuarama, PR 🇧🇷", "Campo Mourão, PR 🇧🇷", "Marabá (MAB), PA 🇧🇷", "Carajás / Parauapebas (CKS), PA 🇧🇷", "Altamira (ATM), PA 🇧🇷", "Itaituba (ITB), PA 🇧🇷", "Paragominas (JPE), PA 🇧🇷", "Tucuruí (TUR), PA 🇧🇷", "Redenção (RDC), PA 🇧🇷", "Mosqueiro, PA 🇧🇷", "Bragança, PA 🇧🇷", "Parintins (PIN), AM 🇧🇷", "Tefé (TFF), AM 🇧🇷", "Tabatinga (TBT), AM 🇧🇷", "Novo Airão, AM 🇧🇷", "São Gabriel da Cachoeira (SJL), AM 🇧🇷", "Araguaína (AUX), TO 🇧🇷", "Cruzeiro do Sul (CZS), AC 🇧🇷", "Ji-Paraná (JPR), RO 🇧🇷", "Cacoal (OAL), RO 🇧🇷", "Vilhena (BVH), RO 🇧🇷", "Monte Roraima, RR 🇧🇷", "Oiapoque, AP 🇧🇷", "Imbassaí, BA 🇧🇷", "Barra Grande / Maraú, BA 🇧🇷", "Lençóis / Chapada Diamantina (LEC), BA 🇧🇷", "Barreiras (BRA), BA 🇧🇷", "Paulo Afonso (PAV), BA 🇧🇷", "Flecheiras / Trairi, CE 🇧🇷", "Juazeiro do Norte (JDO), CE 🇧🇷", "Sobral (JSO), CE 🇧🇷", "Praia dos Carneiros, PE 🇧🇷", "Petrolina (PNZ), PE 🇧🇷", "Garanhuns, PE 🇧🇷", "Mossoró (MVF), RN 🇧🇷", "Carolina (IMP), MA 🇧🇷", "Imperatriz (IMP), MA 🇧🇷", "Rio Verde (RVD), GO 🇧🇷", "Campo Grande (CGR), MS 🇧🇷", "Corumbá / Pantanal Sul (CMG), MS 🇧🇷", "Dourados (DOU), MS 🇧🇷", "Cuiabá (CGB), MT 🇧🇷", "Nobres / Bom Jardim, MT 🇧🇷", "Sinop (OPS), MT 🇧🇷", "Rondonópolis (ROO), MT 🇧🇷", "Sorriso (SMT), MT 🇧🇷", "Alta Floresta (AFL), MT 🇧🇷", "São José do Rio Preto (SJP), SP 🇧🇷", "Angra dos Reis / Ilha Grande, RJ 🇧🇷", "Urubici / Serra do Rio do Rastro, SC 🇧🇷"];
+
+  var aeroportosOrigem = ["São Paulo (SAO), SP 🇧🇷", "Campinas (VCP), SP 🇧🇷", "Ribeirão Preto (RAO), SP 🇧🇷", "Rio de Janeiro (RIO), RJ 🇧🇷", "Armação dos Búzios (BZC), RJ 🇧🇷", "Cabo Frio (CFB), RJ 🇧🇷", "Belo Horizonte (CNF), MG 🇧🇷", "Vitória (VIX), ES 🇧🇷", "Vila Velha (VIX), ES 🇧🇷", "Porto Alegre (POA), RS 🇧🇷", "Caxias do Sul (CXJ), RS 🇧🇷", "Passo Fundo (PFB), RS 🇧🇷", "Pelotas (PET), RS 🇧🇷", "Santa Maria (RIA), RS 🇧🇷", "Florianópolis (FLN), SC 🇧🇷", "Balneário Camboriú (NVT), SC 🇧🇷", "Penha (NVT), SC 🇧🇷", "Blumenau (NVT), SC 🇧🇷", "Joinville (JOI), SC 🇧🇷", "Curitiba (CWB), PR 🇧🇷", "Foz do Iguaçu (IGU), PR 🇧🇷", "Londrina (LDB), PR 🇧🇷", "Maringá (MGF), PR 🇧🇷", "Ponta Grossa (PGZ), PR 🇧🇷", "Salvador (SSA), BA 🇧🇷", "Porto Seguro (BPS), BA 🇧🇷", "Trancoso (BPS), BA 🇧🇷", "Arraial d'Ajuda (BPS), RJ 🇧🇷", "Itacaré (IOS), BA 🇧🇷", "Ilhéus (IOS), BA 🇧🇷", "Caraíva (BPS), BA 🇧🇷", "Juazeiro (PNZ), BA 🇧🇷", "Vitória da Conquista (VDC), BA 🇧🇷", "Porto de Galinhas (REC), PE 🇧🇷", "Recife (REC), PE 🇧🇷", "Fernando de Noronha (FEN), PE 🇧🇷", "Olinda (REC), PE 🇧🇷", "Caruaru (CAU), PE 🇧🇷", "Maceió (MCZ), AL 🇧🇷", "Natal (NAT), RN 🇧🇷", "Fortaleza (FOR), CE 🇧🇷", "Jericoacoara (JJD), CE 🇧🇷", "Canoa Quebrada (ARX), CE 🇧🇷", "Aquiraz (FOR), CE 🇧🇷", "João Pessoa (JPA), PB 🇧🇷", "Campina Grande (CPV), PB 🇧🇷", "Aracaju (AJU), SE 🇧🇷", "São Luís (SLZ), MA 🇧🇷", "Barreirinhas (BRB), MA 🇧🇷", "Teresina (THE), PI 🇧🇷", "Parnaíba (PHB), PI 🇧🇷", "São Raimundo Nonato (NSR), PI 🇧🇷", "Caldas Novas (CLV), GO 🇧🇷", "Rio Quente (CLV), GO 🇧🇷", "Goiânia (GYN), GO 🇧🇷", "Bonito (BYO), MS 🇧🇷", "Brasília (BSB), DF 🇧🇷", "Belém (BEL), PA 🇧🇷", "Alter do Chão (STM), PA 🇧🇷", "Manaus (MAO), AM 🇧🇷", "Palmas (PMW), TO 🇧🇷", "Macapá (MCP), AP 🇧🇷", "Boa Vista (BVB), RR 🇧🇷", "Rio Branco (RBR), AC 🇧🇷", "Porto Velho (PVH), RO 🇧🇷", "Bauru (JTC), SP 🇧🇷", "Presidente Prudente (PPB), SP 🇧🇷", "Juiz de Fora (IZA), MG 🇧🇷", "Uberlândia (UDI), MG 🇧🇷", "Governador Valadares (GVR), MG 🇧🇷", "Ipatinga (IPN), MG 🇧🇷", "Montes Claros (MOC), MG 🇧🇷", "Chapecó (XAP), SC 🇧🇷", "Cascavel (CAC), PR 🇧🇷", "Marabá (MAB), PA 🇧🇷", "Carajás / Parauapebas (CKS), PA 🇧🇷", "Altamira (ATM), PA 🇧🇷", "Itaituba (ITB), PA 🇧🇷", "Paragominas (JPE), PA 🇧🇷", "Tucuruí (TUR), PA 🇧🇷", "Redenção (RDC), PA 🇧🇷", "Parintins (PIN), AM 🇧🇷", "Tefé (TFF), AM 🇧🇷", "Tabatinga (TBT), AM 🇧🇷", "São Gabriel da Cachoeira (SJL), AM 🇧🇷", "Araguaína (AUX), TO 🇧🇷", "Cruzeiro do Sul (CZS), AC 🇧🇷", "Ji-Paraná (JPR), RO 🇧🇷", "Cacoal (OAL), RO 🇧🇷", "Vilhena (BVH), RO 🇧🇷", "Lençóis / Chapada Diamantina (LEC), BA 🇧🇷", "Barreiras (BRA), BA 🇧🇷", "Paulo Afonso (PAV), BA 🇧🇷", "Juazeiro do Norte (JDO), CE 🇧🇷", "Sobral (JSO), CE 🇧🇷", "Petrolina (PNZ), PE 🇧🇷", "Mossoró (MVF), RN 🇧🇷", "Carolina (IMP), MA 🇧🇷", "Imperatriz (IMP), MA 🇧🇷", "Rio Verde (RVD), GO 🇧🇷", "Campo Grande (CGR), MS 🇧🇷", "Corumbá / Pantanal Sul (CMG), MS 🇧🇷", "Dourados (DOU), MS 🇧🇷", "Cuiabá (CGB), MT 🇧🇷", "Sinop (OPS), MT 🇧🇷", "Rondonópolis (ROO), MT 🇧🇷", "Sorriso (SMT), MT 🇧🇷", "Alta Floresta (AFL), MT 🇧🇷", "São José do Rio Preto (SJP), SP 🇧🇷"];
 
   function normalizar(txt) {
-    return (txt || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+    return (txt || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   }
 
-  function setupAutocomplete(inputId, boxId, nextFocusId) {
+  function setupAutocomplete(inputId, boxId, nextFocusId, dataset) {
     var inp = document.getElementById(inputId);
     var box = document.getElementById(boxId);
     if (!inp || !box) return;
+
+    var lista = dataset || cidades;
 
     inp.addEventListener('input', function(){
       var q = inp.value.trim();
@@ -1878,9 +2703,9 @@ document.querySelectorAll('.chip-luxe').forEach(function(btn){
         return;
       }
 
-      var matches = cidades.filter(function(c){
+      var matches = lista.filter(function(c){
         return normalizar(c).indexOf(qNorm) !== -1;
-      }).slice(0, 5); // No maximo 5 sugestoes
+      }).slice(0, 6);
 
       if (matches.length === 0) {
         box.innerHTML = '';
@@ -1892,7 +2717,8 @@ document.querySelectorAll('.chip-luxe').forEach(function(btn){
       matches.forEach(function(c){
         var item = document.createElement('div');
         item.className = 'sugestao-item';
-        item.innerHTML = '<span>📍</span> ' + c;
+        var icon = c.indexOf('✈️') !== -1 ? '✈️' : (c.indexOf('🇮🇹') !== -1 || c.indexOf('🇫🇷') !== -1 || c.indexOf('🇵🇹') !== -1 || c.indexOf('🇺🇸') !== -1 ? '🌍' : '📍');
+        item.innerHTML = '<span>' + icon + '</span> ' + c;
         item.addEventListener('mousedown', function(e){
           e.preventDefault();
           inp.value = c;
@@ -1919,10 +2745,11 @@ document.querySelectorAll('.chip-luxe').forEach(function(btn){
     });
   }
 
-  setupAutocomplete('destSuperInput', 'sugestoesSuper', 'dataCheckinSuper');
-  setupAutocomplete('inputDestCat', 'sugestoesCat', 'inputDataCat');
+  setupAutocomplete('destSuperInput', 'sugestoesSuper', 'dataCheckinSuper', cidades);
+  setupAutocomplete('destVooInput', 'sugestoesDestVoo', 'dataIdaVoo', cidades);
+  setupAutocomplete('origemVooInput', 'sugestoesOrigemVoo', 'destVooInput', aeroportosOrigem);
+  setupAutocomplete('inputDestCat', 'sugestoesCat', 'inputDataCat', cidades);
 })();
-
 </script>
 
 <script>

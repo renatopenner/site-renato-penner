@@ -190,6 +190,38 @@ body{font-family:'Inter',sans-serif;color:#1e293b;background:#f8fafc;transition:
 .m-hibrido .hib-preco-box b{font-size:24px;font-weight:800;color:#059669}
 .m-hibrido .hib-btn-reserva{background:#003580;color:#fff;padding:10px 18px;border-radius:10px;font-size:13.5px;font-weight:700;text-decoration:none;transition:background .15s}
 .m-hibrido .hib-btn-reserva:hover{background:#00224f}
+
+/* ========================================================
+   MODELO 5: PENNER TECH CLÁSSICO (Portal Tech / E-commerce)
+   ======================================================== */
+.m-penner{background:#f8fafc;color:#1e293b;min-height:100vh}
+.m-penner .penner-hero{background:linear-gradient(135deg,#0a2540 0%,#0f172a 100%);color:#fff;padding:60px 24px 40px;text-align:center;border-bottom:1px solid rgba(255,255,255,.1)}
+.m-penner .penner-badge{display:inline-block;background:rgba(2,132,199,.2);border:1px solid rgba(56,189,248,.3);color:#38bdf8;font-size:12px;font-weight:700;padding:6px 14px;border-radius:999px;margin-bottom:16px;letter-spacing:.04em}
+.m-penner .penner-title{font-size:38px;font-weight:800;letter-spacing:-.02em;margin-bottom:10px;color:#fff}
+.m-penner .penner-title span{color:#38bdf8}
+.m-penner .penner-sub{font-size:15px;color:#94a3b8;max-width:680px;margin:0 auto 28px;line-height:1.6}
+.m-penner .penner-pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:24px}
+.m-penner .penner-pill{background:#fff;border:1px solid #cbd5e1;padding:8px 16px;border-radius:999px;font-size:13px;font-weight:700;color:#334155;cursor:pointer;transition:all .15s}
+.m-penner .penner-pill.ativo{background:#0284c7;color:#fff;border-color:#0284c7;box-shadow:0 4px 12px rgba(2,132,199,.3)}
+.m-penner .penner-card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.04);transition:transform .2s,box-shadow .2s,border-color .2s;display:flex;flex-direction:column}
+.m-penner .penner-card:hover{transform:translateY(-3px);border-color:#0284c7;box-shadow:0 12px 28px rgba(0,0,0,.08)}
+.m-penner .penner-thumb{position:relative;height:220px;overflow:hidden}
+.m-penner .penner-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.m-penner .penner-card:hover .penner-thumb img{transform:scale(1.04)}
+.m-penner .penner-badge-dest{position:absolute;top:12px;left:12px;background:rgba(2,132,199,.92);backdrop-filter:blur(6px);color:#fff;font-size:11.5px;font-weight:700;padding:5px 10px;border-radius:999px}
+.m-penner .penner-badge-nota{position:absolute;top:12px;right:12px;background:rgba(15,23,42,.88);backdrop-filter:blur(6px);color:#38bdf8;font-size:12.5px;font-weight:800;padding:5px 9px;border-radius:8px}
+.m-penner .penner-body{padding:18px 20px;display:flex;flex-direction:column;flex:1}
+.m-penner .penner-loc{font-size:12px;font-weight:700;color:#0284c7;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.m-penner .penner-hotel-title{font-size:18px;font-weight:800;color:#0f172a;line-height:1.25;margin-bottom:8px}
+.m-penner .penner-tags{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 14px}
+.m-penner .penner-tag{font-size:11px;font-weight:600;padding:3px 8px;border-radius:6px;background:#f1f5f9;color:#334155;border:1px solid #e2e8f0}
+.m-penner .penner-desc{font-size:13.5px;color:#475569;line-height:1.45;margin-bottom:16px;flex:1}
+.m-penner .penner-footer{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #f1f5f9;padding-top:14px;margin-top:auto}
+.m-penner .penner-preco-box small{font-size:11px;color:#64748b;display:block}
+.m-penner .penner-preco-box b{font-size:18px;color:#059669;font-weight:800}
+.m-penner .penner-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;background:#0284c7;color:#fff;font-size:13.5px;font-weight:700;border-radius:10px;text-decoration:none;transition:background .15s}
+.m-penner .penner-btn:hover{background:#0369a1}
+
 </style>
 </head>
 <body>
@@ -204,7 +236,8 @@ body{font-family:'Inter',sans-serif;color:#1e293b;background:#f8fafc;transition:
     <button class="btn-modelo ativo" onclick="trocarModelo('luxe')">✨ 1. Luxe Explorer</button>
     <button class="btn-modelo" onclick="trocarModelo('hub')">⚡ 2. Hub 360°</button>
     <button class="btn-modelo" onclick="trocarModelo('boutique')">💎 3. Boutique Tech</button>
-    <button class="btn-modelo" onclick="trocarModelo('hibrido')" style="background:linear-gradient(135deg,#059669,#0284c7);color:#fff">🚀 4. Luxe Hub 360° (Híbrido)</button>
+    <button class="btn-modelo" onclick="trocarModelo('hibrido')">🚀 4. Luxe Hub 360° (Híbrido)</button>
+    <button class="btn-modelo" onclick="trocarModelo('penner')">⚡ 5. Penner Tech Clássico</button>
   </div>
   <div style="font-size:12px;color:#94a3b8">
     Clique nos modelos para alternar ao vivo
@@ -260,7 +293,7 @@ body{font-family:'Inter',sans-serif;color:#1e293b;background:#f8fafc;transition:
           <p class="card-desc">Salão alpino com lareira rústica e adega em barril. Chuveiro a gás de alta pressão e aquecedor para as noites frias por pouco mais de R$ 100.</p>
           <div class="card-footer">
             <div class="card-price">R$ 115 <small>/ diária</small></div>
-            <a class="card-action" href="https://www.booking.com/hotel/br/apto-economico.pt-br.html" target="_blank">Reservar no Booking →</a>
+            <a class="card-action" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fbr%2Fapto-economico.pt-br.html%3Flabel%3Dpennertech-booking" target="_blank">Reservar no Booking →</a>
           </div>
         </div>
       </article>
@@ -542,7 +575,7 @@ body{font-family:'Inter',sans-serif;color:#1e293b;background:#f8fafc;transition:
               <small>Diária a partir de</small>
               <b>R$ 115</b>
             </div>
-            <a class="hib-btn-reserva" href="https://www.booking.com/hotel/br/apto-economico.pt-br.html" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+            <a class="hib-btn-reserva" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fbr%2Fapto-economico.pt-br.html%3Flabel%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
           </div>
         </div>
       </article>
@@ -603,6 +636,109 @@ body{font-family:'Inter',sans-serif;color:#1e293b;background:#f8fafc;transition:
   </div>
 </section>
 
+<!-- ========================================================
+     MODELO 5: PENNER TECH CLÁSSICO (Portal Tech Oficial)
+     ======================================================== -->
+<section id="mod-penner" class="modelo-conteudo m-penner">
+  <div class="penner-hero">
+    <span class="penner-badge">⚡ PORTAL OFICIAL PENNER TECH</span>
+    <h1 class="penner-title">Curadoria de Hotéis, Resorts e <span>Passagens</span></h1>
+    <p class="penner-sub">Layout clássico e de alta conversão Penner Tech: hospedagens econômicas e resorts com cancelamento grátis e tarifas oficiais Booking.com.</p>
+    
+    <div class="penner-pills">
+      <button class="penner-pill ativo">Todos (42)</button>
+      <button class="penner-pill">Praia & Litoral</button>
+      <button class="penner-pill">Serra & Montanha</button>
+      <button class="penner-pill">Internacional</button>
+      <button class="penner-pill">Até R$ 200</button>
+    </div>
+  </div>
+
+  <div class="wrap" style="max-width:1200px;margin:0 auto;padding:40px 24px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:28px">
+      
+      <!-- Card 1 -->
+      <article class="penner-card">
+        <div class="penner-thumb">
+          <span class="penner-badge-dest">Campos do Jordão · SP</span>
+          <span class="penner-badge-nota">★ 9.3 Fantástico</span>
+          <img src="img/refugio-alpino-economy.jpg" alt="Refúgio Alpino Economy">
+        </div>
+        <div class="penner-body">
+          <span class="penner-loc">📍 2,4 km de Capivari · 🎯 1,8 km do Teleférico</span>
+          <h3 class="penner-hotel-title">Refúgio Alpino Economy (Salão com Adega)</h3>
+          <div class="penner-tags">
+            <span class="penner-tag" style="background:#ecfdf5;color:#065f46;font-weight:700">☕ Café da Manhã Incluso</span>
+            <span class="penner-tag">Adega & Lareira</span>
+            <span class="penner-tag">Estacionamento Grátis</span>
+          </div>
+          <p class="penner-desc">Ambiente colonial e aconchegante com salão de inverno envidraçado e adega rústica. Economia real em bairro tranquilo perto de Capivari.</p>
+          <div class="penner-footer">
+            <div class="penner-preco-box">
+              <small>Diária a partir de</small>
+              <b>R$ 115</b>
+            </div>
+            <a class="penner-btn" href="#" target="_blank" rel="noopener sponsored">Ver no Booking →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="penner-card">
+        <div class="penner-thumb">
+          <span class="penner-badge-dest">Salinópolis · PA</span>
+          <span class="penner-badge-nota">★ 9.1 Excelente</span>
+          <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Salinas Park Resort">
+        </div>
+        <div class="penner-body">
+          <span class="penner-loc">📍 1,5 km da Praia do Atalaia · 🎯 800m das Dunas</span>
+          <h3 class="penner-hotel-title">Salinas Park Resort (Suíte Casal)</h3>
+          <div class="penner-tags">
+            <span class="penner-tag" style="background:#ecfdf5;color:#065f46;font-weight:700">☕ Café da Manhã Incluso</span>
+            <span class="penner-tag">Parque Aquático</span>
+            <span class="penner-tag">Piscina de Ondas</span>
+          </div>
+          <p class="penner-desc">Resort completo de praia na Amazônia Atlântica. Piscinas termais, toboáguas e estrutura premium de alimentação.</p>
+          <div class="penner-footer">
+            <div class="penner-preco-box">
+              <small>Diária a partir de</small>
+              <b>R$ 280</b>
+            </div>
+            <a class="penner-btn" href="#" target="_blank" rel="noopener sponsored">Ver no Booking →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="penner-card">
+        <div class="penner-thumb">
+          <span class="penner-badge-dest">Santiago · Chile</span>
+          <span class="penner-badge-nota">★ 8.6 Fabuloso</span>
+          <img src="img/refugio-alpino-economy.jpg" alt="Ibis Providencia Santiago">
+        </div>
+        <div class="penner-body">
+          <span class="penner-loc">📍 3,2 km da Plaza de Armas · 🎯 80m do Metrô</span>
+          <h3 class="penner-hotel-title">Ibis Providencia Santiago (Quarto Casal)</h3>
+          <div class="penner-tags">
+            <span class="penner-tag" style="background:#fef2f2;color:#991b1b;font-weight:600">☕ Café Opcional</span>
+            <span class="penner-tag">Cama Sweet Bed</span>
+            <span class="penner-tag">Metrô Manuel Montt</span>
+          </div>
+          <p class="penner-desc">Localização estratégica e segura no bairro de Providencia, ideal para casais e negócios em Santiago com vista para a Cordilheira.</p>
+          <div class="penner-footer">
+            <div class="penner-preco-box">
+              <small>Diária Casal a partir de</small>
+              <b>R$ 240</b>
+            </div>
+            <a class="penner-btn" href="#" target="_blank" rel="noopener sponsored">Ver no Booking →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
 <script>
 function trocarModelo(id){
   document.querySelectorAll('.btn-modelo').forEach(function(b){ b.classList.remove('ativo'); });
@@ -617,9 +753,12 @@ function trocarModelo(id){
   } else if(id === 'boutique'){
     document.querySelector('.btn-modelo:nth-child(3)').classList.add('ativo');
     document.getElementById('mod-boutique').classList.add('ativo');
-  } else {
+  } else if(id === 'hibrido'){
     document.querySelector('.btn-modelo:nth-child(4)').classList.add('ativo');
     document.getElementById('mod-hibrido').classList.add('ativo');
+  } else {
+    document.querySelector('.btn-modelo:nth-child(5)').classList.add('ativo');
+    document.getElementById('mod-penner').classList.add('ativo');
   }
 }
 </script>
