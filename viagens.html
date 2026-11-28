@@ -437,6 +437,37 @@ h1 em, .luxe-title em { font-style: italic !important; }
   background: rgba(16, 185, 129, 0.18);
   border-color: rgba(52, 211, 153, 0.35);
 }
+.hotel-cafe-nao-incluso {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--texto-sub, #78716c);
+  font-weight: 600;
+  font-size: 11.5px;
+  background: rgba(120, 113, 108, 0.08);
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(120, 113, 108, 0.2);
+  white-space: nowrap;
+}
+[data-tema="escuro"] .hotel-cafe-nao-incluso {
+  color: #a8a29e;
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+.bolinha-cinza-simbolo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #a8a29e;
+  color: #ffffff;
+  font-size: 8px;
+  font-weight: 900;
+  line-height: 1;
+}
 .bolinha-verde-simbolo {
   display: inline-flex;
   align-items: center;
@@ -1115,7 +1146,6 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
       <button class="chip-luxe" data-cat="rio">🌊 Rio de Janeiro</button>
       <button class="chip-luxe" data-cat="sul">❄️ Sul (Foz & Floripa)</button>
     </div>
-  </div>
 
   <div class="grid-hoteis-luxe" id="gridHoteis">
 
@@ -1253,7 +1283,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
         <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Salinas Park Resort (Salinópolis)" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 3,8 km do centro · 🎯 800m da Praia do Atalaia</span> · <span>🌊 Resort Completo</span></div>
+        <div class="hotel-loc-line"><span>📍 3,8 km do centro · 🎯 800m da Praia do Atalaia</span> · <span>🌊 Resort Completo</span> · <span class="hotel-cafe-nao-incluso"><span class="bolinha-cinza-simbolo">✕</span> Café da manhã não incluso</span></div>
         <h3 class="hotel-title-luxe">Salinas Park Resort (Salinópolis)</h3>
         <p class="hotel-desc-luxe">Parque aquático completo com piscina de ondas, toboáguas, hidromassagens e estrutura de resort na Amazônia Atlântica com cancelamento grátis.</p>
         <div class="hotel-footer-luxe">
@@ -1301,7 +1331,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
         <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Ibis Styles Belém Batista Campos" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 300m da Praça Batista Campos · 🎯 1,8 km do Ver-o-Peso</span></div>
+        <div class="hotel-loc-line"><span>📍 300m da Praça Batista Campos · 🎯 1,8 km do Ver-o-Peso</span> · <span class="hotel-cafe-nao-incluso"><span class="bolinha-cinza-simbolo">✕</span> Café da manhã não incluso</span></div>
         <h3 class="hotel-title-luxe">Ibis Styles Belém Batista Campos</h3>
         <p class="hotel-desc-luxe">Hotel moderno no bairro mais nobre e arborizado de Belém. Quarto casal privativo com cama Sweet Bed, silêncio e segurança.</p>
         <div class="hotel-footer-luxe">
@@ -1493,7 +1523,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
         <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Selina Lapa Rio Economy (Rio de Janeiro)" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 180m dos Arcos da Lapa · 🎯 450m da Escadaria Selarón</span></div>
+        <div class="hotel-loc-line"><span>📍 180m dos Arcos da Lapa · 🎯 450m da Escadaria Selarón</span> · <span class="hotel-cafe-nao-incluso"><span class="bolinha-cinza-simbolo">✕</span> Café da manhã não incluso</span></div>
         <h3 class="hotel-title-luxe">Selina Lapa Rio Economy (Rio de Janeiro)</h3>
         <p class="hotel-desc-luxe">Ambiente descolado, rooftop com vista para a Lapa e quartos privativos modernos com ar-condicionado perto do metrô Cinelândia.</p>
         <div class="hotel-footer-luxe">
@@ -1653,7 +1683,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
         <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Ibis Budget Paulista / Consolação (São Paulo)" loading="lazy">
       </div>
       <div class="hotel-body">
-        <div class="hotel-loc-line"><span>📍 150m da Av. Paulista · 🎯 500m do MASP</span></div>
+        <div class="hotel-loc-line"><span>📍 150m da Av. Paulista · 🎯 500m do MASP</span> · <span class="hotel-cafe-nao-incluso"><span class="bolinha-cinza-simbolo">✕</span> Café da manhã não incluso</span></div>
         <h3 class="hotel-title-luxe">Ibis Budget Paulista / Consolação (São Paulo)</h3>
         <p class="hotel-desc-luxe">Localização mais prática de São Paulo na esquina da Paulista com Consolação. Metrô na porta para turismo gastronômico e cultural.</p>
         <div class="hotel-footer-luxe">
@@ -1771,6 +1801,55 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
         <div class="hotel-footer-luxe">
           <div class="hotel-price-luxe">R$ 520 <small>/ diária</small></div>
           <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DKurotel%2BGramado%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <article class="hotel-card" data-cidade="Alter do Chão" data-cat="alter praia 200a300" data-preco="280">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 9.3 Fantástico</span>
+        <img src="img/alter-do-chao-ilha-do-amor.jpg" alt="Beloalter Hotel (Alter do Chão)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 Praia privativa no Lago Verde · 🎯 1,8 km da Vila</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Beloalter Hotel (Alter do Chão / PA)</h3>
+        <p class="hotel-desc-luxe">Hotel integrado à floresta com praia particular de água doce cristalina, piscina cercada por árvores nativas e restaurante com os melhores peixes do Tapajós.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 280 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DBeloalter%2BHotel%2BAlter%2Bdo%2BChao%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Ilha de Marajó" data-cat="marajo praia 200a300" data-preco="260">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 8.8 Fabuloso</span>
+        <img src="img/marajo-praia-pesqueiro.jpg" alt="Pousada dos Guarás (Salvaterra / Marajó)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 Pé na areia da Praia Grande · 🎯 2 km do porto</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Pousada dos Guarás (Salvaterra / Marajó)</h3>
+        <p class="hotel-desc-luxe">Localização paradisíaca pé na areia com piscina de frente para a baía, passeios a cavalo e de búfalo e gastronomia marajoara autêntica.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 260 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DPousada%2Bdos%2BGuaras%2BSalvaterra%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hotel-card" data-cidade="Belém" data-cat="belem cidade acima300" data-preco="380">
+      <div class="hotel-thumb">
+        <span class="card-badge-pill">★ 9.1 Excelente</span>
+        <img src="img/belem-basilica-nazare.jpg" alt="Radisson Hotel Belém (Nazaré)" loading="lazy">
+      </div>
+      <div class="hotel-body">
+        <div class="hotel-loc-line"><span>📍 Av. Braz de Aguiar · 🎯 800m da Basílica de Nazaré</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+        <h3 class="hotel-title-luxe">Radisson Hotel Belém (Nazaré)</h3>
+        <p class="hotel-desc-luxe">Hospedagem de alto padrão no bairro nobre de Nazaré. Piscina com vista panorâmica da cidade, sauna, fitness center e café da manhã requintado com delícias regionais.</p>
+        <div class="hotel-footer-luxe">
+          <div class="hotel-price-luxe">R$ 380 <small>/ diária</small></div>
+          <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DRadisson%2BHotel%2BBelem%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
         </div>
       </div>
     </article>
@@ -1922,6 +2001,88 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   </section>
 
 
+  <article class="hotel-card" data-cidade="Belém">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill">⭐ Patrimônio Cultural Amazônico</span>
+          <img src="img/belem-theatro-da-paz.jpg" alt="City Tour Histórico em Belém e Theatro da Paz" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 Belém / PA (Centro Histórico)</span> · <span>🏛️ Guia Cultural Credenciado</span></div>
+          <h3 class="hotel-title-luxe">City Tour Histórico Belém + Theatro da Paz & Ver-o-Peso</h3>
+          <p class="hotel-desc-luxe">Roteiro a pé e van pelo Theatro da Paz, Basílica de Nazaré, Complexo Feliz Lusitânia, Forte do Presépio e Mercado Ver-o-Peso com degustação de castanhas e frutas típicas da Amazônia.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">R$ 85 <small>/ pessoa</small></div>
+            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DBelem%2BTheatro%2Bda%2BPaz" target="_blank" rel="noopener sponsored">Reservar City Tour Oficial →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-cidade="Belém">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill">🌅 Pôr do Sol na Amazônia</span>
+          <img src="img/belem-estacao-das-docas.jpg" alt="Passeio de Barco Orla de Belém Estação das Docas" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 Belém / PA (Estação das Docas)</span> · <span>⛵ Música Regional & Carimbó</span></div>
+          <h3 class="hotel-title-luxe">Passeio de Barco ao Pôr do Sol na Baía do Guajará</h3>
+          <p class="hotel-desc-luxe">Navegação panorâmica pela orla de Belém a bordo de catamarã moderno ao pôr do sol. Vista única do skyline das Docas, Ver-o-Peso e ilhas fluviais com show de danças típicas a bordo.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">R$ 60 <small>/ passeio náutico</small></div>
+            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DBelem%2BPasseio%2BBarco%2BEstacao%2Bdas%2BDocas" target="_blank" rel="noopener sponsored">Garantir Passeio de Barco →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-cidade="Ilha de Marajó">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill">🐃 Maior Arquipélago Fluviomarítimo</span>
+          <img src="img/marajo-bufalos.jpg" alt="Expedição Ilha de Marajó e Fazendas de Búfalos" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 Soure & Salvaterra / PA (Marajó)</span> · <span>🌴 Montaria em Búfalos</span></div>
+          <h3 class="hotel-title-luxe">Expedição Ilha de Marajó: Fazendas de Búfalos & Praias</h3>
+          <p class="hotel-desc-luxe">Vivência autêntica no Marajó: montaria guiada em búfalos, trilha suspensa nos manguezais, banho na Praia do Pesqueiro e almoço com filé marajoara e queijo de búfala artesanal.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">R$ 180 <small>/ dia com guia</small></div>
+            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DIlha%2Bde%2BMarajo%2BPasseio" target="_blank" rel="noopener sponsored">Reservar Expedição Marajó →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-cidade="Alter do Chão">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill">🏝️ O Caribe Amazônico</span>
+          <img src="img/alter-do-chao-ilha-do-amor.jpg" alt="Passeio de Voadeira em Alter do Chão" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 Alter do Chão / PA (Rio Tapajós)</span> · <span>⛵ Águas Cristalinas Mornas</span></div>
+          <h3 class="hotel-title-luxe">Passeio de Voadeira: Ilha do Amor & Floresta Encantada</h3>
+          <p class="hotel-desc-luxe">Navegação pelas águas azuis-turquesa do Rio Tapajós até o banco de areia da Ilha do Amor, Lago Verde e canoagem mágica pelos igapós da Floresta Encantada com pirarucu na brasa.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">R$ 130 <small>/ travessia e lancha</small></div>
+            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DAlter%2Bdo%2BChao%2BTapajos" target="_blank" rel="noopener sponsored">Garantir Voadeira Oficial →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-cidade="Salinópolis">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill">🌊 Litoral Atlântico Paraense</span>
+          <img src="img/salinas-praia-atalaia.jpg" alt="Passeio Náutico e Dunas em Salinas" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 Salinópolis / PA (Costa Atlântica)</span> · <span>🏖️ Dunas & Mar Aberto</span></div>
+          <h3 class="hotel-title-luxe">Passeio Náutico e Dunas do Farol Velho em Salinas</h3>
+          <p class="hotel-desc-luxe">Rota pelo litoral norte do Pará: areias da Praia do Atalaia, passeio de lancha pelos canais de manguezal até o Farol Velho e banho relaxante nas águas doces do Lago da Coca-Cola.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">R$ 90 <small>/ pessoa</small></div>
+            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=3249&u=https%3A%2F%2Fwww.viator.com%2FsearchResults%2Fall%3Ftext%3DSalinopolis%2BAtalaia" target="_blank" rel="noopener sponsored">Reservar Passeio em Salinas →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <!-- SEÇÃO DE GASTRONOMIA & DESCONTOS EM COMIDA (ATÉ 50% OFF) -->
   <section id="secaoGastronomia" style="scroll-margin-top:90px;margin-bottom:60px">
     <div class="filtros-luxe-bar" style="margin-top:0">
@@ -2016,7 +2177,6 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
       <p>© 2026 Renato Penner Soares. Todos os direitos reservados.</p>
       <p><a href="https://loja.pennertech.com.br/">loja.pennertech.com.br</a> · <a href="https://instagram.com/pennerrenato" target="_blank" rel="noopener">@pennerrenato</a></p>
     </div>
-  </div>
 </footer>
 
 <script>
@@ -2067,7 +2227,7 @@ var destinosBrasilDB = [];
 var destinosIndex = {};
 
 (function carregarCatalogoDestinos() {
-  fetch('data/destinos_brasil_200.json?v=20261128_v10')
+  fetch('data/destinos_brasil_200.json?v=20261128_v12')
     .then(function(r){ return r.json(); })
     .then(function(d){
       destinosBrasilDB = d;
