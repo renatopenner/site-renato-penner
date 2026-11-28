@@ -1987,10 +1987,11 @@ document.querySelectorAll('.chip-luxe').forEach(function(btn){
     var a = ev.target && ev.target.closest ? ev.target.closest('a') : null;
     if (!a) return;
     var h = a.href || '', tgt = '';
-    if (h.indexOf('booking.com') !== -1) tgt = 'booking';
+    if (h.indexOf('booking.com') !== -1 || h.indexOf('p=4115') !== -1) tgt = 'booking';
     else if (h.indexOf('aviasales') !== -1) tgt = 'aviasales';
+    else if (h.indexOf('viator') !== -1 || h.indexOf('p=3249') !== -1) tgt = 'viator';
     else if (h.indexOf('decolar') !== -1) tgt = 'decolar';
-    else if (h.indexOf('viator') !== -1) tgt = 'viator';
+    else if (h.indexOf('thefork') !== -1 || h.indexOf('primeiramesa') !== -1 || h.indexOf('duogourmet') !== -1) tgt = 'gastronomia';
     if (tgt) sendHit('click', { target: tgt, label: a.innerText.trim().slice(0, 50) });
   });
 })();
