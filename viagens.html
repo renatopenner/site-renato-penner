@@ -459,6 +459,31 @@ header .dir {
   header .links { order: 3; width: 100%; padding-bottom: 4px; }
 }
 
+
+/* Calendário elegante e intuitivo */
+input[type="date"] {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--texto);
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.65;
+  transition: opacity .15s;
+}
+[data-tema="escuro"] input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.9);
+}
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
 </style>
 
 <script>
@@ -500,45 +525,77 @@ header .dir {
 </div></header>
 
 <main class="wrap">
-  <div class="migalha" style="margin-top:16px"><span style="color:var(--acento);font-weight:700">PennerTech Viagens</span> / Curadoria Oficial de Hospedagens Econômicas & Resorts</div>
+  
 
   <section class="luxe-hero">
     <span class="luxe-badge">✦ Curadoria Autêntica de Viagens</span>
     <h1 class="luxe-title">Viaje com critério. Estadias memoráveis<br><em>selecionadas pelo verdadeiro custo-benefício.</em></h1>
-    <p class="luxe-sub">Resorts de praia, chalés alpinos e apartamentos privativos testados no Brasil e no exterior — parceria oficial Booking.com.</p>
+    <p class="luxe-sub">Resorts de praia, chalés alpinos e pousadas testadas no Brasil — parceria oficial Booking.com com cancelamento grátis.</p>
 
-    <!-- SELETOR DOS 2 BOTÕES PRINCIPAIS (ZERO AMONTOADO) -->
+    <!-- 2 MODOS DE BUSCA PRINCIPAIS (SEM BOTÃO DUPLICADO) -->
     <div class="botoes-modos-box">
       <button type="button" class="btn-modo-pill ativo" id="btnModoSuper" onclick="alternarModo('super')">
-        🌐 Super Busca 360°
+        🌐 Super Busca 360° por Destino
       </button>
       <button type="button" class="btn-modo-pill" id="btnModoCat" onclick="alternarModo('cat')">
-        🎯 Busca com Subopções ▾
+        🎯 Busca Direta por Categoria ▾
       </button>
     </div>
+
+    <!-- DATALIST PARA AUTOPREENCHIMENTO INTELIGENTE AO DIGITAR -->
+    <datalist id="listaDestinosBrasil">
+      <option value="Campos do Jordão, SP">
+      <option value="Salinópolis, PA">
+      <option value="Gramado, RS">
+      <option value="Canela, RS">
+      <option value="Belém, PA">
+      <option value="Porto de Galinhas, PE">
+      <option value="Maragogi, AL">
+      <option value="Maceió, AL">
+      <option value="Praia da Pipa, RN">
+      <option value="Natal, RN">
+      <option value="Fortaleza, CE">
+      <option value="Cumbuco, CE">
+      <option value="Jericoacoara, CE">
+      <option value="Salvador, BA">
+      <option value="Rio de Janeiro, RJ">
+      <option value="Arraial do Cabo, RJ">
+      <option value="Armação dos Búzios, RJ">
+      <option value="Foz do Iguaçu, PR">
+      <option value="Florianópolis, SC">
+      <option value="Balneário Camboriú, SC">
+      <option value="São Paulo, SP">
+      <option value="Caldas Novas, GO">
+      <option value="Pirenópolis, GO">
+      <option value="Santiago, Chile">
+      <option value="Buenos Aires, Argentina">
+      <option value="Orlando, EUA">
+      <option value="Paris, França">
+      <option value="Lisboa, Portugal">
+    </datalist>
 
     <!-- MODO 1: SUPER BUSCA 360° -->
     <div id="painelSuper" class="luxe-search-container">
       <form class="luxe-search-bar" onsubmit="dispararSuper360(); return false;">
-        <div class="search-col" style="flex:2">
+        <div class="search-col" style="flex:2.2">
           <label>Destino da Viagem</label>
-          <input type="text" id="destSuperInput" placeholder="Para onde você vai? (Ex: Campos do Jordão, Salinópolis, Gramado...)" required>
+          <input type="text" id="destSuperInput" list="listaDestinosBrasil" placeholder="Digite para autopreencher a cidade..." autocomplete="off" required>
         </div>
-        <div class="search-col" style="flex:1.2">
-          <label>Período Estimado</label>
-          <input type="text" id="quandoSuperInput" placeholder="Ex: 16 a 23 de Janeiro 2027">
+        <div class="search-col" style="flex:1.1">
+          <label>Check-in (Entrada)</label>
+          <input type="date" id="dataCheckinSuper">
         </div>
-        <div class="search-col" style="flex:1.4">
-          <label>Estilo</label>
-          <input type="text" id="estiloSuperInput" placeholder="Casal, Família ou Solo" value="Casal Econômico (~R$ 200)">
+        <div class="search-col" style="flex:1.1">
+          <label>Check-out (Saída)</label>
+          <input type="date" id="dataCheckoutSuper">
         </div>
-        <button type="submit" class="btn-luxe-submit" title="Disparar Super Busca 360°">
+        <button type="submit" class="btn-luxe-submit" title="Pesquisar Destino 360°">
           <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <span>Super Busca 360°</span>
+          <span>Pesquisar</span>
         </button>
       </form>
 
-      <!-- Popup / Gaveta 360 -->
+      <!-- Gaveta 360 de Resultados -->
       <div id="popup360" class="res360-popup" style="display:none">
         <div style="display:flex;align-items:center;justify-content:space-between">
           <h4 style="font-family:'Newsreader',serif;font-size:20px;color:var(--texto)">Super Cotação 360° para: <strong id="nomeDest360" style="color:var(--acento)">--</strong></h4>
@@ -546,22 +603,22 @@ header .dir {
         </div>
         <div class="res360-grid">
           <a id="link360Hoteis" href="#" target="_blank" rel="noopener sponsored" class="res360-item">
-            <span>🏨</span> <div><b>Hospedagens</b><br><small style="color:var(--texto-sub)">Booking.com oficial</small></div>
+            <span>🏨</span> <div><b>Hospedagens no Booking</b><br><small style="color:var(--texto-sub)">Tarifas oficiais com desconto</small></div>
           </a>
           <a id="link360Voos" href="#" target="_blank" rel="noopener sponsored" class="res360-item">
-            <span>✈️</span> <div><b>Passagens Aéreas</b><br><small style="color:var(--texto-sub)">Menores tarifas todas cias</small></div>
+            <span>✈️</span> <div><b>Passagens Aéreas</b><br><small style="color:var(--texto-sub)">Menores tarifas (Todas as Cias)</small></div>
           </a>
           <a id="link360Pacotes" href="#" target="_blank" rel="noopener sponsored" class="res360-item">
-            <span>🎒</span> <div><b>Pacotes Voo + Hotel</b><br><small style="color:var(--texto-sub)">Decolar com desconto</small></div>
+            <span>🎒</span> <div><b>Pacotes Voo + Hotel</b><br><small style="color:var(--texto-sub)">Economia na Decolar</small></div>
           </a>
           <a id="link360Atracoes" href="#" target="_blank" rel="noopener sponsored" class="res360-item">
-            <span>🎟️</span> <div><b>Passeios & Atrações</b><br><small style="color:var(--texto-sub)">Viator / Tripadvisor</small></div>
+            <span>🎟️</span> <div><b>Passeios & Atrações</b><br><small style="color:var(--texto-sub)">Ingressos no Viator</small></div>
           </a>
         </div>
       </div>
     </div>
 
-    <!-- MODO 2: BUSCA COM CAIXA DE SELEÇÃO E SUBOPÇÕES -->
+    <!-- MODO 2: BUSCA POR CATEGORIA COM DROPDOWN -->
     <div id="painelCat" class="luxe-search-container" style="display:none">
       <form class="luxe-search-bar" onsubmit="dispararBuscaCat(); return false;">
         <div class="search-col" style="flex:1.4">
@@ -576,15 +633,15 @@ header .dir {
         </div>
         <div class="search-col" style="flex:2">
           <label id="lblDestCat">Destino ou Cidade</label>
-          <input type="text" id="inputDestCat" placeholder="Digite a cidade ou hotel desejado..." required>
+          <input type="text" id="inputDestCat" list="listaDestinosBrasil" placeholder="Digite para autopreencher a cidade..." autocomplete="off" required>
         </div>
-        <div class="search-col" style="flex:1">
-          <label>Data (Opcional)</label>
+        <div class="search-col" style="flex:1.1">
+          <label>Data da Viagem</label>
           <input type="date" id="inputDataCat">
         </div>
-        <button type="submit" class="btn-luxe-submit" title="Buscar">
+        <button type="submit" class="btn-luxe-submit" title="Buscar Categoria">
           <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <span>Buscar ➔</span>
+          <span>Buscar</span>
         </button>
       </form>
     </div>
@@ -1310,11 +1367,22 @@ function dispararSuper360() {
   var d = (document.getElementById('destSuperInput').value || '').trim();
   if (!d) return;
 
+  var cin = document.getElementById('dataCheckinSuper') ? document.getElementById('dataCheckinSuper').value : '';
+  var cout = document.getElementById('dataCheckoutSuper') ? document.getElementById('dataCheckoutSuper').value : '';
+
   var enc = encodeURIComponent(d);
   document.getElementById('nomeDest360').textContent = d;
 
-  document.getElementById('link360Hoteis').href = 'https://www.booking.com/searchresults.pt-br.html?ss=' + enc + '&label=pennertech-360';
-  document.getElementById('link360Voos').href = 'https://www.aviasales.com/search?marker=812990&destination_name=' + enc;
+  var urlBooking = 'https://www.booking.com/searchresults.pt-br.html?ss=' + enc + '&label=pennertech-360';
+  if (cin) urlBooking += '&checkin=' + cin;
+  if (cout) urlBooking += '&checkout=' + cout;
+  document.getElementById('link360Hoteis').href = urlBooking;
+
+  var urlVoos = 'https://www.aviasales.com/search?marker=812990&destination_name=' + enc;
+  if (cin) urlVoos += '&depart_date=' + cin;
+  if (cout) urlVoos += '&return_date=' + cout;
+  document.getElementById('link360Voos').href = urlVoos;
+
   document.getElementById('link360Pacotes').href = 'https://www.decolar.com/pacotes/';
   document.getElementById('link360Atracoes').href = 'https://www.viator.com/searchResults/all?text=' + enc;
 
