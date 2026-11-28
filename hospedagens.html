@@ -2312,8 +2312,17 @@ document.querySelectorAll('.chip-luxe').forEach(function(btn){
 <script>
 function filtrarHospedagens(btn, cat) {
   var chips = document.querySelectorAll('.filtros-grupos .chip-luxe');
-  chips.forEach(function(c){ c.classList.remove('on'); });
+  chips.forEach(function(c){
+    c.classList.remove('on');
+    c.style.background = '';
+    c.style.color = '';
+    c.style.borderColor = '';
+  });
+
   btn.classList.add('on');
+  btn.style.background = 'var(--acento)';
+  btn.style.color = '#ffffff';
+  btn.style.borderColor = 'var(--acento)';
 
   var cards = document.querySelectorAll('#gridHoteis .hotel-card');
   cards.forEach(function(card){
