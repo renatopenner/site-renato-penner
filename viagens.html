@@ -271,6 +271,43 @@ h1 em, .luxe-title em { font-style: italic !important; }
 }
 
 /* FILTROS DE HOTÉIS DISCRETOS EM 1 LINHA */
+
+/* NAVEGADOR DE PILARES DA VIAGEM */
+.pilares-navegacao-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 18px 0 28px;
+  flex-wrap: wrap;
+}
+.pilar-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+  background: var(--card);
+  color: var(--texto-sub);
+  border: 1.5px solid var(--borda-suave);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  transition: all .2s ease;
+}
+.pilar-nav-link:hover {
+  border-color: var(--acento);
+  color: var(--texto);
+  transform: translateY(-1px);
+}
+.pilar-nav-link.ativo {
+  background: var(--acento);
+  color: #fff !important;
+  border-color: var(--acento);
+  box-shadow: 0 4px 14px rgba(180, 83, 9, 0.25);
+}
+
 .filtros-luxe-bar {
   display: flex;
   align-items: center;
@@ -706,6 +743,9 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
           <a id="link360Atracoes" href="#" target="_blank" rel="noopener sponsored" class="res360-item">
             <span>🎟️</span> <div><b>Passeios & Atrações</b><br><small style="color:var(--texto-sub)">Ingressos no Viator</small></div>
           </a>
+          <a id="link360Comida" href="https://www.thefork.com.br/" target="_blank" rel="noopener sponsored" class="res360-item">
+            <span>🍽️</span> <div><b>Desconto em Restaurantes</b><br><small style="color:var(--texto-sub)">Até 50% OFF no TheFork / Primeira Mesa</small></div>
+          </a>
         </div>
       </div>
     </div>
@@ -719,7 +759,8 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
             <option value="hoteis" selected>🏨 Hotéis & Hospedagens</option>
             <option value="passagens">✈️ Passagens Aéreas (Todas as Cias)</option>
             <option value="pacotes">🎒 Pacotes de Viagem</option>
-            <option value="atracoes">🎟️ Atrações & Passeios</option>
+            <option value="atracoes">🎟️ Atrações & Ingressos</option>
+            <option value="comida">🍽️ Descontos em Restaurantes & Comida (Até 50% OFF)</option>
             <option value="carros">🚗 Aluguel de Carros</option>
           </select>
         </div>
@@ -1417,6 +1458,234 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
       </div>
     </article>
   </div>
+
+  <!-- SEÇÃO DE ATRAÇÕES & PASSEIOS POPULARES -->
+  <section id="secaoAtracoes" style="scroll-margin-top:90px;margin-top:60px;margin-bottom:60px">
+    <div class="filtros-luxe-bar" style="margin-top:0">
+      <div>
+        <h2 style="margin-bottom:4px">🎟️ Atrações & Ingressos com Menor Preço</h2>
+        <span style="font-size:12.5px;color:var(--texto-sub)">Ingressos oficiais para parques temáticos, passeios e pontos turísticos sem filas no Brasil</span>
+      </div>
+      <div class="filtros-grupos">
+        <span style="font-size:12.5px;color:var(--acento);font-weight:700">✦ Parceria Oficial Viator & Civitatis</span>
+      </div>
+    </div>
+
+    <div class="grid-hoteis-luxe" id="gridAtracoes">
+
+      <article class="hotel-card" data-cidade="Penha">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill">⭐ Parque Nº 1 da América Latina</span>
+          <img src="https://images.unsplash.com/photo-1513889961551-628c1e5e2ee9?auto=format&fit=crop&w=800&q=80" alt="Beto Carrero World (Penha / SC)" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 Penha / SC (Perto de Balneário Camboriú)</span> · <span>🎟️ Entrada Direta</span></div>
+          <h3 class="hotel-title-luxe">Beto Carrero World (Passaporte Oficial)</h3>
+          <p class="hotel-desc-luxe">O maior parque temático da América Latina: montanhas-russas radicais (FireWhip, Star Mountain), shows temáticos internacionais e a área oficial Hot Wheels com desconto antecipado.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">R$ 109 <small>/ a partir de</small></div>
+            <a class="hotel-action-link" href="https://www.viator.com/searchResults/all?text=Beto+Carrero+World" target="_blank" rel="noopener sponsored">Garantir Ingresso Oficial →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-cidade="Gramado">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill">❄️ Neve de Verdade o Ano Todo</span>
+          <img src="https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=800&q=80" alt="Snowland Gramado" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 Gramado / RS (Serra Gaúcha)</span> · <span>🧥 Roupas Térmicas Inclusas</span></div>
+          <h3 class="hotel-title-luxe">Snowland Gramado (Parque de Neve Coberto)</h3>
+          <p class="hotel-desc-luxe">Viva a experiência única de neve real a -5°C no Brasil: pista de esqui, snowboard, patinação no gelo, castelo de neve e vila alpina completa com aluguel de botas e casacos inclusos.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">R$ 149 <small>/ passaporte</small></div>
+            <a class="hotel-action-link" href="https://www.viator.com/searchResults/all?text=Snowland+Gramado" target="_blank" rel="noopener sponsored">Garantir Ingresso Oficial →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-cidade="Rio de Janeiro">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill">★ Maravilha do Mundo Moderno</span>
+          <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=800&q=80" alt="Cristo Redentor e Trem do Corcovado" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 Rio de Janeiro / RJ (Cosme Velho)</span> · <span>🚂 Sem Fila de Bilheteria</span></div>
+          <h3 class="hotel-title-luxe">Cristo Redentor + Trem Oficial do Corcovado</h3>
+          <p class="hotel-desc-luxe">Subida histórica cortando a Mata Atlântica no Parque Nacional da Tijuca até o topo do Cristo Redentor. Vista panorâmica de 360° da Baía de Guanabara, Pão de Açúcar e praias cariocas.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">R$ 93 <small>/ ingresso e trem</small></div>
+            <a class="hotel-action-link" href="https://www.viator.com/searchResults/all?text=Trem+do+Corcovado+Cristo+Redentor" target="_blank" rel="noopener sponsored">Garantir Ingresso Oficial →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-cidade="Maragogi">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill">🌊 O Caribe Brasileiro</span>
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Piscinas Naturais de Galés em Catamarã" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 Maragogi / AL (Costa dos Corais)</span> · <span>🤿 Snorkel & Mergulho</span></div>
+          <h3 class="hotel-title-luxe">Piscinas Naturais de Galés em Catamarã (Maragogi)</h3>
+          <p class="hotel-desc-luxe">Navegação em catamarã moderno até os recifes de coral a 6 km da costa durante a maré baixa. Águas mornas, cristalinas em tom turquesa repletas de peixes coloridos para mergulho livre.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">R$ 110 <small>/ passeio de barco</small></div>
+            <a class="hotel-action-link" href="https://www.viator.com/searchResults/all?text=Passeio+de+Catamara+Maragogi" target="_blank" rel="noopener sponsored">Garantir Vaga Oficial →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-cidade="Foz do Iguaçu">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill">⭐ Patrimônio Natural da Humanidade</span>
+          <img src="https://images.unsplash.com/photo-1589553416260-f586c8f1514f?auto=format&fit=crop&w=800&q=80" alt="Cataratas do Iguaçu e Macuco Safari" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 Foz do Iguaçu / PR</span> · <span>🌊 Passarela Garganta do Diabo</span></div>
+          <h3 class="hotel-title-luxe">Cataratas do Iguaçu (Entrada Parque Nacional)</h3>
+          <p class="hotel-desc-luxe">Acesso oficial com transporte panorâmico às passarelas da Garganta do Diabo. O maior conjunto de quedas d'água do planeta cercado por trilhas e exuberante fauna da Mata Atlântica.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">R$ 88 <small>/ entrada oficial</small></div>
+            <a class="hotel-action-link" href="https://www.viator.com/searchResults/all?text=Cataratas+do+Iguacu" target="_blank" rel="noopener sponsored">Garantir Ingresso Oficial →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-cidade="Praia da Pipa">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill">🏜️ Dunas & Lagoas com Emoção</span>
+          <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=800&q=80" alt="Passeio de Buggy pelas Dunas de Genipabu e Pipa" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 Natal & Pipa / RN</span> · <span>🚙 Bugueiro Credenciado</span></div>
+          <h3 class="hotel-title-luxe">Passeio de Buggy pelas Dunas Móveis e Lagoas</h3>
+          <p class="hotel-desc-luxe">A clássica rota potiguar com opção 'com emoção' pelas dunas móveis, parada para banho nas lagoas cristalinas de Pitangui e Jacumã com tirolesa e esquibunda tradicionais.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">R$ 120 <small>/ pessoa</small></div>
+            <a class="hotel-action-link" href="https://www.viator.com/searchResults/all?text=Buggy+Genipabu+Pipa" target="_blank" rel="noopener sponsored">Reservar Buggy Oficial →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-cidade="Fortaleza">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill">🌊 O Maior Toboágua do Mundo</span>
+          <img src="https://images.unsplash.com/photo-1582650625119-3a31f841839d?auto=format&fit=crop&w=800&q=80" alt="Beach Park Fortaleza" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 Aquiraz / CE (20 min de Fortaleza)</span> · <span>🏖️ À Beira-Mar</span></div>
+          <h3 class="hotel-title-luxe">Beach Park (Passaporte Parque Aquático)</h3>
+          <p class="hotel-desc-luxe">Eleito o melhor parque aquático das Américas: toboáguas radicais como o icônico Insano de 41 metros, piscina de ondas gigantes e rio lento familiar à beira da Praia de Porto das Dunas.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">R$ 260 <small>/ passaporte</small></div>
+            <a class="hotel-action-link" href="https://www.viator.com/searchResults/all?text=Beach+Park+Fortaleza" target="_blank" rel="noopener sponsored">Garantir Passaporte Oficial →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-cidade="Belém">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill">🛶 Experiência Autêntica Amazônica</span>
+          <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80" alt="Travessia e Gastronomia na Ilha do Combu" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 Belém / PA (Praça Princesa Isabel)</span> · <span>🍫 Chocolates da Dona Nena</span></div>
+          <h3 class="hotel-title-luxe">Travessia Ribeirinha e Rota do Combu (Belém)</h3>
+          <p class="hotel-desc-luxe">Passeio tradicional de popopô pelo Rio Guamá até a Ilha do Combu: visite a produção artesanal de cacau e chocolate da Dona Nena e desfrute de almoço ribeirinho com peixe frito e açaí.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">R$ 50 <small>/ travessia e guia</small></div>
+            <a class="hotel-action-link" href="https://www.viator.com/searchResults/all?text=Belem+Ilha+do+Combu" target="_blank" rel="noopener sponsored">Ver Passeios em Belém →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- SEÇÃO DE GASTRONOMIA & DESCONTOS EM COMIDA (ATÉ 50% OFF) -->
+  <section id="secaoGastronomia" style="scroll-margin-top:90px;margin-bottom:60px">
+    <div class="filtros-luxe-bar" style="margin-top:0">
+      <div>
+        <h2 style="margin-bottom:4px">🍽️ Gastronomia & Descontos em Restaurantes (Até 50% OFF)</h2>
+        <span style="font-size:12.5px;color:var(--texto-sub)">Coma muito bem economizando até metade da conta nos melhores polos gastronômicos do país</span>
+      </div>
+      <div class="filtros-grupos">
+        <span style="font-size:12.5px;color:var(--acento);font-weight:700">✦ Economia Real nas Refeições</span>
+      </div>
+    </div>
+
+    <div class="grid-hoteis-luxe" id="gridGastronomia">
+
+      <article class="hotel-card" data-cidade="Brasil">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill" style="background:#b45309;color:#fff">⭐ 50% OFF no Cardápio</span>
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Primeira Mesa 50% de Desconto em Restaurantes" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 SP · Rio · Curitiba · Gramado · Floripa · Salvador</span> · <span>👥 Até 6 Pessoas</span></div>
+          <h3 class="hotel-title-luxe">Primeira Mesa: 50% de Desconto em Toda a Comida</h3>
+          <p class="hotel-desc-luxe">O melhor segredo para comer barato e bem em viagens: reserve os primeiros horários dos restaurantes parceiros e ganhe 50% de desconto real em todos os pratos do cardápio para você e seus acompanhantes.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">50% OFF <small>/ na comida</small></div>
+            <a class="hotel-action-link" href="https://www.primeiramesa.com.br/" target="_blank" rel="noopener">Acessar Primeira Mesa →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-cidade="Brasil">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill" style="background:#059669;color:#fff">★ 30% a 50% Direto na Conta</span>
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="TheFork e TripAdvisor Restaurantes" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 Principais Capitais e Polos Gastronômicos</span> · <span>📱 Sem Imprimir Cupom</span></div>
+          <h3 class="hotel-title-luxe">TheFork / TripAdvisor: Promoções de 30% a 50%</h3>
+          <p class="hotel-desc-luxe">Reserva online 100% gratuita com descontos automáticos de até 50% aplicados diretamente na conta final. Centenas de pizzarias, bistrôs franceses, hamburguerias e restaurantes premiados.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">Até 50% OFF <small>/ conta final</small></div>
+            <a class="hotel-action-link" href="https://www.thefork.com.br/" target="_blank" rel="noopener">Reservar com Desconto →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-cidade="Brasil">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill">🏷️ Peça 2 Pratos, Pague 1</span>
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Duo Gourmet 2 por 1" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 +15 Capitais Brasileiras (SP, RJ, BH, BSB, Fortaleza...)</span> · <span>🍷 Casal & Amigos</span></div>
+          <h3 class="hotel-title-luxe">Duo Gourmet: Peça 2 Pratos Principais e Pague Apenas 1</h3>
+          <p class="hotel-desc-luxe">O guia gastronômico indispensável para viagens a dois ou em família: ao pedir dois pratos principais nos restaurantes credenciados, o prato de igual ou menor valor sai inteiramente por conta da casa.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">2 por 1 <small>/ pratos principais</small></div>
+            <a class="hotel-action-link" href="https://www.duogourmet.com.br/" target="_blank" rel="noopener">Conhecer o Duo Gourmet →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="hotel-card" data-cidade="Belém">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill">💡 Curadoria Técnica do Renato</span>
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Polos Gastronômicos Regionais de Alta Economia" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 Belém · Salvador · Canela & Gramado</span> · <span>🍲 Comida Raiz e Barata</span></div>
+          <h3 class="hotel-title-luxe">Polos Gastronômicos Autênticos de Baixo Custo</h3>
+          <p class="hotel-desc-luxe">Coma como um habitante local: peixe frito com açaí raiz no Ver-o-Peso (Belém), moquecas e acarajés de bairro no Rio Vermelho (Salvador), e os galetos e cafés coloniais econômicos tradicionais de Canela.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">R$ 25 <small>/ refeição completa</small></div>
+            <a class="hotel-action-link" href="https://www.tripadvisor.com.br/Restaurants" target="_blank" rel="noopener">Ver Melhores Avaliados →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
 </main>
 
 <footer style="background:var(--card);border-top:1px solid var(--linha);padding:40px 0;margin-top:60px">
@@ -1599,6 +1868,9 @@ function atualizarHintCat() {
   } else if (v === 'atracoes') {
     l.textContent = 'Cidade ou Atração';
     i.placeholder = 'Cidade dos passeios e ingressos...';
+  } else if (v === 'comida') {
+    l.textContent = 'Cidade para Desconto em Comida';
+    i.placeholder = 'Digite a cidade (ex: São Paulo, Gramado, Rio)...';
   } else if (v === 'carros') {
     l.textContent = 'Cidade de Retirada';
     i.placeholder = 'Aeroporto ou cidade para aluguel...';
@@ -1623,6 +1895,11 @@ function dispararBuscaCat() {
     window.open('https://www.decolar.com/pacotes/', '_blank');
   } else if (v === 'atracoes') {
     window.open('https://www.viator.com/searchResults/all?text=' + enc, '_blank');
+  } else if (v === 'comida') {
+    l.textContent = 'Cidade para Desconto em Comida';
+    i.placeholder = 'Digite a cidade (ex: São Paulo, Gramado, Rio)...';
+  } else if (v === 'comida') {
+    window.open('https://www.thefork.com.br/search?text=' + enc, '_blank');
   } else if (v === 'carros') {
     window.open('https://www.booking.com/cars/index.pt-br.html?label=pennertech-cars', '_blank');
   }
