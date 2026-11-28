@@ -1152,9 +1152,14 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     <!-- MODO 1: SUPER BUSCA 360° -->
     <div id="painelSuper" class="luxe-search-container">
       <form class="luxe-search-bar" onsubmit="dispararSuper360(); return false;">
-        <div class="search-col search-col-autocomplete" style="flex:2.2">
-          <label>Destino da Viagem</label>
-          <input type="text" id="destSuperInput" placeholder="Para onde você vai? (ex: Gramado, Salinas...)" autocomplete="off" required>
+        <div class="search-col search-col-autocomplete" style="flex:1.4">
+          <label>Origem (Sua Cidade / Aeroporto)</label>
+          <input type="text" id="origemSuperInput" placeholder="De onde você sai? (ex: São Paulo, Belém, Rio...)" value="São Paulo (SAO)" autocomplete="off">
+          <div id="sugestoesOrigemSuper" class="sugestoes-box" style="display:none"></div>
+        </div>
+        <div class="search-col search-col-autocomplete" style="flex:1.8">
+          <label>Destino no Brasil ou no Mundo</label>
+          <input type="text" id="destSuperInput" placeholder="Para onde você vai? (ex: Roma, Paris, Gramado, Rio...)" autocomplete="off" required>
           <div id="sugestoesSuper" class="sugestoes-box" style="display:none"></div>
         </div>
         <div class="search-col" style="flex:1.1">
@@ -1240,7 +1245,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
           <a id="linkVooBooking" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fflights%2Findex.pt-br.html%3Flabel%3Dpennertech-booking" target="_blank" rel="noopener sponsored" class="res360-item" style="border-left:4px solid #003580">
             <span>🌍</span> <div><b>Booking.com Voos Globais</b><br><small style="color:var(--texto-sub)">Pesquisa em todas as cias com desconto Genius</small></div>
           </a>
-          <a id="linkVooAviasales" href="https://www.aviasales.com/search?marker=812990" target="_blank" rel="noopener sponsored" class="res360-item" style="border-left:4px solid #FF6D00">
+          <a id="linkVooAviasales" href="https://tp.media/r?marker=812990&p=4114&u=https%3A%2F%2Fwww.aviasales.com%2F" target="_blank" rel="noopener sponsored" class="res360-item" style="border-left:4px solid #FF6D00">
             <span>⚡</span> <div><b>Comparador Global Aviasales</b><br><small style="color:var(--texto-sub)">Varredura em tempo real em 700+ companhias aéreas</small></div>
           </a>
         </div>
@@ -1626,7 +1631,7 @@ function executarBuscaVoosMundial(origem, destino, dtIda, dtVolta) {
   var urlBookingFlights = 'https://tp.media/r?marker=' + TRAVELPAYOUTS_MARKER + '&p=' + TRAVELPAYOUTS_BOOKING_P + '&u=' + encodeURIComponent(rawBookingFlights);
 
   // Aviasales Comparador Global
-  var urlAviasales = 'https://www.aviasales.com/search?marker=' + TRAVELPAYOUTS_MARKER + '&destination_name=' + enc;
+  var urlAviasales = 'https://tp.media/r?marker=' + TRAVELPAYOUTS_MARKER + '&p=4114&u=' + encodeURIComponent('https://www.aviasales.com/');
   if (dtIda) urlAviasales += '&depart_date=' + dtIda;
   if (dtVolta) urlAviasales += '&return_date=' + dtVolta;
 
@@ -1652,10 +1657,24 @@ function dispararSuper360() {
   var d = (document.getElementById('destSuperInput').value || '').trim();
   if (!d) return;
 
+  var oInp = document.getElementById('origemSuperInput');
+  var orig = (oInp ? oInp.value : '').trim() || 'São Paulo (SAO)';
+
+  // Sincronizar com os campos de voo
+  var oVoo = document.getElementById('origemVooInput');
+  if (oVoo) oVoo.value = orig;
+  var dVoo = document.getElementById('destVooInput');
+  if (dVoo) dVoo.value = d;
+
   var cin = document.getElementById('dataCheckinSuper') ? document.getElementById('dataCheckinSuper').value : '';
   var cout = document.getElementById('dataCheckoutSuper') ? document.getElementById('dataCheckoutSuper').value : '';
 
-  executarFiltroPorDestino(d, cin, cout);
+  var dIda = document.getElementById('dataIdaVoo');
+  if (dIda && cin) dIda.value = cin;
+  var dVolta = document.getElementById('dataVoltaVoo');
+  if (dVolta && cout) dVolta.value = cout;
+
+  executarFiltroPorDestino(d, cin, cout, orig);
 }
 
 // ========================================================
@@ -1665,7 +1684,7 @@ var destinosBrasilDB = [];
 var destinosIndex = {};
 
 (function carregarCatalogoDestinos() {
-  fetch('data/destinos_brasil_200.json?v=20261128_v18')
+  fetch('data/destinos_brasil_200.json?v=20261128_v20')
     .then(function(r){ return r.json(); })
     .then(function(d){
       destinosBrasilDB = d;
@@ -1739,7 +1758,7 @@ function executarFiltroPorDestino(destino, cin, cout) {
   var urlVoosTrip = (destInfo && destInfo.link_voos_trip) ? destInfo.link_voos_trip : ('https://www.awin1.com/cread.php?awinmid=' + AWIN_MID_TRIP + '&awinaffid=' + AWIN_AFFID + '&ued=' + encodeURIComponent(urlTripDest));
 
   // Comparador de Voos (Aviasales)
-  var urlVoos = (destInfo && destInfo.link_voos_aviasales) ? destInfo.link_voos_aviasales : ('https://www.aviasales.com/search?marker=' + TRAVELPAYOUTS_MARKER + '&destination_name=' + enc);
+  var urlVoos = (destInfo && destInfo.link_voos_aviasales) ? destInfo.link_voos_aviasales : ('https://tp.media/r?marker=' + TRAVELPAYOUTS_MARKER + '&p=4114&u=' + encodeURIComponent('https://www.aviasales.com/'));
   if (cin && urlVoos.indexOf('depart_date') === -1) urlVoos += '&depart_date=' + cin;
   if (cout && urlVoos.indexOf('return_date') === -1) urlVoos += '&return_date=' + cout;
 
@@ -1925,13 +1944,15 @@ function atualizarHintCat() {
   var l = document.getElementById('lblDestCat');
   var i = document.getElementById('inputDestCat');
 
+  if (v === 'passagens') {
+    alternarModo('voos');
+    var dV = document.getElementById('destVooInput');
+    if (dV) dV.focus();
+    return;
+  }
   if (v === 'hoteis') {
     l.textContent = 'Destino ou Hotel';
     i.placeholder = 'Digite a cidade, resort ou praia (Booking)...';
-  } else if (v === 'passagens') {
-
-    l.textContent = 'Destino do Voo';
-    i.placeholder = 'Cidade ou aeroporto de destino (Todas as Cias)...';
   } else if (v === 'pacotes') {
     l.textContent = 'Destino do Pacote';
     i.placeholder = 'Destino completo (Voo + Hotel)...';
@@ -1959,7 +1980,7 @@ function dispararBuscaCat() {
     var rawB = 'https://www.booking.com/searchresults.pt-br.html?ss=' + enc + (dt ? '&checkin=' + dt : '');
     window.open('https://tp.media/r?marker=812990&p=4115&u=' + encodeURIComponent(rawB), '_blank');
   } else if (v === 'passagens') {
-    window.open('https://www.aviasales.com/search?marker=812990&destination_name=' + enc, '_blank');
+    window.open('https://tp.media/r?marker=812990&p=4114&u=https%3A%2F%2Fwww.aviasales.com%2F', '_blank');
   } else if (v === 'pacotes') {
     window.open('https://www.decolar.com/pacotes/', '_blank');
   } else if (v === 'atracoes') {
@@ -2121,6 +2142,7 @@ document.querySelectorAll('.chip-luxe').forEach(function(btn){
     });
   }
 
+  setupAutocomplete('origemSuperInput', 'sugestoesOrigemSuper', 'destSuperInput', aeroportosOrigem);
   setupAutocomplete('destSuperInput', 'sugestoesSuper', 'dataCheckinSuper', cidades);
   setupAutocomplete('destVooInput', 'sugestoesDestVoo', 'dataIdaVoo', cidades);
   setupAutocomplete('origemVooInput', 'sugestoesOrigemVoo', 'destVooInput', aeroportosOrigem);
