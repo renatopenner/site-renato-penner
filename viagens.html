@@ -1997,11 +1997,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
         </div>
       </article>
 
-    </div>
-  </section>
-
-
-  <article class="hotel-card" data-cidade="Belém">
+<article class="hotel-card" data-cidade="Belém">
         <div class="hotel-thumb">
           <span class="card-badge-pill">⭐ Patrimônio Cultural Amazônico</span>
           <img src="img/belem-theatro-da-paz.jpg" alt="City Tour Histórico em Belém e Theatro da Paz" loading="lazy">
@@ -2080,7 +2076,9 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
           </div>
         </div>
       </article>
+
     </div>
+  </div>
   </section>
 
   <!-- SEÇÃO DE GASTRONOMIA & DESCONTOS EM COMIDA (ATÉ 50% OFF) -->
@@ -2227,7 +2225,7 @@ var destinosBrasilDB = [];
 var destinosIndex = {};
 
 (function carregarCatalogoDestinos() {
-  fetch('data/destinos_brasil_200.json?v=20261128_v12')
+  fetch('data/destinos_brasil_200.json?v=20261128_v13')
     .then(function(r){ return r.json(); })
     .then(function(d){
       destinosBrasilDB = d;
