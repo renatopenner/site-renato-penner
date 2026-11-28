@@ -80,4 +80,16 @@
   <url><loc>https://loja.pennertech.com.br/p/ssd-sata-500-sandisk.html</loc><lastmod>2026-11-28</lastmod></url>
   <url><loc>https://loja.pennertech.com.br/p/vaio-fe16-ryzen7-linux.html</loc><lastmod>2026-11-28</lastmod></url>
   <url><loc>https://loja.pennertech.com.br/p/walkie-talkie-baofeng-bf-777s.html</loc><lastmod>2026-11-28</lastmod></url>
+  <url>
+    <loc>https://loja.pennertech.com.br/p/smart-tv-50-samsung-crystal-uhd-4k-du7700.html</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://loja.pennertech.com.br/p/air-fryer-mondial-family-4l-afn-40-bi.html</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

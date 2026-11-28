@@ -27,6 +27,29 @@
       "fixado": false
     },
     {
+      "slug": "air-fryer-mondial-family-4l-afn-40-bi",
+      "titulo": "Fritadeira Elétrica Air Fryer Mondial Family 4 Litros AFN-40-BI",
+      "link": "https://www.awin1.com/cread.php?awinmid=22193&awinaffid=3169987&ued=https%3A%2F%2Fwww.americanas.com.br%2Fproduto%2F3149842521",
+      "pagina": "p/air-fryer-mondial-family-4l-afn-40-bi.html",
+      "imagem": "img/air-fryer-mondial-family-4l-afn-40-bi.jpg",
+      "sitemap": "https://loja.pennertech.com.br/p/air-fryer-mondial-family-4l-afn-40-bi.html",
+      "cartoes": [
+        {
+          "pagina": "index.html",
+          "grid": "idx:1"
+        },
+        {
+          "pagina": "promocoes.html",
+          "grid": "idx:0"
+        },
+        {
+          "pagina": "casa.html",
+          "grid": "idx:0"
+        }
+      ],
+      "fixado": false
+    },
+    {
       "slug": "asus-vivobook-go-15-i3-8gb-512gb",
       "titulo": "Notebook ASUS Vivobook Go 15 (Windows 11)",
       "link": "https://meli.la/2HhFKs6",
@@ -816,6 +839,29 @@
         {
           "pagina": "index.html",
           "grid": "id:gridDestaques"
+        },
+        {
+          "pagina": "promocoes.html",
+          "grid": "idx:0"
+        },
+        {
+          "pagina": "casa.html",
+          "grid": "idx:0"
+        }
+      ],
+      "fixado": false
+    },
+    {
+      "slug": "smart-tv-50-samsung-crystal-uhd-4k-du7700",
+      "titulo": "Smart TV 50\" Crystal UHD 4K Samsung 50DU7700",
+      "link": "https://www.awin1.com/cread.php?awinmid=85979&awinaffid=3169987&ued=https%3A%2F%2Fwww.casasbahia.com.br%2Fsmart-tv-50-crystal-uhd-4k-samsung-50du7700-2024-processador-crystal-4k-gaming-hub-design-sem-bordas-visual-livre-de-cabos-tela-sem-limites%2Fp%2F55064972",
+      "pagina": "p/smart-tv-50-samsung-crystal-uhd-4k-du7700.html",
+      "imagem": "img/smart-tv-50-samsung-crystal-uhd-4k-du7700.jpg",
+      "sitemap": "https://loja.pennertech.com.br/p/smart-tv-50-samsung-crystal-uhd-4k-du7700.html",
+      "cartoes": [
+        {
+          "pagina": "index.html",
+          "grid": "idx:1"
         },
         {
           "pagina": "promocoes.html",
