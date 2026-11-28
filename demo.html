@@ -131,6 +131,65 @@ body{font-family:'Inter',sans-serif;color:#1e293b;background:#f8fafc;transition:
 .m-boutique .btq-val{font-size:22px;font-weight:800;color:#34d399}
 .m-boutique .btq-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#fff;padding:9px 16px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;transition:background .2s}
 .m-boutique .btq-btn:hover{background:#10b981;color:#090d16;border-color:#10b981}
+
+/* ========================================================
+   MODELO 4: LUXE HUB 360° (O HÍBRIDO MODERNO & ELEGANTE)
+   ======================================================== */
+.m-hibrido{background:#f8fafc;color:#1e293b;min-height:100vh}
+.m-hibrido .hib-hero{position:relative;padding:90px 24px 60px;text-align:center;background:radial-gradient(circle at 50% 10%,rgba(2,132,199,.08),rgba(16,185,129,.05) 50%,transparent 80%)}
+.m-hibrido .hib-tag-top{display:inline-flex;align-items:center;gap:6px;background:rgba(2,132,199,.1);color:#0284c7;font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:18px}
+.m-hibrido .hib-title{font-family:'Newsreader',serif;font-size:46px;font-weight:400;line-height:1.18;color:#0f172a;max-width:840px;margin:0 auto 16px}
+.m-hibrido .hib-title em{font-style:italic;color:#0284c7}
+.m-hibrido .hib-sub{font-size:16px;color:#64748b;max-width:620px;margin:0 auto 36px;line-height:1.6}
+
+/* Console Híbrido Flutuante Glassmorphism */
+.m-hibrido .hib-console{max-width:960px;margin:0 auto;background:rgba(255,255,255,.95);backdrop-filter:blur(24px);border:1px solid rgba(226,232,240,.9);border-radius:24px;padding:24px;box-shadow:0 20px 50px -15px rgba(15,23,42,.08)}
+.m-hibrido .hib-tabs{display:flex;gap:8px;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid #f1f5f9;overflow-x:auto}
+.m-hibrido .hib-tab{background:transparent;border:1px solid transparent;padding:9px 16px;border-radius:12px;font-size:13.5px;font-weight:700;color:#64748b;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all .15s ease}
+.m-hibrido .hib-tab:hover{background:#f8fafc;color:#0f172a}
+.m-hibrido .hib-tab.ativo{background:linear-gradient(135deg,#0284c7,#0369a1);color:#fff;box-shadow:0 4px 14px rgba(2,132,199,.25)}
+
+.m-hibrido .hib-inputs{display:grid;grid-template-columns:1.2fr 1.2fr 140px 140px auto;gap:10px}
+@media (max-width:860px){.m-hibrido .hib-inputs{grid-template-columns:1fr 1fr;}}
+.m-hibrido .hib-field{position:relative}
+.m-hibrido .hib-field label{position:absolute;top:6px;left:14px;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#94a3b8}
+.m-hibrido .hib-field input{width:100%;padding:22px 14px 8px;border:1px solid #e2e8f0;background:#f8fafc;border-radius:12px;font-size:14px;font-weight:700;color:#0f172a;outline:none;transition:border-color .2s}
+.m-hibrido .hib-field input:focus{border-color:#0284c7;background:#fff}
+.m-hibrido .hib-btn-main{background:linear-gradient(135deg,#059669,#0284c7);color:#fff;border:none;padding:0 24px;border-radius:12px;font-size:14.5px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:transform .15s,box-shadow .15s;min-height:54px}
+.m-hibrido .hib-btn-main:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(5,150,105,.3)}
+
+/* Faixa de Rota e Voos Rápidos */
+.m-hibrido .wrap{max-width:1200px;margin:0 auto;padding:40px 24px}
+.m-hibrido .hib-rota-box{background:linear-gradient(135deg,rgba(16,185,129,.06),rgba(2,132,199,.04));border:1px solid rgba(16,185,129,.2);border-radius:20px;padding:20px 24px;margin-bottom:40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.m-hibrido .hib-chips-cia{display:flex;gap:8px;flex-wrap:wrap}
+.m-hibrido .hib-chip{padding:8px 16px;border-radius:10px;font-size:12.5px;font-weight:800;color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:transform .15s}
+.m-hibrido .hib-chip:hover{transform:translateY(-1px)}
+
+/* Cards Híbridos Modernos */
+.m-hibrido .hib-sec-title{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px}
+.m-hibrido .hib-sec-title h2{font-family:'Newsreader',serif;font-size:32px;font-weight:400;color:#0f172a}
+.m-hibrido .hib-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:32px}
+.m-hibrido .hib-card{background:#fff;border:1px solid #e2e8f0;border-radius:22px;overflow:hidden;box-shadow:0 8px 24px rgba(15,23,42,.04);transition:all .25s ease;display:flex;flex-direction:column}
+.m-hibrido .hib-card:hover{transform:translateY(-5px);border-color:#cbd5e1;box-shadow:0 18px 40px -10px rgba(15,23,42,.1)}
+.m-hibrido .hib-thumb{height:230px;position:relative;overflow:hidden}
+.m-hibrido .hib-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.m-hibrido .hib-card:hover .hib-thumb img{transform:scale(1.04)}
+.m-hibrido .hib-pill-dest{position:absolute;top:14px;left:14px;background:rgba(15,23,42,.85);backdrop-filter:blur(10px);color:#fff;font-size:11px;font-weight:700;padding:5px 12px;border-radius:999px;letter-spacing:.02em}
+.m-hibrido .hib-pill-nota{position:absolute;top:14px;right:14px;background:#003580;color:#fff;font-size:12px;font-weight:800;padding:5px 10px;border-radius:8px}
+
+.m-hibrido .hib-body{padding:22px;display:flex;flex-direction:column;flex:1}
+.m-hibrido .hib-dist-line{font-size:12px;font-weight:700;color:#0284c7;background:#f0f9ff;padding:5px 10px;border-radius:8px;display:inline-block;margin-bottom:10px}
+.m-hibrido .hib-card-title{font-size:19px;font-weight:800;color:#0f172a;line-height:1.3;margin-bottom:8px}
+.m-hibrido .hib-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.m-hibrido .hib-tag{font-size:11.5px;font-weight:600;padding:4px 9px;border-radius:6px;background:#f8fafc;color:#475569;border:1px solid #f1f5f9}
+.m-hibrido .hib-tag.cafe{background:#ecfdf5;color:#065f46;border-color:#d1fae5;font-weight:700}
+.m-hibrido .hib-card-desc{font-size:13.5px;color:#64748b;line-height:1.55;margin-bottom:18px;flex:1}
+
+.m-hibrido .hib-footer{border-top:1px solid #f1f5f9;padding-top:16px;margin-top:auto;display:flex;align-items:center;justify-content:space-between}
+.m-hibrido .hib-preco-box small{display:block;font-size:11px;color:#94a3b8;font-weight:600}
+.m-hibrido .hib-preco-box b{font-size:24px;font-weight:800;color:#059669}
+.m-hibrido .hib-btn-reserva{background:#003580;color:#fff;padding:10px 18px;border-radius:10px;font-size:13.5px;font-weight:700;text-decoration:none;transition:background .15s}
+.m-hibrido .hib-btn-reserva:hover{background:#00224f}
 </style>
 </head>
 <body>
@@ -142,9 +201,10 @@ body{font-family:'Inter',sans-serif;color:#1e293b;background:#f8fafc;transition:
     <span>Showroom de Layouts 2026</span>
   </div>
   <div class="seletor-modelos">
-    <button class="btn-modelo ativo" onclick="trocarModelo('luxe')">✨ 1. Luxe Explorer (Airbnb Style)</button>
-    <button class="btn-modelo" onclick="trocarModelo('hub')">⚡ 2. Hub 360° (Skyscanner Style)</button>
-    <button class="btn-modelo" onclick="trocarModelo('boutique')">💎 3. Boutique Tech (Linear Style)</button>
+    <button class="btn-modelo ativo" onclick="trocarModelo('luxe')">✨ 1. Luxe Explorer</button>
+    <button class="btn-modelo" onclick="trocarModelo('hub')">⚡ 2. Hub 360°</button>
+    <button class="btn-modelo" onclick="trocarModelo('boutique')">💎 3. Boutique Tech</button>
+    <button class="btn-modelo" onclick="trocarModelo('hibrido')" style="background:linear-gradient(135deg,#059669,#0284c7);color:#fff">🚀 4. Luxe Hub 360° (Híbrido)</button>
   </div>
   <div style="font-size:12px;color:#94a3b8">
     Clique nos modelos para alternar ao vivo
@@ -393,6 +453,156 @@ body{font-family:'Inter',sans-serif;color:#1e293b;background:#f8fafc;transition:
   </div>
 </section>
 
+<!-- ========================================================
+     MODELO 4: LUXE HUB 360° (O HÍBRIDO MODERNO & ELEGANTE)
+     ======================================================== -->
+<section id="mod-hibrido" class="modelo-conteudo m-hibrido">
+  <div class="hib-hero">
+    <div class="hib-tag-top">✦ O Melhor dos Dois Mundos</div>
+    <h1 class="hib-title">A elegância de uma curadoria exclusiva com<br><em>o poder do buscador de menor tarifa.</em></h1>
+    <p class="hib-sub">Descubra estadias e passagens selecionadas com o rigor técnico de quem viaja pelo custo-benefício real.</p>
+
+    <!-- Console Híbrido Flutuante Glassmorphism -->
+    <div class="hib-console">
+      <div class="hib-tabs">
+        <button class="hib-tab ativo" type="button">✈️ Voos Mais Baratos</button>
+        <button class="hib-tab" type="button">🏨 Hotéis & Hospedagens</button>
+        <button class="hib-tab" type="button">🎒 Pacotes de Viagem</button>
+        <button class="hib-tab" type="button">🎟️ Ingressos & Passeios</button>
+        <button class="hib-tab" type="button">🍽️ Onde Comer com Desconto</button>
+      </div>
+
+      <div class="hib-inputs">
+        <div class="hib-field">
+          <label>Origem</label>
+          <input type="text" placeholder="De onde você sai?" value="Belém (BEL)">
+        </div>
+        <div class="hib-field">
+          <label>Destino</label>
+          <input type="text" placeholder="Para onde vai?" value="Macapá (MCP)">
+        </div>
+        <div class="hib-field">
+          <label>Ida</label>
+          <input type="date" value="2027-01-16">
+        </div>
+        <div class="hib-field">
+          <label>Volta</label>
+          <input type="date" value="2027-01-23">
+        </div>
+        <button class="hib-btn-main" type="button">⚡ BUSCAR TUDO</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <!-- Banner de Rota em Alta Procura -->
+    <div class="hib-rota-box">
+      <div>
+        <span style="font-size:11px;font-weight:800;color:#059669;text-transform:uppercase;letter-spacing:.04em">🎯 Cotação Solicitada pelo Renato</span>
+        <h3 style="font-size:18px;font-weight:800;color:#0f172a;margin-top:2px">Belém (BEL) ⇄ Macapá (MCP) · 16 a 23 de Janeiro de 2027</h3>
+        <p style="font-size:12.5px;color:#64748b">Menor tarifa encontrada entre as companhias oficiais com assento garantido.</p>
+      </div>
+      <div class="hib-chips-cia">
+        <a class="hib-chip" style="background:#ff6700" href="#">✈️ GOL Direto</a>
+        <a class="hib-chip" style="background:#004b87" href="#">✈️ Azul Direto</a>
+        <a class="hib-chip" style="background:#e30613" href="#">✈️ LATAM Direto</a>
+        <a class="hib-chip" style="background:linear-gradient(135deg,#059669,#0284c7)" href="#">⚡ Menor Preço Geral →</a>
+      </div>
+    </div>
+
+    <!-- Seção de Hotéis com Design Híbrido -->
+    <div class="hib-sec-title">
+      <div>
+        <span style="font-size:12px;font-weight:800;color:#0284c7;text-transform:uppercase;letter-spacing:.05em">Curadoria Selecionada</span>
+        <h2>Estadias com o Máximo Custo-Benefício Real</h2>
+      </div>
+      <a href="#" style="font-size:13.5px;font-weight:700;color:#0284c7;text-decoration:none">Ver todos os 42 hotéis no Brasil e Exterior →</a>
+    </div>
+
+    <div class="hib-grid">
+      <!-- Card Híbrido 1: Refúgio Alpino -->
+      <article class="hib-card">
+        <div class="hib-thumb">
+          <span class="hib-pill-dest">🌲 Campos do Jordão · SP</span>
+          <span class="hib-pill-nota">⭐ 8.8 Fabuloso</span>
+          <img src="img/refugio-alpino-economy.jpg" alt="Refúgio Alpino Economy">
+        </div>
+        <div class="hib-body">
+          <span class="hib-dist-line">📍 1,7 km do centro (Capivari) · 🎯 1,5 km do Teleférico</span>
+          <h3 class="hib-card-title">Refúgio Alpino Economy (Campos do Jordão)</h3>
+          <div class="hib-tags">
+            <span class="hib-tag cafe">☕ Café da Manhã Incluso</span>
+            <span class="hib-tag">✓ Testado pelo Renato</span>
+            <span class="hib-tag">Chuveiro a Gás</span>
+            <span class="hib-tag">Estacionamento Grátis</span>
+          </div>
+          <p class="hib-card-desc">Salão nobre com teto de madeira rústica, adega e lareira. Suíte limpa e aconchegante com aquecedor térmico por pouco mais de R$ 100.</p>
+          <div class="hib-footer">
+            <div class="hib-preco-box">
+              <small>Diária a partir de</small>
+              <b>R$ 115</b>
+            </div>
+            <a class="hib-btn-reserva" href="https://www.booking.com/hotel/br/apto-economico.pt-br.html" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card Híbrido 2: Salinas Park -->
+      <article class="hib-card">
+        <div class="hib-thumb">
+          <span class="hib-pill-dest">🏖️ Salinópolis · PA</span>
+          <span class="hib-pill-nota">⭐ 8.7 Fabuloso</span>
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Salinas Park Resort">
+        </div>
+        <div class="hib-body">
+          <span class="hib-dist-line">📍 3,8 km do centro · 🎯 800m da Praia do Atalaia</span>
+          <h3 class="hib-card-title">Salinas Park Resort (Flat Particular)</h3>
+          <div class="hib-tags">
+            <span class="hib-tag" style="background:#eff6ff;color:#1e40af;font-weight:700">🍳 Cozinha no Flat</span>
+            <span class="hib-tag">Parque Aquático</span>
+            <span class="hib-tag">Acesso Completo Resort</span>
+            <span class="hib-tag">Família até 5 pessoas</span>
+          </div>
+          <p class="hib-card-desc">Toda a estrutura de lazer, piscinas e toboáguas do resort pagando tarifa de flat particular com cozinha privativa para lanches.</p>
+          <div class="hib-footer">
+            <div class="hib-preco-box">
+              <small>Diária a partir de</small>
+              <b>R$ 280</b>
+            </div>
+            <a class="hib-btn-reserva" href="#" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card Híbrido 3: Ibis Providencia Santiago -->
+      <article class="hib-card">
+        <div class="hib-thumb">
+          <span class="hib-pill-dest">🌍 Santiago · Chile</span>
+          <span class="hib-pill-nota">⭐ 8.6 Fabuloso</span>
+          <img src="img/refugio-alpino-economy.jpg" alt="Ibis Providencia Santiago">
+        </div>
+        <div class="hib-body">
+          <span class="hib-dist-line">📍 3,2 km da Plaza de Armas · 🎯 80m do Metrô</span>
+          <h3 class="hib-card-title">Ibis Providencia Santiago (Quarto Casal)</h3>
+          <div class="hib-tags">
+            <span class="hib-tag" style="background:#fef2f2;color:#991b1b;font-weight:600">☕ Café Opcional</span>
+            <span class="hib-tag">Cama Sweet Bed</span>
+            <span class="hib-tag">Bairro Nobre & Seguro</span>
+          </div>
+          <p class="hib-card-desc">Quarto privativo de casal com vista para a Cordilheira dos Andes e metrô na porta em Providencia por cerca de R$ 240 a diária.</p>
+          <div class="hib-footer">
+            <div class="hib-preco-box">
+              <small>Diária Casal a partir de</small>
+              <b>R$ 240</b>
+            </div>
+            <a class="hib-btn-reserva" href="#" target="_blank" rel="noopener sponsored">Ver Vagas no Booking →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
 <script>
 function trocarModelo(id){
   document.querySelectorAll('.btn-modelo').forEach(function(b){ b.classList.remove('ativo'); });
@@ -404,9 +614,12 @@ function trocarModelo(id){
   } else if(id === 'hub'){
     document.querySelector('.btn-modelo:nth-child(2)').classList.add('ativo');
     document.getElementById('mod-hub').classList.add('ativo');
-  } else {
+  } else if(id === 'boutique'){
     document.querySelector('.btn-modelo:nth-child(3)').classList.add('ativo');
     document.getElementById('mod-boutique').classList.add('ativo');
+  } else {
+    document.querySelector('.btn-modelo:nth-child(4)').classList.add('ativo');
+    document.getElementById('mod-hibrido').classList.add('ativo');
   }
 }
 </script>
