@@ -322,3 +322,38 @@ M auto.html
 M logs/precos_2026-11-28.log
  M logs/protecao_2026-11-28.log
 [2026-11-28 08:47:38] Executando git add e git commit...
+[2026-11-28 08:47:39] [main a45eb52] Atualização diária de preços — 28/11/2026 (08:00)
+ 2 files changed, 33 insertions(+)
+[2026-11-28 08:47:39] Sincronizando com o remoto (git pull --rebase)...
+[2026-11-28 08:47:40] Enviando alterações para o GitHub Pages (git push origin main)...
+[2026-11-28 08:47:43] Push concluído com sucesso! GitHub Pages publicando...
+[2026-11-28 08:47:43] === MOTOR DE PREÇOS CONCLUÍDO COM SUCESSO ===
+[2026-11-28 08:54:01] === INICIANDO MOTOR DE PREÇOS PENNER TECH (28/11/2026) ===
+[2026-11-28 08:54:01] Garantindo sincronização com o remoto antes de iniciar (git pull --rebase)...
+[2026-11-28 08:54:02] Repositório sincronizado com sucesso.
+[2026-11-28 08:54:02]   [2026-11-28 08:54:02] [proteção] tudo certo: nenhum produto removido.
+[2026-11-28 08:54:02] Total de 44 produtos no catálogo.
+[2026-11-28 08:54:02] Iniciando atualização dos blocos de preço nos arquivos HTML...
+[2026-11-28 08:54:02]   Página p/robo-aspirador-redroad-r11-max.html atualizada!
+[2026-11-28 08:54:02]   Cards atualizados em casa.html!
+[2026-11-28 08:54:02]   Cards atualizados em index.html!
+[2026-11-28 08:54:02]   Cards atualizados em promocoes.html!
+[2026-11-28 08:54:03]   [2026-11-28 08:54:03] [proteção] manifesto com 44 produtos (0 novos).
+[2026-11-28 08:54:03]   [2026-11-28 08:54:03] [proteção] tudo certo: nenhum produto removido.
+[2026-11-28 08:54:03]   [2026-11-28 08:54:03] [proteção] backup atualizado para 44 produto(s).
+[2026-11-28 08:54:03] Verificando alterações no repositório Git...
+[2026-11-28 08:54:05] Alterações detectadas:
+M casa.html
+ M dados/produtos.json
+ M dados/produtos_backup/cartoes/casa.html/robo-aspirador-redroad-r11-max@idx-0.html
+ M dados/produtos_backup/cartoes/index.html/robo-aspirador-redroad-r11-max@id-gridDestaques.html
+ M dados/produtos_backup/cartoes/promocoes.html/robo-aspirador-redroad-r11-max@idx-0.html
+ M dados/produtos_backup/catalogo.json
+ M dados/produtos_backup/paginas/robo-aspirador-redroad-r11-max.html
+ M index.html
+ M logs/precos_2026-11-28.log
+ M logs/protecao_2026-11-28.log
+ M p/robo-aspirador-redroad-r11-max.html
+ M promocoes.html
+ M scripts/motor_precos.py
+[2026-11-28 08:54:05] Executando git add e git commit...

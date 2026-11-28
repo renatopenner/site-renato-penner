@@ -12,6 +12,7 @@ import re
 import json
 import glob
 import subprocess
+import time
 from datetime import datetime
 
 REPO_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -29,7 +30,11 @@ log_file = os.path.join(LOGS_DIR, f"precos_{data_iso}.log")
 def log(msg):
     ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     linha = f"[{ts}] {msg}"
-    print(linha)
+    try:
+        if sys.stdout is not None:
+            print(linha)
+    except (OSError, ValueError):
+        pass
     try:
         with open(log_file, "a", encoding="utf-8") as f:
             f.write(linha + "\n")
@@ -76,12 +81,13 @@ def montar_bloco_preco(prod):
     span_cartao = f'<span class="cartao">{cartao}</span>' if cartao else '<span class="cartao"></span>'
     
     if cupom:
+        cupom_limpo = re.sub(r'\s*com\s+cupom\s*', '', cupom, flags=re.I).strip()
         bloco = (
             f'<div class="preco tem-cupom">'
             f'{span_de}'
             f'{span_por}'
             f'{span_cartao}'
-            f'<span class="cupom">{cupom}<em>com cupom</em></span>'
+            f'<span class="cupom">{cupom_limpo}<em>com cupom</em></span>'
             f'<small>preço conferido em {data_str}{desc_str}</small>'
             f'</div>'
         )
@@ -227,6 +233,7 @@ def atualizar_arquivos_html(catalog):
                     if novo_card != card_html:
                         modificado = True
                         return novo_card
+                    return card_html
             return card_html
 
         content_novo = card_regex.sub(atualizar_card_individual, content)
@@ -237,14 +244,17 @@ def atualizar_arquivos_html(catalog):
 
 def git_pull_inicial():
     log("Garantindo sincronização com o remoto antes de iniciar (git pull --rebase)...")
-    try:
-        pull_res = subprocess.run(["git", "pull", "--rebase", "--autostash", "origin", "main"], cwd=REPO_DIR, capture_output=True, text=True)
-        if pull_res.returncode == 0:
-            log("Repositório sincronizado com sucesso.")
-        else:
-            log(f"Aviso no git pull inicial:\n{pull_res.stderr or pull_res.stdout}")
-    except Exception as e:
-        log(f"Erro no git pull inicial: {e}")
+    for tentativa in range(1, 4):
+        try:
+            pull_res = subprocess.run(["git", "pull", "--rebase", "--autostash", "origin", "main"], cwd=REPO_DIR, capture_output=True, text=True)
+            if pull_res.returncode == 0:
+                log("Repositório sincronizado com sucesso.")
+                return True
+            log(f"Tentativa {tentativa}/3 - Aviso no git pull inicial:\n{pull_res.stderr or pull_res.stdout}")
+        except Exception as e:
+            log(f"Tentativa {tentativa}/3 - Erro no git pull inicial: {e}")
+        time.sleep(2)
+    return False
 
 def sincronizar_github():
     log("Verificando alterações no repositório Git...")
@@ -252,7 +262,7 @@ def sincronizar_github():
     
     if not status.stdout.strip():
         log("Nenhuma alteração detectada. O site já está 100% atualizado.")
-        return
+        return True
     
     log(f"Alterações detectadas:\n{status.stdout.strip()}")
     log("Executando git add e git commit...")
@@ -268,11 +278,14 @@ def sincronizar_github():
         log(f"Aviso no git pull:\n{pull_res.stderr}")
 
     log("Enviando alterações para o GitHub Pages (git push origin main)...")
-    push_res = subprocess.run(["git", "push", "origin", "main"], cwd=REPO_DIR, capture_output=True, text=True)
-    if push_res.returncode == 0:
-        log("Push concluído com sucesso! GitHub Pages publicando...")
-    else:
-        log(f"Erro no git push:\n{push_res.stderr}")
+    for tentativa in range(1, 4):
+        push_res = subprocess.run(["git", "push", "origin", "main"], cwd=REPO_DIR, capture_output=True, text=True)
+        if push_res.returncode == 0:
+            log("Push concluído com sucesso! GitHub Pages publicando...")
+            return True
+        log(f"Tentativa {tentativa}/3 - Erro no git push:\n{push_res.stderr}")
+        time.sleep(3)
+    return False
 
 def rodar_protecao(*args):
     """Chama o guardião de produtos (scripts/protege_produtos.py).
