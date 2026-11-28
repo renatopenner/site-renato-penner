@@ -1138,9 +1138,45 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
         🚗 Aluguel de Carros
       </a>
     </div>
-    </article>
 
-    <article class="hotel-card" data-cidade="Campos do Jordão" data-cat="campos serra ate150" data-preco="145">
+    <!-- BARRA DE FILTROS DOS MELHORES DESTINOS DO BRASIL -->
+    <div class="filtros-luxe-bar" style="margin-top:20px;margin-bottom:28px">
+      <div>
+        <h2 style="margin-bottom:4px;font-size:22px;color:var(--texto)">Melhores Destinos do Brasil</h2>
+        <span style="font-size:13px;color:var(--texto-sub)">Curadoria rigorosa custo x benefício: até R$ 150 e seleção ouro entre R$ 200 e R$ 300</span>
+      </div>
+      <div class="filtros-grupos">
+        <button class="chip-luxe on" data-cat="todos" onclick="filtrarHospedagens(this, 'todos')">Todos (41)</button>
+        <button class="chip-luxe" data-cat="ate150" style="border-color:#b45309;font-weight:700" onclick="filtrarHospedagens(this, 'ate150')">🏷️ Até R$ 150 (Super Econômicos)</button>
+        <button class="chip-luxe" data-cat="200a300" style="border-color:#059669;color:#059669;font-weight:700" onclick="filtrarHospedagens(this, '200a300')">⭐ R$ 200 a R$ 300 (Destaques Ouro)</button>
+        <button class="chip-luxe" data-cat="praia" onclick="filtrarHospedagens(this, 'praia')">🏖️ Praias & Litoral</button>
+        <button class="chip-luxe" data-cat="serra" onclick="filtrarHospedagens(this, 'serra')">🌲 Serra & Frio</button>
+        <button class="chip-luxe" data-cat="para" onclick="filtrarHospedagens(this, 'para')">🌴 Pará (Salinas & Belém)</button>
+        <button class="chip-luxe" data-cat="nordeste" onclick="filtrarHospedagens(this, 'nordeste')">☀️ Nordeste</button>
+        <button class="chip-luxe" data-cat="rio" onclick="filtrarHospedagens(this, 'rio')">🌊 Rio de Janeiro</button>
+        <button class="chip-luxe" data-cat="sul" onclick="filtrarHospedagens(this, 'sul')">❄️ Sul (Foz & Floripa)</button>
+      </div>
+    </div>
+
+    <div class="grid-hoteis-luxe" id="gridHoteis">
+
+      <article class="hotel-card" data-cidade="Campos do Jordão" data-cat="campos serra ate150" data-preco="115">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill">⭐ Testado pelo Renato</span>
+          <img src="img/refugio-alpino-economy.jpg" alt="Refúgio Alpino Economy (Campos do Jordão)" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 1,7 km do Capivari · 🎯 1,2 km do Teleférico</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+          <h3 class="hotel-title-luxe">Refúgio Alpino Economy (Campos do Jordão)</h3>
+          <p class="hotel-desc-luxe">Salão alpino com lareira rústica e adega em barril. Chuveiro a gás de alta pressão e aquecedor para noites frias com economia real perto de Capivari.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">R$ 115 <small>/ diária</small></div>
+            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DRefugio%2BAlpino%2BCampos%2Bdo%2BJordao%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+          </div>
+        </div>
+      </article>
+
+<article class="hotel-card" data-cidade="Campos do Jordão" data-cat="campos serra ate150" data-preco="145">
       <div class="hotel-thumb">
         <span class="card-badge-pill">★ 8.9 Excelente</span>
         <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80" alt="Pousada das Hortênsias Economy (Campos do Jordão)" loading="lazy">
@@ -2272,5 +2308,28 @@ document.querySelectorAll('.chip-luxe').forEach(function(btn){
 })();
 
 </script>
+
+<script>
+function filtrarHospedagens(btn, cat) {
+  var chips = document.querySelectorAll('.filtros-grupos .chip-luxe');
+  chips.forEach(function(c){ c.classList.remove('on'); });
+  btn.classList.add('on');
+
+  var cards = document.querySelectorAll('#gridHoteis .hotel-card');
+  cards.forEach(function(card){
+    if (cat === 'todos') {
+      card.style.display = '';
+      return;
+    }
+    var ccat = card.getAttribute('data-cat') || '';
+    if (ccat.indexOf(cat) !== -1) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+
 </body>
 </html>
