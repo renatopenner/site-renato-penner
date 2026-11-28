@@ -1025,6 +1025,76 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   box-shadow: 0 4px 12px rgba(4, 120, 87, 0.2);
 }
 
+
+/* GRID DE CARDS LUXE: 3 POR LINHA EM DESKTOP OCUPANDO MENOS ESPAÇO */
+.grid-hoteis-luxe {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 20px !important;
+  margin-bottom: 50px !important;
+}
+@media (max-width: 992px) {
+  .grid-hoteis-luxe {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+}
+@media (max-width: 640px) {
+  .grid-hoteis-luxe {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
+.hotel-card {
+  border-radius: 18px !important;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--card-borda);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+}
+.hotel-thumb {
+  position: relative;
+  width: 100%;
+  height: 200px !important;
+  aspect-ratio: 16/10 !important;
+  overflow: hidden;
+  background: var(--bg2);
+}
+.hotel-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover !important;
+  display: block;
+}
+.hotel-body {
+  padding: 16px 18px !important;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.hotel-title-luxe {
+  font-size: 16px !important;
+  line-height: 1.3 !important;
+  margin-bottom: 8px !important;
+}
+.hotel-desc-luxe {
+  font-size: 12.5px !important;
+  line-height: 1.4 !important;
+  color: var(--texto-sub);
+  margin-bottom: 12px !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.hotel-footer-luxe {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--linha);
+}
+
 </style>
 
 <script>
@@ -1197,6 +1267,91 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     </div>
 
     <div class="grid-hoteis-luxe" id="gridHoteis">
+
+      <!-- AMÉRICA LATINA: MACHU PICCHU (ABAIXO DE R$ 100) -->
+      <article class="hotel-card" data-cidade="Machu Picchu" data-cat="internacional peru machu ate100" data-preco="68">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill" style="top:auto;bottom:14px;left:14px">💰 Super Econômico · Abaixo de R$ 100</span>
+          <img src="img/aguas-calientes-machu-picchu-hotel.jpg" alt="Supertramp Hostel Aguas Calientes Machu Picchu" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 300m da Estação de Trem · Aguas Calientes</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+          <h3 class="hotel-title-luxe">Supertramp Hostel & Eco Pousada (Machu Picchu Pueblo)</h3>
+          <p class="hotel-desc-luxe">A base perfeita e econômica aos pés da cidadela de Machu Picchu. Banho quente potente, camas confortáveis, café da manhã servido a partir das 4h30 da manhã para quem sobe a montanha cedo e Wi-Fi veloz.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">R$ 68 <small>/ diária</small></div>
+            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DAguas%2BCalientes%2BMachu%2BPicchu%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- AMÉRICA LATINA: CUSCO (MÉDIO PREÇO / ALTO CONFORTO) -->
+      <article class="hotel-card" data-cidade="Cusco" data-cat="internacional peru cusco 150a250" data-preco="185">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill" style="top:auto;bottom:14px;left:14px">★ 9.3 Fantástico · Charme Andino</span>
+          <img src="img/cusco-hotel-colonial.jpg" alt="Tierra Viva Cusco San Blas Hotel" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 Bairro Histórico de San Blas · Cusco</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café Colonial Incluso</span></div>
+          <h3 class="hotel-title-luxe">Tierra Viva Cusco San Blas (Cusco / Vale Sagrado)</h3>
+          <p class="hotel-desc-luxe">Autêntica mansão colonial reformada com paredes de pedra inca, pátio interno ensolarado com flores, chá de coca 24h para aclimatação de altitude e aquecimento elétrico nos quartos.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">R$ 185 <small>/ diária</small></div>
+            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DCusco%2BPeru%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- AMÉRICA LATINA: SALAR DE UYUNI (ABAIXO DE R$ 100) -->
+      <article class="hotel-card" data-cidade="Uyuni" data-cat="internacional bolivia uyuni ate100" data-preco="78">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill" style="top:auto;bottom:14px;left:14px">🧱 Hotel em Blocos de Sal Genuínos</span>
+          <img src="img/salar-de-uyuni-bolivia.jpg" alt="Hotel de Sal Pousada Andina Uyuni" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 Centro de Uyuni · Ponto de Partida 4x4</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café Incluso</span></div>
+          <h3 class="hotel-title-luxe">Hotel de Sal & Pousada Andina Uyuni (Bolívia)</h3>
+          <p class="hotel-desc-luxe">Experiência única em quartos com mobília e paredes esculpidas em blocos de sal do próprio Salar. Aquecimento nos quartos, água quente e suporte direto para expedições ao espelho d'água.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">R$ 78 <small>/ diária</small></div>
+            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DUyuni%2BBolivia%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- AMÉRICA LATINA: BUENOS AIRES (ABAIXO DE R$ 100) -->
+      <article class="hotel-card" data-cidade="Buenos Aires" data-cat="internacional argentina ba ate100" data-preco="82">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill" style="top:auto;bottom:14px;left:14px">★ 8.8 Fabuloso · Câmbio Imbatível</span>
+          <img src="img/hotel-grand-brizo-ba.jpg" alt="Milhouse Hostel Suites Buenos Aires" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 Avenida de Mayo / Centro · Buenos Aires</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+          <h3 class="hotel-title-luxe">Milhouse Hostel & Suites (Avenida de Mayo / Buenos Aires)</h3>
+          <p class="hotel-desc-luxe">Casarão histórico tombado do século XIX a 400m do Obelisco e da Casa Rosada. Suítes privativas impecáveis com ar-condicionado, arquitetura parisiense portenha e preço inacreditável.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">R$ 82 <small>/ diária</small></div>
+            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DBuenos%2BAires%2BArgentina%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- AMÉRICA LATINA: CARTAGENA DAS ÍNDIAS (ABAIXO DE R$ 100) -->
+      <article class="hotel-card" data-cidade="Cartagena" data-cat="internacional colombia cartagena ate100" data-preco="96">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill" style="top:auto;bottom:14px;left:14px">🌴 Casarão Colonial com Piscina</span>
+          <img src="img/cartagena-centro-historico.jpg" alt="Casa Del Curato Getsemani Cartagena" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 Bairro Getsemaní · Cartagena / Colômbia</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café da Manhã Incluso</span></div>
+          <h3 class="hotel-title-luxe">Casa Del Curato / Getsemaní Eco Pousada (Cartagena)</h3>
+          <p class="hotel-desc-luxe">Charme colonial caribenho no coração cultural e gastronômico de Getsemaní. Piscina no pátio interno cercada por buganvílias, quartos com ar-condicionado e a 5 minutos a pé das muralhas históricas.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">R$ 96 <small>/ diária</small></div>
+            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DCartagena%2BColombia%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
+          </div>
+        </div>
+      </article>
 
               <article class="hotel-card" data-cidade="Gramado" data-cat="gramado serra luxo acima300" data-preco="680">
         <div class="hotel-thumb">

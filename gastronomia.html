@@ -1024,6 +1024,76 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   box-shadow: 0 4px 12px rgba(4, 120, 87, 0.2);
 }
 
+
+/* GRID DE CARDS LUXE: 3 POR LINHA EM DESKTOP OCUPANDO MENOS ESPAÇO */
+.grid-hoteis-luxe {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 20px !important;
+  margin-bottom: 50px !important;
+}
+@media (max-width: 992px) {
+  .grid-hoteis-luxe {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+}
+@media (max-width: 640px) {
+  .grid-hoteis-luxe {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
+.hotel-card {
+  border-radius: 18px !important;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--card-borda);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+}
+.hotel-thumb {
+  position: relative;
+  width: 100%;
+  height: 200px !important;
+  aspect-ratio: 16/10 !important;
+  overflow: hidden;
+  background: var(--bg2);
+}
+.hotel-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover !important;
+  display: block;
+}
+.hotel-body {
+  padding: 16px 18px !important;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.hotel-title-luxe {
+  font-size: 16px !important;
+  line-height: 1.3 !important;
+  margin-bottom: 8px !important;
+}
+.hotel-desc-luxe {
+  font-size: 12.5px !important;
+  line-height: 1.4 !important;
+  color: var(--texto-sub);
+  margin-bottom: 12px !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.hotel-footer-luxe {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--linha);
+}
+
 </style>
 
 <script>
@@ -1175,250 +1245,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
         🚗 Aluguel de Carros
       </a>
     </div>
-    </article>
-
-    <article class="hotel-card" data-cidade="Gramado" data-cat="gramado serra luxo acima300" data-preco="680">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">★ 9.5 Excepcional · 5 Estrelas</span>
-          <img src="img/hotel-casa-da-montanha.jpg?v=20261128b" alt="Hotel Casa da Montanha (Gramado)" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Av. Borges de Medeiros (Centro) · 🎯 Localização 9.9</span> · <span class="hotel-cafe-incluso"><span class="bolinha-verde-simbolo">✓</span> ☕ Café Colonial Farto</span></div>
-          <h3 class="hotel-title-luxe">Hotel Casa da Montanha (Gramado)</h3>
-          <p class="hotel-desc-luxe">O hotel boutique 5 estrelas mais icônico de Gramado. Piscina térmica coberta, hidromassagem, sauna, spa, lareira e o tradicional carrossel iluminado na melhor localização da cidade.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 680 <small>/ diária</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fbr%2Fcasa-da-montanha.pt-br.html%3Flabel%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar no Booking →</a>
-          </div>
-        </div>
-      </article>
   </div>
-
-  <!-- SEÇÃO DE ATRAÇÕES & PASSEIOS POPULARES -->
-  <section id="secaoAtracoes" style="scroll-margin-top:90px;margin-top:60px;margin-bottom:60px">
-    <div class="filtros-luxe-bar" style="margin-top:0">
-      <div>
-        <h2 style="margin-bottom:4px">🎟️ Atrações & Ingressos com Menor Preço</h2>
-        <span style="font-size:12.5px;color:var(--texto-sub)">Ingressos oficiais para parques temáticos, passeios e pontos turísticos sem filas no Brasil</span>
-      </div>
-      <div class="filtros-grupos">
-        <span style="font-size:12.5px;color:var(--acento);font-weight:700">✦ Parceria Oficial Viator & Civitatis</span>
-      </div>
-    </div>
-
-    <div class="grid-hoteis-luxe" id="gridAtracoes">
-
-      <article class="hotel-card" data-cidade="Penha">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">⭐ Parque Nº 1 da América Latina</span>
-          <img src="img/beto-carrero-world.jpg" alt="Beto Carrero World (Penha / SC)" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Penha / SC (Perto de Balneário Camboriú)</span> · <span>🎟️ Entrada Direta</span></div>
-          <h3 class="hotel-title-luxe">Beto Carrero World (Passaporte Oficial)</h3>
-          <p class="hotel-desc-luxe">O maior parque temático da América Latina: montanhas-russas radicais (FireWhip, Star Mountain), shows temáticos internacionais e a área oficial Hot Wheels com desconto antecipado.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 109 <small>/ a partir de</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fattractions%2Fsearchresults.pt-br.html%3Fscope%3Ddrf59gg2ywal-beto-carrero-world%26dest_id%3D-661129" target="_blank" rel="noopener sponsored">Garantir Ingresso Oficial →</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="hotel-card" data-cidade="Gramado">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">❄️ Neve de Verdade o Ano Todo</span>
-          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/RenatoSoares_SnowLand_Gramado_RS_%2840193258034%29.jpg/960px-RenatoSoares_SnowLand_Gramado_RS_%2840193258034%29.jpg" alt="Snowland Gramado" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Gramado / RS (Serra Gaúcha)</span> · <span>🧥 Roupas Térmicas Inclusas</span></div>
-          <h3 class="hotel-title-luxe">Snowland Gramado (Parque de Neve Coberto)</h3>
-          <p class="hotel-desc-luxe">Viva a experiência única de neve real a -5°C no Brasil: pista de esqui, snowboard, patinação no gelo, castelo de neve e vila alpina completa com aluguel de botas e casacos inclusos.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 149 <small>/ passaporte</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fattractions%2Fsearchresults.pt-br.html%3Fdest_id%3D-645163" target="_blank" rel="noopener sponsored">Garantir Ingresso Oficial →</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="hotel-card" data-cidade="Rio de Janeiro">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill" style="top:auto;bottom:14px;left:14px">★ Maravilha do Mundo Moderno</span>
-          <img src="img/cristo-redentor-corcovado.jpg" alt="Cristo Redentor e Trem do Corcovado" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Rio de Janeiro / RJ (Cosme Velho)</span> · <span>🚂 Sem Fila de Bilheteria</span></div>
-          <h3 class="hotel-title-luxe">Cristo Redentor + Trem Oficial do Corcovado</h3>
-          <p class="hotel-desc-luxe">Subida histórica cortando a Mata Atlântica no Parque Nacional da Tijuca até o topo do Cristo Redentor. Vista panorâmica de 360° da Baía de Guanabara, Pão de Açúcar e praias cariocas.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 93 <small>/ ingresso e trem</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fattractions%2Fsearchresults.pt-br.html%3Fdest_id%3D-666610" target="_blank" rel="noopener sponsored">Garantir Ingresso Oficial →</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="hotel-card" data-cidade="Maragogi">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">🌊 O Caribe Brasileiro</span>
-          <img src="img/maragogi-piscinas-naturais-gales.jpg" alt="Piscinas Naturais de Galés em Catamarã" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Maragogi / AL (Costa dos Corais)</span> · <span>🤿 Snorkel & Mergulho</span></div>
-          <h3 class="hotel-title-luxe">Piscinas Naturais de Galés em Catamarã (Maragogi)</h3>
-          <p class="hotel-desc-luxe">Navegação em catamarã moderno até os recifes de coral a 6 km da costa durante a maré baixa. Águas mornas, cristalinas em tom turquesa repletas de peixes coloridos para mergulho livre.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 110 <small>/ passeio de barco</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fattractions%2Fsearchresults.pt-br.html%3Fdest_id%3D-652718" target="_blank" rel="noopener sponsored">Garantir Vaga Oficial →</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="hotel-card" data-cidade="Foz do Iguaçu">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">⭐ Patrimônio Natural da Humanidade</span>
-          <img src="img/cataratas-do-iguacu.jpg?v=20261128b" alt="Cataratas do Iguaçu e Macuco Safari" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Foz do Iguaçu / PR</span> · <span>🌊 Passarela Garganta do Diabo</span></div>
-          <h3 class="hotel-title-luxe">Cataratas do Iguaçu (Entrada Parque Nacional)</h3>
-          <p class="hotel-desc-luxe">Acesso oficial com transporte panorâmico às passarelas da Garganta do Diabo. O maior conjunto de quedas d'água do planeta cercado por trilhas e exuberante fauna da Mata Atlântica.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 88 <small>/ entrada oficial</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fattractions%2Fsearchresults.pt-br.html%3Fdest_id%3D-643720" target="_blank" rel="noopener sponsored">Garantir Ingresso Oficial →</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="hotel-card" data-cidade="Praia da Pipa">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">🏜️ Dunas & Lagoas com Emoção</span>
-          <img src="img/natal-pipa-buggy-dunas-genipabu.jpg" alt="Passeio de Buggy pelas Dunas de Genipabu e Pipa" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Natal & Pipa / RN</span> · <span>🚙 Bugueiro Credenciado</span></div>
-          <h3 class="hotel-title-luxe">Passeio de Buggy pelas Dunas Móveis e Lagoas</h3>
-          <p class="hotel-desc-luxe">A clássica rota potiguar com opção 'com emoção' pelas dunas móveis, parada para banho nas lagoas cristalinas de Pitangui e Jacumã com tirolesa e esquibunda tradicionais.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 120 <small>/ pessoa</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fattractions%2Fsearchresults.pt-br.html%3Fdest_id%3D-657053" target="_blank" rel="noopener sponsored">Reservar Buggy Oficial →</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="hotel-card" data-cidade="Fortaleza">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">🌊 O Maior Toboágua do Mundo</span>
-          <img src="img/beach-park-fortaleza.jpg" alt="Beach Park Fortaleza" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Aquiraz / CE (20 min de Fortaleza)</span> · <span>🏖️ À Beira-Mar</span></div>
-          <h3 class="hotel-title-luxe">Beach Park (Passaporte Parque Aquático)</h3>
-          <p class="hotel-desc-luxe">Eleito o melhor parque aquático das Américas: toboáguas radicais como o icônico Insano de 41 metros, piscina de ondas gigantes e rio lento familiar à beira da Praia de Porto das Dunas.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 260 <small>/ passaporte</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DBeach%252BPark%252BFortaleza%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Garantir Passaporte Oficial →</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="hotel-card" data-cidade="Belém">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">🛶 Experiência Autêntica Amazônica</span>
-          <img src="img/belem-ilha-do-combu.jpg?v=20261128c" alt="Travessia e Gastronomia na Ilha do Combu" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Belém / PA (Praça Princesa Isabel)</span> · <span>🍫 Chocolates da Dona Nena</span></div>
-          <h3 class="hotel-title-luxe">Travessia Ribeirinha e Rota do Combu (Belém)</h3>
-          <p class="hotel-desc-luxe">Passeio tradicional de popopô pelo Rio Guamá até a Ilha do Combu: visite a produção artesanal de cacau e chocolate da Dona Nena e desfrute de almoço ribeirinho com peixe frito e açaí.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 50 <small>/ travessia e guia</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DBelem%2BPara%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Ver Passeios em Belém →</a>
-          </div>
-        </div>
-      </article>
-
-<article class="hotel-card" data-cidade="Belém">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">⭐ Patrimônio Cultural Amazônico</span>
-          <img src="img/belem-theatro-da-paz.jpg" alt="City Tour Histórico em Belém e Theatro da Paz" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Belém / PA (Centro Histórico)</span> · <span>🏛️ Guia Cultural Credenciado</span></div>
-          <h3 class="hotel-title-luxe">City Tour Histórico Belém + Theatro da Paz & Ver-o-Peso</h3>
-          <p class="hotel-desc-luxe">Roteiro a pé e van pelo Theatro da Paz, Basílica de Nazaré, Complexo Feliz Lusitânia, Forte do Presépio e Mercado Ver-o-Peso com degustação de castanhas e frutas típicas da Amazônia.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 85 <small>/ pessoa</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DBelem%252BTheatro%252Bda%252BPaz%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar City Tour Oficial →</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="hotel-card" data-cidade="Belém">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">🌅 Pôr do Sol na Amazônia</span>
-          <img src="img/belem-estacao-das-docas.jpg?v=20261128d" alt="Passeio de Barco Orla de Belém Estação das Docas" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Belém / PA (Estação das Docas)</span> · <span>⛵ Música Regional & Carimbó</span></div>
-          <h3 class="hotel-title-luxe">Passeio de Barco ao Pôr do Sol na Baía do Guajará</h3>
-          <p class="hotel-desc-luxe">Navegação panorâmica pela orla de Belém a bordo de catamarã moderno ao pôr do sol. Vista única do skyline das Docas, Ver-o-Peso e ilhas fluviais com show de danças típicas a bordo.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 60 <small>/ passeio náutico</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DBelem%252BPasseio%252BBarco%252BEstacao%252Bdas%252BDocas%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Garantir Passeio de Barco →</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="hotel-card" data-cidade="Ilha de Marajó">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">🐃 Maior Arquipélago Fluviomarítimo</span>
-          <img src="img/marajo-bufalos.jpg" alt="Expedição Ilha de Marajó e Fazendas de Búfalos" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Soure & Salvaterra / PA (Marajó)</span> · <span>🌴 Montaria em Búfalos</span></div>
-          <h3 class="hotel-title-luxe">Expedição Ilha de Marajó: Fazendas de Búfalos & Praias</h3>
-          <p class="hotel-desc-luxe">Vivência autêntica no Marajó: montaria guiada em búfalos, trilha suspensa nos manguezais, banho na Praia do Pesqueiro e almoço com filé marajoara e queijo de búfala artesanal.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 180 <small>/ dia com guia</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DIlha%2Bde%2BMarajo%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar Expedição Marajó →</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="hotel-card" data-cidade="Alter do Chão">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">🏝️ O Caribe Amazônico</span>
-          <img src="img/alter-do-chao-ilha-do-amor.jpg" alt="Passeio de Voadeira em Alter do Chão" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Alter do Chão / PA (Rio Tapajós)</span> · <span>⛵ Águas Cristalinas Mornas</span></div>
-          <h3 class="hotel-title-luxe">Passeio de Voadeira: Ilha do Amor & Floresta Encantada</h3>
-          <p class="hotel-desc-luxe">Navegação pelas águas azuis-turquesa do Rio Tapajós até o banco de areia da Ilha do Amor, Lago Verde e canoagem mágica pelos igapós da Floresta Encantada com pirarucu na brasa.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 130 <small>/ travessia e lancha</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DAlter%252Bdo%252BChao%252BTapajos%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Garantir Voadeira Oficial →</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="hotel-card" data-cidade="Salinópolis">
-        <div class="hotel-thumb">
-          <span class="card-badge-pill">🌊 Litoral Atlântico Paraense</span>
-          <img src="img/salinas-praia-atalaia.jpg" alt="Passeio Náutico e Dunas em Salinas" loading="lazy">
-        </div>
-        <div class="hotel-body">
-          <div class="hotel-loc-line"><span>📍 Salinópolis / PA (Costa Atlântica)</span> · <span>🏖️ Dunas & Mar Aberto</span></div>
-          <h3 class="hotel-title-luxe">Passeio Náutico e Dunas do Farol Velho em Salinas</h3>
-          <p class="hotel-desc-luxe">Rota pelo litoral norte do Pará: areias da Praia do Atalaia, passeio de lancha pelos canais de manguezal até o Farol Velho e banho relaxante nas águas doces do Lago da Coca-Cola.</p>
-          <div class="hotel-footer-luxe">
-            <div class="hotel-price-luxe">R$ 90 <small>/ pessoa</small></div>
-            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DSalinopolis%252BAtalaia%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar Passeio em Salinas →</a>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-  </section>
 
   <!-- SEÇÃO DE GASTRONOMIA & DESCONTOS EM COMIDA (ATÉ 50% OFF) -->
   <section id="secaoGastronomia" style="scroll-margin-top:90px;margin-bottom:60px">

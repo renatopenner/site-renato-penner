@@ -103,6 +103,76 @@ body { background: var(--bg); color: var(--texto-corpo); font-family: 'Plus Jaka
 .hotel-action-link:hover { text-decoration: underline; }
 .bolinha-verde-simbolo { display: inline-flex; align-items: center; justify-content: center; width: 14px; height: 14px; border-radius: 50%; background: #10b981; color: #ffffff; font-size: 9px; font-weight: 900; margin-right: 2px; }
 .secao-cabecalho-luxe { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 24px 0; padding-bottom: 12px; border-bottom: 1px solid var(--linha); }
+
+/* GRID DE CARDS LUXE: 3 POR LINHA EM DESKTOP OCUPANDO MENOS ESPAÇO */
+.grid-hoteis-luxe {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 20px !important;
+  margin-bottom: 50px !important;
+}
+@media (max-width: 992px) {
+  .grid-hoteis-luxe {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+}
+@media (max-width: 640px) {
+  .grid-hoteis-luxe {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
+.hotel-card {
+  border-radius: 18px !important;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--card-borda);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+}
+.hotel-thumb {
+  position: relative;
+  width: 100%;
+  height: 200px !important;
+  aspect-ratio: 16/10 !important;
+  overflow: hidden;
+  background: var(--bg2);
+}
+.hotel-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover !important;
+  display: block;
+}
+.hotel-body {
+  padding: 16px 18px !important;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.hotel-title-luxe {
+  font-size: 16px !important;
+  line-height: 1.3 !important;
+  margin-bottom: 8px !important;
+}
+.hotel-desc-luxe {
+  font-size: 12.5px !important;
+  line-height: 1.4 !important;
+  color: var(--texto-sub);
+  margin-bottom: 12px !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.hotel-footer-luxe {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--linha);
+}
+
 </style>
 </head>
 <body>
@@ -137,6 +207,57 @@ body { background: var(--bg); color: var(--texto-corpo); font-family: 'Plus Jaka
   </div>
 
   <div class="grid-hoteis-luxe">
+
+      <!-- ATRAÇÃO AMÉRICA LATINA: MACHU PICCHU -->
+      <article class="hotel-card" data-cidade="Machu Picchu">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill" style="top:auto;bottom:14px;left:14px">⛰️ Maravilha do Mundo · Santuário Inca</span>
+          <img src="img/machu-picchu-panoramica.jpg" alt="Machu Picchu Cidadela Sagrada e Huayna Picchu" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 Vale Sagrado / Cusco · Peru</span> · <span>🎟️ Entrada Oficial sem Fila</span></div>
+          <h3 class="hotel-title-luxe">Machu Picchu: Cidadela Sagrada Inca & Huayna Picchu</h3>
+          <p class="hotel-desc-luxe">O sítio arqueológico mais imponente das Américas a 2.430m de altitude. Contemple a praça cerimonial, o Templo do Sol, os terraços agrícolas andinos e a escalada épica de Huayna Picchu com guias locais certificados.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">A partir de R$ 152 <small>/ ingresso oficial</small></div>
+            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DMachu%2BPicchu%2BPeru%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Garantir Tour Oficial →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ATRAÇÃO AMÉRICA LATINA: SALAR DE UYUNI -->
+      <article class="hotel-card" data-cidade="Uyuni">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill" style="top:auto;bottom:14px;left:14px">🪞 O Maior Espelho D'água da Terra</span>
+          <img src="img/salar-de-uyuni-bolivia.jpg" alt="Salar de Uyuni Espelho D'água Bolívia" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 Potosí / Bolívia</span> · <span>🚙 Expedição 4x4 com Guia</span></div>
+          <h3 class="hotel-title-luxe">Salar de Uyuni: O Maior Deserto de Sal do Planeta</h3>
+          <p class="hotel-desc-luxe">Planície de sal com mais de 10.000 km² a 3.650m de altitude. No período de chuvas, a camada de água reflete o céu em 360°, criando fotos de perspectiva inigualáveis e um dos maiores espetáculos naturais do mundo.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">A partir de R$ 110 <small>/ expedição</small></div>
+            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DUyuni%2BBolivia%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Reservar Expedição →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ATRAÇÃO AMÉRICA LATINA: CARTAGENA DAS ÍNDIAS -->
+      <article class="hotel-card" data-cidade="Cartagena">
+        <div class="hotel-thumb">
+          <span class="card-badge-pill" style="top:auto;bottom:14px;left:14px">🌺 Cidade Amuralhada & Caribe</span>
+          <img src="img/cartagena-centro-historico.jpg" alt="Centro Histórico de Cartagena das Índias" loading="lazy">
+        </div>
+        <div class="hotel-body">
+          <div class="hotel-loc-line"><span>📍 Cartagena / Colômbia</span> · <span>⛵ Ruelas Floridas & Barcos Ilhas</span></div>
+          <h3 class="hotel-title-luxe">Cidade Amuralhada de Cartagena & Ilhas do Rosário</h3>
+          <p class="hotel-desc-luxe">Patrimônio Histórico da Humanidade pela UNESCO: muralhas militares do século XVI, sacadas coloniais repletas de buganvílias e travessias de lancha para as praias de águas azul-turquesa das Ilhas do Rosário.</p>
+          <div class="hotel-footer-luxe">
+            <div class="hotel-price-luxe">A partir de R$ 65 <small>/ tour colonial</small></div>
+            <a class="hotel-action-link" href="https://tp.media/r?marker=812990&p=4115&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.pt-br.html%3Fss%3DCartagena%2BColombia%26label%3Dpennertech-booking" target="_blank" rel="noopener sponsored">Ver Passeios em Cartagena →</a>
+          </div>
+        </div>
+      </article>
     <article class="hotel-card">
       <div class="hotel-thumb">
         <span class="card-badge-pill" style="background:#b45309;color:#fff">★ Os Parques Temáticos Nº 1 · EUA</span>
