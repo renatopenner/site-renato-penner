@@ -7,69 +7,538 @@
 <meta name="build" content="2026-11-26 17:00">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Viagens, Resorts e Hotéis Recomendados — Penner Tech</title>
-<meta name="description" content="Seleção das melhores promoções e estadias em Salinópolis, Gramado, Campos do Jordão, Rio de Janeiro, São Paulo, Fortaleza e no mundo — parceria oficial Booking.com com cancelamento grátis e suporte completo.">
-<link rel="canonical" href="https://loja.pennertech.com.br/viagens.html">
+<title>PennerTech Viagens — Curadoria de Hotéis, Resorts e Passagens</title>
+<meta name="description" content="Portal oficial de viagens e turismo PennerTech: seleção das melhores hospedagens econômicas e resorts no Brasil e no mundo. Parceria oficial Booking.com com cancelamento grátis e tarifas exclusivas.">
+<link rel="canonical" href="https://viagens.pennertech.com.br/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Penner Tech">
-<meta property="og:title" content="Viagens, Resorts e Hotéis Recomendados — Penner Tech">
-<meta property="og:description" content="Seleção das melhores promoções e estadias em Salinópolis, Gramado, Campos do Jordão, Rio de Janeiro, São Paulo, Fortaleza e no mundo — parceria oficial Booking.com.">
-<meta property="og:url" content="https://loja.pennertech.com.br/viagens.html">
+<meta property="og:site_name" content="PennerTech Viagens">
+<meta property="og:title" content="PennerTech Viagens — Curadoria de Hotéis, Resorts e Passagens">
+<meta property="og:description" content="Portal oficial de viagens e turismo PennerTech: seleção das melhores hospedagens econômicas e resorts no Brasil e no mundo. Parceria oficial Booking.com.">
+<meta property="og:url" content="https://viagens.pennertech.com.br/">
 <meta property="og:locale" content="pt_BR">
 <meta name="theme-color" content="#f7fafc">
 <link rel="icon" type="image/png" sizes="64x64" href="img/favicon-64.png?v=9fb83174">
 <link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png?v=c11102d6">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png?v=8f32fdca">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css?v=4cf08b7c">
 <style>
-.hotel-card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--card-borda);border-radius:16px;overflow:hidden;box-shadow:var(--sombra);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
-.hotel-card:hover{transform:translateY(-3px);border-color:var(--acento);box-shadow:var(--sombra-hover)}
-.hotel-thumb{position:relative;width:100%;height:220px;overflow:hidden;background:linear-gradient(135deg,var(--thumb1),var(--thumb2))}
-.hotel-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s ease}
-.hotel-card:hover .hotel-thumb img{transform:scale(1.04)}
-.badge-dest{position:absolute;top:12px;left:12px;background:rgba(2,132,199,.92);backdrop-filter:blur(6px);color:#fff;font-size:11.5px;font-weight:700;padding:5px 10px;border-radius:999px;letter-spacing:.03em;text-transform:uppercase}
-.badge-nota{position:absolute;top:12px;right:12px;background:rgba(15,23,42,.88);backdrop-filter:blur(6px);color:#38bdf8;font-size:12.5px;font-weight:800;padding:5px 9px;border-radius:8px;display:flex;align-items:center;gap:4px}
-.hotel-body{padding:18px 20px;display:flex;flex-direction:column;flex:1}
-.hotel-loc{font-size:12px;font-weight:700;color:var(--acento);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
-.hotel-title{font-size:18px;font-weight:800;color:var(--texto);line-height:1.25;margin-bottom:8px}
-.hotel-feats{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 14px}
-.hotel-tag{font-size:11px;font-weight:600;padding:3px 8px;border-radius:6px;background:var(--bg2);color:var(--texto-corpo);border:1px solid var(--borda-suave)}
-.hotel-desc{font-size:13.5px;color:var(--texto-corpo);line-height:1.45;margin-bottom:16px;flex:1}
-.hotel-footer{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--linha);padding-top:14px;margin-top:auto}
-.hotel-preco-box{display:flex;flex-direction:column}
-.hotel-preco-box small{font-size:11px;color:var(--texto-sub)}
-.hotel-preco-box b{font-size:18px;color:var(--verde);font-weight:800}
-.hotel-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;background:var(--btn);color:var(--btn-texto);font-size:13.5px;font-weight:700;border-radius:10px;transition:background .15s,transform .15s}
-.hotel-btn:hover{background:var(--btn-hover);color:#fff;transform:translateY(-1px)}
-.booking-search-box{background:linear-gradient(135deg,rgba(2,132,199,.08),rgba(3,105,161,.04));border:1px solid var(--borda-suave);border-radius:20px;padding:26px 28px;margin:28px 0 36px}
-.booking-search-box h3{font-size:20px;font-weight:800;color:var(--texto);margin-bottom:8px;display:flex;align-items:center;gap:8px}
-.booking-search-box p{font-size:14px;color:var(--texto-corpo);margin-bottom:18px}
-.booking-form{display:grid;grid-template-columns:1fr 140px 140px auto;gap:10px}
-@media (max-width:840px){.booking-form{grid-template-columns:1fr 1fr;}.booking-form button{grid-column:span 2;}}
-@media (max-width:540px){.booking-form{grid-template-columns:1fr;}.booking-form button{grid-column:span 1;}}
-.booking-input{background:var(--card);border:1px solid var(--borda-suave);color:var(--texto);padding:12px 14px;border-radius:10px;font-size:14px;width:100%}
-.booking-submit{background:#003580;color:#fff;border:none;font-weight:700;font-size:14px;padding:12px 22px;border-radius:10px;cursor:pointer;transition:background .15s}
-.booking-submit:hover{background:#00224f}
-.selo-garantia{display:flex;align-items:center;gap:18px;background:var(--card);border:1px solid var(--card-borda);padding:14px 20px;border-radius:12px;margin:20px 0;font-size:13px;color:var(--texto-corpo)}
-.selo-garantia span{display:flex;align-items:center;gap:6px;font-weight:600}
-.tabs-busca{display:flex;gap:10px;margin-bottom:16px}
-.tab-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:12px;font-size:14.5px;font-weight:800;border:1.5px solid var(--borda-suave);background:var(--card);color:var(--texto);cursor:pointer;transition:all .2s ease}
-.tab-btn.ativo{background:var(--acento);color:#fff;border-color:var(--acento);box-shadow:0 4px 12px rgba(2,132,199,.25)}
-.painel-busca{display:none}
-.painel-busca.ativo{display:block}
-.voos-search-box{background:linear-gradient(135deg,rgba(16,185,129,.07),rgba(2,132,199,.05));border:1px solid rgba(16,185,129,.25);border-radius:20px;padding:26px 28px;margin:10px 0 36px}
-.voos-search-box h3{font-size:20px;font-weight:800;color:var(--texto);margin-bottom:8px;display:flex;align-items:center;gap:8px}
-.voos-form{display:grid;grid-template-columns:1.2fr 1.2fr 140px 140px;gap:10px;margin-bottom:16px}
-@media (max-width:840px){.voos-form{grid-template-columns:1fr 1fr;}}
-@media (max-width:540px){.voos-form{grid-template-columns:1fr;}}
-.voos-acoes{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-.btn-cia{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:10px;font-size:13.5px;font-weight:800;color:#fff;border:none;cursor:pointer;transition:transform .15s,filter .15s;text-decoration:none}
-.btn-cia:hover{transform:translateY(-2px);filter:brightness(1.08);color:#fff}
-.btn-gol{background:#ff6700}
-.btn-azul{background:#004b87}
-.btn-latam{background:#e30613}
-.btn-decolar{background:#5f27cd}
-.destaque-rota{background:var(--card);border:1px solid rgba(16,185,129,.35);padding:14px 18px;border-radius:12px;margin-top:16px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+/* ========================================================
+   TEMA & PALETA: MODELO 1 - LUXE EXPLORER (Airbnb Style)
+   ======================================================== */
+:root {
+  --bg: #faf8f5;
+  --bg2: #f4efe8;
+  --card: #ffffff;
+  --card-borda: rgba(0, 0, 0, 0.06);
+  --texto: #1c1917;
+  --texto-corpo: #44403c;
+  --texto-sub: #78716c;
+  --acento: #b45309;
+  --acento-rgb: 180, 83, 9;
+  --verde: #047857;
+  --btn: #b45309;
+  --btn-hover: #92400e;
+  --btn-texto: #ffffff;
+  --linha: #f0ede8;
+  --borda-suave: #e7e5e4;
+  --sombra: 0 12px 32px -6px rgba(0, 0, 0, 0.05);
+  --sombra-hover: 0 20px 44px -10px rgba(0, 0, 0, 0.1);
+}
+[data-tema="escuro"] {
+  --bg: #141210;
+  --bg2: #1c1917;
+  --card: #211e1b;
+  --card-borda: rgba(255, 255, 255, 0.08);
+  --texto: #fbfaf9;
+  --texto-corpo: #d6d3d1;
+  --texto-sub: #a8a29e;
+  --acento: #f59e0b;
+  --acento-rgb: 245, 158, 11;
+  --verde: #10b981;
+  --btn: #d97706;
+  --btn-hover: #b45309;
+  --btn-texto: #ffffff;
+  --linha: rgba(255, 255, 255, 0.08);
+  --borda-suave: rgba(255, 255, 255, 0.12);
+  --sombra: 0 12px 32px -6px rgba(0, 0, 0, 0.45);
+  --sombra-hover: 0 20px 44px -10px rgba(0, 0, 0, 0.65);
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  background: var(--bg) !important;
+  color: var(--texto) !important;
+}
+
+h1, h2, h3, .hotel-title, .hero h1, .luxe-title {
+  font-family: 'Newsreader', Georgia, serif !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.01em;
+}
+.hero h1 em, h1 em, h2 em {
+  font-style: italic !important;
+}
+
+/* CARDS DE HOTÉIS LUXE EXPLORER */
+.hotel-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--card-borda);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--sombra);
+  transition: transform .28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow .28s ease, border-color .25s ease;
+}
+.hotel-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(var(--acento-rgb), .35);
+  box-shadow: var(--sombra-hover);
+}
+.hotel-thumb {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  background: var(--bg2);
+}
+.hotel-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .45s ease;
+}
+.hotel-card:hover .hotel-thumb img {
+  transform: scale(1.05);
+}
+.badge-dest {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #1c1917;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 999px;
+  letter-spacing: .02em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+[data-tema="escuro"] .badge-dest {
+  background: rgba(33, 30, 27, 0.92);
+  color: #fbfaf9;
+}
+.badge-nota {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(28, 25, 23, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #fbbf24;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 5px 11px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.hotel-body {
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.hotel-loc {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--acento);
+  letter-spacing: .02em;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.hotel-title {
+  font-size: 21px !important;
+  font-weight: 500 !important;
+  color: var(--texto) !important;
+  line-height: 1.3 !important;
+  margin-bottom: 8px;
+}
+.hotel-feats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0 14px;
+}
+.hotel-tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--bg2);
+  color: var(--texto-corpo);
+  border: 1px solid var(--borda-suave);
+}
+.hotel-desc {
+  font-size: 13.5px;
+  color: var(--texto-corpo);
+  line-height: 1.55;
+  margin-bottom: 18px;
+  flex: 1;
+}
+.hotel-footer {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-top: 1px solid var(--linha);
+  padding-top: 16px;
+  margin-top: auto;
+}
+.hotel-preco-box {
+  display: flex;
+  flex-direction: column;
+}
+.hotel-preco-box small {
+  font-size: 11.5px;
+  color: var(--texto-sub);
+  margin-bottom: 2px;
+}
+.hotel-preco-box b {
+  font-size: 22px;
+  color: var(--texto);
+  font-weight: 800;
+  font-family: 'Newsreader', Georgia, serif;
+}
+.hotel-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background: var(--btn);
+  color: var(--btn-texto) !important;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all .2s ease;
+  box-shadow: 0 4px 14px rgba(var(--acento-rgb), 0.25);
+}
+.hotel-btn:hover {
+  background: var(--btn-hover);
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(var(--acento-rgb), 0.35);
+}
+
+/* HERO EDITORIAL LUXE */
+.hero {
+  text-align: center;
+  padding: 48px 16px 20px !important;
+}
+.hero h1 {
+  font-size: 46px !important;
+  line-height: 1.15 !important;
+  color: var(--texto) !important;
+  max-width: 860px;
+  margin: 0 auto 16px !important;
+}
+.hero .lead {
+  font-size: 16px !important;
+  color: var(--texto-sub) !important;
+  max-width: 660px;
+  margin: 0 auto 28px !important;
+  line-height: 1.6 !important;
+}
+
+/* SELO DE GARANTIA & QUALIDADE */
+.selo-garantia {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 18px 0 26px;
+  font-size: 12.5px;
+  color: var(--texto-sub);
+}
+.selo-garantia span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--card);
+  border: 1px solid var(--card-borda);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+/* ABAS DE BUSCA (HOTÉIS x VOOS) */
+.tabs-busca {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px auto 22px;
+  max-width: 640px;
+}
+.tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 700;
+  border: 1px solid var(--card-borda);
+  background: var(--card);
+  color: var(--texto-sub);
+  cursor: pointer;
+  transition: all .2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+.tab-btn:hover {
+  color: var(--texto);
+  border-color: var(--acento);
+}
+.tab-btn.ativo {
+  background: var(--acento);
+  color: #fff;
+  border-color: var(--acento);
+  box-shadow: 0 4px 14px rgba(var(--acento-rgb), .3);
+}
+.painel-busca { display: none; }
+.painel-busca.ativo { display: block; }
+
+/* ILHA FLUTUANTE DE BUSCA BOOKING (AIRBNB LUXE STYLE) */
+.booking-search-box {
+  background: var(--card);
+  border: 1px solid var(--card-borda);
+  border-radius: 999px;
+  box-shadow: 0 16px 44px -10px rgba(0, 0, 0, 0.08);
+  padding: 8px 12px;
+  max-width: 900px;
+  margin: 0 auto 36px;
+  transition: box-shadow .2s ease, border-color .2s ease;
+}
+[data-tema="escuro"] .booking-search-box {
+  box-shadow: 0 16px 44px -10px rgba(0, 0, 0, 0.5);
+}
+.booking-search-box:hover {
+  box-shadow: 0 20px 52px -10px rgba(0, 0, 0, 0.12);
+  border-color: rgba(var(--acento-rgb), .3);
+}
+.booking-form {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+}
+.booking-input {
+  border: none !important;
+  background: transparent !important;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--texto);
+  padding: 10px 18px;
+  outline: none;
+}
+.booking-input:first-child {
+  flex: 2.2;
+  border-right: 1px solid var(--linha) !important;
+}
+.booking-input[type="date"] {
+  flex: 1.1;
+  border-right: 1px solid var(--linha) !important;
+}
+.booking-submit {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 50%;
+  background: var(--acento);
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform .15s, background .15s;
+  padding: 0;
+  margin-left: 6px;
+  box-shadow: 0 4px 12px rgba(var(--acento-rgb), .35);
+}
+.booking-submit:hover {
+  transform: scale(1.06);
+  background: var(--btn-hover);
+}
+
+@media (max-width: 768px) {
+  .booking-search-box {
+    border-radius: 20px;
+    padding: 16px;
+  }
+  .booking-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .booking-input:first-child, .booking-input[type="date"] {
+    border-right: none !important;
+    border-bottom: 1px solid var(--linha) !important;
+    width: 100%;
+    padding: 8px 10px;
+  }
+  .booking-submit {
+    width: 100%;
+    border-radius: 12px;
+    height: 44px;
+    margin-left: 0;
+    margin-top: 6px;
+  }
+}
+
+/* MÓDULO DE PASSAGENS AÉREAS LUXE */
+.voos-search-box {
+  background: var(--card);
+  border: 1px solid var(--card-borda);
+  border-radius: 24px;
+  padding: 28px 32px;
+  margin: 0 auto 36px;
+  max-width: 900px;
+  box-shadow: 0 16px 44px -10px rgba(0, 0, 0, 0.08);
+}
+.voos-search-box h3 {
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  color: var(--texto);
+  margin-bottom: 6px;
+}
+.voos-search-box p {
+  font-size: 14px;
+  color: var(--texto-sub);
+  margin-bottom: 18px;
+}
+.voos-form {
+  display: grid;
+  grid-template-columns: 1.2fr 1.2fr 140px 140px;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.voos-input {
+  background: var(--bg2);
+  border: 1px solid var(--borda-suave);
+  color: var(--texto);
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  outline: none;
+}
+.voos-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.btn-cia {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #fff !important;
+  border: none;
+  cursor: pointer;
+  transition: transform .15s, filter .15s;
+  text-decoration: none;
+}
+.btn-cia:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+.btn-gol { background: #ff6700; }
+.btn-azul { background: #004b87; }
+.btn-latam { background: #e30613; }
+.btn-decolar { background: #5f27cd; }
+.btn-todas-cias {
+  background: linear-gradient(135deg, #059669 0%, #0284c7 100%);
+  box-shadow: 0 4px 16px rgba(5, 150, 105, 0.3);
+}
+.destaque-rota {
+  background: var(--bg2);
+  border: 1px solid var(--borda-suave);
+  padding: 16px 20px;
+  border-radius: 16px;
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* FILTROS & CHIPS EM PÍLULA */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+  justify-content: center;
+}
+.chip {
+  background: var(--card);
+  border: 1px solid var(--card-borda);
+  color: var(--texto-sub);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+.chip:hover {
+  border-color: var(--acento);
+  color: var(--texto);
+}
+.chip.on {
+  background: var(--acento);
+  color: #fff !important;
+  border-color: var(--acento);
+  box-shadow: 0 4px 14px rgba(var(--acento-rgb), .3);
+}
+
+.busca input {
+  max-width: 600px;
+  margin: 12px auto 0;
+  display: block;
+  border-radius: 999px;
+  border: 1px solid var(--borda-suave);
+  padding: 12px 24px;
+  background: var(--card);
+  color: var(--texto);
+  font-size: 14px;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.busca input:focus {
+  border-color: var(--acento);
+}
 </style>
 <script>
 addEventListener('load',function(){try{var u='https://renatopennersoares1783016458000.0871043.meusitehostgator.com.br/c.php?p='+encodeURIComponent(location.pathname)+'&o='+encodeURIComponent(location.hostname);
@@ -102,33 +571,31 @@ document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closes
 </script>
 </head>
 <body>
-<header><div class="wrap nav">
-  <a href="index.html" class="logo" aria-label="Penner Tech — início"><img width="1024" height="1024" src="img/marca.png?v=37f05fa5" alt=""><span><b>PENNER</b> <em>TECH</em><small>TECNOLOGIA E RECOMENDAÇÕES</small></span></a>
+<header id="inicio"><div class="wrap nav">
+  <a href="/" class="logo" aria-label="PennerTech Viagens"><img width="1024" height="1024" src="img/marca.png?v=37f05fa5" alt=""><span><b>PENNER</b> <em>VIAGENS</em><small>HOTÉIS, RESORTS & PASSAGENS</small></span></a>
   <nav class="links">
-    <a class="link " href="index.html">Início</a>
-    <a class="link on" href="viagens.html">✈️ Viagens & Hotéis</a>
-    <a class="link " href="promocoes.html">Ofertas</a>
-    <a class="link " href="notebooks.html">Notebooks</a>
-    <a class="link " href="ssd.html">SSD</a>
-    <a class="link " href="carregadores.html">Carregadores</a>
-    <a class="link " href="saude.html">Saúde</a>
-    <a class="link " href="casa.html">Casa</a>
-    <a class="link " href="auto.html">Auto</a>
-    <a class="link " href="perifericos.html">Periféricos</a>
-    <a class="link " href="sobre.html">Sobre</a>
+    <a class="link on" href="/">Início</a>
+    <a class="link" href="#destinos" onclick="var b=document.querySelector('[data-cat=salinopolis]');if(b)b.click();">🏖️ Destinos Brasil</a>
+    <a class="link" href="#exterior" onclick="var b=document.querySelector('[data-cat=mundo]');if(b)b.click();">🌍 Exterior</a>
+    <a class="link" href="#economicos" onclick="var b=document.querySelector('[data-preco-max=\'200\']');if(b)b.click();">🏷️ Até R$ 200</a>
+    <a class="link" href="#populares" onclick="var b=document.querySelector('[data-preco-min=\'195\']');if(b)b.click();">⭐ R$ 200–250</a>
+    <a class="link" href="#casal" onclick="var b=document.querySelector('[data-preco-min=\'270\']');if(b)b.click();">💑 Casal ~R$ 300</a>
+    <a class="link" href="#busca" onclick="var el=document.querySelector('.booking-input');if(el){el.focus();el.scrollIntoView({behavior:'smooth',block:'center'});}">🔍 Buscar Vagas</a>
   </nav>
   <div class="dir">
     <button id="btn-tema" class="tema" type="button" aria-label="Alternar tema claro e escuro" title="Ativar tema escuro">🌙</button>
-    <a class="link site-link" href="https://baixa.pennertech.com.br/" target="_blank" rel="noopener" title="Baixa Certa — Apps Grátis Oficiais"><img src="img/baixacerta-ico.svg" alt="" width="18" height="18"><span>Baixa Certa</span></a>
-    <a class="link site-link" href="https://baixatube.pennertech.com.br/" target="_blank" rel="noopener" title="BaixaTube Web"><img src="img/baixatube-ico.svg" alt="" width="18" height="18"><span>BaixaTube</span></a>
+    <a class="link site-link" href="https://loja.pennertech.com.br/" target="_blank" rel="noopener" title="Visitar loja de tecnologia e eletrônicos"><span style="font-weight:700">💻 Loja Tech ↗</span></a>
     <a class="link" href="https://www.youtube.com/@renatopenner" target="_blank" rel="noopener">YouTube ↗</a>
   </div>
 </div></header>
 
 <main class="wrap">
-  <div class="migalha" style="margin-top:16px"><a href="index.html">Início</a> / Viagens, Resorts e Hotéis Recomendados</div>
+  <div class="migalha" style="margin-top:16px"><span style="color:var(--acento);font-weight:700">PennerTech Viagens</span> / Curadoria Oficial de Hospedagens Econômicas & Resorts</div>
   
   <section class="hero" style="padding:28px 0 10px">
+    <div class="luxe-badge-wrap" style="text-align:center;margin-bottom:12px">
+      <span class="luxe-badge" style="display:inline-block;font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--acento);font-weight:700">✦ Curadoria Autêntica de Viagens</span>
+    </div>
     <h1>Viagens & Hospedagens,<br><em>critério técnico nas melhores estadias.</em></h1>
     <p class="lead">Curadoria de resorts, hotéis e pousadas testados e bem avaliados no Brasil e no mundo — parceria oficial com a <strong>Booking.com</strong> com cancelamento grátis e tarifas exclusivas.</p>
     
@@ -154,7 +621,7 @@ document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closes
           <input class="booking-input" type="text" name="ss" placeholder="Cidade, resort, praia ou hotel (ex: Salinópolis, Gramado, Orlando...)" required>
           <input class="booking-input" type="date" name="checkin" title="Check-in" placeholder="Check-in">
           <input class="booking-input" type="date" name="checkout" title="Check-out" placeholder="Check-out">
-          <button class="booking-submit" type="submit">Buscar Vagas no Booking →</button>
+          <button class="booking-submit" type="submit" title="Buscar Vagas no Booking.com">🔍</button>
         </form>
       </div>
     </div>
@@ -1427,6 +1894,79 @@ document.addEventListener('click',function(ev){var a=ev.target&&ev.target.closes
       a.href = u.toString();
     } catch(err){}
   });
+
+  // Alternar Abas de Busca (Hospedagem vs Passagens Aéreas)
+  var tabHosp = document.getElementById('tabHospedagem');
+  var tabVoos = document.getElementById('tabVoos');
+  var painelHosp = document.getElementById('painelHospedagem');
+  var painelVoos = document.getElementById('painelVoos');
+
+  if(tabHosp && tabVoos && painelHosp && painelVoos){
+    tabHosp.addEventListener('click', function(){
+      tabHosp.classList.add('ativo');
+      tabVoos.classList.remove('ativo');
+      painelHosp.classList.add('ativo');
+      painelVoos.classList.remove('ativo');
+    });
+    tabVoos.addEventListener('click', function(){
+      tabVoos.classList.add('ativo');
+      tabHosp.classList.remove('ativo');
+      painelVoos.classList.add('ativo');
+      painelHosp.classList.remove('ativo');
+    });
+  }
+
+  // Cotação Inteligente de Passagens Aéreas
+  function extrairIata(txt){
+    var m = txt.match(/\b([A-Z]{3})\b/);
+    if(m) return m[1];
+    var t = txt.toLowerCase();
+    if(t.indexOf('bel')>=0) return 'BEL';
+    if(t.indexOf('maca')>=0) return 'MCP';
+    if(t.indexOf('sao paulo')>=0 || t.indexOf('sp')>=0 || t.indexOf('guarulhos')>=0) return 'GRU';
+    if(t.indexOf('rio')>=0 || t.indexOf('galeao')>=0) return 'GIG';
+    if(t.indexOf('fortaleza')>=0) return 'FOR';
+    if(t.indexOf('brasilia')>=0) return 'BSB';
+    return txt.trim();
+  }
+
+  window.cotarRotaEspecifica = function(cia, origem, destino, ida, volta){
+    var o = extrairIata(origem);
+    var d = extrairIata(destino);
+    var url = '';
+    
+    if(cia === 'GOL'){
+      url = 'https://www.voegol.com.br/passagens-aereas';
+    } else if(cia === 'Azul'){
+      url = 'https://www.voeazul.com.br/';
+    } else if(cia === 'LATAM'){
+      url = 'https://www.latamairlines.com/br/pt/ofertas-voos';
+    } else if(cia === 'Aviasales'){
+      url = 'https://www.aviasales.com/?marker=812990';
+    } else {
+      url = 'https://www.decolar.com/passagens-aereas/';
+    }
+    window.open(url, '_blank', 'noopener,sponsored');
+  };
+
+  function vincularBtnCia(btnId, cia){
+    var b = document.getElementById(btnId);
+    if(!b) return;
+    b.addEventListener('click', function(){
+      var orig = (document.getElementById('vooOrigem')||{}).value || 'BEL';
+      var dest = (document.getElementById('vooDestino')||{}).value || 'MCP';
+      var ida = (document.getElementById('vooIda')||{}).value || '';
+      var volta = (document.getElementById('vooVolta')||{}).value || '';
+      cotarRotaEspecifica(cia, orig, dest, ida, volta);
+    });
+  }
+
+  vincularBtnCia('btnCotarTodas', 'Aviasales');
+  vincularBtnCia('btnCotarGol', 'GOL');
+  vincularBtnCia('btnCotarAzul', 'Azul');
+  vincularBtnCia('btnCotarLatam', 'LATAM');
+  vincularBtnCia('btnCotarDecolar', 'Decolar');
+  vincularBtnCia('btnCotarAviasales', 'Aviasales');
 
   // Alternar Tema Claro / Escuro
   var btnTema = document.getElementById('btn-tema');
