@@ -484,6 +484,49 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   opacity: 1;
 }
 
+
+/* Autocomplete Inteligente e Discreto */
+.search-col-autocomplete {
+  position: relative;
+}
+.sugestoes-box {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  width: 100%;
+  min-width: 260px;
+  background: var(--card);
+  border: 1px solid var(--borda-suave);
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+  max-height: 240px;
+  overflow-y: auto;
+  padding: 6px;
+  animation: fadeInSug .15s ease;
+}
+@keyframes fadeInSug { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+.sugestao-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--texto);
+  cursor: pointer;
+  transition: background .12s ease;
+}
+.sugestao-item:hover, .sugestao-item.ativo {
+  background: var(--bg2);
+  color: var(--acento);
+}
+.sugestao-item span {
+  font-size: 15px;
+  opacity: .8;
+}
+
 </style>
 
 <script>
@@ -534,43 +577,13 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     </div>
 
     <!-- DATALIST PARA AUTOPREENCHIMENTO INTELIGENTE AO DIGITAR -->
-    <datalist id="listaDestinosBrasil">
-      <option value="Campos do Jordão, SP">
-      <option value="Salinópolis, PA">
-      <option value="Gramado, RS">
-      <option value="Canela, RS">
-      <option value="Belém, PA">
-      <option value="Porto de Galinhas, PE">
-      <option value="Maragogi, AL">
-      <option value="Maceió, AL">
-      <option value="Praia da Pipa, RN">
-      <option value="Natal, RN">
-      <option value="Fortaleza, CE">
-      <option value="Cumbuco, CE">
-      <option value="Jericoacoara, CE">
-      <option value="Salvador, BA">
-      <option value="Rio de Janeiro, RJ">
-      <option value="Arraial do Cabo, RJ">
-      <option value="Armação dos Búzios, RJ">
-      <option value="Foz do Iguaçu, PR">
-      <option value="Florianópolis, SC">
-      <option value="Balneário Camboriú, SC">
-      <option value="São Paulo, SP">
-      <option value="Caldas Novas, GO">
-      <option value="Pirenópolis, GO">
-      <option value="Santiago, Chile">
-      <option value="Buenos Aires, Argentina">
-      <option value="Orlando, EUA">
-      <option value="Paris, França">
-      <option value="Lisboa, Portugal">
-    </datalist>
-
     <!-- MODO 1: SUPER BUSCA 360° -->
     <div id="painelSuper" class="luxe-search-container">
       <form class="luxe-search-bar" onsubmit="dispararSuper360(); return false;">
-        <div class="search-col" style="flex:2.2">
+        <div class="search-col search-col-autocomplete" style="flex:2.2">
           <label>Destino da Viagem</label>
-          <input type="text" id="destSuperInput" list="listaDestinosBrasil" placeholder="Digite para autopreencher a cidade..." autocomplete="off" required>
+          <input type="text" id="destSuperInput" placeholder="Para onde você vai? (ex: Gramado, Salinas...)" autocomplete="off" required>
+          <div id="sugestoesSuper" class="sugestoes-box" style="display:none"></div>
         </div>
         <div class="search-col" style="flex:1.1">
           <label>Check-in (Entrada)</label>
@@ -622,9 +635,10 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
             <option value="carros">🚗 Aluguel de Carros</option>
           </select>
         </div>
-        <div class="search-col" style="flex:2">
+        <div class="search-col search-col-autocomplete" style="flex:2">
           <label id="lblDestCat">Destino ou Cidade</label>
-          <input type="text" id="inputDestCat" list="listaDestinosBrasil" placeholder="Digite para autopreencher a cidade..." autocomplete="off" required>
+          <input type="text" id="inputDestCat" placeholder="Digite a cidade ou hotel desejado..." autocomplete="off" required>
+          <div id="sugestoesCat" class="sugestoes-box" style="display:none"></div>
         </div>
         <div class="search-col" style="flex:1.1">
           <label>Data da Viagem</label>
@@ -1503,6 +1517,106 @@ document.querySelectorAll('.chip-luxe').forEach(function(btn){
     if (tgt) sendHit('click', { target: tgt, label: a.innerText.trim().slice(0, 50) });
   });
 })();
+</script>
+<script>
+
+// AUTOCOMPLETE INTELIGENTE DISCRETO (FILTRA APENAS O QUE DIGITAR)
+(function(){
+  var cidades = [
+    "Campos do Jordão, SP",
+    "Salinópolis, PA",
+    "Gramado, RS",
+    "Canela, RS",
+    "Belém, PA",
+    "Porto de Galinhas, PE",
+    "Maragogi, AL",
+    "Maceió, AL",
+    "Praia da Pipa, RN",
+    "Natal, RN",
+    "Fortaleza, CE",
+    "Cumbuco, CE",
+    "Jericoacoara, CE",
+    "Salvador, BA",
+    "Rio de Janeiro, RJ",
+    "Arraial do Cabo, RJ",
+    "Armação dos Búzios, RJ",
+    "Foz do Iguaçu, PR",
+    "Florianópolis, SC",
+    "Balneário Camboriú, SC",
+    "São Paulo, SP",
+    "Caldas Novas, GO",
+    "Pirenópolis, GO",
+    "Santiago, Chile",
+    "Buenos Aires, Argentina",
+    "Orlando, EUA",
+    "Paris, França",
+    "Lisboa, Portugal"
+  ];
+
+  function normalizar(txt) {
+    return (txt || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  }
+
+  function setupAutocomplete(inputId, boxId, nextFocusId) {
+    var inp = document.getElementById(inputId);
+    var box = document.getElementById(boxId);
+    if (!inp || !box) return;
+
+    inp.addEventListener('input', function(){
+      var q = inp.value.trim();
+      var qNorm = normalizar(q);
+
+      if (qNorm.length < 2) {
+        box.innerHTML = '';
+        box.style.display = 'none';
+        return;
+      }
+
+      var matches = cidades.filter(function(c){
+        return normalizar(c).indexOf(qNorm) !== -1;
+      }).slice(0, 5); // No maximo 5 sugestoes
+
+      if (matches.length === 0) {
+        box.innerHTML = '';
+        box.style.display = 'none';
+        return;
+      }
+
+      box.innerHTML = '';
+      matches.forEach(function(c){
+        var item = document.createElement('div');
+        item.className = 'sugestao-item';
+        item.innerHTML = '<span>📍</span> ' + c;
+        item.addEventListener('mousedown', function(e){
+          e.preventDefault();
+          inp.value = c;
+          box.innerHTML = '';
+          box.style.display = 'none';
+          if (nextFocusId) {
+            var nextEl = document.getElementById(nextFocusId);
+            if (nextEl) nextEl.focus();
+          }
+        });
+        box.appendChild(item);
+      });
+      box.style.display = 'block';
+    });
+
+    inp.addEventListener('blur', function(){
+      setTimeout(function(){ box.style.display = 'none'; }, 180);
+    });
+
+    inp.addEventListener('keydown', function(e){
+      if (e.key === 'Escape') {
+        box.style.display = 'none';
+      }
+    });
+  }
+
+  setupAutocomplete('destSuperInput', 'sugestoesSuper', 'dataCheckinSuper');
+  setupAutocomplete('inputDestCat', 'sugestoesCat', 'inputDataCat');
+})();
+
 </script>
 </body>
 </html>
